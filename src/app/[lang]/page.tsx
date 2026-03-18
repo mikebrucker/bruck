@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Home() {
   return (
     <div className="flex flex-col gap-4 min-h-dvh items-center flex-start font-sans px-4 py-4">
@@ -30,18 +28,18 @@ export default function Home() {
         <div className="bg-emerald-600 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
           <div className="bg-emerald-700 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
             <div className="bg-emerald-800 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded flex flex-col sm:flex-row gap-4 items-center justify-around">
-              <Link
+              <a
                 href="/mike-brucker-cv.html"
                 className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 rounded text-shadow-lg text-shadow-zinc-900"
               >
                 Resume/CV as HTML
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/mike-brucker-cv.pdf"
                 className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 rounded text-shadow-lg text-shadow-zinc-900"
               >
                 Resume/CV as PDF
-              </Link>
+              </a>
             </div>
           </div>
         </div>
