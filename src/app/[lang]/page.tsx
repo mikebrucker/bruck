@@ -1,3 +1,5 @@
+import { Footer } from "@/components/layout/footer";
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-4 min-h-dvh items-center flex-start font-sans px-4 py-4">
@@ -55,6 +57,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
