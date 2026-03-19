@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { defaultLocale, isLocale, type Language } from "@/i18n/config";
+import { i18n } from "@/i18n/i18n";
 
 type LanguageState = {
   language: Language;
@@ -16,5 +17,9 @@ const setLang = (setLang?: string): Language => {
 
 export const useLanguageStore = create<LanguageState>((set) => ({
   language: setLang(),
-  setLanguage: (lang) => set({ language: setLang(lang) }),
+  setLanguage: (lang) => {
+    const language = setLang(lang);
+    i18n.changeLanguage(language);
+    set({ language });
+  },
 }));

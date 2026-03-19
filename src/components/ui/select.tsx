@@ -1,6 +1,7 @@
+import { ArrowDown, Checkmark } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Select as SelectPrimitive } from "radix-ui";
 import type * as React from "react";
-
 import { cn } from "@/lib/utils";
 
 function Select({
@@ -38,7 +39,7 @@ function SelectTrigger({
       {children}
       <SelectPrimitive.Icon asChild>
         <span aria-hidden="true" className="text-xs text-muted-foreground">
-          v
+          <HugeiconsIcon icon={ArrowDown} />
         </span>
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
@@ -111,7 +112,7 @@ function SelectItem({
       <span className="absolute right-2 flex size-3.5 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
           <span aria-hidden="true" className="text-xs">
-            x
+            <HugeiconsIcon icon={Checkmark} />
           </span>
         </SelectPrimitive.ItemIndicator>
       </span>

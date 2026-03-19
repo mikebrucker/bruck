@@ -1,47 +1,47 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
 import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col gap-4 min-h-dvh items-center flex-start font-sans px-4 py-4">
-      <header className="w-full">
-        <div className="bg-emerald-100 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-          <div className="bg-emerald-200 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-            <div className="bg-emerald-300 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-              <div className="bg-emerald-400 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-                <div className="bg-emerald-500 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-                  <div className="bg-emerald-600 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-                    <div className="bg-emerald-700 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-                      <div className="bg-emerald-800 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-                        <div className="bg-emerald-900 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline font-size] duration-1000 py-2 rounded font-bold text-xl sm:text-3xl md:text-4xl text-center">
-                          <h1 className="font-asimovian text-shadow-lg text-shadow-zinc-900">
-                            Mike Brucker
-                          </h1>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
       <nav className="w-full">
         <div className="bg-emerald-600 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
           <div className="bg-emerald-700 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded">
-            <div className="bg-emerald-800 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded flex flex-col sm:flex-row gap-4 items-center justify-around">
-              <a
-                href="/mike-brucker-cv.html"
-                className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 rounded text-shadow-lg text-shadow-zinc-900"
-              >
-                Resume/CV as HTML
-              </a>
-              <a
-                href="/mike-brucker-cv.pdf"
-                className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 rounded text-shadow-lg text-shadow-zinc-900"
-              >
-                Resume/CV as PDF
-              </a>
+            <div className="bg-emerald-800 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded flex flex-col gap-2 items-center justify-around">
+              <h6 className="font-bold py-2 px-4 text-xl text-shadow-lg text-shadow-zinc-900">
+                {t(($) => $.home.resume)}
+              </h6>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-around">
+                <Button
+                  variant="outline"
+                  className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 text-shadow-lg text-shadow-zinc-900"
+                  asChild
+                >
+                  <a
+                    href="/mike-brucker-cv.html"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    HTML
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 text-shadow-lg text-shadow-zinc-900"
+                  asChild
+                >
+                  <a href="/mike-brucker-cv.pdf" target="_blank" rel="noopener">
+                    PDF
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function Home() {
           <div className="flex flex-col flex-grow bg-zinc-600 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded w-full">
             <div className="flex flex-col flex-grow bg-zinc-500 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded justify-center">
               <p className="w-full text-center text-shadow-sm text-shadow-zinc-900">
-                Website Under Construction...
+                {t(($) => $.home.under_construction)}
               </p>
             </div>
           </div>

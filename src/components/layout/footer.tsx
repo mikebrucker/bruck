@@ -44,12 +44,12 @@ function Footer({ className, ...props }: React.ComponentProps<"footer">) {
           changeLanguageUrl(nextLanguage);
         }}
       >
-        <SelectTrigger className="min-w-32">
+        <SelectTrigger className="cursor-pointer min-w-32">
           <SelectValue placeholder="Language" />
         </SelectTrigger>
         <SelectContent align="end">
           {locales.map((locale) => (
-            <SelectItem key={locale} value={locale}>
+            <SelectItem className="cursor-pointer" key={locale} value={locale}>
               <span className="flex items-center gap-2">
                 <span className={`fi fi-${flagMap[locale]}`}></span>
                 <span>{languageLabels[locale]}</span>
