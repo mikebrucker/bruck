@@ -23,16 +23,16 @@ export default function AlbumCard({ album }: AlbumCardProps) {
   ));
 
   const personnelInfo = (credit: Credit) => (
-    <div key={credit.name} className="odd:bg-card rounded px-1">
-      <div className="flex gap-2">
-        <span className="font-medium flex-1">{credit.name}</span>
-        <span className="text-muted-foreground">{credit.roles.join(", ")}</span>
+    <div key={credit.name} className="odd:bg-card rounded px-2 py-1 flex items-center gap-2">
+      <div className="flex-1">
+        <span className="font-medium">{credit.name}</span>
+        {credit.notes ? (
+          <p className="text-muted-foreground italic text-xs">
+            {t(($) => $.albums.notes)}: {credit.notes}
+          </p>
+        ) : null}
       </div>
-      {credit.notes ? (
-        <p className="text-muted-foreground italic text-xs px-0">
-          {t(($) => $.albums.notes)}: {credit.notes}
-        </p>
-      ) : null}
+      <span className="text-muted-foreground shrink-0">{credit.roles.join(", ")}</span>
     </div>
   );
 
@@ -72,7 +72,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         <div className="hidden sm:flex shrink-0 sm:flex-col lg:flex-row gap-1">{art}</div>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-2">
         {album.discs.map((disc) => {
           let title = disc.title ?? t(($) => $.albums.tracks);
           if (album.discs.length > 1 && !disc.title)
@@ -80,11 +80,11 @@ export default function AlbumCard({ album }: AlbumCardProps) {
 
           return (
             <Accordion key={disc.disc} title={title} classNames="p-2 rounded-md bg-secondary">
-              <div className="space-y-0.5">
+              <div>
                 {disc.tracks.map((track) => (
                   <div
                     key={track.number}
-                    className="flex gap-2 text-sm odd:bg-card rounded px-1 transition-colors"
+                    className="flex gap-2 text-sm odd:bg-card rounded px-2 py-1 transition-colors"
                   >
                     <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
                     <span className="flex-1">{track.title}</span>
@@ -107,29 +107,27 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                 {album.personnel.members ? (
                   <div>
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.members)}</p>
-                    <div className="space-y-0.5">{album.personnel.members.map(personnelInfo)}</div>
+                    <div>{album.personnel.members.map(personnelInfo)}</div>
                   </div>
                 ) : null}
                 {album.personnel.guests ? (
                   <div>
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.guests)}</p>
-                    <div className="space-y-0.5">{album.personnel.guests.map(personnelInfo)}</div>
+                    <div>{album.personnel.guests.map(personnelInfo)}</div>
                   </div>
                 ) : null}
                 {album.personnel.production ? (
                   <div>
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.production)}</p>
-                    <div className="space-y-0.5">
-                      {album.personnel.production.map(personnelInfo)}
-                    </div>
+                    <div>{album.personnel.production.map(personnelInfo)}</div>
                   </div>
                 ) : null}
                 {album.personnel.studios ? (
                   <div>
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.studios)}</p>
-                    <div className="space-y-0.5">
+                    <div>
                       {album.personnel.studios.map((studio) => (
-                        <div key={studio} className="odd:bg-card rounded px-1">
+                        <div key={studio} className="odd:bg-card rounded px-2 py-1">
                           {studio}
                         </div>
                       ))}
@@ -139,8 +137,8 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                 {album.personnel.notes ? (
                   <div>
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.notes)}</p>
-                    <div className="space-y-0.5">
-                      <div className="rounded px-1">{album.personnel.notes}</div>
+                    <div>
+                      <div className="rounded px-2 py-1">{album.personnel.notes}</div>
                     </div>
                   </div>
                 ) : null}
