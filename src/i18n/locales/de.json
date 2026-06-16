@@ -6,6 +6,9 @@
   "albums": {
     "ranked": "Die besten Alben",
     "ranked_info": "Die größten Alben aller Zeiten. Kein einziger Skip. Jeder Künstler kann maximal ein Album in der Liste haben.",
-    "honorable_mentions": "Ehrenwerte Erwähnungen"
+    "honorable_mentions": "Ehrenwerte Erwähnungen",
+    "tracks": "Titel",
+    "disc": "Scheibe {{number}}",
+    "cover_art": "{{album}} Albumcover"
   }
 }
