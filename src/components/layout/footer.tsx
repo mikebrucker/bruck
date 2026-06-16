@@ -30,10 +30,7 @@ function Footer({ className, ...props }: React.ComponentProps<"footer">) {
   return (
     <footer
       data-slot="footer"
-      className={cn(
-        "flex w-full items-center justify-end border-t py-4",
-        className,
-      )}
+      className={cn("flex w-full items-center justify-end bg-card border-t px-4 py-4", className)}
       {...props}
     >
       <Select

@@ -53,10 +53,10 @@ export default function AlbumCard({ album }: AlbumCardProps) {
   );
 
   return (
-    <div className="bg-card text-card-foreground border border-border border-l-4 border-l-emerald-500 rounded-lg p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
+    <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-lg p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
-          <div className="row-span-1 sm:row-span-3 text-4xl sm:text-6xl font-bold text-emerald-600 text-right leading-none pt-1">
+          <div className="row-span-1 sm:row-span-3 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1">
             {album.rank}
           </div>
 
@@ -80,7 +80,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
 
           <div className="col-span-2 sm:hidden flex gap-1 flex-wrap">{art}</div>
 
-          <p className="col-span-2 sm:col-span-1 bg-accent border border-border border-l-4 border-l-emerald-500 rounded-lg p-3 text-sm leading-relaxed italic">
+          <p className="col-span-2 sm:col-span-1 bg-accent border border-border border-l-4 border-l-theme-500 rounded-lg p-3 text-sm leading-relaxed italic">
             {album.review}
           </p>
         </div>
