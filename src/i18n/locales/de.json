@@ -1,7 +1,6 @@
 {
   "home": {
-    "under_construction": "Im Bau...",
-    "resume": "Lebenslauf"
+    "under_construction": "Im Bau..."
   },
   "albums": {
     "ranked": "Die besten Alben",
@@ -16,5 +15,8 @@
     "production": "Produktion",
     "studios": "Studios",
     "notes": "Notizen"
+  },
+  "menu": {
+    "cv": "Lebenslauf/CV"
   }
 }

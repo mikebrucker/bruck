@@ -1,7 +1,6 @@
 {
   "home": {
-    "under_construction": "Under Construction...",
-    "resume": "Résumé/CV"
+    "under_construction": "Under Construction..."
   },
   "albums": {
     "ranked": "Ranked Albums",
@@ -16,5 +15,8 @@
     "production": "Production",
     "studios": "Studios",
     "notes": "Notes"
+  },
+  "menu": {
+    "cv": "Résumé/CV"
   }
 }
