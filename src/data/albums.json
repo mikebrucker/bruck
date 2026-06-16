@@ -1535,6 +1535,84 @@
           ]
         }
       ]
+    },
+    {
+      "rank": 8,
+      "artist": "Between the Buried and Me",
+      "album": "Alaska",
+      "year": 2005,
+      "label": "Victory",
+      "genre": "Progressive Metal / Technical Death Metal",
+      "runtime": "53:50",
+      "review": "Where BTBAM clicked into something unstoppable. All Bodies opens with anthemic choruses and brutal tech-metal locked in perfect tension, and Selkies: The Endless Obsession remains one of the most complete songs in their catalogue, delicate piano interlude into face-melting solo work that lands every time.",
+      "art": [
+        "mbid-470507f1-c04b-4401-b6db-33ef1ad2d0f7-27965748643.jpg"
+      ],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "All Bodies",
+              "duration": "6:12"
+            },
+            {
+              "number": 2,
+              "title": "Alaska",
+              "duration": "3:57"
+            },
+            {
+              "number": 3,
+              "title": "Croakies and Boatshoes",
+              "duration": "2:22"
+            },
+            {
+              "number": 4,
+              "title": "Selkies: The Endless Obsession",
+              "duration": "7:23"
+            },
+            {
+              "number": 5,
+              "title": "Breathe In, Breathe Out",
+              "duration": "0:55",
+              "instrumental": true
+            },
+            {
+              "number": 6,
+              "title": "Roboturner",
+              "duration": "7:07"
+            },
+            {
+              "number": 7,
+              "title": "Backwards Marathon",
+              "duration": "8:27"
+            },
+            {
+              "number": 8,
+              "title": "Medicine Wheel",
+              "duration": "4:18",
+              "instrumental": true
+            },
+            {
+              "number": 9,
+              "title": "The Primer",
+              "duration": "4:46"
+            },
+            {
+              "number": 10,
+              "title": "Autodidact",
+              "duration": "5:30"
+            },
+            {
+              "number": 11,
+              "title": "Laser Speed",
+              "duration": "2:53",
+              "instrumental": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
