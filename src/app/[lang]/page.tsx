@@ -81,7 +81,7 @@ export default function Home() {
           subtitle={t(($) => $.albums.ranked_info)}
           size="xl"
           classNames="hover:bg-black/5 dark:hover:bg-white/5 rounded-lg px-1"
-          duration={2000}
+          duration={1500}
         >
           {ranked.albums.map((album) => (
             <AlbumCard key={`ranked-${album.rank}`} album={album} />

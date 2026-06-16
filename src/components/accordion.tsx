@@ -62,7 +62,8 @@ export function Accordion({
             stroke="currentColor"
             strokeWidth="1.5"
             strokeLinecap="round"
-            className={`transition-transform duration-300 transform-fill origin-center ${open ? "scale-y-0" : "scale-y-100"}`}
+            className={`transition-transform transform-fill origin-center ${open ? "scale-y-0" : "scale-y-100"}`}
+            style={{ transitionDuration: `${duration}ms` }}
           />
           <line
             x1="1"
