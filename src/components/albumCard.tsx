@@ -72,7 +72,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                     className="flex gap-2 text-sm odd:bg-card rounded px-1 transition-colors"
                   >
                     <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
-                    <span className="flex-1 truncate">{track.title}</span>
+                    <span className="flex-1">{track.title}</span>
                     <span className="shrink-0 tabular-nums">{track.duration}</span>
                   </div>
                 ))}
