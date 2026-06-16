@@ -7,6 +7,7 @@ interface HeaderProps extends React.ComponentProps<"header"> {
   onAction?: () => void;
   actionIcon?: IconSvgElement;
   actionLabel?: string;
+  sticky?: boolean;
 }
 
 function Header({
@@ -14,12 +15,14 @@ function Header({
   onAction,
   actionIcon,
   actionLabel = "Action",
+  sticky = false,
   ...props
 }: HeaderProps) {
   return (
     <header
       className={cn(
         "w-full bg-card px-4 py-3 border-b border-border flex items-center justify-between",
+        sticky && "sticky top-0 z-10",
         className,
       )}
       {...props}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Asimovian, Figtree, Geist, Geist_Mono } from "next/font/google";
 import I18nProvider from "@/components/providers/i18n-provider";
 import { LanguageInit } from "@/components/providers/languageInit";
+import { ThemeInit } from "@/components/providers/themeInit";
 
 import "@/app/globals.css";
 import "flag-icons/css/flag-icons.min.css";
@@ -41,6 +42,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${asimovian.variable} antialiased`}
       >
         <LanguageInit />
+        <ThemeInit />
         <I18nProvider>{children}</I18nProvider>
       </body>
     </html>

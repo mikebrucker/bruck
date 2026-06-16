@@ -1,6 +1,6 @@
 "use client";
 
-import { Close, Menu } from "@hugeicons/core-free-icons";
+import { Close, Menu, Moon01Icon, Sun } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,18 +14,20 @@ import { Drawer } from "@/components/ui/drawer";
 import honorableMentions from "@/data/honorableMentions.json";
 import ranked from "@/data/ranked.json";
 import { useLanguageStore } from "@/stores/useLanguageStore";
+import { useThemeStore } from "@/stores/useThemeStore";
 
 export default function Home() {
   const { t } = useTranslation();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const lang = useLanguageStore((s) => s.language);
+  const { theme, toggle } = useThemeStore();
 
   const { albums } = ranked;
   const { albums: nonRanked } = honorableMentions;
 
   return (
-    <div className="flex flex-col gap-4 min-h-dvh items-center flex-start font-sans">
-      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} side="right">
+    <div className="flex flex-col min-h-dvh items-center flex-start font-sans">
+      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} side="right" useTheme>
         <div className="flex justify-end px-4 py-3 border-b ">
           <Button
             variant="outline"
@@ -38,12 +40,20 @@ export default function Home() {
           </Button>
         </div>
         <nav className="flex flex-col">
+          <button
+            type="button"
+            onClick={toggle}
+            className="border-b text-lg font-medium hover:bg-theme-300 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer"
+          >
+            <HugeiconsIcon icon={theme === "dark" ? Moon01Icon : Sun} className="size-6" />
+            {theme === "dark" ? "Dark mode" : "Light mode"}
+          </button>
           <Link
             href="/mike-brucker-cv.html"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setDrawerOpen(false)}
-            className="border-b text-lg font-medium hover:bg-theme-300 transition-colors duration-250 px-4 py-3"
+            className="border-b text-lg font-medium hover:bg-theme-300 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer"
           >
             {t(($) => $.menu.cv)} - HTML
           </Link>
@@ -52,13 +62,13 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setDrawerOpen(false)}
-            className="border-b text-lg font-medium hover:bg-theme-300 transition-colors duration-250 px-4 py-3"
+            className="border-b text-lg font-medium hover:bg-theme-300 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer"
           >
             {t(($) => $.menu.cv)} - PDF
           </Link>
         </nav>
       </Drawer>
-      <Header onAction={() => setDrawerOpen(true)} actionIcon={Menu} />
+      <Header onAction={() => setDrawerOpen(true)} actionIcon={Menu} sticky />
       <main className="flex flex-col gap-4 grow items-center max-w-5xl px-4 py-4">
         <Accordion
           title={t(($) => $.albums.ranked)}
@@ -75,7 +85,7 @@ export default function Home() {
           ))}
         </Accordion>
       </main>
-      <Footer />
+      <Footer sticky />
     </div>
   );
 }
