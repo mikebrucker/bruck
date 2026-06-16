@@ -80,7 +80,6 @@ export default function Home() {
           title={t(($) => $.albums.ranked)}
           subtitle={t(($) => $.albums.ranked_info)}
           size="xl"
-          hoverBg
           classNames="hover:bg-black/5 dark:hover:bg-white/5 rounded-lg px-1"
           duration={2000}
         >
@@ -91,7 +90,6 @@ export default function Home() {
         <Accordion
           title={t(($) => $.albums.honorable_mentions)}
           size="xl"
-          hoverBg
           classNames="hover:bg-black/5 dark:hover:bg-white/5 rounded-lg px-1"
           duration={1000}
         >
