@@ -41,7 +41,7 @@ export function Accordion({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center ${s.gap} w-full text-left ${s.title} font-semibold text-muted-foreground tracking-widest ${s.py} hover:text-foreground transition-colors cursor-pointer`}
+        className={`flex items-center gap-4 w-full text-left ${s.title} font-semibold text-muted-foreground tracking-widest ${s.py} hover:text-foreground transition-colors cursor-pointer`}
       >
         <svg
           width={s.svgSize}
