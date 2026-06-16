@@ -23,7 +23,7 @@ export default function Home() {
               <h6 className="font-bold py-2 px-4 text-xl text-shadow-lg text-shadow-zinc-900">
                 {t(($) => $.home.resume)}
               </h6>
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-around">
+              <div className="flex flex-row gap-3 sm:gap-4 items-center justify-around">
                 <Button
                   variant="outline"
                   className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 text-shadow-lg text-shadow-zinc-900"
