@@ -1,5 +1,5 @@
 {
-  "ranked": [
+  "albums": [
     {
       "rank": 1,
       "artist": "Between the Buried and Me",
@@ -1824,6 +1824,279 @@
     },
     {
       "rank": 14,
+      "artist": "Whitechapel",
+      "album": "Kin",
+      "year": 2021,
+      "label": "Metal Blade",
+      "genre": "Deathcore / Progressive Metal",
+      "runtime": "47:49",
+      "review": "The Valley opened the door and Kin walks through it without looking back. Bozeman's clean vocals are no longer a surprise, they're a weapon, and he deploys them with the same conviction as the growls. The concept running through it is genuinely heavy subject matter handled with real restraint. Lost Boy and A Bloodsoaked Symphony are the peaks but the whole thing holds together as a record, not just a collection of songs.",
+      "art": [
+        "mbid-1c3b4ce2-d45f-4da2-a1ef-42b0af2918a7-30899789361.jpg"
+      ],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "I Will Find You",
+              "duration": "4:54"
+            },
+            {
+              "number": 2,
+              "title": "Lost Boy",
+              "duration": "3:58"
+            },
+            {
+              "number": 3,
+              "title": "A Bloodsoaked Symphony",
+              "duration": "4:28"
+            },
+            {
+              "number": 4,
+              "title": "Anticure",
+              "duration": "5:35"
+            },
+            {
+              "number": 5,
+              "title": "The Ones That Made Us",
+              "duration": "4:10"
+            },
+            {
+              "number": 6,
+              "title": "History Is Silent",
+              "duration": "4:54"
+            },
+            {
+              "number": 7,
+              "title": "To the Wolves",
+              "duration": "3:53"
+            },
+            {
+              "number": 8,
+              "title": "Orphan",
+              "duration": "4:40"
+            },
+            {
+              "number": 9,
+              "title": "Without You",
+              "duration": "1:00"
+            },
+            {
+              "number": 10,
+              "title": "Without Us",
+              "duration": "4:37"
+            },
+            {
+              "number": 11,
+              "title": "Kin",
+              "duration": "5:37"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Phil Bozeman",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Ben Savage",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Zach Householder",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Alex Wade",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Gabe Crisp",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Alex Rüdinger",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Mark Lewis",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          },
+          {
+            "name": "Whitechapel",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          },
+          {
+            "name": "David Castillo",
+            "roles": [
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Ted Jensen",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Titan Studios (Zach Householder's home studio)",
+          "Ghostward Studios, Sweden (mixing)"
+        ]
+      }
+    },
+    {
+      "rank": 15,
+      "artist": "Cynic",
+      "album": "Traced in Air",
+      "year": 2008,
+      "label": "Season of Mist",
+      "genre": "Progressive Metal / Jazz Fusion",
+      "runtime": "34:17",
+      "review": "Fifteen years gone and they came back with this, 34 minutes of something that sounds like nothing else. Masvidal's voice sits in that weightless processed register, Reinert plays like gravity is optional, and the whole thing floats between jazz, death metal and something harder to name. Evolutionary Sleeper and King of Those Who Know are the peaks but the album works as a single sustained mood. A record that earns every word of its reputation.",
+      "art": [
+        "mbid-bb960d30-45f7-4895-a84f-1e08f645f1f3-38342820255.png"
+      ],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Nunc Fluens",
+              "duration": "2:56"
+            },
+            {
+              "number": 2,
+              "title": "The Space for This",
+              "duration": "5:46"
+            },
+            {
+              "number": 3,
+              "title": "Evolutionary Sleeper",
+              "duration": "3:35"
+            },
+            {
+              "number": 4,
+              "title": "Integral Birth",
+              "duration": "3:52"
+            },
+            {
+              "number": 5,
+              "title": "The Unknown Guest",
+              "duration": "4:13"
+            },
+            {
+              "number": 6,
+              "title": "Adam's Murmur",
+              "duration": "3:29"
+            },
+            {
+              "number": 7,
+              "title": "King of Those Who Know",
+              "duration": "6:08"
+            },
+            {
+              "number": 8,
+              "title": "Nunc Stans",
+              "duration": "4:12"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Paul Masvidal",
+            "roles": [
+              "Vocals",
+              "Guitar",
+              "Guitar Synthesizer"
+            ]
+          },
+          {
+            "name": "Sean Reinert",
+            "roles": [
+              "Drums",
+              "Percussion",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Tymon Kruidenier",
+            "roles": [
+              "Guitar",
+              "Growls"
+            ]
+          },
+          {
+            "name": "Sean Malone",
+            "roles": [
+              "Bass",
+              "Chapman Stick"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Amy Correia",
+            "roles": [
+              "Background Vocals"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Paul Masvidal",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Warren Riker",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          },
+          {
+            "name": "Bernie Grundman",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Broken Wave Studios, Los Angeles, CA"
+        ]
+      }
+    },
+    {
+      "rank": 16,
       "artist": "Baroness",
       "album": "Purple",
       "year": 2015,
@@ -1950,20 +2223,18 @@
           "Tarbox Road Studios, Cassadaga, NY; IQL Studios, Philadelphia, PA (supplementary tracking)"
         ]
       }
-    }
-  ],
-  "honorableMentions": [
+    },
     {
-      "rank": 1,
-      "artist": "Between the Buried and Me",
-      "album": "Colors",
-      "year": 2007,
-      "label": "Victory",
-      "genre": "Progressive Death Metal",
-      "runtime": "64:26",
-      "review": "The album that announced BTBAM as something entirely their own. One continuous 64-minute journey disguised as 8 tracks. Ants of the Sky alone, 13 minutes of carnival metal, jazz, country, and chaos, is worth the price of admission.",
+      "rank": 17,
+      "artist": "System of a Down",
+      "album": "Steal This Album!",
+      "year": 2002,
+      "label": "American / Columbia",
+      "genre": "Alternative Metal",
+      "runtime": "43:22",
+      "review": "Toxicity's overflow bin that turned out to hold some of the best songs in the catalogue. The chaos is more unfiltered here, shorter, weirder, less polished, and that works entirely in its favour. Chic 'N' Stu, Mr. Jack, Roulette and Pictures alone make a stronger case than half the albums bands spend years crafting. The fact that it started as a leak the band had to rescue makes it feel even more alive.",
       "art": [
-        "mbid-e1ca8464-3477-4568-b4e3-88aaa08b38d1-15533985949.jpg"
+        "mbid-d5e089ba-cec8-3b96-9825-841c6443ede1-17077922809.jpg"
       ],
       "discs": [
         {
@@ -1971,328 +2242,83 @@
           "tracks": [
             {
               "number": 1,
-              "title": "Foam Born (A): The Backtrack",
+              "title": "Chic 'N' Stu",
+              "duration": "2:23"
+            },
+            {
+              "number": 2,
+              "title": "Innervision",
+              "duration": "2:33"
+            },
+            {
+              "number": 3,
+              "title": "Bubbles",
+              "duration": "1:56"
+            },
+            {
+              "number": 4,
+              "title": "Boom!",
               "duration": "2:14"
             },
             {
-              "number": 2,
-              "title": "Foam Born (B): The Decade of Statues",
-              "duration": "5:20"
-            },
-            {
-              "number": 3,
-              "title": "Informal Gluttony",
-              "duration": "6:48"
-            },
-            {
-              "number": 4,
-              "title": "Sun of Nothing",
-              "duration": "10:59"
-            },
-            {
               "number": 5,
-              "title": "Ants of the Sky",
-              "duration": "13:11"
+              "title": "Nüguns",
+              "duration": "2:30"
             },
             {
               "number": 6,
-              "title": "Prequel to the Sequel",
-              "duration": "8:37"
-            },
-            {
-              "number": 7,
-              "title": "Viridian",
-              "duration": "3:44"
-            },
-            {
-              "number": 8,
-              "title": "White Walls",
-              "duration": "14:13"
-            }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          {
-            "name": "Tommy Giles Rogers",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
-          },
-          {
-            "name": "Paul Waggoner",
-            "roles": [
-              "Guitar"
-            ]
-          },
-          {
-            "name": "Dan Briggs",
-            "roles": [
-              "Bass"
-            ]
-          },
-          {
-            "name": "Dustie Waring",
-            "roles": [
-              "Guitar"
-            ]
-          },
-          {
-            "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
-          }
-        ],
-        "guests": [
-          {
-            "name": "Adam Fisher",
-            "roles": [
-              "Harsh and Clean Vocals on \"Prequel to the Sequel\""
-            ],
-            "notes": "Fear Before"
-          },
-          {
-            "name": "Graham Bennett",
-            "roles": [
-              "Didgeridoo on \"Informal Gluttony\""
-            ]
-          }
-        ],
-        "production": [
-          {
-            "name": "Jamie King",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
-          },
-          {
-            "name": "Brandon Proff",
-            "roles": [
-              "Layout"
-            ]
-          },
-          {
-            "name": "Chuck Johnson",
-            "roles": [
-              "Photography"
-            ]
-          }
-        ],
-        "studios": [
-          "The Basement Studios, Winston-Salem, NC"
-        ]
-      }
-    },
-    {
-      "rank": 2,
-      "artist": "Black Crown Initiate",
-      "album": "Selves We Cannot Forgive",
-      "year": 2016,
-      "label": "eOne",
-      "genre": "Technical/Progressive Death Metal",
-      "runtime": "51:31",
-      "review": "A masterpiece of dynamic songwriting and emotional depth. Belie the Machine at 9 minutes never outstays its welcome. Matriarch is the devastating centrepiece the album builds toward.",
-      "art": [
-        "mbid-761c8d51-fefd-4492-b781-694a160f5fb8-30277204382.png"
-      ],
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            {
-              "number": 1,
-              "title": "For Red Cloud",
-              "duration": "6:48"
-            },
-            {
-              "number": 2,
-              "title": "Sorrowpsalm",
-              "duration": "6:30"
-            },
-            {
-              "number": 3,
-              "title": "Again",
-              "duration": "5:40"
-            },
-            {
-              "number": 4,
-              "title": "Belie the Machine",
-              "duration": "8:59"
-            },
-            {
-              "number": 5,
-              "title": "Selves We Cannot Forgive",
-              "duration": "5:19"
-            },
-            {
-              "number": 6,
-              "title": "Transmit to Disconnect",
-              "duration": "6:28"
-            },
-            {
-              "number": 7,
-              "title": "Matriarch",
-              "duration": "7:21"
-            },
-            {
-              "number": 8,
-              "title": "Vicious Lives",
-              "duration": "4:26"
-            }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          {
-            "name": "James Dorton",
-            "roles": [
-              "Vocals"
-            ]
-          },
-          {
-            "name": "Andy Thomas",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
-          },
-          {
-            "name": "Rik Stelzpflug",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
-          },
-          {
-            "name": "Nick Shaw",
-            "roles": [
-              "Bass"
-            ]
-          },
-          {
-            "name": "Jesse Beahler",
-            "roles": [
-              "Drums"
-            ]
-          }
-        ],
-        "guests": [
-          {
-            "name": "Travis Ryan",
-            "roles": [
-              "Guest Vocals"
-            ],
-            "notes": "Appears on \"Transmit to Disconnect\""
-          },
-          {
-            "name": "Wes Hauch",
-            "roles": [
-              "Guest Guitar Solo"
-            ],
-            "notes": "Appears on \"Again\""
-          }
-        ],
-        "production": [
-          {
-            "name": "Carson Slovak",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
-          },
-          {
-            "name": "Grant McFarland",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
-          }
-        ],
-        "studios": [
-          "Atrium Audio, Lancaster, PA"
-        ]
-      }
-    },
-    {
-      "rank": 3,
-      "artist": "The Contortionist",
-      "album": "Exoplanet",
-      "year": 2010,
-      "label": "Good Fight",
-      "genre": "Progressive Metal / Deathcore",
-      "runtime": "48:14",
-      "review": "The debut that put them on the map. Raw, heavy, and brimming with ambition, brutal tech deathcore in constant tension with hauntingly beautiful melodic passages. The three-part Exoplanet suite closing the record is alone worth the price of admission.",
-      "art": [
-        "mbid-f3dae6a2-1304-429e-a996-47c3ad5d0aed-12726092897.jpg"
-      ],
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            {
-              "number": 1,
-              "title": "Primal Directive",
-              "duration": "4:02"
-            },
-            {
-              "number": 2,
-              "title": "Flourish",
-              "duration": "6:22"
-            },
-            {
-              "number": 3,
-              "title": "Expire",
-              "duration": "3:45"
-            },
-            {
-              "number": 4,
-              "title": "Contact",
-              "duration": "5:00"
-            },
-            {
-              "number": 5,
-              "title": "Advent",
+              "title": "A.D.D. (American Dream Denial)",
               "duration": "3:17"
             },
             {
-              "number": 6,
-              "title": "Vessel",
-              "duration": "4:57"
-            },
-            {
               "number": 7,
-              "title": "Oscillator",
-              "duration": "5:00"
+              "title": "Mr. Jack",
+              "duration": "4:09"
             },
             {
               "number": 8,
-              "title": "Axiom",
-              "duration": "2:24"
+              "title": "I-E-A-I-A-I-O",
+              "duration": "3:08"
             },
             {
               "number": 9,
-              "title": "Exoplanet I: Egress",
-              "duration": "4:11"
+              "title": "36",
+              "duration": "0:46"
             },
             {
               "number": 10,
-              "title": "Exoplanet II: Void",
-              "duration": "3:32"
+              "title": "Pictures",
+              "duration": "2:06"
             },
             {
               "number": 11,
-              "title": "Exoplanet III: Light",
-              "duration": "5:46"
+              "title": "Highway Song",
+              "duration": "3:13"
+            },
+            {
+              "number": 12,
+              "title": "Fuck the System",
+              "duration": "2:12"
+            },
+            {
+              "number": 13,
+              "title": "Ego Brain",
+              "duration": "3:21"
+            },
+            {
+              "number": 14,
+              "title": "Thetawaves",
+              "duration": "2:36"
+            },
+            {
+              "number": 15,
+              "title": "Roulette",
+              "duration": "3:21"
+            },
+            {
+              "number": 16,
+              "title": "Streamline",
+              "duration": "3:37"
             }
           ]
         }
@@ -2300,35 +2326,29 @@
       "personnel": {
         "members": [
           {
-            "name": "Jonathan Carpenter",
+            "name": "Serj Tankian",
             "roles": [
               "Vocals",
-              "Keyboards"
-            ]
-          },
-          {
-            "name": "Robby Baca",
-            "roles": [
-              "Guitar",
               "Keyboards",
-              "Programming"
+              "Theremin"
             ]
           },
           {
-            "name": "Cameron Maynard",
+            "name": "Daron Malakian",
             "roles": [
               "Guitar",
-              "Keyboards"
+              "Vocals"
             ]
           },
           {
-            "name": "Christopher Tilley",
+            "name": "Shavo Odadjian",
             "roles": [
-              "Bass"
+              "Bass",
+              "Backing Vocals"
             ]
           },
           {
-            "name": "Joey Baca",
+            "name": "John Dolmayan",
             "roles": [
               "Drums"
             ]
@@ -2336,43 +2356,40 @@
         ],
         "production": [
           {
-            "name": "Ken Susi",
+            "name": "Rick Rubin",
             "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
+              "Producer"
             ]
           },
           {
-            "name": "Jordan King",
+            "name": "Daron Malakian",
             "roles": [
-              "Additional Production",
-              "Keyboards"
+              "Producer"
             ]
           },
           {
-            "name": "Alan Douches",
+            "name": "Greg Collins",
             "roles": [
-              "Mastering Engineer"
+              "Engineer"
             ]
           }
         ],
         "studios": [
-          "System Recordings, Boston, MA; Voltaic Recording Studio, Indianapolis, IN"
+          "Cello Studios, Hollywood, CA"
         ]
       }
     },
     {
-      "rank": 4,
-      "artist": "The Zenith Passage",
-      "album": "Solipsist",
-      "year": 2016,
-      "label": "Unique Leader",
-      "genre": "Technical Death Metal",
-      "runtime": "39:33",
-      "review": "Relentless and technically immaculate. Justin McKinney's guitar work is surgical, crushing riffs underpinned by melodic solos that elevate every track. One of the tightest debut records in modern tech death.",
+      "rank": 18,
+      "artist": "Warrel Dane",
+      "album": "Praises to the War Machine",
+      "year": 2008,
+      "label": "Century Media",
+      "genre": "Progressive Metal / Thrash Metal / Gothic Metal",
+      "runtime": "50:04",
+      "review": "Dane and Wichers make a formidable pairing, heavy where it needs to be, gothic and brooding where it doesn't, and never losing sight of the melody. August alone justifies the whole record, a slow-burning gut punch that showcases everything Dane could do with his voice when given the space to breathe.",
       "art": [
-        "mbid-98cd75c2-82a7-4be6-bed1-b7b27285bef7-13320368599.jpg"
+        "mbid-6dc9d23f-84e0-44d9-ab8b-31db0ce35d3b-42639710728.jpg"
       ],
       "discs": [
         {
@@ -2380,463 +2397,63 @@
           "tracks": [
             {
               "number": 1,
-              "title": "Holographic Principle I: Emergence",
-              "duration": "1:07"
-            },
-            {
-              "number": 2,
-              "title": "Holographic Principle II: Convergence",
-              "duration": "3:47"
-            },
-            {
-              "number": 3,
-              "title": "Simulated Reality",
-              "duration": "3:48"
-            },
-            {
-              "number": 4,
-              "title": "Deus Deceptor",
-              "duration": "4:33"
-            },
-            {
-              "number": 5,
-              "title": "The Dissension Consensus",
-              "duration": "4:59"
-            },
-            {
-              "number": 6,
-              "title": "Dreamsphere",
-              "duration": "3:48"
-            },
-            {
-              "number": 7,
-              "title": "Hypnagogia",
-              "duration": "4:07"
-            },
-            {
-              "number": 8,
-              "title": "Metaphysical Solipsism",
-              "duration": "3:01"
-            },
-            {
-              "number": 9,
-              "title": "The Tenebrous Veil",
-              "duration": "4:45"
-            },
-            {
-              "number": 10,
-              "title": "Luminary Singularity",
-              "duration": "5:19"
-            }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          {
-            "name": "Greg Hampton",
-            "roles": [
-              "Vocals"
-            ]
-          },
-          {
-            "name": "Justin McKinney",
-            "roles": [
-              "Guitar",
-              "Bass"
-            ]
-          },
-          {
-            "name": "Rob Maramonte",
-            "roles": [
-              "Guitar"
-            ]
-          },
-          {
-            "name": "Luis Martinez",
-            "roles": [
-              "Drums"
-            ]
-          }
-        ],
-        "guests": [
-          {
-            "name": "Alex Hofmann",
-            "roles": [
-              "Guest Vocals"
-            ],
-            "notes": "of Fallujah"
-          },
-          {
-            "name": "Wes Hauch",
-            "roles": [
-              "Guest Guitar Solo"
-            ],
-            "notes": "of ex-The Faceless; also co-wrote portion of \"Hypnagogia\""
-          },
-          {
-            "name": "Vikram Shankar",
-            "roles": [
-              "Guest Synth Solo"
-            ]
-          }
-        ],
-        "production": [
-          {
-            "name": "Zack Ohren",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
-          },
-          {
-            "name": "Justin McKinney",
-            "roles": [
-              "Additional Engineer"
-            ]
-          },
-          {
-            "name": "Michael Keene",
-            "roles": [
-              "Additional Engineer"
-            ]
-          }
-        ],
-        "studios": [
-          "Castle Ultimate Productions; Keene Machine Studios"
-        ]
-      }
-    },
-    {
-      "rank": 5,
-      "artist": "Rivers of Nihil",
-      "album": "Rivers of Nihil",
-      "year": 2025,
-      "label": "Metal Blade",
-      "genre": "Progressive Death Metal",
-      "runtime": "51:54",
-      "review": "A bold reinvention. Adam Biggs steps up as frontman and delivers with ferocity, while Andy Thomas adds a vocal chemistry that elevates the whole record. The perfect blend of their technical roots and progressive maturity, all the fat cut away.",
-      "art": [
-        "mbid-c6cde752-d525-4a4f-becd-1d085f825de6-44018907269.jpg"
-      ],
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            {
-              "number": 1,
-              "title": "The Sub-Orbital Blues",
-              "duration": "4:27"
-            },
-            {
-              "number": 2,
-              "title": "Dustman",
-              "duration": "4:42"
-            },
-            {
-              "number": 3,
-              "title": "Criminals",
-              "duration": "4:41"
-            },
-            {
-              "number": 4,
-              "title": "Despair Church",
-              "duration": "6:43"
-            },
-            {
-              "number": 5,
-              "title": "Water & Time",
-              "duration": "5:35"
-            },
-            {
-              "number": 6,
-              "title": "House of Light",
-              "duration": "6:01"
-            },
-            {
-              "number": 7,
-              "title": "Evidence",
-              "duration": "4:31"
-            },
-            {
-              "number": 8,
-              "title": "American Death",
-              "duration": "5:33"
-            },
-            {
-              "number": 9,
-              "title": "The Logical End",
-              "duration": "6:19"
-            },
-            {
-              "number": 10,
-              "title": "Rivers of Nihil",
-              "duration": "3:22"
-            }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          {
-            "name": "Adam Biggs",
-            "roles": [
-              "Vocals",
-              "Bass"
-            ]
-          },
-          {
-            "name": "Andy Thomas",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
-          },
-          {
-            "name": "Brody Uttley",
-            "roles": [
-              "Guitar",
-              "Piano",
-              "Keys",
-              "Programming"
-            ]
-          },
-          {
-            "name": "Jared Klein",
-            "roles": [
-              "Drums",
-              "Vocals"
-            ]
-          }
-        ],
-        "production": [
-          {
-            "name": "Carson Slovak",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
-          },
-          {
-            "name": "Grant McFarland",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
-          }
-        ],
-        "studios": [
-          "Atrium Audio"
-        ]
-      }
-    },
-    {
-      "rank": 6,
-      "artist": "Between the Buried and Me",
-      "album": "The Great Misdirect",
-      "year": 2009,
-      "label": "Victory",
-      "genre": "Progressive Metal / Technical Death Metal",
-      "runtime": "59:35",
-      "review": "Six songs, 60 minutes, zero wasted space. Fossil Genera's barrelhouse piano chaos into a sweeping movie score ending is one of BTBAM's most audacious moments, and Swim to the Moon closes it all with 18 minutes of restless, shifting adventure.",
-      "art": [
-        "mbid-3ca5fab5-1d7c-44bf-9744-a6ff7f211f7e-32621165864.jpg"
-      ],
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            {
-              "number": 1,
-              "title": "Mirrors",
+              "title": "When We Pray",
               "duration": "3:38"
             },
             {
               "number": 2,
-              "title": "Obfuscation",
-              "duration": "9:15"
+              "title": "Messenger",
+              "duration": "3:58"
             },
             {
               "number": 3,
-              "title": "Disease, Injury, Madness",
-              "duration": "11:03"
+              "title": "Obey",
+              "duration": "3:14"
             },
             {
               "number": 4,
-              "title": "Fossil Genera - A Feed From Cloud Mountain",
-              "duration": "12:11"
+              "title": "Lucretia My Reflection",
+              "duration": "4:38"
             },
             {
               "number": 5,
-              "title": "Desert of Song",
-              "duration": "5:33"
+              "title": "Let You Down",
+              "duration": "3:53"
             },
             {
               "number": 6,
-              "title": "Swim to the Moon",
-              "duration": "17:54"
-            }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          {
-            "name": "Tommy Giles Rogers Jr.",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
-          },
-          {
-            "name": "Paul Waggoner",
-            "roles": [
-              "Electric Guitar",
-              "Acoustic Guitar",
-              "Classical Guitar",
-              "Lap Steel Guitar",
-              "Additional Vocals on \"Desert of Song\""
-            ]
-          },
-          {
-            "name": "Dan Briggs",
-            "roles": [
-              "Bass",
-              "Fretless Bass"
-            ]
-          },
-          {
-            "name": "Dustie Waring",
-            "roles": [
-              "Electric Guitar",
-              "Slide Guitar",
-              "Acoustic Guitar",
-              "Guitar Effects"
-            ]
-          },
-          {
-            "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
-          }
-        ],
-        "production": [
-          {
-            "name": "Jamie King",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
-          },
-          {
-            "name": "Justin Johnson",
-            "roles": [
-              "Engineer"
-            ]
-          },
-          {
-            "name": "Brandon Proff",
-            "roles": [
-              "Layout",
-              "Concept Design"
-            ]
-          },
-          {
-            "name": "Chuck Johnson",
-            "roles": [
-              "Photography",
-              "Vocals on \"Swim to the Moon\""
-            ]
-          }
-        ],
-        "studios": [
-          "The Basement Studios, Winston-Salem, NC"
-        ]
-      }
-    },
-    {
-      "rank": 7,
-      "artist": "Animals as Leaders",
-      "album": "The Joy of Motion",
-      "year": 2014,
-      "label": "Sumerian",
-      "genre": "Progressive Metal / Jazz Fusion / Djent",
-      "runtime": "54:23",
-      "review": "Tosin Abasi's thumb-picking and 8-string wizardry at their most groove-forward and human. The jazzy mid-sections breathe life into what could have been cold technicality, Ka$cade, The Woven Web and Nephele are the peaks of a record that never stops moving.",
-      "art": [
-        "mbid-c3549f65-4cab-4381-a382-61e1d033dd2c-6816863021.jpg"
-      ],
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            {
-              "number": 1,
-              "title": "Ka$cade",
-              "duration": "5:23"
-            },
-            {
-              "number": 2,
-              "title": "Lippincott",
-              "duration": "4:22"
-            },
-            {
-              "number": 3,
-              "title": "Air Chrysalis",
-              "duration": "5:06"
-            },
-            {
-              "number": 4,
-              "title": "Another Year",
-              "duration": "3:50"
-            },
-            {
-              "number": 5,
-              "title": "Physical Education",
-              "duration": "4:41"
-            },
-            {
-              "number": 6,
-              "title": "Tooth and Claw",
-              "duration": "4:23"
+              "title": "August",
+              "duration": "3:48"
             },
             {
               "number": 7,
-              "title": "Crescent",
-              "duration": "4:23"
+              "title": "Your Chosen Misery",
+              "duration": "4:09"
             },
             {
               "number": 8,
-              "title": "The Future That Awaited Me",
-              "duration": "4:33"
+              "title": "The Day the Rats Went to War",
+              "duration": "3:37"
             },
             {
               "number": 9,
-              "title": "Para Mexer",
-              "duration": "4:29"
+              "title": "Brother",
+              "duration": "3:23"
             },
             {
               "number": 10,
-              "title": "The Woven Web",
-              "duration": "4:07"
+              "title": "Patterns",
+              "duration": "4:00"
             },
             {
               "number": 11,
-              "title": "Mind-Spun",
-              "duration": "4:35"
+              "title": "This Old Man",
+              "duration": "3:43"
             },
             {
               "number": 12,
-              "title": "Nephele",
-              "duration": "4:31"
+              "title": "Equilibrium",
+              "duration": "3:52"
             }
           ]
         }
@@ -2844,19 +2461,29 @@
       "personnel": {
         "members": [
           {
-            "name": "Tosin Abasi",
+            "name": "Warrel Dane",
             "roles": [
-              "Guitar"
+              "Vocals"
             ]
           },
           {
-            "name": "Javier Reyes",
+            "name": "Peter Wichers",
             "roles": [
-              "Guitar"
-            ]
+              "Guitar",
+              "Bass"
+            ],
+            "notes": "Plays on tracks marked *; ex-Soilwork"
           },
           {
-            "name": "Matt Garstka",
+            "name": "Matt Wicklund",
+            "roles": [
+              "Guitar",
+              "Bass"
+            ],
+            "notes": "Plays on tracks marked #; ex-Himsa"
+          },
+          {
+            "name": "Dirk Verbeuren",
             "roles": [
               "Drums"
             ]
@@ -2864,66 +2491,53 @@
         ],
         "guests": [
           {
-            "name": "Adam \"Nolly\" Getgood",
+            "name": "Jeff Loomis",
             "roles": [
-              "Bass",
-              "Engineer",
-              "Mixer"
+              "Guest Guitar Solo"
             ],
-            "notes": "of Periphery"
+            "notes": "Solo on \"Messenger\"; of Nevermore"
           },
           {
-            "name": "Misha Mansoor",
+            "name": "James Murphy",
             "roles": [
-              "Co-writer",
-              "Producer"
+              "Guest Guitar Solo"
             ],
-            "notes": "of Periphery; co-wrote tracks 1-4, 6, 8, 10"
-          },
-          {
-            "name": "Diego Farias",
-            "roles": [
-              "Co-writer"
-            ],
-            "notes": "of Volumes; co-wrote tracks 5, 7, 11"
-          },
-          {
-            "name": "Navene Koperweis",
-            "roles": [
-              "Electronics",
-              "Programming"
-            ],
-            "notes": "former AaL drummer"
+            "notes": "Solo on \"The Day the Rats Went to War\""
           }
         ],
         "production": [
           {
-            "name": "Misha Mansoor",
+            "name": "Peter Wichers",
             "roles": [
-              "Producer"
+              "Producer",
+              "Engineer"
             ]
           },
           {
-            "name": "Adam \"Nolly\" Getgood",
+            "name": "Mattias Nilsson",
             "roles": [
-              "Engineer",
               "Mixer"
             ]
           }
+        ],
+        "studios": [
+          "Wichers Studios, Nashville, TN",
+          "Omnisound Studios, Nashville, TN",
+          "Wrightway Studios, Baltimore, MD (drums)"
         ]
       }
     },
     {
-      "rank": 8,
-      "artist": "Between the Buried and Me",
-      "album": "Alaska",
-      "year": 2005,
-      "label": "Victory",
-      "genre": "Progressive Metal / Technical Death Metal",
-      "runtime": "53:50",
-      "review": "Where BTBAM clicked into something unstoppable. All Bodies opens with anthemic choruses and brutal tech-metal locked in perfect tension, and Selkies: The Endless Obsession remains one of the most complete songs in their catalogue, delicate piano interlude into face-melting solo work that lands every time.",
+      "rank": 19,
+      "artist": "Substructure",
+      "album": "Monolith",
+      "year": 2011,
+      "label": "Self-released",
+      "genre": "Progressive Deathcore",
+      "runtime": "22:16",
+      "review": "Six tracks of surgical prog deathcore from St. Louis that punched way above its weight as a self-released debut. Constellation-named cuts flow seamlessly into each other, balancing djenty aggression with genuinely atmospheric breathing room. One of the most promising EPs to come out of the deathcore underground in 2011.",
       "art": [
-        "mbid-470507f1-c04b-4401-b6db-33ef1ad2d0f7-27965748643.jpg"
+        "mbid-df7d842e-28d7-4081-a57d-ee16f56e998d.jpg"
       ],
       "discs": [
         {
@@ -2931,61 +2545,33 @@
           "tracks": [
             {
               "number": 1,
-              "title": "All Bodies",
-              "duration": "6:12"
+              "title": "Cassiopeia",
+              "duration": "1:42"
             },
             {
               "number": 2,
-              "title": "Alaska",
-              "duration": "3:57"
+              "title": "Canis Minor",
+              "duration": "3:02"
             },
             {
               "number": 3,
-              "title": "Croakies and Boatshoes",
-              "duration": "2:22"
+              "title": "Canis Major",
+              "duration": "6:07"
             },
             {
               "number": 4,
-              "title": "Selkies: The Endless Obsession",
-              "duration": "7:23"
+              "title": "Telescopium",
+              "duration": "3:37"
             },
             {
               "number": 5,
-              "title": "Breathe In, Breathe Out",
-              "duration": "0:55",
-              "instrumental": true
+              "title": "Monoceros",
+              "duration": "2:38"
             },
             {
               "number": 6,
-              "title": "Roboturner",
-              "duration": "7:07"
-            },
-            {
-              "number": 7,
-              "title": "Backwards Marathon",
-              "duration": "8:27"
-            },
-            {
-              "number": 8,
-              "title": "Medicine Wheel",
-              "duration": "4:18",
-              "instrumental": true
-            },
-            {
-              "number": 9,
-              "title": "The Primer",
-              "duration": "4:46"
-            },
-            {
-              "number": 10,
-              "title": "Autodidact",
-              "duration": "5:30"
-            },
-            {
-              "number": 11,
-              "title": "Laser Speed",
-              "duration": "2:53",
-              "instrumental": true
+              "title": "Cepheus",
+              "duration": "5:14"
             }
           ]
         }
@@ -2993,76 +2579,174 @@
       "personnel": {
         "members": [
           {
-            "name": "Tommy Giles Rogers",
+            "name": "David Bruno",
             "roles": [
-              "Lead Vocals",
-              "Keyboards"
-            ]
-          },
-          {
-            "name": "Paul Waggoner",
-            "roles": [
-              "Lead Guitar",
               "Vocals"
             ]
           },
           {
-            "name": "Dan Briggs",
+            "name": "Kevin Danneman",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Jordan Sanders",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Joey Harrell",
             "roles": [
               "Bass"
             ]
           },
           {
-            "name": "Dustie Waring",
+            "name": "Joey Nichols",
             "roles": [
-              "Rhythm Guitar"
-            ]
-          },
-          {
-            "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
+              "Drums"
             ]
           }
         ],
         "production": [
           {
-            "name": "Jamie King",
+            "name": "Jordan Sanders",
             "roles": [
               "Producer",
               "Engineer"
             ]
+          }
+        ]
+      }
+    },
+    {
+      "rank": 20,
+      "artist": "Opeth",
+      "album": "Ghost Reveries",
+      "year": 2005,
+      "label": "Roadrunner",
+      "genre": "Progressive Death Metal",
+      "runtime": "66:46",
+      "review": "The last Opeth album where the death metal and the prog exist in genuine tension rather than polite coexistence. Åkerfeldt was writing at the absolute peak of his powers — Ghost of Perdition and Reverie/Harlequin Forest are as good as anything in the catalogue. Per Wiberg's keys add a warmth and depth the band hadn't had before, and Jens Bogren's production gives it a weight that suits every dynamic shift. A landmark.",
+      "art": [
+        "mbid-2f087439-5d1b-38c7-99fd-0de138a11fc2-20838648318.jpg"
+      ],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Ghost of Perdition",
+              "duration": "10:29"
+            },
+            {
+              "number": 2,
+              "title": "The Baying of the Hounds",
+              "duration": "10:41"
+            },
+            {
+              "number": 3,
+              "title": "Beneath the Mire",
+              "duration": "7:59"
+            },
+            {
+              "number": 4,
+              "title": "Atonement",
+              "duration": "5:12"
+            },
+            {
+              "number": 5,
+              "title": "Reverie / Harlequin Forest",
+              "duration": "11:18"
+            },
+            {
+              "number": 6,
+              "title": "Hours of Wealth",
+              "duration": "5:06"
+            },
+            {
+              "number": 7,
+              "title": "The Grand Conjuration",
+              "duration": "10:22"
+            },
+            {
+              "number": 8,
+              "title": "Isolation Years",
+              "duration": "5:37"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Mikael Åkerfeldt",
+            "roles": [
+              "Vocals",
+              "Guitar",
+              "Mellotron"
+            ]
           },
           {
-            "name": "Matthew Ellard",
+            "name": "Peter Lindgren",
             "roles": [
-              "Producer",
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Martín Méndez",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Martin Lopez",
+            "roles": [
+              "Drums",
+              "Percussion"
+            ]
+          },
+          {
+            "name": "Per Wiberg",
+            "roles": [
+              "Mellotron",
+              "Hammond Organ",
+              "Grand Piano",
+              "Moog"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Mikael Åkerfeldt",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Opeth",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Jens Bogren",
+            "roles": [
+              "Engineer",
               "Mixer"
             ]
           },
           {
-            "name": "Alan Douches",
+            "name": "Tomas Eberger",
             "roles": [
               "Mastering Engineer"
-            ]
-          },
-          {
-            "name": "Kris Smith",
-            "roles": [
-              "Mix Assistant"
-            ]
-          },
-          {
-            "name": "Wes Richardson",
-            "roles": [
-              "Artwork",
-              "Layout"
             ]
           }
         ],
         "studios": [
-          "The Basement Studios, Winston-Salem, NC"
+          "Fascination Street Studios, Örebro, Sweden"
         ]
       }
     }

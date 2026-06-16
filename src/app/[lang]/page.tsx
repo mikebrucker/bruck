@@ -5,12 +5,14 @@ import { Accordion } from "@/components/accordion";
 import AlbumCard from "@/components/albumCard";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import albums from "@/data/albums.json";
+import honorableMentions from "@/data/honorableMentions.json";
+import ranked from "@/data/ranked.json";
 
 export default function Home() {
   const { t } = useTranslation();
 
-  const { ranked, honorableMentions } = albums;
+  const { albums } = ranked;
+  const { albums: nonRanked } = honorableMentions;
 
   return (
     <div className="flex flex-col gap-4 min-h-dvh items-center flex-start font-sans">
@@ -21,12 +23,12 @@ export default function Home() {
           subtitle={t(($) => $.albums.ranked_info)}
           size="xl"
         >
-          {ranked.map((album) => (
+          {albums.map((album) => (
             <AlbumCard key={`ranked-${album.rank}`} album={album} />
           ))}
         </Accordion>
         <Accordion title={t(($) => $.albums.honorable_mentions)} size="xl">
-          {honorableMentions.map((album) => (
+          {nonRanked.map((album) => (
             <AlbumCard key={`hm-${album.rank}`} album={album} />
           ))}
         </Accordion>
