@@ -23,6 +23,7 @@ type AccordionProps = {
   classNames?: string;
   defaultOpen?: boolean;
   size?: Size;
+  duration?: number;
 };
 
 export function Accordion({
@@ -32,6 +33,7 @@ export function Accordion({
   classNames,
   defaultOpen = true,
   size = "md",
+  duration = 300,
 }: AccordionProps) {
   const [open, setOpen] = useState(defaultOpen);
   const s = sizes[size];
@@ -41,7 +43,7 @@ export function Accordion({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-4 w-full text-left ${s.title} font-semibold text-muted-foreground tracking-widest ${s.py} hover:text-foreground transition-colors cursor-pointer`}
+        className={`flex px-3 items-center gap-4 w-full text-left ${s.title} font-semibold text-muted-foreground tracking-widest ${s.py} hover:text-foreground transition-colors cursor-pointer`}
       >
         <svg
           width={s.svgSize}
@@ -84,9 +86,10 @@ export function Accordion({
         </div>
       </button>
       <div
-        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+        className={`grid overflow-hidden transition-[grid-template-rows] ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+        style={{ transitionDuration: `${duration}ms` }}
       >
-        <div className="overflow-hidden">
+        <div className="min-h-0">
           <div className={`mt-1 flex flex-col ${s.gap}`}>{children}</div>
         </div>
       </div>

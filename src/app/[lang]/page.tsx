@@ -1,6 +1,13 @@
 "use client";
 
-import { Close, Menu, Moon01Icon, Sun } from "@hugeicons/core-free-icons";
+import {
+  Close,
+  HtmlFile02FreeIcons,
+  Menu,
+  Moon01Icon,
+  Pdf02FreeIcons,
+  Sun,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useState } from "react";
@@ -21,9 +28,6 @@ export default function Home() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const lang = useLanguageStore((s) => s.language);
   const { theme, toggle } = useThemeStore();
-
-  const { albums } = ranked;
-  const { albums: nonRanked } = honorableMentions;
 
   return (
     <div className="flex flex-col min-h-dvh items-center flex-start font-sans">
@@ -55,6 +59,7 @@ export default function Home() {
             onClick={() => setDrawerOpen(false)}
             className="border-b text-lg font-medium hover:bg-theme-300 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer"
           >
+            <HugeiconsIcon icon={HtmlFile02FreeIcons} className="size-6" />
             {t(($) => $.menu.cv)} - HTML
           </Link>
           <Link
@@ -64,23 +69,33 @@ export default function Home() {
             onClick={() => setDrawerOpen(false)}
             className="border-b text-lg font-medium hover:bg-theme-300 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer"
           >
+            <HugeiconsIcon icon={Pdf02FreeIcons} className="size-6" />
             {t(($) => $.menu.cv)} - PDF
           </Link>
         </nav>
       </Drawer>
       <Header onAction={() => setDrawerOpen(true)} actionIcon={Menu} sticky />
-      <main className="flex flex-col gap-4 grow items-center max-w-5xl px-4 py-4">
+      <main className="flex flex-col gap-4 grow items-center max-w-5xl p-1 sm:p-4 transition-all">
         <Accordion
           title={t(($) => $.albums.ranked)}
           subtitle={t(($) => $.albums.ranked_info)}
           size="xl"
+          hoverBg
+          classNames="hover:bg-black/5 dark:hover:bg-white/5 rounded-lg px-1"
+          duration={2000}
         >
-          {albums.map((album) => (
+          {ranked.albums.map((album) => (
             <AlbumCard key={`ranked-${album.rank}`} album={album} />
           ))}
         </Accordion>
-        <Accordion title={t(($) => $.albums.honorable_mentions)} size="xl">
-          {nonRanked.map((album) => (
+        <Accordion
+          title={t(($) => $.albums.honorable_mentions)}
+          size="xl"
+          hoverBg
+          classNames="hover:bg-black/5 dark:hover:bg-white/5 rounded-lg px-1"
+          duration={1000}
+        >
+          {honorableMentions.albums.map((album) => (
             <AlbumCard key={`hm-${album.rank}`} album={album} />
           ))}
         </Accordion>
