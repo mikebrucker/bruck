@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Asimovian, Figtree, Geist, Geist_Mono } from "next/font/google";
-import I18nProvider from "@/components/i18n-provider";
-import { LanguageInit } from "@/components/languageInit";
+import I18nProvider from "@/components/providers/i18n-provider";
+import { LanguageInit } from "@/components/providers/languageInit";
 
-import "./globals.css";
+import "@/app/globals.css";
 import "flag-icons/css/flag-icons.min.css";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });

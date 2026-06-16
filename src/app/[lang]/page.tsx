@@ -1,12 +1,17 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import { Accordion } from "@/components/accordion";
+import AlbumCard from "@/components/albumCard";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Button } from "@/components/ui/button";
+import albums from "@/data/albums.json";
 
 export default function Home() {
   const { t } = useTranslation();
+
+  const { ranked, honorableMentions } = albums;
 
   return (
     <div className="flex flex-col gap-4 min-h-dvh items-center flex-start font-sans px-4 py-4">
@@ -24,11 +29,7 @@ export default function Home() {
                   className="bg-emerald-900 hover:bg-emerald-600 transition-bg-color duration-333 text-white font-bold py-2 px-4 text-shadow-lg text-shadow-zinc-900"
                   asChild
                 >
-                  <a
-                    href="/mike-brucker-cv.html"
-                    target="_blank"
-                    rel="noopener"
-                  >
+                  <a href="/mike-brucker-cv.html" target="_blank" rel="noopener">
                     HTML
                   </a>
                 </Button>
@@ -46,16 +47,21 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      <main className="flex flex-col flex-grow items-center w-full">
-        <div className="flex flex-col flex-grow bg-zinc-700 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded w-full">
-          <div className="flex flex-col flex-grow bg-zinc-600 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded w-full">
-            <div className="flex flex-col flex-grow bg-zinc-500 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 transition-[padding-inline] duration-1000 py-2 rounded justify-center">
-              <p className="w-full text-center text-shadow-sm text-shadow-zinc-900">
-                {t(($) => $.home.under_construction)}
-              </p>
-            </div>
-          </div>
-        </div>
+      <main className="flex flex-col gap-4 grow items-center max-w-5xl">
+        <Accordion
+          title={t(($) => $.albums.ranked)}
+          subtitle={t(($) => $.albums.ranked_info)}
+          size="xl"
+        >
+          {ranked.map((album) => (
+            <AlbumCard key={`ranked-${album.rank}`} album={album} />
+          ))}
+        </Accordion>
+        <Accordion title={t(($) => $.albums.honorable_mentions)} size="xl">
+          {honorableMentions.map((album) => (
+            <AlbumCard key={`hm-${album.rank}`} album={album} />
+          ))}
+        </Accordion>
       </main>
       <Footer />
     </div>
