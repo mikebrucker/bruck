@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Accordion } from "@/components/accordion";
+import { Modal } from "@/components/ui/modal";
 import type { Album, Credit } from "@/types/album";
 
 type AlbumCardProps = {
@@ -10,14 +12,28 @@ type AlbumCardProps = {
 export default function AlbumCard({ album }: AlbumCardProps) {
   const { t } = useTranslation();
 
+  const [imageModalOpen, setImageModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (url: string) => {
+    setSelectedImage(url);
+    setImageModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setImageModalOpen(false);
+    setSelectedImage(null);
+  };
+
   const art = album.art?.map((a) => (
     <div key={a}>
       <Image
+        onClick={() => openModal(a)}
         src={`/${a}`}
         alt={t(($) => $.albums.cover_art, { album: album.album })}
         width={256}
         height={256}
-        className="rounded-sm object-cover"
+        className="rounded-sm object-cover cursor-pointer"
       />
     </div>
   ));
@@ -146,6 +162,18 @@ export default function AlbumCard({ album }: AlbumCardProps) {
             </Accordion>
           </div>
         ) : null}
+        <Modal open={imageModalOpen} onClose={closeModal}>
+          {selectedImage ? (
+            <Image
+              onClick={closeModal}
+              src={`/${selectedImage}`}
+              alt={t(($) => $.albums.cover_art, { album: album.album })}
+              width={1024}
+              height={1024}
+              className="w-full h-auto cursor-pointer"
+            />
+          ) : null}
+        </Modal>
       </div>
     </div>
   );
