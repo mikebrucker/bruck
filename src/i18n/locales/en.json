@@ -9,6 +9,12 @@
     "honorable_mentions": "Honorable Mentions",
     "tracks": "Tracks",
     "disc": "Disc {{number}}",
-    "cover_art": "{{album}} cover art"
+    "cover_art": "{{album}} cover art",
+    "personnel": "Personnel",
+    "members": "Members",
+    "guests": "Guests",
+    "production": "Production",
+    "studios": "Studios",
+    "notes": "Notes"
   }
 }

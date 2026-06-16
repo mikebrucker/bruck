@@ -9,6 +9,12 @@
     "honorable_mentions": "Ehrenwerte Erwähnungen",
     "tracks": "Titel",
     "disc": "Scheibe {{number}}",
-    "cover_art": "{{album}} Albumcover"
+    "cover_art": "{{album}} Albumcover",
+    "personnel": "Personal",
+    "members": "Mitglieder",
+    "guests": "Gäste",
+    "production": "Produktion",
+    "studios": "Studios",
+    "notes": "Notizen"
   }
 }

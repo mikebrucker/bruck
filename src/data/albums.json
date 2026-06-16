@@ -78,7 +78,113 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Dan Briggs",
+            "roles": [
+              "Bass",
+              "Additional Keyboards"
+            ]
+          },
+          {
+            "name": "Blake Richardson",
+            "roles": [
+              "Drums",
+              "Percussion"
+            ]
+          },
+          {
+            "name": "Tommy Giles Rogers Jr.",
+            "roles": [
+              "Vocals",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Paul Waggoner",
+            "roles": [
+              "Lead Guitar"
+            ]
+          },
+          {
+            "name": "Dustie Waring",
+            "roles": [
+              "Rhythm Guitar"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Amos Williams",
+            "roles": [
+              "Spoken Word"
+            ],
+            "notes": "of TesseracT; spoken word on \"Parallax\""
+          },
+          {
+            "name": "Walter Fancourt",
+            "roles": [
+              "Bass Clarinet",
+              "Flute",
+              "Tenor Saxophone"
+            ],
+            "notes": "of Trioscapes"
+          },
+          {
+            "name": "Ricky Alexander",
+            "roles": [
+              "Violin"
+            ]
+          },
+          {
+            "name": "Julian Hinshaw",
+            "roles": [
+              "Tuba"
+            ]
+          },
+          {
+            "name": "Maddox Giles",
+            "roles": [
+              "Alien Noises"
+            ],
+            "notes": "Tommy Giles Rogers' infant son"
+          }
+        ],
+        "production": [
+          {
+            "name": "Jamie King",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Kevin King",
+            "roles": [
+              "Additional Production Editing"
+            ]
+          },
+          {
+            "name": "Between the Buried and Me",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Chandler Owen",
+            "roles": [
+              "Art and Design"
+            ]
+          }
+        ],
+        "studios": [
+          "The Basement Studios, Winston-Salem, NC"
+        ]
+      }
     },
     {
       "rank": 2,
@@ -163,7 +269,57 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Jake Gerstle",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Shayne Johnson",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Damien Boorman",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Zimi Shabanay",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Nelson Barnes",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Shane Frisby",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          },
+          {
+            "name": "Pete Rutcho",
+            "roles": [
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          }
+        ]
+      }
     },
     {
       "rank": 3,
@@ -288,7 +444,95 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Björn \"Speed\" Strid",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Sylvain Coudret",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "David Andersson",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Ola Flink",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Sven Karlsson",
+            "roles": [
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Dirk Verbeuren",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Justin Sullivan",
+            "roles": [
+              "Guest Vocals"
+            ],
+            "notes": "Appears on \"The Windswept Mercy\" (disc 1, track 9)"
+          },
+          {
+            "name": "Hanna Carlsson",
+            "roles": [
+              "Cello",
+              "Piano"
+            ],
+            "notes": "Cello on \"Spectrum of Eternity\" and \"The Living Infinite II\"; piano on \"Spectrum of Eternity\""
+          }
+        ],
+        "production": [
+          {
+            "name": "Jens Bogren",
+            "roles": [
+              "Producer",
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Johan Örnborg",
+            "roles": [
+              "Assistant Producer"
+            ]
+          },
+          {
+            "name": "Linus Corneliusson",
+            "roles": [
+              "Assistant Producer"
+            ]
+          },
+          {
+            "name": "Soilwork",
+            "roles": [
+              "Producer"
+            ]
+          }
+        ],
+        "studios": [
+          "Fascination Street Studios, Örebro, Sweden"
+        ]
+      }
     },
     {
       "rank": 4,
@@ -403,7 +647,80 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Spencer Sotelo",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Misha Mansoor",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Jake Bowen",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Mark Holcomb",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Adam \"Nolly\" Getgood",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Matt Halpern",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Periphery",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Spencer Sotelo",
+            "roles": [
+              "Vocal Producer"
+            ]
+          },
+          {
+            "name": "Adam \"Nolly\" Getgood",
+            "roles": [
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Taylor Larson",
+            "roles": [
+              "Additional Engineer"
+            ]
+          },
+          {
+            "name": "Ermin Hamidovic",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ]
+      }
     },
     {
       "rank": 5,
@@ -473,7 +790,72 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Jake Dieffenbach",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Brody Uttley",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Jon Topore",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Adam Biggs",
+            "roles": [
+              "Bass",
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Jared Klein",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Zach Strouse",
+            "roles": [
+              "Saxophone"
+            ],
+            "notes": "of Burial In The Sky; solos on 3 tracks, atmospheric work on 2 others"
+          }
+        ],
+        "production": [
+          {
+            "name": "Carson Slovak",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Grant McFarland",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          }
+        ],
+        "studios": [
+          "Atrium Audio, Lancaster, PA"
+        ]
+      }
     },
     {
       "rank": 6,
@@ -548,7 +930,64 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Jocke Gothberg",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Jesper Strömblad",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Daniel Antonsson",
+            "roles": [
+              "Guitar",
+              "Bass"
+            ]
+          },
+          {
+            "name": "Hans Nilsson",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Jeff Waters",
+            "roles": [
+              "Guest Guitar Solo"
+            ],
+            "notes": "of Annihilator"
+          }
+        ],
+        "production": [
+          {
+            "name": "Arnold Lindberg",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Dimension Zero",
+            "roles": [
+              "Producer"
+            ]
+          }
+        ],
+        "studios": [
+          "IF Studios, Gothenburg, Sweden"
+        ]
+      }
     },
     {
       "rank": 7,
@@ -618,7 +1057,75 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Jonathan Carpenter",
+            "roles": [
+              "Vocals",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Robby Baca",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Cameron Maynard",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Christopher Tilley",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Joey Baca",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Eyal Levi",
+            "roles": [
+              "Co-Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Jason Suecof",
+            "roles": [
+              "Co-Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Eric Guenther",
+            "roles": [
+              "Additional Synth/Keyboard Producer"
+            ]
+          },
+          {
+            "name": "Alan Douches",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Audiohammer Studios, Sanford, FL"
+        ]
+      }
     },
     {
       "rank": 8,
@@ -685,7 +1192,71 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Daniël de Jongh",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Joe Tal",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Bart Hennephof",
+            "roles": [
+              "Guitar",
+              "Backing Vocals"
+            ]
+          },
+          {
+            "name": "Remko Tielemans",
+            "roles": [
+              "Bass",
+              "Backing Vocals"
+            ]
+          },
+          {
+            "name": "Stef Broks",
+            "roles": [
+              "Drums"
+            ]
+          },
+          {
+            "name": "Uri Dijk",
+            "roles": [
+              "Synthesizer",
+              "Programming",
+              "Backing Vocals"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Jochem Jacobs",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Yuma van Eekelen",
+            "roles": [
+              "Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Split Second Sound, Amsterdam, Netherlands"
+        ]
+      }
     },
     {
       "rank": 9,
@@ -725,7 +1296,43 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "James Dorton",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Andy Thomas",
+            "roles": [
+              "Guitar",
+              "Clean Vocals"
+            ]
+          },
+          {
+            "name": "Nick Shaw",
+            "roles": [
+              "Bass"
+            ]
+          }
+        ],
+        "notes": "Drums programmed. Rik Stelzpflug and Jeff Willet listed in booklet but did not perform.",
+        "production": [
+          {
+            "name": "Carson Slovak",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Atrium Audio, Lancaster, PA"
+        ]
+      }
     },
     {
       "rank": 10,
@@ -805,7 +1412,78 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Joe Duplantier",
+            "roles": [
+              "Vocals",
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Christian Andreu",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Jean-Michel Labadie",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Mario Duplantier",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Gojira",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Laurent Etchemendy",
+            "roles": [
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Joe Duplantier",
+            "roles": [
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Jean-Michel Labadie",
+            "roles": [
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Jean-Pierre Chalbos",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Seb Dupuis",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Studio des Milans, Ondres; Le Florida, Agen (drums)"
+        ]
+      }
     },
     {
       "rank": 11,
@@ -850,7 +1528,33 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Alex Haddad",
+            "roles": [
+              "All Instruments",
+              "Vocals"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Brody Smith",
+            "roles": [
+              "Drum Programming"
+            ]
+          },
+          {
+            "name": "Bloodline",
+            "roles": [
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          }
+        ]
+      }
     },
     {
       "rank": 12,
@@ -915,7 +1619,80 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Anthony Notarmaso",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Trent Hafdahl",
+            "roles": [
+              "Guitar",
+              "Backing Vocals"
+            ]
+          },
+          {
+            "name": "Justin Lowe",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Lerichard \"Lee\" Foral",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Dan Carle",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Nick Wellner",
+            "roles": [
+              "Guest Vocals"
+            ],
+            "notes": "Appears on \"Virga\" (track 6); former ATB vocalist"
+          }
+        ],
+        "production": [
+          {
+            "name": "Justin Lowe",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Trent Hafdahl",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          },
+          {
+            "name": "Terry Date",
+            "roles": [
+              "Mixer",
+              "Producer"
+            ],
+            "notes": "Track 9 only"
+          }
+        ],
+        "studios": [
+          "Transient Audio and South Shore Studios, Minneapolis, MN"
+        ]
+      }
     },
     {
       "rank": 13,
@@ -995,7 +1772,55 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Brendon Small",
+            "roles": [
+              "Guitar",
+              "Vocals",
+              "Keyboards",
+              "Bass",
+              "Programming"
+            ]
+          },
+          {
+            "name": "Gene Hoglan",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Bryan Beller",
+            "roles": [
+              "Bass"
+            ],
+            "notes": "Appears on \"The Gears\""
+          }
+        ],
+        "production": [
+          {
+            "name": "Brendon Small",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Ulrich Wild",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          }
+        ],
+        "studios": [
+          "Bombshelter Studios and \"The Danger Zone\", Los Angeles, CA"
+        ]
+      }
     },
     {
       "rank": 14,
@@ -1067,7 +1892,64 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "John Dyer Baizley",
+            "roles": [
+              "Vocals",
+              "Guitar",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Pete Adams",
+            "roles": [
+              "Guitar",
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Nick Jost",
+            "roles": [
+              "Bass",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Sebastian Thomson",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Dave Fridmann",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Baroness",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Greg Calbi",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Tarbox Road Studios, Cassadaga, NY; IQL Studios, Philadelphia, PA (supplementary tracking)"
+        ]
+      }
     }
   ],
   "honorableMentions": [
@@ -1129,7 +2011,84 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Tommy Giles Rogers",
+            "roles": [
+              "Vocals",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Paul Waggoner",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Dan Briggs",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Dustie Waring",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Blake Richardson",
+            "roles": [
+              "Drums",
+              "Percussion"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Adam Fisher",
+            "roles": [
+              "Harsh and Clean Vocals on \"Prequel to the Sequel\""
+            ],
+            "notes": "Fear Before"
+          },
+          {
+            "name": "Graham Bennett",
+            "roles": [
+              "Didgeridoo on \"Informal Gluttony\""
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Jamie King",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Brandon Proff",
+            "roles": [
+              "Layout"
+            ]
+          },
+          {
+            "name": "Chuck Johnson",
+            "roles": [
+              "Photography"
+            ]
+          }
+        ],
+        "studios": [
+          "The Basement Studios, Winston-Salem, NC"
+        ]
+      }
     },
     {
       "rank": 2,
@@ -1189,7 +2148,80 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "James Dorton",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Andy Thomas",
+            "roles": [
+              "Guitar",
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Rik Stelzpflug",
+            "roles": [
+              "Guitar",
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Nick Shaw",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Jesse Beahler",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Travis Ryan",
+            "roles": [
+              "Guest Vocals"
+            ],
+            "notes": "Appears on \"Transmit to Disconnect\""
+          },
+          {
+            "name": "Wes Hauch",
+            "roles": [
+              "Guest Guitar Solo"
+            ],
+            "notes": "Appears on \"Again\""
+          }
+        ],
+        "production": [
+          {
+            "name": "Carson Slovak",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Grant McFarland",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          }
+        ],
+        "studios": [
+          "Atrium Audio, Lancaster, PA"
+        ]
+      }
     },
     {
       "rank": 3,
@@ -1264,7 +2296,71 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Jonathan Carpenter",
+            "roles": [
+              "Vocals",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Robby Baca",
+            "roles": [
+              "Guitar",
+              "Keyboards",
+              "Programming"
+            ]
+          },
+          {
+            "name": "Cameron Maynard",
+            "roles": [
+              "Guitar",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Christopher Tilley",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Joey Baca",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Ken Susi",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Jordan King",
+            "roles": [
+              "Additional Production",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Alan Douches",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "System Recordings, Boston, MA; Voltaic Recording Studio, Indianapolis, IN"
+        ]
+      }
     },
     {
       "rank": 4,
@@ -1334,7 +2430,84 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Greg Hampton",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Justin McKinney",
+            "roles": [
+              "Guitar",
+              "Bass"
+            ]
+          },
+          {
+            "name": "Rob Maramonte",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Luis Martinez",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Alex Hofmann",
+            "roles": [
+              "Guest Vocals"
+            ],
+            "notes": "of Fallujah"
+          },
+          {
+            "name": "Wes Hauch",
+            "roles": [
+              "Guest Guitar Solo"
+            ],
+            "notes": "of ex-The Faceless; also co-wrote portion of \"Hypnagogia\""
+          },
+          {
+            "name": "Vikram Shankar",
+            "roles": [
+              "Guest Synth Solo"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Zack Ohren",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Justin McKinney",
+            "roles": [
+              "Additional Engineer"
+            ]
+          },
+          {
+            "name": "Michael Keene",
+            "roles": [
+              "Additional Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Castle Ultimate Productions; Keene Machine Studios"
+        ]
+      }
     },
     {
       "rank": 5,
@@ -1404,7 +2577,62 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Adam Biggs",
+            "roles": [
+              "Vocals",
+              "Bass"
+            ]
+          },
+          {
+            "name": "Andy Thomas",
+            "roles": [
+              "Guitar",
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Brody Uttley",
+            "roles": [
+              "Guitar",
+              "Piano",
+              "Keys",
+              "Programming"
+            ]
+          },
+          {
+            "name": "Jared Klein",
+            "roles": [
+              "Drums",
+              "Vocals"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Carson Slovak",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Grant McFarland",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          }
+        ],
+        "studios": [
+          "Atrium Audio"
+        ]
+      }
     },
     {
       "rank": 6,
@@ -1454,7 +2682,85 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Tommy Giles Rogers Jr.",
+            "roles": [
+              "Vocals",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Paul Waggoner",
+            "roles": [
+              "Electric Guitar",
+              "Acoustic Guitar",
+              "Classical Guitar",
+              "Lap Steel Guitar",
+              "Additional Vocals on \"Desert of Song\""
+            ]
+          },
+          {
+            "name": "Dan Briggs",
+            "roles": [
+              "Bass",
+              "Fretless Bass"
+            ]
+          },
+          {
+            "name": "Dustie Waring",
+            "roles": [
+              "Electric Guitar",
+              "Slide Guitar",
+              "Acoustic Guitar",
+              "Guitar Effects"
+            ]
+          },
+          {
+            "name": "Blake Richardson",
+            "roles": [
+              "Drums",
+              "Percussion"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Jamie King",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer",
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Justin Johnson",
+            "roles": [
+              "Engineer"
+            ]
+          },
+          {
+            "name": "Brandon Proff",
+            "roles": [
+              "Layout",
+              "Concept Design"
+            ]
+          },
+          {
+            "name": "Chuck Johnson",
+            "roles": [
+              "Photography",
+              "Vocals on \"Swim to the Moon\""
+            ]
+          }
+        ],
+        "studios": [
+          "The Basement Studios, Winston-Salem, NC"
+        ]
+      }
     },
     {
       "rank": 7,
@@ -1534,7 +2840,78 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Tosin Abasi",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Javier Reyes",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Matt Garstka",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Adam \"Nolly\" Getgood",
+            "roles": [
+              "Bass",
+              "Engineer",
+              "Mixer"
+            ],
+            "notes": "of Periphery"
+          },
+          {
+            "name": "Misha Mansoor",
+            "roles": [
+              "Co-writer",
+              "Producer"
+            ],
+            "notes": "of Periphery; co-wrote tracks 1-4, 6, 8, 10"
+          },
+          {
+            "name": "Diego Farias",
+            "roles": [
+              "Co-writer"
+            ],
+            "notes": "of Volumes; co-wrote tracks 5, 7, 11"
+          },
+          {
+            "name": "Navene Koperweis",
+            "roles": [
+              "Electronics",
+              "Programming"
+            ],
+            "notes": "former AaL drummer"
+          }
+        ],
+        "production": [
+          {
+            "name": "Misha Mansoor",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Adam \"Nolly\" Getgood",
+            "roles": [
+              "Engineer",
+              "Mixer"
+            ]
+          }
+        ]
+      }
     },
     {
       "rank": 8,
@@ -1612,7 +2989,82 @@
             }
           ]
         }
-      ]
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Tommy Giles Rogers",
+            "roles": [
+              "Lead Vocals",
+              "Keyboards"
+            ]
+          },
+          {
+            "name": "Paul Waggoner",
+            "roles": [
+              "Lead Guitar",
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Dan Briggs",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Dustie Waring",
+            "roles": [
+              "Rhythm Guitar"
+            ]
+          },
+          {
+            "name": "Blake Richardson",
+            "roles": [
+              "Drums",
+              "Percussion"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Jamie King",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          },
+          {
+            "name": "Matthew Ellard",
+            "roles": [
+              "Producer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Alan Douches",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          },
+          {
+            "name": "Kris Smith",
+            "roles": [
+              "Mix Assistant"
+            ]
+          },
+          {
+            "name": "Wes Richardson",
+            "roles": [
+              "Artwork",
+              "Layout"
+            ]
+          }
+        ],
+        "studios": [
+          "The Basement Studios, Winston-Salem, NC"
+        ]
+      }
     }
   ]
 }

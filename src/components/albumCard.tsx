@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Accordion } from "@/components/accordion";
-import type { Album } from "@/types/album";
+import type { Album, Credit } from "@/types/album";
 
 type AlbumCardProps = {
   album: Album;
@@ -21,6 +21,20 @@ export default function AlbumCard({ album }: AlbumCardProps) {
       />
     </div>
   ));
+
+  const personnelInfo = (credit: Credit) => (
+    <div key={credit.name} className="odd:bg-card rounded px-1">
+      <div className="flex gap-2">
+        <span className="font-medium flex-1">{credit.name}</span>
+        <span className="text-muted-foreground">{credit.roles.join(", ")}</span>
+      </div>
+      {credit.notes ? (
+        <p className="text-muted-foreground italic text-xs px-0">
+          {t(($) => $.albums.notes)}: {credit.notes}
+        </p>
+      ) : null}
+    </div>
+  );
 
   return (
     <div className="bg-card text-card-foreground border border-border border-l-4 border-l-emerald-500 rounded-lg p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
@@ -63,6 +77,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           let title = disc.title ?? t(($) => $.albums.tracks);
           if (album.discs.length > 1 && !disc.title)
             title = t(($) => $.albums.disc, { number: disc.disc });
+
           return (
             <Accordion key={disc.disc} title={title} classNames="p-2 rounded-md bg-secondary">
               <div className="space-y-0.5">
@@ -80,6 +95,59 @@ export default function AlbumCard({ album }: AlbumCardProps) {
             </Accordion>
           );
         })}
+
+        {album.personnel ? (
+          <div>
+            <Accordion
+              title={t(($) => $.albums.personnel)}
+              classNames="p-2 rounded-md bg-secondary"
+              defaultOpen={false}
+            >
+              <div className="space-y-6 text-sm">
+                {album.personnel.members ? (
+                  <div>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.members)}</p>
+                    <div className="space-y-0.5">{album.personnel.members.map(personnelInfo)}</div>
+                  </div>
+                ) : null}
+                {album.personnel.guests ? (
+                  <div>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.guests)}</p>
+                    <div className="space-y-0.5">{album.personnel.guests.map(personnelInfo)}</div>
+                  </div>
+                ) : null}
+                {album.personnel.production ? (
+                  <div>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.production)}</p>
+                    <div className="space-y-0.5">
+                      {album.personnel.production.map(personnelInfo)}
+                    </div>
+                  </div>
+                ) : null}
+                {album.personnel.studios ? (
+                  <div>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.studios)}</p>
+                    <div className="space-y-0.5">
+                      {album.personnel.studios.map((studio) => (
+                        <div key={studio} className="odd:bg-card rounded px-1">
+                          {studio}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+                {album.personnel.notes ? (
+                  <div>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.notes)}</p>
+                    <div className="space-y-0.5">
+                      <div className="rounded px-1">{album.personnel.notes}</div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </Accordion>
+          </div>
+        ) : null}
       </div>
     </div>
   );
