@@ -84,8 +84,10 @@
     /* zinc 50 */
     --accent-foreground: #fafafa;
     --destructive: #ef4444;
-    --border: #ffffff1a;
-    --input: #ffffff26;
+    /* zinc 600 */
+    --border: #52525b;
+    /* zinc 800 */
+    --input: #27272a;
     /* zinc 500 */
     --ring: #71717a;
     /* emerald reversed */
@@ -133,8 +135,10 @@ html.dark {
   /* zinc 50 */
   --accent-foreground: #fafafa;
   --destructive: #ef4444;
-  --border: #ffffff1a;
-  --input: #ffffff26;
+  /* zinc 600 */
+  --border: #52525b;
+  /* zinc 800 */
+  --input: #27272a;
   /* zinc 500 */
   --ring: #71717a;
   /* emerald reversed */
@@ -243,7 +247,7 @@ html.light {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
 
   body {

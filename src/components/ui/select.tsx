@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 const variantColors = {
   default: "bg-primary text-primary-foreground",
-  outline: "border-border bg-input/30 text-foreground",
+  outline: "border border-border bg-input/30 text-foreground",
   secondary: "bg-secondary text-secondary-foreground",
   ghost: "text-foreground",
 } as const;
