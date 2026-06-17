@@ -1,134 +1,117 @@
-import { ArrowDown, Checkmark } from "@hugeicons/core-free-icons";
+"use client";
+
+import { ChevronDown, Tick01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { Select as SelectPrimitive } from "radix-ui";
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
-function Select({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />;
-}
+const variantColors = {
+  default: "bg-primary text-primary-foreground",
+  outline: "border-border bg-input/30 text-foreground",
+  secondary: "bg-secondary text-secondary-foreground",
+  ghost: "text-foreground",
+} as const;
 
-function SelectGroup({ ...props }: React.ComponentProps<typeof SelectPrimitive.Group>) {
-  return <SelectPrimitive.Group data-slot="select-group" {...props} />;
-}
+const selectVariants = cva(
+  "inline-flex min-w-40 shrink-0 items-center justify-between rounded-sm bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  {
+    variants: {
+      variant: {
+        default: `${variantColors.default} hover:bg-primary/80`,
+        outline: `${variantColors.outline} hover:bg-input/50`,
+        secondary: `${variantColors.secondary} hover:bg-secondary/80`,
+        ghost: `${variantColors.ghost} hover:bg-muted dark:hover:bg-muted/50`,
+      },
+      size: {
+        default: "h-9 gap-1.5 px-3",
+        xs: "h-6 gap-1 px-2.5 text-xs",
+        sm: "h-8 gap-1 px-3",
+        lg: "h-10 gap-1.5 px-4",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 
-function SelectValue({ ...props }: React.ComponentProps<typeof SelectPrimitive.Value>) {
-  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
-}
+type Option = { value: string; label: string; icon?: React.ReactNode };
 
-function SelectTrigger({
+function Select({
   className,
-  children,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Trigger>) {
+  variant,
+  size,
+  options,
+  value,
+  defaultValue,
+  onValueChange,
+  disabled,
+  placeholder,
+}: VariantProps<typeof selectVariants> & {
+  options: Array<Option>;
+  className?: string;
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
+  disabled?: boolean;
+  placeholder?: string;
+}) {
   return (
-    <SelectPrimitive.Trigger
-      data-slot="select-trigger"
-      className={cn(
-        "border-input data-placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:bg-input/30 dark:hover:bg-input/50 flex h-9 w-fit items-center justify-between gap-2 rounded-4xl border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive",
-        className,
-      )}
-      {...props}
+    <SelectPrimitive.Root
+      value={value}
+      defaultValue={defaultValue}
+      onValueChange={onValueChange}
+      disabled={disabled}
     >
-      {children}
-      <SelectPrimitive.Icon asChild>
-        <span aria-hidden="true" className="text-xs text-muted-foreground">
-          <HugeiconsIcon icon={ArrowDown} />
-        </span>
-      </SelectPrimitive.Icon>
-    </SelectPrimitive.Trigger>
-  );
-}
-
-function SelectContent({
-  className,
-  children,
-  position = "popper",
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Content>) {
-  return (
-    <SelectPrimitive.Portal>
-      <SelectPrimitive.Content
-        data-slot="select-content"
-        className={cn(
-          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 relative z-9999 max-h-96 min-w-32 overflow-hidden rounded-2xl border shadow-md",
-          position === "popper" &&
-            "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
-          className,
-        )}
-        position={position}
-        {...props}
+      <SelectPrimitive.Trigger
+        data-slot="select"
+        data-variant={variant}
+        data-size={size}
+        className={cn(selectVariants({ variant, size, className }))}
       >
-        <SelectPrimitive.Viewport
+        <SelectPrimitive.Value placeholder={placeholder} />
+        <SelectPrimitive.Icon>
+          <HugeiconsIcon icon={ChevronDown} className="size-6 shrink-0" aria-hidden="true" />
+        </SelectPrimitive.Icon>
+      </SelectPrimitive.Trigger>
+      <SelectPrimitive.Portal>
+        <SelectPrimitive.Content
+          position="popper"
+          sideOffset={4}
           className={cn(
-            "p-1",
-            position === "popper" &&
-              "h-(--radix-select-trigger-height) w-full min-w-(--radix-select-trigger-width)",
+            "relative z-9999 min-w-(--radix-select-trigger-width) overflow-hidden rounded-sm shadow-md",
+            variantColors[variant ?? "default"],
+            className,
           )}
         >
-          {children}
-        </SelectPrimitive.Viewport>
-      </SelectPrimitive.Content>
-    </SelectPrimitive.Portal>
+          <SelectPrimitive.Viewport>
+            {options.map((option) => (
+              <SelectPrimitive.Item
+                key={option.value}
+                value={option.value}
+                className="flex w-full cursor-pointer items-center justify-between gap-1.5 rounded-sm px-3 h-9 text-sm font-medium outline-none select-none data-highlighted:bg-theme-300 data-disabled:pointer-events-none data-disabled:opacity-50"
+              >
+                <SelectPrimitive.ItemText>
+                  <span className="flex items-center gap-2">
+                    {option.icon}
+                    {option.label}
+                  </span>
+                </SelectPrimitive.ItemText>
+                <span className="size-4 shrink-0 flex items-center justify-center">
+                  <SelectPrimitive.ItemIndicator>
+                    <HugeiconsIcon icon={Tick01Icon} className="size-6" aria-hidden="true" />
+                  </SelectPrimitive.ItemIndicator>
+                </span>
+              </SelectPrimitive.Item>
+            ))}
+          </SelectPrimitive.Viewport>
+        </SelectPrimitive.Content>
+      </SelectPrimitive.Portal>
+    </SelectPrimitive.Root>
   );
 }
 
-function SelectLabel({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) {
-  return (
-    <SelectPrimitive.Label
-      data-slot="select-label"
-      className={cn("px-2 py-1.5 text-xs font-medium text-muted-foreground", className)}
-      {...props}
-    />
-  );
-}
-
-function SelectItem({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Item>) {
-  return (
-    <SelectPrimitive.Item
-      data-slot="select-item"
-      className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-default items-center rounded-xl py-2 pr-8 pl-2 text-sm outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50",
-        className,
-      )}
-      {...props}
-    >
-      <span className="absolute right-2 flex size-3.5 items-center justify-center">
-        <SelectPrimitive.ItemIndicator>
-          <span aria-hidden="true" className="text-xs">
-            <HugeiconsIcon icon={Checkmark} />
-          </span>
-        </SelectPrimitive.ItemIndicator>
-      </span>
-      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-    </SelectPrimitive.Item>
-  );
-}
-
-function SelectSeparator({
-  className,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Separator>) {
-  return (
-    <SelectPrimitive.Separator
-      data-slot="select-separator"
-      className={cn("bg-border pointer-events-none -mx-1 my-1 h-px", className)}
-      {...props}
-    />
-  );
-}
-
-export {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-};
+export { Select };

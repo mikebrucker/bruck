@@ -2,10 +2,10 @@
 
 import {
   Close,
-  HtmlFile02FreeIcons,
-  Moon01Icon,
-  Pdf02FreeIcons,
-  Sun,
+  HtmlFile02Icon,
+  Moon02Icon,
+  Pdf02Icon,
+  Sun02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
@@ -43,7 +43,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           size="icon"
           onClick={onClose}
           aria-label={"close menu"}
-          className={`rounded-sm bg-theme-100 ${convexButtonGradient8}`}
+          className={`bg-theme-100 ${convexButtonGradient8}`}
         >
           <HugeiconsIcon icon={Close} className="size-6" />
         </Button>
@@ -54,7 +54,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           onClick={toggle}
           className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer bg-theme-100 ${convexButtonGradient12}`}
         >
-          <HugeiconsIcon icon={theme === "dark" ? Moon01Icon : Sun} className="size-6" />
+          <HugeiconsIcon icon={theme === "dark" ? Moon02Icon : Sun02Icon} className="size-6" />
           {theme === "dark" ? t(($) => $.menu.dark) : t(($) => $.menu.light)}
         </button>
         <Link
@@ -64,7 +64,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           onClick={onClose}
           className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer bg-theme-100 ${convexButtonGradient12}`}
         >
-          <HugeiconsIcon icon={HtmlFile02FreeIcons} className="size-6" />
+          <HugeiconsIcon icon={HtmlFile02Icon} className="size-6" />
           {t(($) => $.menu.cv)} - HTML
         </Link>
         <Link
@@ -74,11 +74,11 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           onClick={onClose}
           className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer bg-theme-100 ${convexButtonGradient12}`}
         >
-          <HugeiconsIcon icon={Pdf02FreeIcons} className="size-6" />
+          <HugeiconsIcon icon={Pdf02Icon} className="size-6" />
           {t(($) => $.menu.cv)} - PDF
         </Link>
       </nav>
-      <div className="flex flex-col grow justify-end p-4">
+      <div className="mt-auto p-4 flex justify-end">
         <LanguageSelect />
       </div>
     </Drawer>
