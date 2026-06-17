@@ -1,0 +1,2 @@
+export const convexButtonGradient =
+  "bg-[linear-gradient(to_bottom,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%),linear-gradient(to_right,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%)] shadow-sm active:shadow-inner dark:bg-[linear-gradient(to_bottom,rgb(128_128_128/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(128_128_128/0.1)_100%),linear-gradient(to_right,rgb(128_128_128/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(128_128_128/0.1)_100%)]";

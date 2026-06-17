@@ -6,9 +6,17 @@ interface DrawerProps {
   children?: ReactNode;
   side?: "left" | "right";
   useTheme?: boolean;
+  classNames?: string;
 }
 
-function Drawer({ open, onClose, children, side = "right", useTheme = false }: DrawerProps) {
+function Drawer({
+  open,
+  onClose,
+  children,
+  side = "right",
+  useTheme = false,
+  classNames,
+}: DrawerProps) {
   return (
     <div className={`fixed inset-0 z-60 ${open ? "pointer-events-auto" : "pointer-events-none"}`}>
       <button
@@ -20,9 +28,9 @@ function Drawer({ open, onClose, children, side = "right", useTheme = false }: D
         tabIndex={open ? 0 : -1}
       />
       <div
-        className={`absolute top-0 ${side === "right" ? "right-0" : "left-0"} h-full w-4/5 max-w-[360px] transition-transform duration-300 ease-in-out ${
+        className={`absolute top-0 ${side === "right" ? "right-0" : "left-0"} h-full w-4/5 max-w-90 transition-transform duration-300 ease-in-out ${
           open ? "translate-x-0" : side === "right" ? "translate-x-full" : "-translate-x-full"
-        }`}
+        } ${classNames ?? ""}`}
         style={{
           background: useTheme
             ? `linear-gradient(to ${side}, var(--theme-100), var(--theme-50))`
