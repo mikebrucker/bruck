@@ -51,7 +51,8 @@ export function Accordion({
           viewBox="0 0 12 12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="shrink-0"
+          className={`shrink-0 transition-transform ease-in-out origin-center ${open ? "rotate-0" : "rotate-180"}`}
+          style={{ transitionDuration: `${duration}ms` }}
           aria-hidden="true"
         >
           <line
@@ -62,7 +63,7 @@ export function Accordion({
             stroke="currentColor"
             strokeWidth="1.5"
             strokeLinecap="round"
-            className={`transition-transform transform-fill origin-center ${open ? "scale-y-0" : "scale-y-100"}`}
+            className={`transition-transform transform-fill ease-in-out origin-center ${open ? "scale-y-0" : "scale-y-100"}`}
             style={{ transitionDuration: `${duration}ms` }}
           />
           <line
