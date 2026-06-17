@@ -3,11 +3,11 @@
 import { Menu01Icon } from "@hugeicons/core-free-icons";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Accordion } from "@/components/accordion";
-import AlbumCard from "@/components/albumCard";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { Menu } from "@/components/partials/menu";
+import AlbumCard from "@/components/modules/albumCard";
+import { Menu } from "@/components/modules/menu";
+import { Accordion } from "@/components/ui/accordion";
 import honorableMentions from "@/data/honorableMentions.json";
 import ranked from "@/data/ranked.json";
 
@@ -25,7 +25,7 @@ export default function Home() {
           subtitle={t(($) => $.albums.ranked_info)}
           size="xl"
           classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
-          duration={1500}
+          duration={1000}
         >
           {ranked.albums.map((album) => (
             <AlbumCard key={`ranked-${album.rank}`} album={album} />

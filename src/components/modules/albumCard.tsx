@@ -1,9 +1,9 @@
+import { Vynil02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Vynil02Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Accordion } from "@/components/accordion";
+import { Accordion } from "@/components/ui/accordion";
 import { Modal } from "@/components/ui/modal";
 import type { Album, Credit } from "@/types/album";
 

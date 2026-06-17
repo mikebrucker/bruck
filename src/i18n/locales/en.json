@@ -17,6 +17,8 @@
     "notes": "Notes"
   },
   "menu": {
-    "cv": "Résumé/CV"
+    "cv": "Résumé/CV",
+    "dark": "Dark Mode",
+    "light": "Light Mode"
   }
 }

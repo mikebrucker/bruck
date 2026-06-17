@@ -15,6 +15,7 @@ import { Drawer } from "@/components/ui/drawer";
 import { convexButtonGradient8, convexButtonGradient12 } from "@/lib/styles";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useThemeStore } from "@/stores/useThemeStore";
+import { LanguageSelect } from "./languageSelect";
 
 interface MenuProps {
   open: boolean;
@@ -30,7 +31,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
   const side: "left" | "right" = "right";
   return (
     <Drawer
-      classNames={side === "right" ? "border-l border-r-2" : "border-r border-l-2"}
+      classNames={`flex flex-col ${side === "right" ? "border-l border-r-2" : "border-r border-l-2"}`}
       open={open}
       onClose={onClose}
       side={side}
@@ -54,7 +55,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer bg-theme-100 ${convexButtonGradient12}`}
         >
           <HugeiconsIcon icon={theme === "dark" ? Moon01Icon : Sun} className="size-6" />
-          {theme === "dark" ? "Dark mode" : "Light mode"}
+          {theme === "dark" ? t(($) => $.menu.dark) : t(($) => $.menu.light)}
         </button>
         <Link
           href="/mike-brucker-cv.html"
@@ -77,6 +78,9 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           {t(($) => $.menu.cv)} - PDF
         </Link>
       </nav>
+      <div className="flex flex-col grow justify-end p-4">
+        <LanguageSelect />
+      </div>
     </Drawer>
   );
 }

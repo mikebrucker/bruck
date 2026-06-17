@@ -17,6 +17,8 @@
     "notes": "Notizen"
   },
   "menu": {
-    "cv": "Lebenslauf/CV"
+    "cv": "Lebenslauf/CV",
+    "dark": "Dunkelmodus",
+    "light": "Hellmodus"
   }
 }
