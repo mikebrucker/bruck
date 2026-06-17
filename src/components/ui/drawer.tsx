@@ -33,7 +33,7 @@ function Drawer({
         } ${classNames ?? ""}`}
         style={{
           background: useTheme
-            ? `linear-gradient(to ${side}, var(--theme-100), var(--theme-50))`
+            ? `linear-gradient(to bottom ${side}, var(--theme-200), var(--background))`
             : "var(--background)",
         }}
       >

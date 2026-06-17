@@ -2097,6 +2097,194 @@
     },
     {
       "rank": 16,
+      "artist": "Intervals",
+      "album": "A Voice Within",
+      "year": 2014,
+      "label": "Self-released / Basick",
+      "genre": "Progressive Metal / Djent",
+      "runtime": "49:32",
+      "review": "Marshall and Semesky clicked immediately, the grooves hit harder with a voice anchoring them and Semesky's range suits the material perfectly without softening the edges. The Self Surrendered is the centrepiece, eight minutes that earns every second, and the title track closes the album with the same unhurried confidence. A debut that felt fully formed from the first listen.",
+      "art": [
+        "mbid-9f52305c-e2ca-4950-8278-cc3a95cb3d5e-39565669096.jpg"
+      ],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Ephemeral",
+              "duration": "5:04"
+            },
+            {
+              "number": 2,
+              "title": "Moment Marauder",
+              "duration": "4:48"
+            },
+            {
+              "number": 3,
+              "title": "Automaton",
+              "duration": "4:50"
+            },
+            {
+              "number": 4,
+              "title": "The Self Surrendered",
+              "duration": "8:05"
+            },
+            {
+              "number": 5,
+              "title": "Breathe",
+              "duration": "1:56"
+            },
+            {
+              "number": 6,
+              "title": "The Escape",
+              "duration": "4:03"
+            },
+            {
+              "number": 7,
+              "title": "Atlas Hour",
+              "duration": "7:09"
+            },
+            {
+              "number": 8,
+              "title": "Siren Sound",
+              "duration": "5:05"
+            },
+            {
+              "number": 9,
+              "title": "A Voice Within",
+              "duration": "8:29"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Mike Semesky",
+            "roles": [
+              "Vocals"
+            ]
+          },
+          {
+            "name": "Aaron Marshall",
+            "roles": [
+              "Guitar",
+              "Bass"
+            ]
+          },
+          {
+            "name": "Lukas Guyader",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Anup Sastry",
+            "roles": [
+              "Drums",
+              "Percussion"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Nils Mikkelsen",
+            "roles": [
+              "Electric Piano"
+            ],
+            "notes": "Track 2"
+          },
+          {
+            "name": "Ariel Loveland",
+            "roles": [
+              "Violin"
+            ],
+            "notes": "Track 4"
+          },
+          {
+            "name": "Emily Rust",
+            "roles": [
+              "Violin"
+            ],
+            "notes": "Track 4"
+          },
+          {
+            "name": "Michael Rollins",
+            "roles": [
+              "Viola"
+            ],
+            "notes": "Track 4"
+          },
+          {
+            "name": "Sara Cerrato",
+            "roles": [
+              "Cello"
+            ],
+            "notes": "Track 4"
+          },
+          {
+            "name": "Michael Ciccia",
+            "roles": [
+              "Choir Vocals"
+            ],
+            "notes": "Track 4"
+          },
+          {
+            "name": "Matt HK",
+            "roles": [
+              "Choir Vocals"
+            ],
+            "notes": "Track 4"
+          },
+          {
+            "name": "Cameron McLellan",
+            "roles": [
+              "Additional Bass"
+            ]
+          }
+        ],
+        "production": [
+          {
+            "name": "Jordan Valeriote",
+            "roles": [
+              "Producer",
+              "Engineer",
+              "Mixer"
+            ]
+          },
+          {
+            "name": "Cameron McLellan",
+            "roles": [
+              "Producer",
+              "Additional Engineer"
+            ]
+          },
+          {
+            "name": "Intervals",
+            "roles": [
+              "Producer"
+            ]
+          },
+          {
+            "name": "Randy Slaugh",
+            "roles": [
+              "String Production"
+            ],
+            "notes": "Track 4"
+          },
+          {
+            "name": "Anup Sastry",
+            "roles": [
+              "Additional Engineer"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "rank": 17,
       "artist": "Baroness",
       "album": "Purple",
       "year": 2015,
@@ -2225,7 +2413,7 @@
       }
     },
     {
-      "rank": 17,
+      "rank": 18,
       "artist": "System of a Down",
       "album": "Steal This Album!",
       "year": 2002,
@@ -2380,7 +2568,7 @@
       }
     },
     {
-      "rank": 18,
+      "rank": 19,
       "artist": "Warrel Dane",
       "album": "Praises to the War Machine",
       "year": 2008,
@@ -2534,7 +2722,7 @@
       }
     },
     {
-      "rank": 19,
+      "rank": 20,
       "artist": "Substructure",
       "album": "Monolith",
       "year": 2011,
@@ -2627,14 +2815,14 @@
       }
     },
     {
-      "rank": 20,
+      "rank": 21,
       "artist": "Opeth",
       "album": "Ghost Reveries",
       "year": 2005,
       "label": "Roadrunner",
       "genre": "Progressive Death Metal",
       "runtime": "66:46",
-      "review": "The last Opeth album where the death metal and the prog exist in genuine tension rather than polite coexistence. Åkerfeldt was writing at the absolute peak of his powers — Ghost of Perdition and Reverie/Harlequin Forest are as good as anything in the catalogue. Per Wiberg's keys add a warmth and depth the band hadn't had before, and Jens Bogren's production gives it a weight that suits every dynamic shift. A landmark.",
+      "review": "The last Opeth album where the death metal and the prog exist in genuine tension rather than polite coexistence. Åkerfeldt was writing at the absolute peak of his powers, Ghost of Perdition and Reverie/Harlequin Forest are as good as anything in the catalogue. Per Wiberg's keys add a warmth and depth the band hadn't had before, and Jens Bogren's production gives it a weight that suits every dynamic shift. A landmark.",
       "art": [
         "mbid-2f087439-5d1b-38c7-99fd-0de138a11fc2-20838648318.jpg"
       ],
@@ -2753,6 +2941,173 @@
         ],
         "studios": [
           "Fascination Street Studios, Örebro, Sweden"
+        ]
+      }
+    },
+    {
+      "rank": 22,
+      "artist": "The Offspring",
+      "album": "Smash",
+      "year": 1994,
+      "label": "Epitaph",
+      "genre": "Punk Rock / Skate Punk",
+      "runtime": "46:47",
+      "review": "The best-selling indie album of all time for a reason, every track pulls its weight and the sequencing is relentless. Bad Habit, Self Esteem and Gotta Get Away are the obvious peaks but Genocide and Nitro hit just as hard. Raw, fast, and built to last. Still sounds exactly right 30 years later.",
+      "art": [
+        "mbid-b50d155a-5cde-3600-b768-5a6fc0ce57eb-31844265343.jpg"
+      ],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Time to Relax",
+              "duration": "0:25"
+            },
+            {
+              "number": 2,
+              "title": "Nitro (Youth Energy)",
+              "duration": "2:27"
+            },
+            {
+              "number": 3,
+              "title": "Bad Habit",
+              "duration": "3:44"
+            },
+            {
+              "number": 4,
+              "title": "Gotta Get Away",
+              "duration": "3:54"
+            },
+            {
+              "number": 5,
+              "title": "Genocide",
+              "duration": "3:31"
+            },
+            {
+              "number": 6,
+              "title": "Something to Believe In",
+              "duration": "3:18"
+            },
+            {
+              "number": 7,
+              "title": "Come Out and Play",
+              "duration": "3:18"
+            },
+            {
+              "number": 8,
+              "title": "Self Esteem",
+              "duration": "4:18"
+            },
+            {
+              "number": 9,
+              "title": "It'll Be a Long Time",
+              "duration": "2:43"
+            },
+            {
+              "number": 10,
+              "title": "Killboy Powerhead",
+              "duration": "2:03"
+            },
+            {
+              "number": 11,
+              "title": "What Happened to You?",
+              "duration": "2:12"
+            },
+            {
+              "number": 12,
+              "title": "So Alone",
+              "duration": "1:17"
+            },
+            {
+              "number": 13,
+              "title": "Not the One",
+              "duration": "2:55"
+            },
+            {
+              "number": 14,
+              "title": "Smash / Come Out and Play (Reprise)",
+              "duration": "10:39"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Dexter Holland",
+            "roles": [
+              "Vocals",
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Noodles",
+            "roles": [
+              "Guitar",
+              "Backing Vocals"
+            ]
+          },
+          {
+            "name": "Greg K.",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Ron Welty",
+            "roles": [
+              "Drums",
+              "Backing Vocals"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Jason \"Blackball\" McLean",
+            "roles": [
+              "Vocals"
+            ],
+            "notes": "Appears on \"Come Out and Play\""
+          }
+        ],
+        "production": [
+          {
+            "name": "Thom Wilson",
+            "roles": [
+              "Producer",
+              "Engineer"
+            ]
+          },
+          {
+            "name": "Ken Paulakovich",
+            "roles": [
+              "Additional Engineer"
+            ]
+          },
+          {
+            "name": "Mike Ainsworth",
+            "roles": [
+              "2nd Engineer"
+            ]
+          },
+          {
+            "name": "Ulysses Noriega",
+            "roles": [
+              "2nd Engineer"
+            ]
+          },
+          {
+            "name": "Eddy Schreyer",
+            "roles": [
+              "Mastering Engineer"
+            ]
+          }
+        ],
+        "studios": [
+          "Track Record, North Hollywood, CA",
+          "The Hook, North Hollywood, CA (additional recording)"
         ]
       }
     }

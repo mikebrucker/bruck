@@ -1052,6 +1052,144 @@
     },
     {
       "rank": 9,
+      "artist": "The Offspring",
+      "album": "Americana",
+      "year": 1998,
+      "label": "Columbia",
+      "genre": "Punk Rock / Pop Punk",
+      "runtime": "43:37",
+      "review": "The pop instincts got sharper and the production got bigger and somehow it worked. Pretty Fly and Why Don't You Get a Job are obvious but the record holds up better than its reputation suggests. Have You Ever and The Kids Aren't Alright are genuinely great punk songs. Pay the Man closing things out at 8 minutes is a weird left turn that earns it every time.",
+      "art": [
+        "mbid-68d6732a-85df-466d-ae24-bc1b5e03edcc-23692010875.jpg"
+      ],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Welcome",
+              "duration": "0:15"
+            },
+            {
+              "number": 2,
+              "title": "Have You Ever",
+              "duration": "4:00"
+            },
+            {
+              "number": 3,
+              "title": "Staring at the Sun",
+              "duration": "3:16"
+            },
+            {
+              "number": 4,
+              "title": "Pretty Fly (for a White Guy)",
+              "duration": "3:07"
+            },
+            {
+              "number": 5,
+              "title": "The Kids Aren't Alright",
+              "duration": "3:00"
+            },
+            {
+              "number": 6,
+              "title": "Feelings",
+              "duration": "2:33"
+            },
+            {
+              "number": 7,
+              "title": "She's Got Issues",
+              "duration": "3:48"
+            },
+            {
+              "number": 8,
+              "title": "Walla Walla",
+              "duration": "2:46"
+            },
+            {
+              "number": 9,
+              "title": "The End of the Line",
+              "duration": "3:05"
+            },
+            {
+              "number": 10,
+              "title": "No Brakes",
+              "duration": "2:44"
+            },
+            {
+              "number": 11,
+              "title": "Why Don't You Get a Job?",
+              "duration": "2:55"
+            },
+            {
+              "number": 12,
+              "title": "Americana",
+              "duration": "3:20"
+            },
+            {
+              "number": 13,
+              "title": "Pay the Man",
+              "duration": "8:10",
+              "notes": "Includes hidden reprise of 'Pretty Fly' after 1 minute of silence"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Dexter Holland",
+            "roles": [
+              "Vocals",
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Noodles",
+            "roles": [
+              "Guitar"
+            ]
+          },
+          {
+            "name": "Greg K.",
+            "roles": [
+              "Bass"
+            ]
+          },
+          {
+            "name": "Ron Welty",
+            "roles": [
+              "Drums"
+            ]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Mariachi band",
+            "roles": [
+              "Guitarrón",
+              "Vihuela",
+              "Trumpet"
+            ],
+            "notes": "Appears on 'Pretty Fly (for a White Guy)'"
+          }
+        ],
+        "production": [
+          {
+            "name": "Dave Jerden",
+            "roles": [
+              "Producer",
+              "Mixer"
+            ]
+          }
+        ],
+        "studios": [
+          "Eldorado Recording Studios, Burbank, CA"
+        ]
+      }
+    },
+    {
+      "rank": 10,
       "artist": "Between the Buried and Me",
       "album": "Alaska",
       "year": 2005,

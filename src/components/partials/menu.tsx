@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Drawer } from "@/components/ui/drawer";
-import { convexButtonGradient } from "@/lib/styles";
+import { convexButtonGradient8, convexButtonGradient12 } from "@/lib/styles";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useThemeStore } from "@/stores/useThemeStore";
 
@@ -42,7 +42,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           size="icon"
           onClick={onClose}
           aria-label={"close menu"}
-          className={`rounded-sm ${convexButtonGradient}`}
+          className={`rounded-sm bg-theme-100 ${convexButtonGradient8}`}
         >
           <HugeiconsIcon icon={Close} className="size-6" />
         </Button>
@@ -51,7 +51,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
         <button
           type="button"
           onClick={toggle}
-          className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer ${convexButtonGradient}`}
+          className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer bg-theme-100 ${convexButtonGradient12}`}
         >
           <HugeiconsIcon icon={theme === "dark" ? Moon01Icon : Sun} className="size-6" />
           {theme === "dark" ? "Dark mode" : "Light mode"}
@@ -61,7 +61,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}
-          className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer ${convexButtonGradient}`}
+          className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer bg-theme-100 ${convexButtonGradient12}`}
         >
           <HugeiconsIcon icon={HtmlFile02FreeIcons} className="size-6" />
           {t(($) => $.menu.cv)} - HTML
@@ -71,7 +71,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}
-          className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer ${convexButtonGradient}`}
+          className={`border-b text-lg font-medium hover:bg-theme-300 active:bg-theme-500 transition-colors duration-250 px-4 py-3 flex items-center gap-2 text-left cursor-pointer bg-theme-100 ${convexButtonGradient12}`}
         >
           <HugeiconsIcon icon={Pdf02FreeIcons} className="size-6" />
           {t(($) => $.menu.cv)} - PDF

@@ -38,7 +38,7 @@ export default function Home() {
           duration={1000}
         >
           {honorableMentions.albums.map((album) => (
-            <AlbumCard key={`hm-${album.rank}`} album={album} />
+            <AlbumCard key={`hm-${album.rank}`} album={album} noRank />
           ))}
         </Accordion>
       </main>
