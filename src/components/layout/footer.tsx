@@ -1,5 +1,3 @@
-"use client";
-
 import type * as React from "react";
 import { cn } from "@/lib/utils";
 
@@ -12,12 +10,16 @@ function Footer({ className, sticky = false, ...props }: FooterProps) {
     <footer
       data-slot="footer"
       className={cn(
-        "flex w-full items-center justify-end bg-card border-t px-4 py-4",
+        "flex w-full items-center justify-around bg-card border-t px-4 py-4",
         sticky && "sticky bottom-0 z-10",
         className,
       )}
       {...props}
-    ></footer>
+    >
+      <div className="font-asimovian tracking-widest text-shadow-md text-shadow-theme-600 dark:text-shadow-theme-400">
+        &copy; {new Date().getFullYear()} · Mike Brucker
+      </div>
+    </footer>
   );
 }
 

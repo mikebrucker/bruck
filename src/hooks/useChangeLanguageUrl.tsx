@@ -1,3 +1,5 @@
+"use client";
+
 import { usePathname, useSearchParams } from "next/navigation";
 import type { Language } from "@/i18n/config";
 
