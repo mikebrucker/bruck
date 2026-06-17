@@ -8,9 +8,7 @@ export function ThemeInit() {
 
   useEffect(() => {
     const stored = localStorage.getItem("theme") as "light" | "dark" | null;
-    const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     setTheme(stored === "light" || stored === "dark" ? stored : preferred);
   }, [setTheme]);
 

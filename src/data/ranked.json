@@ -9,9 +9,7 @@
       "genre": "Progressive/Tech Death Metal",
       "runtime": "72:33",
       "review": "A landmark in progressive metal. BTBAM weaponize every dynamic from skull-crushing brutality to full orchestral bliss within a single track. The concept storytelling is airtight, and Silent Flight Parliament is one of the greatest album closers ever written.",
-      "art": [
-        "mbid-c1afd5ae-a8bb-4986-8a8d-83b87d1fd62c-32621144969.jpg"
-      ],
+      "art": ["mbid-c1afd5ae-a8bb-4986-8a8d-83b87d1fd62c-32621144969.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -83,107 +81,69 @@
         "members": [
           {
             "name": "Dan Briggs",
-            "roles": [
-              "Bass",
-              "Additional Keyboards"
-            ]
+            "roles": ["Bass", "Additional Keyboards"]
           },
           {
             "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
+            "roles": ["Drums", "Percussion"]
           },
           {
             "name": "Tommy Giles Rogers Jr.",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
+            "roles": ["Vocals", "Keyboards"]
           },
           {
             "name": "Paul Waggoner",
-            "roles": [
-              "Lead Guitar"
-            ]
+            "roles": ["Lead Guitar"]
           },
           {
             "name": "Dustie Waring",
-            "roles": [
-              "Rhythm Guitar"
-            ]
+            "roles": ["Rhythm Guitar"]
           }
         ],
         "guests": [
           {
             "name": "Amos Williams",
-            "roles": [
-              "Spoken Word"
-            ],
+            "roles": ["Spoken Word"],
             "notes": "of TesseracT; spoken word on \"Parallax\""
           },
           {
             "name": "Walter Fancourt",
-            "roles": [
-              "Bass Clarinet",
-              "Flute",
-              "Tenor Saxophone"
-            ],
+            "roles": ["Bass Clarinet", "Flute", "Tenor Saxophone"],
             "notes": "of Trioscapes"
           },
           {
             "name": "Ricky Alexander",
-            "roles": [
-              "Violin"
-            ]
+            "roles": ["Violin"]
           },
           {
             "name": "Julian Hinshaw",
-            "roles": [
-              "Tuba"
-            ]
+            "roles": ["Tuba"]
           },
           {
             "name": "Maddox Giles",
-            "roles": [
-              "Alien Noises"
-            ],
+            "roles": ["Alien Noises"],
             "notes": "Tommy Giles Rogers' infant son"
           }
         ],
         "production": [
           {
             "name": "Jamie King",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer", "Mastering Engineer"]
           },
           {
             "name": "Kevin King",
-            "roles": [
-              "Additional Production Editing"
-            ]
+            "roles": ["Additional Production Editing"]
           },
           {
             "name": "Between the Buried and Me",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Chandler Owen",
-            "roles": [
-              "Art and Design"
-            ]
+            "roles": ["Art and Design"]
           }
         ],
-        "studios": [
-          "The Basement Studios, Winston-Salem, NC"
-        ]
+        "studios": ["The Basement Studios, Winston-Salem, NC"]
       }
     },
     {
@@ -195,9 +155,7 @@
       "genre": "Tech Death Metal",
       "runtime": "57:21",
       "review": "Mechanized chaos with genuine songwriting intelligence behind it. Every track earns its place, transitions are seamless, ideas hit hard and keep moving. Don't Be Disputin' With Rasputin is a career-defining 6 minutes.",
-      "art": [
-        "mbid-956bdaaa-4dbc-4a8d-9915-3cc3268f7543-32085053052.jpg"
-      ],
+      "art": ["mbid-956bdaaa-4dbc-4a8d-9915-3cc3268f7543-32085053052.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -274,49 +232,33 @@
         "members": [
           {
             "name": "Jake Gerstle",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Shayne Johnson",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Damien Boorman",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Zimi Shabanay",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Nelson Barnes",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Shane Frisby",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "Pete Rutcho",
-            "roles": [
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Mixer", "Mastering Engineer"]
           }
         ]
       }
@@ -330,9 +272,7 @@
       "genre": "Melodic Death Metal",
       "runtime": "84:19",
       "review": "A double album with zero weak links, a near-impossible feat. Jens Bogren's production is enormous. Speed Strid delivers career-best vocal performances across 84 minutes that somehow never lose momentum.",
-      "art": [
-        "mbid-1b25945b-d360-4cf7-9718-2ad5fa314b24-7454301422.jpg"
-      ],
+      "art": ["mbid-1b25945b-d360-4cf7-9718-2ad5fa314b24-7454301422.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -449,89 +389,60 @@
         "members": [
           {
             "name": "Björn \"Speed\" Strid",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Sylvain Coudret",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "David Andersson",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Ola Flink",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Sven Karlsson",
-            "roles": [
-              "Keyboards"
-            ]
+            "roles": ["Keyboards"]
           },
           {
             "name": "Dirk Verbeuren",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Justin Sullivan",
-            "roles": [
-              "Guest Vocals"
-            ],
+            "roles": ["Guest Vocals"],
             "notes": "Appears on \"The Windswept Mercy\" (disc 1, track 9)"
           },
           {
             "name": "Hanna Carlsson",
-            "roles": [
-              "Cello",
-              "Piano"
-            ],
+            "roles": ["Cello", "Piano"],
             "notes": "Cello on \"Spectrum of Eternity\" and \"The Living Infinite II\"; piano on \"Spectrum of Eternity\""
           }
         ],
         "production": [
           {
             "name": "Jens Bogren",
-            "roles": [
-              "Producer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Producer", "Mixer", "Mastering Engineer"]
           },
           {
             "name": "Johan Örnborg",
-            "roles": [
-              "Assistant Producer"
-            ]
+            "roles": ["Assistant Producer"]
           },
           {
             "name": "Linus Corneliusson",
-            "roles": [
-              "Assistant Producer"
-            ]
+            "roles": ["Assistant Producer"]
           },
           {
             "name": "Soilwork",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           }
         ],
-        "studios": [
-          "Fascination Street Studios, Örebro, Sweden"
-        ]
+        "studios": ["Fascination Street Studios, Örebro, Sweden"]
       }
     },
     {
@@ -652,72 +563,49 @@
         "members": [
           {
             "name": "Spencer Sotelo",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Misha Mansoor",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Jake Bowen",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Mark Holcomb",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Adam \"Nolly\" Getgood",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Matt Halpern",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Periphery",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Spencer Sotelo",
-            "roles": [
-              "Vocal Producer"
-            ]
+            "roles": ["Vocal Producer"]
           },
           {
             "name": "Adam \"Nolly\" Getgood",
-            "roles": [
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Engineer", "Mixer"]
           },
           {
             "name": "Taylor Larson",
-            "roles": [
-              "Additional Engineer"
-            ]
+            "roles": ["Additional Engineer"]
           },
           {
             "name": "Ermin Hamidovic",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ]
       }
@@ -731,9 +619,7 @@
       "genre": "Technical/Progressive Death Metal",
       "runtime": "56:43",
       "review": "A genre-defying leap forward, brutal tech death woven with saxophone, atmosphere, and devastating emotional weight. Every track earns its place. Capricorn / Agoratopia closes the album like a slow burning crescendo into oblivion.",
-      "art": [
-        "mbid-73788306-6f7c-4ac9-a55e-7475464ccf6f-19349849238.jpg"
-      ],
+      "art": ["mbid-73788306-6f7c-4ac9-a55e-7475464ccf6f-19349849238.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -795,66 +681,43 @@
         "members": [
           {
             "name": "Jake Dieffenbach",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Brody Uttley",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Jon Topore",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Adam Biggs",
-            "roles": [
-              "Bass",
-              "Vocals"
-            ]
+            "roles": ["Bass", "Vocals"]
           },
           {
             "name": "Jared Klein",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Zach Strouse",
-            "roles": [
-              "Saxophone"
-            ],
+            "roles": ["Saxophone"],
             "notes": "of Burial In The Sky; solos on 3 tracks, atmospheric work on 2 others"
           }
         ],
         "production": [
           {
             "name": "Carson Slovak",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Grant McFarland",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           }
         ],
-        "studios": [
-          "Atrium Audio, Lancaster, PA"
-        ]
+        "studios": ["Atrium Audio, Lancaster, PA"]
       }
     },
     {
@@ -866,9 +729,7 @@
       "genre": "Melodic Death Metal",
       "runtime": "34:16",
       "review": "Pure Gothenburg aggression at full sprint, fast, catchy, and loaded with tasty riffs. Deny and Hell Is Within cut deep. Eleven tracks of relentless melodic death metal.",
-      "art": [
-        "mbid-06cc8a20-970f-43cd-9dc6-7244a6701550-44168475256.jpg"
-      ],
+      "art": ["mbid-06cc8a20-970f-43cd-9dc6-7244a6701550-44168475256.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -935,58 +796,39 @@
         "members": [
           {
             "name": "Jocke Gothberg",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Jesper Strömblad",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Daniel Antonsson",
-            "roles": [
-              "Guitar",
-              "Bass"
-            ]
+            "roles": ["Guitar", "Bass"]
           },
           {
             "name": "Hans Nilsson",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Jeff Waters",
-            "roles": [
-              "Guest Guitar Solo"
-            ],
+            "roles": ["Guest Guitar Solo"],
             "notes": "of Annihilator"
           }
         ],
         "production": [
           {
             "name": "Arnold Lindberg",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Dimension Zero",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           }
         ],
-        "studios": [
-          "IF Studios, Gothenburg, Sweden"
-        ]
+        "studios": ["IF Studios, Gothenburg, Sweden"]
       }
     },
     {
@@ -998,9 +840,7 @@
       "genre": "Progressive Metal / Avant-Garde Metal",
       "runtime": "45:08",
       "review": "The Contortionist at their most dynamic and fearless, crushing riffs that pivot effortlessly into post-rock atmosphere and jazz-tinged passages without ever feeling forced. Holomovement through Geocentric Confusion is one of the strongest opening runs in modern prog metal.",
-      "art": [
-        "mbid-cc50bfa2-e1ed-4356-acb1-c3a7b0210eaa-12726112845.jpg"
-      ],
+      "art": ["mbid-cc50bfa2-e1ed-4356-acb1-c3a7b0210eaa-12726112845.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1062,69 +902,44 @@
         "members": [
           {
             "name": "Jonathan Carpenter",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
+            "roles": ["Vocals", "Keyboards"]
           },
           {
             "name": "Robby Baca",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Cameron Maynard",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Christopher Tilley",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Joey Baca",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Eyal Levi",
-            "roles": [
-              "Co-Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Co-Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Jason Suecof",
-            "roles": [
-              "Co-Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Co-Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Eric Guenther",
-            "roles": [
-              "Additional Synth/Keyboard Producer"
-            ]
+            "roles": ["Additional Synth/Keyboard Producer"]
           },
           {
             "name": "Alan Douches",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
-        "studios": [
-          "Audiohammer Studios, Sanford, FL"
-        ]
+        "studios": ["Audiohammer Studios, Sanford, FL"]
       }
     },
     {
@@ -1136,9 +951,7 @@
       "genre": "Progressive Metalcore / Djent",
       "runtime": "43:50",
       "review": "Dense, ferocious, and endlessly rewarding. Zman's beautiful, introspective piano riff surges powerfully into Timeless, an emotionally explosive closer that detonates with everything the album built toward.",
-      "art": [
-        "mbid-23d19470-e0e9-446a-b7dc-5d117e398425-12707880560.jpg"
-      ],
+      "art": ["mbid-23d19470-e0e9-446a-b7dc-5d117e398425-12707880560.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1197,65 +1010,40 @@
         "members": [
           {
             "name": "Daniël de Jongh",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Joe Tal",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Bart Hennephof",
-            "roles": [
-              "Guitar",
-              "Backing Vocals"
-            ]
+            "roles": ["Guitar", "Backing Vocals"]
           },
           {
             "name": "Remko Tielemans",
-            "roles": [
-              "Bass",
-              "Backing Vocals"
-            ]
+            "roles": ["Bass", "Backing Vocals"]
           },
           {
             "name": "Stef Broks",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           },
           {
             "name": "Uri Dijk",
-            "roles": [
-              "Synthesizer",
-              "Programming",
-              "Backing Vocals"
-            ]
+            "roles": ["Synthesizer", "Programming", "Backing Vocals"]
           }
         ],
         "production": [
           {
             "name": "Jochem Jacobs",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer", "Mastering Engineer"]
           },
           {
             "name": "Yuma van Eekelen",
-            "roles": [
-              "Engineer"
-            ]
+            "roles": ["Engineer"]
           }
         ],
-        "studios": [
-          "Split Second Sound, Amsterdam, Netherlands"
-        ]
+        "studios": ["Split Second Sound, Amsterdam, Netherlands"]
       }
     },
     {
@@ -1267,9 +1055,7 @@
       "genre": "Progressive Death Metal",
       "runtime": "21:34",
       "review": "A debut EP that hit like a full album. Raw, ferocious, and immediately fully formed. Stench of the Iron Age alone announced BCI as one of the most exciting bands in prog death.",
-      "art": [
-        "mbid-a49dd12f-ea79-43dd-95d6-c2adad7be650-11176896632.jpg"
-      ],
+      "art": ["mbid-a49dd12f-ea79-43dd-95d6-c2adad7be650-11176896632.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1301,37 +1087,25 @@
         "members": [
           {
             "name": "James Dorton",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Andy Thomas",
-            "roles": [
-              "Guitar",
-              "Clean Vocals"
-            ]
+            "roles": ["Guitar", "Clean Vocals"]
           },
           {
             "name": "Nick Shaw",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           }
         ],
         "notes": "Drums programmed. Rik Stelzpflug and Jeff Willet listed in booklet but did not perform.",
         "production": [
           {
             "name": "Carson Slovak",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           }
         ],
-        "studios": [
-          "Atrium Audio, Lancaster, PA"
-        ]
+        "studios": ["Atrium Audio, Lancaster, PA"]
       }
     },
     {
@@ -1343,9 +1117,7 @@
       "genre": "Progressive/Technical Death Metal",
       "runtime": "66:52",
       "review": "Gojira weaponize groove and atmosphere in equal measure, mighty chugging riffs that never sacrifice emotional weight. Flying Whales is the centrepiece and one of the greatest metal songs ever written, but the floor never drops across all 12 tracks.",
-      "art": [
-        "mbid-13df50d7-d3a5-4486-9863-bc0ef1c5b81b-18590894530.jpg"
-      ],
+      "art": ["mbid-13df50d7-d3a5-4486-9863-bc0ef1c5b81b-18590894530.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1417,72 +1189,48 @@
         "members": [
           {
             "name": "Joe Duplantier",
-            "roles": [
-              "Vocals",
-              "Guitar"
-            ]
+            "roles": ["Vocals", "Guitar"]
           },
           {
             "name": "Christian Andreu",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Jean-Michel Labadie",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Mario Duplantier",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Gojira",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Laurent Etchemendy",
-            "roles": [
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Engineer", "Mixer"]
           },
           {
             "name": "Joe Duplantier",
-            "roles": [
-              "Mixer"
-            ]
+            "roles": ["Mixer"]
           },
           {
             "name": "Jean-Michel Labadie",
-            "roles": [
-              "Mixer"
-            ]
+            "roles": ["Mixer"]
           },
           {
             "name": "Jean-Pierre Chalbos",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           },
           {
             "name": "Seb Dupuis",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
-        "studios": [
-          "Studio des Milans, Ondres; Le Florida, Agen (drums)"
-        ]
+        "studios": ["Studio des Milans, Ondres; Le Florida, Agen (drums)"]
       }
     },
     {
@@ -1494,9 +1242,7 @@
       "genre": "Progressive Black/Death Metal",
       "runtime": "60:37",
       "review": "A solo one-man odyssey that punches well above its weight. Five tracks, all over nine minutes, each one a seamlessly shifting landscape of blackened aggression, cinematic orchestration, and melodic depth that rewards every listen.",
-      "art": [
-        "mbid-12edb14a-76a4-4a08-b9e3-31d5407bc7e6-30876116351.jpg"
-      ],
+      "art": ["mbid-12edb14a-76a4-4a08-b9e3-31d5407bc7e6-30876116351.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1533,25 +1279,17 @@
         "members": [
           {
             "name": "Alex Haddad",
-            "roles": [
-              "All Instruments",
-              "Vocals"
-            ]
+            "roles": ["All Instruments", "Vocals"]
           }
         ],
         "production": [
           {
             "name": "Brody Smith",
-            "roles": [
-              "Drum Programming"
-            ]
+            "roles": ["Drum Programming"]
           },
           {
             "name": "Bloodline",
-            "roles": [
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Mixer", "Mastering Engineer"]
           }
         ]
       }
@@ -1565,9 +1303,7 @@
       "genre": "Progressive Metalcore",
       "runtime": "41:24",
       "review": "ATB at their most focused and ruthless. Riffs that stick, and a tracklist with no dead weight. Disconnect and A Wolf Amongst Ravens are the peaks, the latter closing the album with haunting atmosphere before detonating into pure controlled chaos.",
-      "art": [
-        "mbid-c2d99033-a193-4a85-a467-ba06448b8fd6-30331637158.jpg"
-      ],
+      "art": ["mbid-c2d99033-a193-4a85-a467-ba06448b8fd6-30331637158.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1624,74 +1360,48 @@
         "members": [
           {
             "name": "Anthony Notarmaso",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Trent Hafdahl",
-            "roles": [
-              "Guitar",
-              "Backing Vocals"
-            ]
+            "roles": ["Guitar", "Backing Vocals"]
           },
           {
             "name": "Justin Lowe",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Lerichard \"Lee\" Foral",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Dan Carle",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Nick Wellner",
-            "roles": [
-              "Guest Vocals"
-            ],
+            "roles": ["Guest Vocals"],
             "notes": "Appears on \"Virga\" (track 6); former ATB vocalist"
           }
         ],
         "production": [
           {
             "name": "Justin Lowe",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer", "Mastering Engineer"]
           },
           {
             "name": "Trent Hafdahl",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "Terry Date",
-            "roles": [
-              "Mixer",
-              "Producer"
-            ],
+            "roles": ["Mixer", "Producer"],
             "notes": "Track 9 only"
           }
         ],
-        "studios": [
-          "Transient Audio and South Shore Studios, Minneapolis, MN"
-        ]
+        "studios": ["Transient Audio and South Shore Studios, Minneapolis, MN"]
       }
     },
     {
@@ -1703,9 +1413,7 @@
       "genre": "Melodic Death Metal",
       "runtime": "52:00",
       "review": "Brendon Small and Gene Hoglan delivering absurdly tight melodic death metal with zero irony in the playing. Massive riffs, cinematic scope, and a tracklist that swings from brutal to epic without breaking stride. Black Fire Upon Us builds from brooding atmosphere into one of the most devastating crescendos on the record.",
-      "art": [
-        "mbid-6962a5f0-5687-3375-a966-c05fd15784db-996874208.jpg"
-      ],
+      "art": ["mbid-6962a5f0-5687-3375-a966-c05fd15784db-996874208.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1777,49 +1485,31 @@
         "members": [
           {
             "name": "Brendon Small",
-            "roles": [
-              "Guitar",
-              "Vocals",
-              "Keyboards",
-              "Bass",
-              "Programming"
-            ]
+            "roles": ["Guitar", "Vocals", "Keyboards", "Bass", "Programming"]
           },
           {
             "name": "Gene Hoglan",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Bryan Beller",
-            "roles": [
-              "Bass"
-            ],
+            "roles": ["Bass"],
             "notes": "Appears on \"The Gears\""
           }
         ],
         "production": [
           {
             "name": "Brendon Small",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Ulrich Wild",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           }
         ],
-        "studios": [
-          "Bombshelter Studios and \"The Danger Zone\", Los Angeles, CA"
-        ]
+        "studios": ["Bombshelter Studios and \"The Danger Zone\", Los Angeles, CA"]
       }
     },
     {
@@ -1831,9 +1521,7 @@
       "genre": "Deathcore / Progressive Metal",
       "runtime": "47:49",
       "review": "The Valley opened the door and Kin walks through it without looking back. Bozeman's clean vocals are no longer a surprise, they're a weapon, and he deploys them with the same conviction as the growls. The concept running through it is genuinely heavy subject matter handled with real restraint. Lost Boy and A Bloodsoaked Symphony are the peaks but the whole thing holds together as a record, not just a collection of songs.",
-      "art": [
-        "mbid-1c3b4ce2-d45f-4da2-a1ef-42b0af2918a7-30899789361.jpg"
-      ],
+      "art": ["mbid-1c3b4ce2-d45f-4da2-a1ef-42b0af2918a7-30899789361.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1900,67 +1588,45 @@
         "members": [
           {
             "name": "Phil Bozeman",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Ben Savage",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Zach Householder",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Alex Wade",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Gabe Crisp",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Alex Rüdinger",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Mark Lewis",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "Whitechapel",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "David Castillo",
-            "roles": [
-              "Mixer"
-            ]
+            "roles": ["Mixer"]
           },
           {
             "name": "Ted Jensen",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
         "studios": [
@@ -1978,9 +1644,7 @@
       "genre": "Progressive Metal / Jazz Fusion",
       "runtime": "34:17",
       "review": "Fifteen years gone and they came back with this, 34 minutes of something that sounds like nothing else. Masvidal's voice sits in that weightless processed register, Reinert plays like gravity is optional, and the whole thing floats between jazz, death metal and something harder to name. Evolutionary Sleeper and King of Those Who Know are the peaks but the album works as a single sustained mood. A record that earns every word of its reputation.",
-      "art": [
-        "mbid-bb960d30-45f7-4895-a84f-1e08f645f1f3-38342820255.png"
-      ],
+      "art": ["mbid-bb960d30-45f7-4895-a84f-1e08f645f1f3-38342820255.png"],
       "discs": [
         {
           "disc": 1,
@@ -2032,67 +1696,42 @@
         "members": [
           {
             "name": "Paul Masvidal",
-            "roles": [
-              "Vocals",
-              "Guitar",
-              "Guitar Synthesizer"
-            ]
+            "roles": ["Vocals", "Guitar", "Guitar Synthesizer"]
           },
           {
             "name": "Sean Reinert",
-            "roles": [
-              "Drums",
-              "Percussion",
-              "Keyboards"
-            ]
+            "roles": ["Drums", "Percussion", "Keyboards"]
           },
           {
             "name": "Tymon Kruidenier",
-            "roles": [
-              "Guitar",
-              "Growls"
-            ]
+            "roles": ["Guitar", "Growls"]
           },
           {
             "name": "Sean Malone",
-            "roles": [
-              "Bass",
-              "Chapman Stick"
-            ]
+            "roles": ["Bass", "Chapman Stick"]
           }
         ],
         "guests": [
           {
             "name": "Amy Correia",
-            "roles": [
-              "Background Vocals"
-            ]
+            "roles": ["Background Vocals"]
           }
         ],
         "production": [
           {
             "name": "Paul Masvidal",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Warren Riker",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "Bernie Grundman",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
-        "studios": [
-          "Broken Wave Studios, Los Angeles, CA"
-        ]
+        "studios": ["Broken Wave Studios, Los Angeles, CA"]
       }
     },
     {
@@ -2104,9 +1743,7 @@
       "genre": "Progressive Metal / Djent",
       "runtime": "49:32",
       "review": "Marshall and Semesky clicked immediately, the grooves hit harder with a voice anchoring them and Semesky's range suits the material perfectly without softening the edges. The Self Surrendered is the centrepiece, eight minutes that earns every second, and the title track closes the album with the same unhurried confidence. A debut that felt fully formed from the first listen.",
-      "art": [
-        "mbid-9f52305c-e2ca-4950-8278-cc3a95cb3d5e-39565669096.jpg"
-      ],
+      "art": ["mbid-9f52305c-e2ca-4950-8278-cc3a95cb3d5e-39565669096.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -2163,122 +1800,83 @@
         "members": [
           {
             "name": "Mike Semesky",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Aaron Marshall",
-            "roles": [
-              "Guitar",
-              "Bass"
-            ]
+            "roles": ["Guitar", "Bass"]
           },
           {
             "name": "Lukas Guyader",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Anup Sastry",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
+            "roles": ["Drums", "Percussion"]
           }
         ],
         "guests": [
           {
             "name": "Nils Mikkelsen",
-            "roles": [
-              "Electric Piano"
-            ],
+            "roles": ["Electric Piano"],
             "notes": "Track 2"
           },
           {
             "name": "Ariel Loveland",
-            "roles": [
-              "Violin"
-            ],
+            "roles": ["Violin"],
             "notes": "Track 4"
           },
           {
             "name": "Emily Rust",
-            "roles": [
-              "Violin"
-            ],
+            "roles": ["Violin"],
             "notes": "Track 4"
           },
           {
             "name": "Michael Rollins",
-            "roles": [
-              "Viola"
-            ],
+            "roles": ["Viola"],
             "notes": "Track 4"
           },
           {
             "name": "Sara Cerrato",
-            "roles": [
-              "Cello"
-            ],
+            "roles": ["Cello"],
             "notes": "Track 4"
           },
           {
             "name": "Michael Ciccia",
-            "roles": [
-              "Choir Vocals"
-            ],
+            "roles": ["Choir Vocals"],
             "notes": "Track 4"
           },
           {
             "name": "Matt HK",
-            "roles": [
-              "Choir Vocals"
-            ],
+            "roles": ["Choir Vocals"],
             "notes": "Track 4"
           },
           {
             "name": "Cameron McLellan",
-            "roles": [
-              "Additional Bass"
-            ]
+            "roles": ["Additional Bass"]
           }
         ],
         "production": [
           {
             "name": "Jordan Valeriote",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Cameron McLellan",
-            "roles": [
-              "Producer",
-              "Additional Engineer"
-            ]
+            "roles": ["Producer", "Additional Engineer"]
           },
           {
             "name": "Intervals",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Randy Slaugh",
-            "roles": [
-              "String Production"
-            ],
+            "roles": ["String Production"],
             "notes": "Track 4"
           },
           {
             "name": "Anup Sastry",
-            "roles": [
-              "Additional Engineer"
-            ]
+            "roles": ["Additional Engineer"]
           }
         ]
       }
@@ -2292,9 +1890,7 @@
       "genre": "Progressive Metal / Sludge Metal / Hard Rock",
       "runtime": "42:33",
       "review": "Baroness at their most focused and anthemic, mammoth guitars and scratching vocals upfront, with every chorus swinging hard. Chlorine & Wine is the centrepiece, dark and sprawling. The kind of album that rewards both the casual listen and the deep dive.",
-      "art": [
-        "mbid-9959a5d7-76c2-4cc0-8178-30453a225d78-12288745526.jpg"
-      ],
+      "art": ["mbid-9959a5d7-76c2-4cc0-8178-30453a225d78-12288745526.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -2358,53 +1954,33 @@
         "members": [
           {
             "name": "John Dyer Baizley",
-            "roles": [
-              "Vocals",
-              "Guitar",
-              "Keyboards"
-            ]
+            "roles": ["Vocals", "Guitar", "Keyboards"]
           },
           {
             "name": "Pete Adams",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
+            "roles": ["Guitar", "Vocals"]
           },
           {
             "name": "Nick Jost",
-            "roles": [
-              "Bass",
-              "Keyboards"
-            ]
+            "roles": ["Bass", "Keyboards"]
           },
           {
             "name": "Sebastian Thomson",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Dave Fridmann",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Baroness",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Greg Calbi",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
         "studios": [
@@ -2421,9 +1997,7 @@
       "genre": "Alternative Metal",
       "runtime": "43:22",
       "review": "Toxicity's overflow bin that turned out to hold some of the best songs in the catalogue. The chaos is more unfiltered here, shorter, weirder, less polished, and that works entirely in its favour. Chic 'N' Stu, Mr. Jack, Roulette and Pictures alone make a stronger case than half the albums bands spend years crafting. The fact that it started as a leak the band had to rescue makes it feel even more alive.",
-      "art": [
-        "mbid-d5e089ba-cec8-3b96-9825-841c6443ede1-17077922809.jpg"
-      ],
+      "art": ["mbid-d5e089ba-cec8-3b96-9825-841c6443ede1-17077922809.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -2515,56 +2089,36 @@
         "members": [
           {
             "name": "Serj Tankian",
-            "roles": [
-              "Vocals",
-              "Keyboards",
-              "Theremin"
-            ]
+            "roles": ["Vocals", "Keyboards", "Theremin"]
           },
           {
             "name": "Daron Malakian",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
+            "roles": ["Guitar", "Vocals"]
           },
           {
             "name": "Shavo Odadjian",
-            "roles": [
-              "Bass",
-              "Backing Vocals"
-            ]
+            "roles": ["Bass", "Backing Vocals"]
           },
           {
             "name": "John Dolmayan",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Rick Rubin",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Daron Malakian",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Greg Collins",
-            "roles": [
-              "Engineer"
-            ]
+            "roles": ["Engineer"]
           }
         ],
-        "studios": [
-          "Cello Studios, Hollywood, CA"
-        ]
+        "studios": ["Cello Studios, Hollywood, CA"]
       }
     },
     {
@@ -2576,9 +2130,7 @@
       "genre": "Progressive Metal / Thrash Metal / Gothic Metal",
       "runtime": "50:04",
       "review": "Dane and Wichers make a formidable pairing, heavy where it needs to be, gothic and brooding where it doesn't, and never losing sight of the melody. August alone justifies the whole record, a slow-burning gut punch that showcases everything Dane could do with his voice when given the space to breathe.",
-      "art": [
-        "mbid-6dc9d23f-84e0-44d9-ab8b-31db0ce35d3b-42639710728.jpg"
-      ],
+      "art": ["mbid-6dc9d23f-84e0-44d9-ab8b-31db0ce35d3b-42639710728.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -2650,68 +2202,47 @@
         "members": [
           {
             "name": "Warrel Dane",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Peter Wichers",
-            "roles": [
-              "Guitar",
-              "Bass"
-            ],
+            "roles": ["Guitar", "Bass"],
             "notes": "Plays on tracks 1-3, 5, 7-9 and 11; ex-Soilwork"
           },
           {
             "name": "Matt Wicklund",
-            "roles": [
-              "Guitar",
-              "Bass"
-            ],
+            "roles": ["Guitar", "Bass"],
             "notes": "Plays on tracks 4, 6, 10, 12 and 13; ex-Himsa"
           },
           {
             "name": "Dirk Verbeuren",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Jeff Loomis",
-            "roles": [
-              "Guest Guitar Solo"
-            ],
+            "roles": ["Guest Guitar Solo"],
             "notes": "Solo on \"Messenger\"; of Nevermore"
           },
           {
             "name": "James Murphy",
-            "roles": [
-              "Guest Guitar Solo"
-            ],
+            "roles": ["Guest Guitar Solo"],
             "notes": "Solo on \"The Day the Rats Went to War\""
           }
         ],
         "production": [
           {
             "name": "Peter Wichers",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "Mattias Nilsson",
-            "roles": [
-              "Mixer"
-            ]
+            "roles": ["Mixer"]
           },
           {
             "name": "UE Nastasi",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
         "studios": [
@@ -2730,9 +2261,7 @@
       "genre": "Progressive Deathcore",
       "runtime": "22:16",
       "review": "Six tracks of surgical prog deathcore from St. Louis that punched way above its weight as a self-released debut. Constellation-named cuts flow seamlessly into each other, balancing djenty aggression with genuinely atmospheric breathing room. One of the most promising EPs to come out of the deathcore underground in 2011.",
-      "art": [
-        "mbid-df7d842e-28d7-4081-a57d-ee16f56e998d.jpg"
-      ],
+      "art": ["mbid-df7d842e-28d7-4081-a57d-ee16f56e998d.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -2774,42 +2303,29 @@
         "members": [
           {
             "name": "David Bruno",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Kevin Danneman",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Jordan Sanders",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Joey Harrell",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Joey Nichols",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Jordan Sanders",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           }
         ]
       }
@@ -2823,9 +2339,7 @@
       "genre": "Progressive Death Metal",
       "runtime": "66:46",
       "review": "The last Opeth album where the death metal and the prog exist in genuine tension rather than polite coexistence. Åkerfeldt was writing at the absolute peak of his powers, Ghost of Perdition and Reverie/Harlequin Forest are as good as anything in the catalogue. Per Wiberg's keys add a warmth and depth the band hadn't had before, and Jens Bogren's production gives it a weight that suits every dynamic shift. A landmark.",
-      "art": [
-        "mbid-2f087439-5d1b-38c7-99fd-0de138a11fc2-20838648318.jpg"
-      ],
+      "art": ["mbid-2f087439-5d1b-38c7-99fd-0de138a11fc2-20838648318.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -2877,71 +2391,44 @@
         "members": [
           {
             "name": "Mikael Åkerfeldt",
-            "roles": [
-              "Vocals",
-              "Guitar",
-              "Mellotron"
-            ]
+            "roles": ["Vocals", "Guitar", "Mellotron"]
           },
           {
             "name": "Peter Lindgren",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Martín Méndez",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Martin Lopez",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
+            "roles": ["Drums", "Percussion"]
           },
           {
             "name": "Per Wiberg",
-            "roles": [
-              "Mellotron",
-              "Hammond Organ",
-              "Grand Piano",
-              "Moog"
-            ]
+            "roles": ["Mellotron", "Hammond Organ", "Grand Piano", "Moog"]
           }
         ],
         "production": [
           {
             "name": "Mikael Åkerfeldt",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Opeth",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Jens Bogren",
-            "roles": [
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Engineer", "Mixer"]
           },
           {
             "name": "Tomas Eberger",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
-        "studios": [
-          "Fascination Street Studios, Örebro, Sweden"
-        ]
+        "studios": ["Fascination Street Studios, Örebro, Sweden"]
       }
     },
     {
@@ -2953,9 +2440,7 @@
       "genre": "Punk Rock / Skate Punk",
       "runtime": "46:47",
       "review": "The best-selling indie album of all time for a reason, every track pulls its weight and the sequencing is relentless. Bad Habit, Self Esteem and Gotta Get Away are the obvious peaks but Genocide and Nitro hit just as hard. Raw, fast, and built to last. Still sounds exactly right 30 years later.",
-      "art": [
-        "mbid-b50d155a-5cde-3600-b768-5a6fc0ce57eb-31844265343.jpg"
-      ],
+      "art": ["mbid-b50d155a-5cde-3600-b768-5a6fc0ce57eb-31844265343.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -3037,72 +2522,48 @@
         "members": [
           {
             "name": "Dexter Holland",
-            "roles": [
-              "Vocals",
-              "Guitar"
-            ]
+            "roles": ["Vocals", "Guitar"]
           },
           {
             "name": "Noodles",
-            "roles": [
-              "Guitar",
-              "Backing Vocals"
-            ]
+            "roles": ["Guitar", "Backing Vocals"]
           },
           {
             "name": "Greg K.",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Ron Welty",
-            "roles": [
-              "Drums",
-              "Backing Vocals"
-            ]
+            "roles": ["Drums", "Backing Vocals"]
           }
         ],
         "guests": [
           {
             "name": "Jason \"Blackball\" McLean",
-            "roles": [
-              "Vocals"
-            ],
+            "roles": ["Vocals"],
             "notes": "Appears on \"Come Out and Play\""
           }
         ],
         "production": [
           {
             "name": "Thom Wilson",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "Ken Paulakovich",
-            "roles": [
-              "Additional Engineer"
-            ]
+            "roles": ["Additional Engineer"]
           },
           {
             "name": "Mike Ainsworth",
-            "roles": [
-              "2nd Engineer"
-            ]
+            "roles": ["2nd Engineer"]
           },
           {
             "name": "Ulysses Noriega",
-            "roles": [
-              "2nd Engineer"
-            ]
+            "roles": ["2nd Engineer"]
           },
           {
             "name": "Eddy Schreyer",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
         "studios": [

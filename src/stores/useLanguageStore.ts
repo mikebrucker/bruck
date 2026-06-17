@@ -9,8 +9,7 @@ type LanguageState = {
 
 const setLang = (setLang?: string): Language => {
   if (!setLang && typeof window === "undefined") return defaultLocale;
-  const lang =
-    setLang || navigator.language || navigator.languages?.[0] || defaultLocale;
+  const lang = setLang || navigator.language || navigator.languages?.[0] || defaultLocale;
   const language = lang.split("-")[0];
   return isLocale(language) ? (language as Language) : defaultLocale;
 };

@@ -9,9 +9,7 @@
       "genre": "Progressive Death Metal",
       "runtime": "64:26",
       "review": "The album that announced BTBAM as something entirely their own. One continuous 64-minute journey disguised as 8 tracks. Ants of the Sky alone, 13 minutes of carnival metal, jazz, country, and chaos, is worth the price of admission.",
-      "art": [
-        "mbid-e1ca8464-3477-4568-b4e3-88aaa08b38d1-15533985949.jpg"
-      ],
+      "art": ["mbid-e1ca8464-3477-4568-b4e3-88aaa08b38d1-15533985949.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -63,78 +61,51 @@
         "members": [
           {
             "name": "Tommy Giles Rogers",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
+            "roles": ["Vocals", "Keyboards"]
           },
           {
             "name": "Paul Waggoner",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Dan Briggs",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Dustie Waring",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
+            "roles": ["Drums", "Percussion"]
           }
         ],
         "guests": [
           {
             "name": "Adam Fisher",
-            "roles": [
-              "Harsh and Clean Vocals on \"Prequel to the Sequel\""
-            ],
+            "roles": ["Harsh and Clean Vocals on \"Prequel to the Sequel\""],
             "notes": "Fear Before"
           },
           {
             "name": "Graham Bennett",
-            "roles": [
-              "Didgeridoo on \"Informal Gluttony\""
-            ]
+            "roles": ["Didgeridoo on \"Informal Gluttony\""]
           }
         ],
         "production": [
           {
             "name": "Jamie King",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer", "Mastering Engineer"]
           },
           {
             "name": "Brandon Proff",
-            "roles": [
-              "Layout"
-            ]
+            "roles": ["Layout"]
           },
           {
             "name": "Chuck Johnson",
-            "roles": [
-              "Photography"
-            ]
+            "roles": ["Photography"]
           }
         ],
-        "studios": [
-          "The Basement Studios, Winston-Salem, NC"
-        ]
+        "studios": ["The Basement Studios, Winston-Salem, NC"]
       }
     },
     {
@@ -146,9 +117,7 @@
       "genre": "Technical/Progressive Death Metal",
       "runtime": "51:31",
       "review": "A masterpiece of dynamic songwriting and emotional depth. Belie the Machine at 9 minutes never outstays its welcome. Matriarch is the devastating centrepiece the album builds toward.",
-      "art": [
-        "mbid-761c8d51-fefd-4492-b781-694a160f5fb8-30277204382.png"
-      ],
+      "art": ["mbid-761c8d51-fefd-4492-b781-694a160f5fb8-30277204382.png"],
       "discs": [
         {
           "disc": 1,
@@ -200,74 +169,48 @@
         "members": [
           {
             "name": "James Dorton",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Andy Thomas",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
+            "roles": ["Guitar", "Vocals"]
           },
           {
             "name": "Rik Stelzpflug",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
+            "roles": ["Guitar", "Vocals"]
           },
           {
             "name": "Nick Shaw",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Jesse Beahler",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Travis Ryan",
-            "roles": [
-              "Guest Vocals"
-            ],
+            "roles": ["Guest Vocals"],
             "notes": "Appears on \"Transmit to Disconnect\""
           },
           {
             "name": "Wes Hauch",
-            "roles": [
-              "Guest Guitar Solo"
-            ],
+            "roles": ["Guest Guitar Solo"],
             "notes": "Appears on \"Again\""
           }
         ],
         "production": [
           {
             "name": "Carson Slovak",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Grant McFarland",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           }
         ],
-        "studios": [
-          "Atrium Audio, Lancaster, PA"
-        ]
+        "studios": ["Atrium Audio, Lancaster, PA"]
       }
     },
     {
@@ -279,9 +222,7 @@
       "genre": "Progressive Metal / Deathcore",
       "runtime": "48:14",
       "review": "The debut that put them on the map. Raw, heavy, and brimming with ambition, brutal tech deathcore in constant tension with hauntingly beautiful melodic passages. The three-part Exoplanet suite closing the record is alone worth the price of admission.",
-      "art": [
-        "mbid-f3dae6a2-1304-429e-a996-47c3ad5d0aed-12726092897.jpg"
-      ],
+      "art": ["mbid-f3dae6a2-1304-429e-a996-47c3ad5d0aed-12726092897.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -348,65 +289,40 @@
         "members": [
           {
             "name": "Jonathan Carpenter",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
+            "roles": ["Vocals", "Keyboards"]
           },
           {
             "name": "Robby Baca",
-            "roles": [
-              "Guitar",
-              "Keyboards",
-              "Programming"
-            ]
+            "roles": ["Guitar", "Keyboards", "Programming"]
           },
           {
             "name": "Cameron Maynard",
-            "roles": [
-              "Guitar",
-              "Keyboards"
-            ]
+            "roles": ["Guitar", "Keyboards"]
           },
           {
             "name": "Christopher Tilley",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Joey Baca",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "production": [
           {
             "name": "Ken Susi",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Jordan King",
-            "roles": [
-              "Additional Production",
-              "Keyboards"
-            ]
+            "roles": ["Additional Production", "Keyboards"]
           },
           {
             "name": "Alan Douches",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           }
         ],
-        "studios": [
-          "System Recordings, Boston, MA; Voltaic Recording Studio, Indianapolis, IN"
-        ]
+        "studios": ["System Recordings, Boston, MA; Voltaic Recording Studio, Indianapolis, IN"]
       }
     },
     {
@@ -418,9 +334,7 @@
       "genre": "Technical Death Metal",
       "runtime": "39:33",
       "review": "Relentless and technically immaculate. Justin McKinney's guitar work is surgical, crushing riffs underpinned by melodic solos that elevate every track. One of the tightest debut records in modern tech death.",
-      "art": [
-        "mbid-98cd75c2-82a7-4be6-bed1-b7b27285bef7-13320368599.jpg"
-      ],
+      "art": ["mbid-98cd75c2-82a7-4be6-bed1-b7b27285bef7-13320368599.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -482,78 +396,52 @@
         "members": [
           {
             "name": "Greg Hampton",
-            "roles": [
-              "Vocals"
-            ]
+            "roles": ["Vocals"]
           },
           {
             "name": "Justin McKinney",
-            "roles": [
-              "Guitar",
-              "Bass"
-            ]
+            "roles": ["Guitar", "Bass"]
           },
           {
             "name": "Rob Maramonte",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Luis Martinez",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Alex Hofmann",
-            "roles": [
-              "Guest Vocals"
-            ],
+            "roles": ["Guest Vocals"],
             "notes": "of Fallujah"
           },
           {
             "name": "Wes Hauch",
-            "roles": [
-              "Guest Guitar Solo"
-            ],
+            "roles": ["Guest Guitar Solo"],
             "notes": "of ex-The Faceless; also co-wrote portion of \"Hypnagogia\""
           },
           {
             "name": "Vikram Shankar",
-            "roles": [
-              "Guest Synth Solo"
-            ]
+            "roles": ["Guest Synth Solo"]
           }
         ],
         "production": [
           {
             "name": "Zack Ohren",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer", "Mastering Engineer"]
           },
           {
             "name": "Justin McKinney",
-            "roles": [
-              "Additional Engineer"
-            ]
+            "roles": ["Additional Engineer"]
           },
           {
             "name": "Michael Keene",
-            "roles": [
-              "Additional Engineer"
-            ]
+            "roles": ["Additional Engineer"]
           }
         ],
-        "studios": [
-          "Castle Ultimate Productions; Keene Machine Studios"
-        ]
+        "studios": ["Castle Ultimate Productions; Keene Machine Studios"]
       }
     },
     {
@@ -565,9 +453,7 @@
       "genre": "Progressive Death Metal",
       "runtime": "51:54",
       "review": "A bold reinvention. Adam Biggs steps up as frontman and delivers with ferocity, while Andy Thomas adds a vocal chemistry that elevates the whole record. The perfect blend of their technical roots and progressive maturity, all the fat cut away.",
-      "art": [
-        "mbid-c6cde752-d525-4a4f-becd-1d085f825de6-44018907269.jpg"
-      ],
+      "art": ["mbid-c6cde752-d525-4a4f-becd-1d085f825de6-44018907269.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -629,56 +515,32 @@
         "members": [
           {
             "name": "Adam Biggs",
-            "roles": [
-              "Vocals",
-              "Bass"
-            ]
+            "roles": ["Vocals", "Bass"]
           },
           {
             "name": "Andy Thomas",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
+            "roles": ["Guitar", "Vocals"]
           },
           {
             "name": "Brody Uttley",
-            "roles": [
-              "Guitar",
-              "Piano",
-              "Keys",
-              "Programming"
-            ]
+            "roles": ["Guitar", "Piano", "Keys", "Programming"]
           },
           {
             "name": "Jared Klein",
-            "roles": [
-              "Drums",
-              "Vocals"
-            ]
+            "roles": ["Drums", "Vocals"]
           }
         ],
         "production": [
           {
             "name": "Carson Slovak",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           },
           {
             "name": "Grant McFarland",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer"]
           }
         ],
-        "studios": [
-          "Atrium Audio"
-        ]
+        "studios": ["Atrium Audio"]
       }
     },
     {
@@ -690,9 +552,7 @@
       "genre": "Progressive Metal / Technical Death Metal",
       "runtime": "30:02",
       "review": "Three tracks, thirty minutes, and the clearest sign yet of where BTBAM were heading. The psychedelic edge that was always lurking beneath the surface gets more room here. Specular Reflection opens with an almost meditative patience before the band tears it apart. Augment of Rebirth is the centerpiece, shifting through more moods in ten minutes than most bands manage across an album. A lean, focused statement that made the wait for the second part genuinely excruciating.",
-      "art": [
-        "mbid-96bb087b-1516-4dd6-b489-6ccbf89acd84-32620622462.jpg"
-      ],
+      "art": ["mbid-96bb087b-1516-4dd6-b489-6ccbf89acd84-32620622462.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -719,50 +579,33 @@
         "members": [
           {
             "name": "Tommy Giles Rogers",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
+            "roles": ["Vocals", "Keyboards"]
           },
           {
             "name": "Paul Waggoner",
-            "roles": [
-              "Guitar",
-              "Vocals"
-            ]
+            "roles": ["Guitar", "Vocals"]
           },
           {
             "name": "Dustie Waring",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Dan Briggs",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
+            "roles": ["Drums", "Percussion"]
           }
         ],
         "production": [
           {
             "name": "David Bottrill",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Between the Buried and Me",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           }
         ],
         "studios": [
@@ -780,9 +623,7 @@
       "genre": "Progressive Metal / Technical Death Metal",
       "runtime": "59:35",
       "review": "Six songs, 60 minutes, zero wasted space. Fossil Genera's barrelhouse piano chaos into a sweeping movie score ending is one of BTBAM's most audacious moments, and Swim to the Moon closes it all with 18 minutes of restless, shifting adventure.",
-      "art": [
-        "mbid-3ca5fab5-1d7c-44bf-9744-a6ff7f211f7e-32621165864.jpg"
-      ],
+      "art": ["mbid-3ca5fab5-1d7c-44bf-9744-a6ff7f211f7e-32621165864.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -824,10 +665,7 @@
         "members": [
           {
             "name": "Tommy Giles Rogers Jr.",
-            "roles": [
-              "Vocals",
-              "Keyboards"
-            ]
+            "roles": ["Vocals", "Keyboards"]
           },
           {
             "name": "Paul Waggoner",
@@ -841,62 +679,36 @@
           },
           {
             "name": "Dan Briggs",
-            "roles": [
-              "Bass",
-              "Fretless Bass"
-            ]
+            "roles": ["Bass", "Fretless Bass"]
           },
           {
             "name": "Dustie Waring",
-            "roles": [
-              "Electric Guitar",
-              "Slide Guitar",
-              "Acoustic Guitar",
-              "Guitar Effects"
-            ]
+            "roles": ["Electric Guitar", "Slide Guitar", "Acoustic Guitar", "Guitar Effects"]
           },
           {
             "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
+            "roles": ["Drums", "Percussion"]
           }
         ],
         "production": [
           {
             "name": "Jamie King",
-            "roles": [
-              "Producer",
-              "Engineer",
-              "Mixer",
-              "Mastering Engineer"
-            ]
+            "roles": ["Producer", "Engineer", "Mixer", "Mastering Engineer"]
           },
           {
             "name": "Justin Johnson",
-            "roles": [
-              "Engineer"
-            ]
+            "roles": ["Engineer"]
           },
           {
             "name": "Brandon Proff",
-            "roles": [
-              "Layout",
-              "Concept Design"
-            ]
+            "roles": ["Layout", "Concept Design"]
           },
           {
             "name": "Chuck Johnson",
-            "roles": [
-              "Photography",
-              "Vocals on \"Swim to the Moon\""
-            ]
+            "roles": ["Photography", "Vocals on \"Swim to the Moon\""]
           }
         ],
-        "studios": [
-          "The Basement Studios, Winston-Salem, NC"
-        ]
+        "studios": ["The Basement Studios, Winston-Salem, NC"]
       }
     },
     {
@@ -908,9 +720,7 @@
       "genre": "Progressive Metal / Jazz Fusion / Djent",
       "runtime": "54:23",
       "review": "Tosin Abasi's thumb-picking and 8-string wizardry at their most groove-forward and human. The jazzy mid-sections breathe life into what could have been cold technicality, Ka$cade, The Woven Web and Nephele are the peaks of a record that never stops moving.",
-      "art": [
-        "mbid-c3549f65-4cab-4381-a382-61e1d033dd2c-6816863021.jpg"
-      ],
+      "art": ["mbid-c3549f65-4cab-4381-a382-61e1d033dd2c-6816863021.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -982,70 +792,47 @@
         "members": [
           {
             "name": "Tosin Abasi",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Javier Reyes",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Matt Garstka",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Adam \"Nolly\" Getgood",
-            "roles": [
-              "Bass",
-              "Engineer",
-              "Mixer"
-            ],
+            "roles": ["Bass", "Engineer", "Mixer"],
             "notes": "of Periphery"
           },
           {
             "name": "Misha Mansoor",
-            "roles": [
-              "Co-writer",
-              "Producer"
-            ],
+            "roles": ["Co-writer", "Producer"],
             "notes": "of Periphery; co-wrote tracks 1-4, 6, 8, 10"
           },
           {
             "name": "Diego Farias",
-            "roles": [
-              "Co-writer"
-            ],
+            "roles": ["Co-writer"],
             "notes": "of Volumes; co-wrote tracks 5, 7, 11"
           },
           {
             "name": "Navene Koperweis",
-            "roles": [
-              "Electronics",
-              "Programming"
-            ],
+            "roles": ["Electronics", "Programming"],
             "notes": "former AaL drummer"
           }
         ],
         "production": [
           {
             "name": "Misha Mansoor",
-            "roles": [
-              "Producer"
-            ]
+            "roles": ["Producer"]
           },
           {
             "name": "Adam \"Nolly\" Getgood",
-            "roles": [
-              "Engineer",
-              "Mixer"
-            ]
+            "roles": ["Engineer", "Mixer"]
           }
         ]
       }
@@ -1059,9 +846,7 @@
       "genre": "Punk Rock / Pop Punk",
       "runtime": "43:37",
       "review": "The pop instincts got sharper and the production got bigger and somehow it worked. Pretty Fly and Why Don't You Get a Job are obvious but the record holds up better than its reputation suggests. Have You Ever and The Kids Aren't Alright are genuinely great punk songs. Pay the Man closing things out at 8 minutes is a weird left turn that earns it every time.",
-      "art": [
-        "mbid-68d6732a-85df-466d-ae24-bc1b5e03edcc-23692010875.jpg"
-      ],
+      "art": ["mbid-68d6732a-85df-466d-ae24-bc1b5e03edcc-23692010875.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1139,53 +924,35 @@
         "members": [
           {
             "name": "Dexter Holland",
-            "roles": [
-              "Vocals",
-              "Guitar"
-            ]
+            "roles": ["Vocals", "Guitar"]
           },
           {
             "name": "Noodles",
-            "roles": [
-              "Guitar"
-            ]
+            "roles": ["Guitar"]
           },
           {
             "name": "Greg K.",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Ron Welty",
-            "roles": [
-              "Drums"
-            ]
+            "roles": ["Drums"]
           }
         ],
         "guests": [
           {
             "name": "Mariachi band",
-            "roles": [
-              "Guitarrón",
-              "Vihuela",
-              "Trumpet"
-            ],
+            "roles": ["Guitarrón", "Vihuela", "Trumpet"],
             "notes": "Appears on 'Pretty Fly (for a White Guy)'"
           }
         ],
         "production": [
           {
             "name": "Dave Jerden",
-            "roles": [
-              "Producer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Mixer"]
           }
         ],
-        "studios": [
-          "Eldorado Recording Studios, Burbank, CA"
-        ]
+        "studios": ["Eldorado Recording Studios, Burbank, CA"]
       }
     },
     {
@@ -1197,9 +964,7 @@
       "genre": "Progressive Metal / Technical Death Metal",
       "runtime": "53:50",
       "review": "Where BTBAM clicked into something unstoppable. All Bodies opens with anthemic choruses and brutal tech-metal locked in perfect tension, and Selkies: The Endless Obsession remains one of the most complete songs in their catalogue, delicate piano interlude into face-melting solo work that lands every time.",
-      "art": [
-        "mbid-470507f1-c04b-4401-b6db-33ef1ad2d0f7-27965748643.jpg"
-      ],
+      "art": ["mbid-470507f1-c04b-4401-b6db-33ef1ad2d0f7-27965748643.jpg"],
       "discs": [
         {
           "disc": 1,
@@ -1269,76 +1034,48 @@
         "members": [
           {
             "name": "Tommy Giles Rogers",
-            "roles": [
-              "Lead Vocals",
-              "Keyboards"
-            ]
+            "roles": ["Lead Vocals", "Keyboards"]
           },
           {
             "name": "Paul Waggoner",
-            "roles": [
-              "Lead Guitar",
-              "Vocals"
-            ]
+            "roles": ["Lead Guitar", "Vocals"]
           },
           {
             "name": "Dan Briggs",
-            "roles": [
-              "Bass"
-            ]
+            "roles": ["Bass"]
           },
           {
             "name": "Dustie Waring",
-            "roles": [
-              "Rhythm Guitar"
-            ]
+            "roles": ["Rhythm Guitar"]
           },
           {
             "name": "Blake Richardson",
-            "roles": [
-              "Drums",
-              "Percussion"
-            ]
+            "roles": ["Drums", "Percussion"]
           }
         ],
         "production": [
           {
             "name": "Jamie King",
-            "roles": [
-              "Producer",
-              "Engineer"
-            ]
+            "roles": ["Producer", "Engineer"]
           },
           {
             "name": "Matthew Ellard",
-            "roles": [
-              "Producer",
-              "Mixer"
-            ]
+            "roles": ["Producer", "Mixer"]
           },
           {
             "name": "Alan Douches",
-            "roles": [
-              "Mastering Engineer"
-            ]
+            "roles": ["Mastering Engineer"]
           },
           {
             "name": "Kris Smith",
-            "roles": [
-              "Mix Assistant"
-            ]
+            "roles": ["Mix Assistant"]
           },
           {
             "name": "Wes Richardson",
-            "roles": [
-              "Artwork",
-              "Layout"
-            ]
+            "roles": ["Artwork", "Layout"]
           }
         ],
-        "studios": [
-          "The Basement Studios, Winston-Salem, NC"
-        ]
+        "studios": ["The Basement Studios, Winston-Salem, NC"]
       }
     }
   ]
