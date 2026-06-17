@@ -22,7 +22,7 @@ function Header({
   return (
     <header
       className={cn(
-        "w-full bg-card px-4 py-3 border-b border-border flex items-center justify-between",
+        "w-full bg-card px-4 py-3 border-b border-border flex items-center justify-between shadow-[0_5px_6px_-1px_rgb(0_0_0/0.25),0_3px_4px_-2px_rgb(0_0_0/0.15)] dark:shadow-[0_5px_6px_-1px_rgb(0_0_0/0.35),0_3px_4px_-2px_rgb(0_0_0/0.22)]",
         sticky && "sticky top-0 z-10",
         className,
       )}

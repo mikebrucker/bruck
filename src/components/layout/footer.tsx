@@ -10,7 +10,7 @@ function Footer({ className, sticky = false, ...props }: FooterProps) {
     <footer
       data-slot="footer"
       className={cn(
-        "flex w-full items-center justify-around bg-card border-t px-4 py-4",
+        "flex w-full items-center justify-around bg-card border-t px-4 py-4 shadow-[0_-5px_6px_-1px_rgb(0_0_0/0.25),0_-3px_4px_-2px_rgb(0_0_0/0.15)] dark:shadow-[0_-5px_6px_-1px_rgb(0_0_0/0.35),0_-3px_4px_-2px_rgb(0_0_0/0.22)]",
         sticky && "sticky bottom-0 z-10",
         className,
       )}
