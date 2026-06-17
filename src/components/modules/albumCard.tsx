@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import Loader from "@/components/modules/loader";
 import { Accordion } from "@/components/ui/accordion";
 import { Modal } from "@/components/ui/modal";
 import type { Album, Credit } from "@/types/album";
@@ -19,15 +20,18 @@ export default function AlbumCard({ album, noRank }: AlbumCardProps) {
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const openModal = (url: string) => {
     setSelectedImage(url);
+    setImageLoading(true);
     setImageModalOpen(true);
   };
 
   const closeModal = () => {
     setImageModalOpen(false);
     setSelectedImage(null);
+    setImageLoading(false);
   };
 
   const art = album.art?.map((a) => (
@@ -175,14 +179,24 @@ export default function AlbumCard({ album, noRank }: AlbumCardProps) {
         ) : null}
         <Modal open={imageModalOpen} onClose={closeModal}>
           {selectedImage ? (
-            <Image
-              onClick={closeModal}
-              src={`/${selectedImage}`}
-              alt={t(($) => $.albums.cover_art, { album: album.album })}
-              width={1024}
-              height={1024}
-              className="w-full h-auto cursor-pointer"
-            />
+            <div className="relative">
+              <Loader
+                className="text-theme-500"
+                isOpen={imageLoading}
+                fullScreen
+                transparentBg
+                onClick={closeModal}
+              />
+              <Image
+                onClick={closeModal}
+                onLoad={() => setImageLoading(false)}
+                src={`/${selectedImage}`}
+                alt={t(($) => $.albums.cover_art, { album: album.album })}
+                width={1024}
+                height={1024}
+                className="w-full h-auto cursor-pointer"
+              />
+            </div>
           ) : null}
         </Modal>
       </div>

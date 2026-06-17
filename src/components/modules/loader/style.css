@@ -1,0 +1,77 @@
+.loader {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(currentColor 50px, transparent 0),
+    linear-gradient(currentColor 50px, transparent 0),
+    linear-gradient(currentColor 50px, transparent 0),
+    linear-gradient(currentColor 50px, transparent 0),
+    linear-gradient(currentColor 50px, transparent 0),
+    linear-gradient(currentColor 50px, transparent 0),
+    linear-gradient(currentColor 50px, transparent 0);
+  background-position: 0px center, 15px center, 30px center, 45px center, 60px center, 75px center, 90px center;
+  animation: musicBounce 1.8s ease-in-out infinite;
+}
+
+/*
+  Real music keeps a spectral SHAPE rather than scattering randomly: energy humps
+  in the low-mids/presence and tapers at the edges. The bars hold that [2 3 5 6 7 6 4]
+  contour the whole time and the whole curve pulses to a 4-beat envelope, with only a
+  subtle per-bar wiggle so it breathes instead of moving in rigid lockstep. So the edge
+  bars stay short, the middle bars stay tall, and they all rise and fall together on
+  the beat. Whole-cycle frequencies keep 100% lined up with 0% for a seamless loop.
+*/
+@keyframes musicBounce {
+  0% {
+    background-size: 10px 12px, 10px 18px, 10px 20px, 10px 35px, 10px 33px, 10px 25px, 10px 24px;
+  }
+
+  8.3333% {
+    background-size: 10px 17px, 10px 19px, 10px 30px, 10px 41px, 10px 35px, 10px 36px, 10px 27px;
+  }
+
+  16.6667% {
+    background-size: 10px 17px, 10px 17px, 10px 33px, 10px 32px, 10px 37px, 10px 37px, 10px 21px;
+  }
+
+  25% {
+    background-size: 10px 12px, 10px 14px, 10px 25px, 10px 25px, 10px 42px, 10px 34px, 10px 17px;
+  }
+
+  33.3333% {
+    background-size: 10px 13px, 10px 21px, 10px 26px, 10px 31px, 10px 39px, 10px 36px, 10px 24px;
+  }
+
+  41.6667% {
+    background-size: 10px 13px, 10px 22px, 10px 27px, 10px 32px, 10px 29px, 10px 27px, 10px 26px;
+  }
+
+  50% {
+    background-size: 10px 12px, 10px 18px, 10px 29px, 10px 35px, 10px 38px, 10px 25px, 10px 24px;
+  }
+
+  58.3333% {
+    background-size: 10px 17px, 10px 19px, 10px 32px, 10px 41px, 10px 48px, 10px 36px, 10px 27px;
+  }
+
+  66.6667% {
+    background-size: 10px 17px, 10px 17px, 10px 24px, 10px 32px, 10px 33px, 10px 37px, 10px 21px;
+  }
+
+  75% {
+    background-size: 10px 12px, 10px 14px, 10px 24px, 10px 25px, 10px 29px, 10px 34px, 10px 17px;
+  }
+
+  83.3333% {
+    background-size: 10px 13px, 10px 21px, 10px 35px, 10px 31px, 10px 44px, 10px 36px, 10px 24px;
+  }
+
+  91.6667% {
+    background-size: 10px 13px, 10px 22px, 10px 27px, 10px 32px, 10px 41px, 10px 27px, 10px 26px;
+  }
+
+  100% {
+    background-size: 10px 12px, 10px 18px, 10px 20px, 10px 35px, 10px 33px, 10px 25px, 10px 24px;
+  }
+}
