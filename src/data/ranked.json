@@ -2571,6 +2571,57 @@
           "The Hook, North Hollywood, CA (additional recording)"
         ]
       }
+    },
+    {
+      "rank": 23,
+      "artist": "Killswitch Engage",
+      "album": "As Daylight Dies (Special Edition)",
+      "year": 2007,
+      "label": "Roadrunner",
+      "genre": "Melodic Metalcore",
+      "runtime": "58:59",
+      "review": "Howard Jones-era KSE at their absolute peak. The balance between crushing riffs and massive clean choruses had never been tighter, and Jones delivers both sides with total conviction. My Curse and The Arms of Sorrow are the obvious centrepieces but Unbroken and Eye of the Storm hit just as hard. The Holy Diver cover is genuinely great and earns its place. The definitive metalcore album of the mid-2000s.",
+      "art": ["mbid-cfdf9a54-ffb8-4d8a-b355-666e9984b51d-27238315257.png"],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            { "number": 1, "title": "Daylight Dies", "duration": "4:05" },
+            { "number": 2, "title": "This Is Absolution", "duration": "3:34" },
+            { "number": 3, "title": "The Arms of Sorrow", "duration": "3:44" },
+            { "number": 4, "title": "Unbroken", "duration": "3:08" },
+            { "number": 5, "title": "My Curse", "duration": "4:04" },
+            { "number": 6, "title": "For You", "duration": "4:03" },
+            { "number": 7, "title": "Still Beats Your Name", "duration": "3:19" },
+            { "number": 8, "title": "Eye of the Storm", "duration": "3:56" },
+            { "number": 9, "title": "Break the Silence", "duration": "4:32" },
+            { "number": 10, "title": "Desperate Times", "duration": "4:25" },
+            { "number": 11, "title": "Reject Yourself", "duration": "4:45" },
+            { "number": 12, "title": "Be One", "duration": "3:31" },
+            { "number": 13, "title": "Let the Bridges Burn", "duration": "4:29" },
+            { "number": 14, "title": "This Fire", "duration": "3:09" },
+            { "number": 15, "title": "Holy Diver", "duration": "4:10" }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          { "name": "Howard Jones", "roles": ["Vocals"] },
+          { "name": "Adam Dutkiewicz", "roles": ["Guitar", "Backing Vocals"] },
+          { "name": "Joel Stroetzel", "roles": ["Guitar"] },
+          { "name": "Mike D'Antonio", "roles": ["Bass"] },
+          { "name": "Justin Foley", "roles": ["Drums"] }
+        ],
+        "production": [
+          { "name": "Adam Dutkiewicz", "roles": ["Producer"] },
+          { "name": "Joel Stroetzel", "roles": ["Producer"] },
+          { "name": "Andy Sneap", "roles": ["Mixer"] }
+        ],
+        "studios": [
+          "Zing Studios, Westfield, MA (all tracks except drums)",
+          "Longview Farm, North Brookfield, MA (drums)"
+        ]
+      }
     }
   ]
 }

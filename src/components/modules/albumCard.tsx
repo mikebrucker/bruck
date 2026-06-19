@@ -66,7 +66,8 @@ export default function AlbumCard({ album, noRank }: AlbumCardProps) {
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
           {!noRank ? (
-            <div className="row-span-1 sm:row-span-3 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1">
+            <div className="row-span-1 sm:row-span-3 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono">
+              {album.rank < 10 ? <>&nbsp;</> : ""}
               {album.rank}
             </div>
           ) : (
