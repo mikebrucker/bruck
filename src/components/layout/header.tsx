@@ -32,13 +32,7 @@ function Header({
         Mike Brucker
       </h1>
       {onAction && actionIcon ? (
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={onAction}
-          aria-label={actionLabel}
-          className={`rounded-sm ${convexButtonGradient8}`}
-        >
+        <Button variant="keyboard" size="icon" onClick={onAction} aria-label={actionLabel}>
           <HugeiconsIcon icon={actionIcon} className="size-6" />
         </Button>
       ) : null}

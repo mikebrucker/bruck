@@ -19,6 +19,10 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
+        keyboardModern:
+          "border border-border bg-card text-card-foreground shadow-[0_3px_0_0_var(--border)] hover:bg-muted active:translate-y-[3px] active:shadow-none",
+        keyboard:
+          "min-h-[44px] min-w-[44px] rounded-[10px] [border-style:outset] border-[var(--keycap-edge,rgb(240,240,203))] [border-width:8px_10px_10px_8px] bg-[var(--keycap-face,beige)] text-xs text-[var(--keycap-text,#3a382c)] shadow-[0_5px_10px_2px_rgba(0,0,0,0.45)] transition-[box-shadow,transform,border-width] duration-100 ease-out active:translate-y-[3px] active:brightness-95 active:[border-style:inset] active:[border-width:8px_8px_5px_8px] active:shadow-[inset_0_2px_5px_0_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.45)]",
       },
       size: {
         default:

@@ -3,7 +3,6 @@
 import { Select } from "@/components/ui/select";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { type Language, locales } from "@/i18n/config";
-import { convexButtonGradient8 } from "@/lib/styles";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 
 const languageLabels: Record<Language, string> = {
@@ -27,11 +26,8 @@ function LanguageSelect() {
   const changeLanguageUrl = useChangeLanguageUrl();
 
   return (
-    // {locales.map((locale) => (
-    // <span className={`fi fi-${flagMap[locale]}`}></span>
     <Select
-      variant="outline"
-      className={`bg-theme-100 ${convexButtonGradient8}`}
+      variant="keyboard"
       value={language}
       options={options}
       onValueChange={(val) => {
