@@ -12,10 +12,10 @@ import type { Album, Credit } from "@/types/album";
 
 type AlbumCardProps = {
   album: Album;
-  noRank?: boolean;
+  rank?: number;
 };
 
-export default function AlbumCard({ album, noRank }: AlbumCardProps) {
+export default function AlbumCard({ album, rank }: AlbumCardProps) {
   const { t } = useTranslation();
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
@@ -65,10 +65,10 @@ export default function AlbumCard({ album, noRank }: AlbumCardProps) {
     <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-lg p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
-          {!noRank ? (
+          {rank ? (
             <div className="row-span-1 sm:row-span-3 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono">
-              {album.rank < 10 ? <>&nbsp;</> : ""}
-              {album.rank}
+              {rank < 10 ? <>&nbsp;</> : ""}
+              {rank}
             </div>
           ) : (
             <div className="row-span-1 sm:row-span-3 text-theme-600 pt-1 flex justify-end">

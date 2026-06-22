@@ -8,6 +8,7 @@ import { Header } from "@/components/layout/header";
 import AlbumCard from "@/components/modules/albumCard";
 import { Menu } from "@/components/modules/menu";
 import { Accordion } from "@/components/ui/accordion";
+import { sortByRank } from "@/data/albumOrder";
 import honorableMentions from "@/data/honorableMentions.json";
 import ranked from "@/data/ranked.json";
 
@@ -27,8 +28,8 @@ export default function Home() {
           classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
           duration={1000}
         >
-          {ranked.albums.map((album) => (
-            <AlbumCard key={`ranked-${album.rank}`} album={album} />
+          {sortByRank(ranked.albums).map((album, i) => (
+            <AlbumCard key={`ranked-${album.id}`} rank={i + 1} album={album} />
           ))}
         </Accordion>
         <Accordion
@@ -37,8 +38,8 @@ export default function Home() {
           classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
           duration={1000}
         >
-          {honorableMentions.albums.map((album) => (
-            <AlbumCard key={`hm-${album.rank}`} album={album} noRank />
+          {sortByRank(honorableMentions.albums).map((album) => (
+            <AlbumCard key={`hm-${album.id}`} album={album} />
           ))}
         </Accordion>
       </main>

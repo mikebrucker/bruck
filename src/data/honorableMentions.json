@@ -1,7 +1,7 @@
 {
   "albums": [
     {
-      "rank": 1,
+      "id": "between-the-buried-and-me_colors",
       "artist": "Between the Buried and Me",
       "album": "Colors",
       "year": 2007,
@@ -109,7 +109,7 @@
       }
     },
     {
-      "rank": 2,
+      "id": "black-crown-initiate_selves-we-cannot-forgive",
       "artist": "Black Crown Initiate",
       "album": "Selves We Cannot Forgive",
       "year": 2016,
@@ -214,7 +214,7 @@
       }
     },
     {
-      "rank": 3,
+      "id": "the-contortionist_exoplanet",
       "artist": "The Contortionist",
       "album": "Exoplanet",
       "year": 2010,
@@ -326,7 +326,7 @@
       }
     },
     {
-      "rank": 4,
+      "id": "the-zenith-passage_solipsist",
       "artist": "The Zenith Passage",
       "album": "Solipsist",
       "year": 2016,
@@ -445,7 +445,7 @@
       }
     },
     {
-      "rank": 5,
+      "id": "rivers-of-nihil_rivers-of-nihil",
       "artist": "Rivers of Nihil",
       "album": "Rivers of Nihil",
       "year": 2025,
@@ -544,7 +544,7 @@
       }
     },
     {
-      "rank": 6,
+      "id": "between-the-buried-and-me_the-parallax-hypersleep-dialogues",
       "artist": "Between the Buried and Me",
       "album": "The Parallax: Hypersleep Dialogues",
       "year": 2011,
@@ -615,7 +615,62 @@
       }
     },
     {
-      "rank": 7,
+      "id": "in-flames_reroute-to-remain",
+      "artist": "In Flames",
+      "album": "Reroute to Remain",
+      "year": 2002,
+      "label": "Nuclear Blast",
+      "genre": "Melodic Death Metal / Alternative Metal",
+      "runtime": "51:39",
+      "review": "Here is a genuinely strong melodic metal record, Trigger, Cloud Connected and Minus are among the best songs the band ever wrote. Fridén's clean vocals suit the material completely and Bergstrand's production hits hard.",
+      "art": ["mbid-4e150b47-e63b-3333-bbfe-83cf02bdc49d-16525248045.jpg"],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            { "number": 1, "title": "Reroute to Remain", "duration": "3:54" },
+            { "number": 2, "title": "System", "duration": "3:40" },
+            { "number": 3, "title": "Drifter", "duration": "3:11" },
+            { "number": 4, "title": "Trigger", "duration": "4:03" },
+            { "number": 5, "title": "Cloud Connected", "duration": "3:44" },
+            { "number": 6, "title": "Transparent", "duration": "4:04" },
+            { "number": 7, "title": "Dawn of a New Day", "duration": "3:41" },
+            { "number": 8, "title": "Egonomic", "duration": "2:37" },
+            { "number": 9, "title": "Minus", "duration": "3:46" },
+            { "number": 10, "title": "Dismiss the Cynics", "duration": "3:39" },
+            { "number": 11, "title": "Free Fall", "duration": "3:59" },
+            { "number": 12, "title": "Dark Signs", "duration": "3:21" },
+            { "number": 13, "title": "Metaphor", "duration": "3:40" },
+            { "number": 14, "title": "Black & White", "duration": "3:34" }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          { "name": "Anders Fridén", "roles": ["Vocals"] },
+          { "name": "Jesper Strömblad", "roles": ["Guitar"] },
+          { "name": "Björn Gelotte", "roles": ["Guitar"] },
+          { "name": "Peter Iwers", "roles": ["Bass"] },
+          { "name": "Daniel Svensson", "roles": ["Drums"] }
+        ],
+        "guests": [
+          {
+            "name": "Maria Gauffin",
+            "roles": ["Guest Vocals"],
+            "notes": "Appears on \"Metaphor\""
+          },
+          { "name": "Fiol-Olof", "roles": ["Violin"], "notes": "Appears on \"Metaphor\"" },
+          { "name": "Örjan Örnkloo", "roles": ["Keyboards", "Programming"] }
+        ],
+        "production": [
+          { "name": "Daniel Bergstrand", "roles": ["Producer"] },
+          { "name": "In Flames", "roles": ["Producer"] }
+        ],
+        "studios": ["Dug Out Studios, Uppsala, Sweden"]
+      }
+    },
+    {
+      "id": "between-the-buried-and-me_the-great-misdirect",
       "artist": "Between the Buried and Me",
       "album": "The Great Misdirect",
       "year": 2009,
@@ -712,7 +767,7 @@
       }
     },
     {
-      "rank": 8,
+      "id": "animals-as-leaders_the-joy-of-motion",
       "artist": "Animals as Leaders",
       "album": "The Joy of Motion",
       "year": 2014,
@@ -838,7 +893,7 @@
       }
     },
     {
-      "rank": 9,
+      "id": "the-offspring_americana",
       "artist": "The Offspring",
       "album": "Americana",
       "year": 1998,
@@ -956,7 +1011,7 @@
       }
     },
     {
-      "rank": 10,
+      "id": "between-the-buried-and-me_alaska",
       "artist": "Between the Buried and Me",
       "album": "Alaska",
       "year": 2005,

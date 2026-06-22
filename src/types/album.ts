@@ -27,7 +27,7 @@ export interface Disc {
 }
 
 export interface Album {
-  rank: number;
+  id: string;
   artist: string;
   album: string;
   year: number;

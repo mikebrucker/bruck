@@ -1,7 +1,7 @@
 {
   "albums": [
     {
-      "rank": 1,
+      "id": "between-the-buried-and-me_the-parallax-ii-future-sequence",
       "artist": "Between the Buried and Me",
       "album": "The Parallax II: Future Sequence",
       "year": 2012,
@@ -147,7 +147,7 @@
       }
     },
     {
-      "rank": 2,
+      "id": "the-schoenberg-automaton_apus",
       "artist": "The Schoenberg Automaton",
       "album": "Apus",
       "year": 2016,
@@ -264,7 +264,7 @@
       }
     },
     {
-      "rank": 3,
+      "id": "soilwork_the-living-infinite",
       "artist": "Soilwork",
       "album": "The Living Infinite",
       "year": 2013,
@@ -446,7 +446,7 @@
       }
     },
     {
-      "rank": 4,
+      "id": "periphery_juggernaut-alpha-omega",
       "artist": "Periphery",
       "album": "Juggernaut: Alpha/Omega",
       "year": 2015,
@@ -611,7 +611,7 @@
       }
     },
     {
-      "rank": 5,
+      "id": "rivers-of-nihil_where-owls-know-my-name",
       "artist": "Rivers of Nihil",
       "album": "Where Owls Know My Name",
       "year": 2018,
@@ -721,7 +721,7 @@
       }
     },
     {
-      "rank": 6,
+      "id": "dimension-zero_he-who-shall-not-bleed",
       "artist": "Dimension Zero",
       "album": "He Who Shall Not Bleed",
       "year": 2007,
@@ -832,7 +832,7 @@
       }
     },
     {
-      "rank": 7,
+      "id": "the-contortionist_intrinsic",
       "artist": "The Contortionist",
       "album": "Intrinsic",
       "year": 2012,
@@ -943,7 +943,7 @@
       }
     },
     {
-      "rank": 8,
+      "id": "textures_phenotype",
       "artist": "Textures",
       "album": "Phenotype",
       "year": 2016,
@@ -1047,7 +1047,7 @@
       }
     },
     {
-      "rank": 9,
+      "id": "black-crown-initiate_song-of-the-crippled-bull",
       "artist": "Black Crown Initiate",
       "album": "Song of the Crippled Bull",
       "year": 2013,
@@ -1109,7 +1109,7 @@
       }
     },
     {
-      "rank": 10,
+      "id": "gojira_from-mars-to-sirius",
       "artist": "Gojira",
       "album": "From Mars to Sirius",
       "year": 2005,
@@ -1234,7 +1234,7 @@
       }
     },
     {
-      "rank": 11,
+      "id": "dessiderium_aria",
       "artist": "Dessiderium",
       "album": "Aria",
       "year": 2021,
@@ -1295,7 +1295,7 @@
       }
     },
     {
-      "rank": 12,
+      "id": "after-the-burial_wolves-within",
       "artist": "After the Burial",
       "album": "Wolves Within",
       "year": 2013,
@@ -1405,7 +1405,7 @@
       }
     },
     {
-      "rank": 13,
+      "id": "dethklok_dethalbum-ii",
       "artist": "Dethklok",
       "album": "Dethalbum II",
       "year": 2009,
@@ -1513,7 +1513,7 @@
       }
     },
     {
-      "rank": 14,
+      "id": "whitechapel_kin",
       "artist": "Whitechapel",
       "album": "Kin",
       "year": 2021,
@@ -1636,7 +1636,7 @@
       }
     },
     {
-      "rank": 15,
+      "id": "cynic_traced-in-air",
       "artist": "Cynic",
       "album": "Traced in Air",
       "year": 2008,
@@ -1735,7 +1735,7 @@
       }
     },
     {
-      "rank": 16,
+      "id": "intervals_a-voice-within",
       "artist": "Intervals",
       "album": "A Voice Within",
       "year": 2014,
@@ -1882,7 +1882,7 @@
       }
     },
     {
-      "rank": 17,
+      "id": "baroness_purple",
       "artist": "Baroness",
       "album": "Purple",
       "year": 2015,
@@ -1989,7 +1989,7 @@
       }
     },
     {
-      "rank": 18,
+      "id": "system-of-a-down_steal-this-album",
       "artist": "System of a Down",
       "album": "Steal This Album!",
       "year": 2002,
@@ -2122,7 +2122,7 @@
       }
     },
     {
-      "rank": 19,
+      "id": "warrel-dane_praises-to-the-war-machine",
       "artist": "Warrel Dane",
       "album": "Praises to the War Machine",
       "year": 2008,
@@ -2253,7 +2253,7 @@
       }
     },
     {
-      "rank": 20,
+      "id": "substructure_monolith",
       "artist": "Substructure",
       "album": "Monolith",
       "year": 2011,
@@ -2331,7 +2331,7 @@
       }
     },
     {
-      "rank": 21,
+      "id": "opeth_ghost-reveries",
       "artist": "Opeth",
       "album": "Ghost Reveries",
       "year": 2005,
@@ -2432,7 +2432,7 @@
       }
     },
     {
-      "rank": 22,
+      "id": "the-offspring_smash",
       "artist": "The Offspring",
       "album": "Smash",
       "year": 1994,
@@ -2573,7 +2573,7 @@
       }
     },
     {
-      "rank": 23,
+      "id": "killswitch-engage_as-daylight-dies-special-edition",
       "artist": "Killswitch Engage",
       "album": "As Daylight Dies (Special Edition)",
       "year": 2007,
@@ -2586,41 +2586,261 @@
         {
           "disc": 1,
           "tracks": [
-            { "number": 1, "title": "Daylight Dies", "duration": "4:05" },
-            { "number": 2, "title": "This Is Absolution", "duration": "3:34" },
-            { "number": 3, "title": "The Arms of Sorrow", "duration": "3:44" },
-            { "number": 4, "title": "Unbroken", "duration": "3:08" },
-            { "number": 5, "title": "My Curse", "duration": "4:04" },
-            { "number": 6, "title": "For You", "duration": "4:03" },
-            { "number": 7, "title": "Still Beats Your Name", "duration": "3:19" },
-            { "number": 8, "title": "Eye of the Storm", "duration": "3:56" },
-            { "number": 9, "title": "Break the Silence", "duration": "4:32" },
-            { "number": 10, "title": "Desperate Times", "duration": "4:25" },
-            { "number": 11, "title": "Reject Yourself", "duration": "4:45" },
-            { "number": 12, "title": "Be One", "duration": "3:31" },
-            { "number": 13, "title": "Let the Bridges Burn", "duration": "4:29" },
-            { "number": 14, "title": "This Fire", "duration": "3:09" },
-            { "number": 15, "title": "Holy Diver", "duration": "4:10" }
+            {
+              "number": 1,
+              "title": "Daylight Dies",
+              "duration": "4:05"
+            },
+            {
+              "number": 2,
+              "title": "This Is Absolution",
+              "duration": "3:34"
+            },
+            {
+              "number": 3,
+              "title": "The Arms of Sorrow",
+              "duration": "3:44"
+            },
+            {
+              "number": 4,
+              "title": "Unbroken",
+              "duration": "3:08"
+            },
+            {
+              "number": 5,
+              "title": "My Curse",
+              "duration": "4:04"
+            },
+            {
+              "number": 6,
+              "title": "For You",
+              "duration": "4:03"
+            },
+            {
+              "number": 7,
+              "title": "Still Beats Your Name",
+              "duration": "3:19"
+            },
+            {
+              "number": 8,
+              "title": "Eye of the Storm",
+              "duration": "3:56"
+            },
+            {
+              "number": 9,
+              "title": "Break the Silence",
+              "duration": "4:32"
+            },
+            {
+              "number": 10,
+              "title": "Desperate Times",
+              "duration": "4:25"
+            },
+            {
+              "number": 11,
+              "title": "Reject Yourself",
+              "duration": "4:45"
+            },
+            {
+              "number": 12,
+              "title": "Be One",
+              "duration": "3:31"
+            },
+            {
+              "number": 13,
+              "title": "Let the Bridges Burn",
+              "duration": "4:29"
+            },
+            {
+              "number": 14,
+              "title": "This Fire",
+              "duration": "3:09"
+            },
+            {
+              "number": 15,
+              "title": "Holy Diver",
+              "duration": "4:10"
+            }
           ]
         }
       ],
       "personnel": {
         "members": [
-          { "name": "Howard Jones", "roles": ["Vocals"] },
-          { "name": "Adam Dutkiewicz", "roles": ["Guitar", "Backing Vocals"] },
-          { "name": "Joel Stroetzel", "roles": ["Guitar"] },
-          { "name": "Mike D'Antonio", "roles": ["Bass"] },
-          { "name": "Justin Foley", "roles": ["Drums"] }
+          {
+            "name": "Howard Jones",
+            "roles": ["Vocals"]
+          },
+          {
+            "name": "Adam Dutkiewicz",
+            "roles": ["Guitar", "Backing Vocals"]
+          },
+          {
+            "name": "Joel Stroetzel",
+            "roles": ["Guitar"]
+          },
+          {
+            "name": "Mike D'Antonio",
+            "roles": ["Bass"]
+          },
+          {
+            "name": "Justin Foley",
+            "roles": ["Drums"]
+          }
         ],
         "production": [
-          { "name": "Adam Dutkiewicz", "roles": ["Producer"] },
-          { "name": "Joel Stroetzel", "roles": ["Producer"] },
-          { "name": "Andy Sneap", "roles": ["Mixer"] }
+          {
+            "name": "Adam Dutkiewicz",
+            "roles": ["Producer"]
+          },
+          {
+            "name": "Joel Stroetzel",
+            "roles": ["Producer"]
+          },
+          {
+            "name": "Andy Sneap",
+            "roles": ["Mixer"]
+          }
         ],
         "studios": [
           "Zing Studios, Westfield, MA (all tracks except drums)",
           "Longview Farm, North Brookfield, MA (drums)"
         ]
+      }
+    },
+    {
+      "id": "corelia_nostalgia",
+      "artist": "Corelia",
+      "album": "Nostalgia",
+      "year": 2011,
+      "label": "Self-released",
+      "genre": "Progressive Metal / Djent",
+      "runtime": "30:36",
+      "review": "Corelia built something rare with this EP, seven tracks that feel emotionally complete. The Sound of Glaciers Moving and Red Sky Harbor hit hardest but there's no filler in the runtime. Spencer Sotelo's guest spot on Treetops earns its place.",
+      "art": ["mbid-c91e8da4-52d5-46ff-8536-6e8e67e0d8e5-2401210678.jpg"],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            { "number": 1, "title": "Treetops", "duration": "4:51" },
+            { "number": 2, "title": "Glass Faces", "duration": "4:31" },
+            { "number": 3, "title": "The Sound of Glaciers Moving", "duration": "4:29" },
+            { "number": 4, "title": "Aviation", "duration": "3:14" },
+            { "number": 5, "title": "Red Sky Harbor", "duration": "6:00" },
+            { "number": 6, "title": "Mute Swan", "duration": "1:51" },
+            { "number": 7, "title": "Blood Petals", "duration": "6:14" }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          { "name": "Ryan Devlin", "roles": ["Vocals"] },
+          { "name": "Chris Dower", "roles": ["Guitar"] },
+          { "name": "Ryan Borrell", "roles": ["Guitar"] },
+          { "name": "Adrian Alperstein", "roles": ["Bass"] },
+          { "name": "Clayton Pratt", "roles": ["Drums"] }
+        ],
+        "guests": [
+          {
+            "name": "Spencer Sotelo",
+            "roles": ["Guest Vocals"],
+            "notes": "Appears on \"Treetops\""
+          }
+        ],
+        "production": [{ "name": "Corelia", "roles": ["Producer", "Engineer", "Mixer"] }]
+      }
+    },
+    {
+      "id": "meshuggah_nothing",
+      "artist": "Meshuggah",
+      "album": "Nothing",
+      "year": 2002,
+      "label": "Nuclear Blast",
+      "genre": "Progressive Metal / Groove Metal / Avant-Garde Metal",
+      "runtime": "52:37",
+      "review": "Ten tracks of pure rhythmic warfare that somehow never loses the thread. Haake's drumming operates in a different timezone from everything else on the planet and the riffs just grind relentlessly underneath, not fast, just inevitable. Closed Eye Visuals and Nebulous are the centrepieces but the whole record functions as a single suffocating mass. Mixed in two days and mastered in one.",
+      "art": ["mbid-0edaf94b-2066-43fa-ba75-8175ca93ca37-31430636916.jpg"],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            { "number": 1, "title": "Stengah", "duration": "5:36" },
+            { "number": 2, "title": "Rational Gaze", "duration": "3:34" },
+            { "number": 3, "title": "Perpetual Black Second", "duration": "4:39" },
+            { "number": 4, "title": "Closed Eye Visuals", "duration": "7:26" },
+            { "number": 5, "title": "Glints Collide", "duration": "4:56" },
+            { "number": 6, "title": "Organic Shadows", "duration": "5:08" },
+            { "number": 7, "title": "Straws Pulled at Random", "duration": "5:11" },
+            { "number": 8, "title": "Spasm", "duration": "4:15" },
+            { "number": 9, "title": "Nebulous", "duration": "6:34" },
+            { "number": 10, "title": "Obsidian", "duration": "4:23" }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          { "name": "Jens Kidman", "roles": ["Vocals"] },
+          { "name": "Fredrik Thordendal", "roles": ["Guitar", "Bass", "Synthesizer"] },
+          { "name": "Mårten Hagström", "roles": ["Guitar"] },
+          { "name": "Dick Lövgren", "roles": ["Bass"] },
+          { "name": "Tomas Haake", "roles": ["Drums", "Vocals"] }
+        ],
+        "production": [
+          { "name": "Meshuggah", "roles": ["Producer"] },
+          { "name": "Fredrik Thordendal", "roles": ["Engineer"] }
+        ],
+        "studios": [
+          "Dug Out Studio, Uppsala, Sweden (drums)",
+          "Studio Area 51 (guitars, bass)",
+          "Fear and Loathing Studio, Stockholm, Sweden (vocals, mixing)"
+        ]
+      }
+    },
+    {
+      "id": "in-flames_colony",
+      "artist": "In Flames",
+      "album": "Colony",
+      "year": 1999,
+      "label": "Nuclear Blast",
+      "genre": "Melodic Death Metal",
+      "runtime": "41:31",
+      "review": "The classic lineup clicks into place and the results are immediate. With Zombie Inc. and Coerced Coexistence as the obvious peaks, but the whole record holds a relentless energy from front to back. Pallar Anders Visa is a folk interlude that has no business working as well as it does. Peak Gothenburg.",
+      "art": ["mbid-e3f7ce6c-7a15-3518-b7d3-d4f383a79b9c-7389990128.jpg"],
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            { "number": 1, "title": "Embody the Invisible", "duration": "3:37" },
+            { "number": 2, "title": "Ordinary Story", "duration": "4:16" },
+            { "number": 3, "title": "Scorn", "duration": "3:37" },
+            { "number": 4, "title": "Colony", "duration": "4:39" },
+            { "number": 5, "title": "Zombie Inc.", "duration": "5:05" },
+            { "number": 6, "title": "Pallar Anders Visa", "duration": "1:42" },
+            { "number": 7, "title": "Coerced Coexistence", "duration": "4:15" },
+            { "number": 8, "title": "Resin", "duration": "3:22" },
+            { "number": 9, "title": "Behind Space '99", "duration": "3:59" },
+            { "number": 10, "title": "Insipid 2000", "duration": "3:46" },
+            { "number": 11, "title": "The New Word", "duration": "3:18" }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          { "name": "Anders Fridén", "roles": ["Vocals"] },
+          { "name": "Jesper Strömblad", "roles": ["Guitar", "Hammond Organ"] },
+          { "name": "Björn Gelotte", "roles": ["Guitar"] },
+          { "name": "Peter Iwers", "roles": ["Bass"] },
+          { "name": "Daniel Svensson", "roles": ["Drums"] }
+        ],
+        "guests": [{ "name": "Charlie Storm", "roles": ["Synthesizer", "Programming"] }],
+        "production": [
+          {
+            "name": "Fredrik Nordström",
+            "roles": ["Producer", "Engineer", "Mixer", "Slide Guitar", "Hammond Organ"]
+          },
+          { "name": "In Flames", "roles": ["Producer"] },
+          { "name": "Göran Finnberg", "roles": ["Mastering Engineer"] }
+        ],
+        "studios": ["Studio Fredman, Gothenburg, Sweden"]
       }
     }
   ]
