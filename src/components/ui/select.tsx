@@ -25,7 +25,7 @@ const selectVariants = cva(
         secondary: `${variantColors.secondary} hover:bg-secondary/80`,
         ghost: `${variantColors.ghost} hover:bg-muted dark:hover:bg-muted/50`,
         keyboard:
-          "min-h-[44px] rounded-[10px] [border-style:outset] border-[var(--keycap-edge,rgb(240,240,203))] [border-width:8px_10px_10px_8px] bg-[var(--keycap-face,beige)] text-xs text-[var(--keycap-text,#3a382c)] shadow-[0_5px_10px_2px_rgba(0,0,0,0.45)] transition-[box-shadow,transform,border-width] duration-100 ease-out active:translate-y-[3px] active:brightness-95 active:[border-style:inset] active:[border-width:8px_8px_5px_8px] active:shadow-[inset_0_2px_5px_0_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.45)] data-[state=open]:translate-y-[3px] data-[state=open]:brightness-95 data-[state=open]:[border-style:inset] data-[state=open]:[border-width:8px_8px_5px_8px] data-[state=open]:shadow-[inset_0_2px_5px_0_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.45)]",
+          "min-h-[44px] rounded-[10px] [border-style:outset] border-[var(--keycap-edge)] [border-width:8px_10px_10px_8px] bg-[var(--keycap-face)] text-xs text-[var(--keycap-text)] shadow-[0_5px_10px_2px_rgba(0,0,0,0.45)] transition-[box-shadow,transform,border-width] duration-100 ease-out active:translate-y-[3px] active:brightness-95 active:[border-style:inset] active:[border-width:8px_8px_5px_8px] active:shadow-[inset_0_2px_5px_0_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.45)] data-[state=open]:translate-y-[3px] data-[state=open]:brightness-95 data-[state=open]:[border-style:inset] data-[state=open]:[border-width:8px_8px_5px_8px] data-[state=open]:shadow-[inset_0_2px_5px_0_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.45)]",
       },
       size: {
         default: "h-9 gap-1.5 px-3",

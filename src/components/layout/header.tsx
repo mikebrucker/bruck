@@ -1,7 +1,6 @@
 import type { IconSvgElement } from "@hugeicons/react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "@/components/ui/button";
-import { convexButtonGradient8 } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
 interface HeaderProps extends React.ComponentProps<"header"> {

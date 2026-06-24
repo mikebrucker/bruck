@@ -51,6 +51,12 @@
   --theme-800: #065f46;
   --theme-900: #064e3b;
   --theme-950: #022c22;
+  /* stone 200 */
+  --keycap-edge: #e7e5e4;
+  /* stone 100 */
+  --keycap-face: #f5f5f4;
+  /* stone 700 */
+  --keycap-text: #44403c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -102,6 +108,12 @@
     --theme-800: #a7f3d0;
     --theme-900: #d1fae5;
     --theme-950: #ecfdf5;
+    /* stone 700 */
+    --keycap-edge: #44403c;
+    /* stone 800 */
+    --keycap-face: #292524;
+    /* stone 300 */
+    --keycap-text: #d6d3d1;
   }
 }
 
@@ -153,6 +165,12 @@ html.dark {
   --theme-800: #a7f3d0;
   --theme-900: #d1fae5;
   --theme-950: #ecfdf5;
+  /* stone 700 */
+  --keycap-edge: #44403c;
+  /* stone 800 */
+  --keycap-face: #292524;
+  /* stone 300 */
+  --keycap-text: #d6d3d1;
 }
 
 html.light {
