@@ -11,10 +11,10 @@ export function LanguageInit() {
   const pathnameLanguage = pathname.split("/").filter(Boolean)[0];
 
   useEffect(() => {
-    if (isLocale(pathnameLanguage) && pathnameLanguage !== language) {
+    if (isLocale(pathnameLanguage)) {
       setLanguage(pathnameLanguage as Language);
     }
-  }, [language, pathnameLanguage, setLanguage]);
+  }, [pathnameLanguage, setLanguage]);
 
   useEffect(() => {
     document.documentElement.lang = language;
