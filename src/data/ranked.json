@@ -2842,6 +2842,99 @@
         ],
         "studios": ["Studio Fredman, Gothenburg, Sweden"]
       }
+    },
+    {
+      "id": "vola_inmazes",
+      "artist": "VOLA",
+      "album": "Inmazes",
+      "year": 2015,
+      "label": "Self-released",
+      "genre": "Progressive Metal / Djent",
+      "runtime": "51:56",
+      "review": "Mygind pulled off something rare on a debut, a fully realised sound that doesn't feel like it's still finding itself. The djent backbone hits hard but it's the atmospheric reach and the melodic restraint that make it stick. Owls and the title track are the peaks, but the back half of this record is an unbroken run of great songs.",
+      "art": ["mbid-10a42241-f2ec-4d36-8486-5713b0cdddd2-25863715958.jpg"],
+      "favoriteTrack": 8,
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            { "number": 1, "title": "The Same War", "duration": "5:11" },
+            { "number": 2, "title": "Stray the Skies", "duration": "4:14" },
+            { "number": 3, "title": "Starburn", "duration": "6:06" },
+            { "number": 4, "title": "Owls", "duration": "5:52" },
+            { "number": 5, "title": "Your Mind Is a Helpless Dreamer", "duration": "5:22" },
+            { "number": 6, "title": "Emily", "duration": "3:02" },
+            { "number": 7, "title": "Gutter Moon", "duration": "3:56" },
+            { "number": 8, "title": "A Stare Without Eyes", "duration": "4:59" },
+            { "number": 9, "title": "Feed the Creatures", "duration": "5:38" },
+            { "number": 10, "title": "Inmazes", "duration": "7:31" }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          { "name": "Asger Mygind", "roles": ["Vocals", "Guitar"] },
+          { "name": "Martin Werner", "roles": ["Keyboards", "Programming"] },
+          { "name": "Nicolai Mogensen", "roles": ["Bass"] },
+          { "name": "Felix Ewert", "roles": ["Drums"] }
+        ],
+        "production": [
+          { "name": "Asger Mygind", "roles": ["Producer", "Mixer"] },
+          { "name": "Jens Bogren", "roles": ["Mastering Engineer"] }
+        ]
+      }
+    },
+    {
+      "id": "devin-townsend-project_ki",
+      "artist": "Devin Townsend Project",
+      "album": "Ki",
+      "year": 2009,
+      "label": "HevyDevy / InsideOut",
+      "genre": "Progressive Rock / Ambient Rock",
+      "runtime": "1:06:45",
+      "review": "The most patient thing Townsend ever made and that's exactly the point. Coast and Terminal are stunning, minimal, heavy with atmosphere, totally unlike anything he'd done before. Heaven Send is where the lid finally comes off and it earns every second of the buildup. The title track closing out the main run is something else entirely. Not an easy listen but it rewards every visit.",
+      "art": ["mbid-ea509223-c2bd-44e6-86c0-baa652f9e4ad-30755243407.jpg"],
+      "favoriteTrack": 9,
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            { "number": 1, "title": "A Monday", "duration": "1:42" },
+            { "number": 2, "title": "Coast", "duration": "4:35" },
+            { "number": 3, "title": "Disruptr", "duration": "5:49" },
+            { "number": 4, "title": "Gato", "duration": "5:23" },
+            { "number": 5, "title": "Terminal", "duration": "6:58" },
+            { "number": 6, "title": "Heaven Send", "duration": "8:54" },
+            { "number": 7, "title": "Ain't Never Gonna Win", "duration": "3:17" },
+            { "number": 8, "title": "Winter", "duration": "4:47" },
+            { "number": 9, "title": "Trainfire", "duration": "5:58" },
+            { "number": 10, "title": "Lady Helen", "duration": "6:05" },
+            { "number": 11, "title": "Ki", "duration": "7:20" },
+            { "number": 12, "title": "Quiet Riot", "duration": "3:02" },
+            { "number": 13, "title": "Deamon League", "duration": "2:55" }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          { "name": "Devin Townsend", "roles": ["Vocals", "Guitar"] },
+          { "name": "Jean Savoie", "roles": ["Bass"] },
+          { "name": "Duris Maxwell", "roles": ["Drums"] },
+          { "name": "Dave Young", "roles": ["Keyboards"] }
+        ],
+        "guests": [
+          {
+            "name": "Che Aimee Dorval",
+            "roles": ["Guest Vocals"],
+            "notes": "Appears on \"Gato\", \"Heaven Send\", and \"Trainfire\""
+          }
+        ],
+        "production": [
+          { "name": "Devin Townsend", "roles": ["Producer", "Engineer", "Mixer"] },
+          { "name": "T-Roy", "roles": ["Mastering Engineer"] }
+        ],
+        "studios": ["Devestate Studios", "Studio D", "The Factory (bed tracks)"]
+      }
     }
   ]
 }
