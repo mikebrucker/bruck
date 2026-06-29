@@ -1,7 +1,7 @@
 {
   "albums": [
     {
-      "id": "between-the-buried-and-me_colors",
+      "id": "between_the_buried_and_me-colors",
       "artist": "Between the Buried and Me",
       "album": "Colors",
       "year": 2007,
@@ -109,7 +109,7 @@
       }
     },
     {
-      "id": "black-crown-initiate_selves-we-cannot-forgive",
+      "id": "black_crown_initiate-selves_we_cannot_forgive",
       "artist": "Black Crown Initiate",
       "album": "Selves We Cannot Forgive",
       "year": 2016,
@@ -214,7 +214,7 @@
       }
     },
     {
-      "id": "the-contortionist_exoplanet",
+      "id": "the_contortionist-exoplanet",
       "artist": "The Contortionist",
       "album": "Exoplanet",
       "year": 2010,
@@ -326,7 +326,7 @@
       }
     },
     {
-      "id": "the-zenith-passage_solipsist",
+      "id": "the_zenith_passage-solipsist",
       "artist": "The Zenith Passage",
       "album": "Solipsist",
       "year": 2016,
@@ -445,7 +445,7 @@
       }
     },
     {
-      "id": "rivers-of-nihil_rivers-of-nihil",
+      "id": "rivers_of_nihil-rivers_of_nihil",
       "artist": "Rivers of Nihil",
       "album": "Rivers of Nihil",
       "year": 2025,
@@ -544,7 +544,7 @@
       }
     },
     {
-      "id": "between-the-buried-and-me_the-parallax-hypersleep-dialogues",
+      "id": "between_the_buried_and_me-the_parallax_hypersleep_dialogues",
       "artist": "Between the Buried and Me",
       "album": "The Parallax: Hypersleep Dialogues",
       "year": 2011,
@@ -615,7 +615,7 @@
       }
     },
     {
-      "id": "in-flames_reroute-to-remain",
+      "id": "in_flames-reroute_to_remain",
       "artist": "In Flames",
       "album": "Reroute to Remain",
       "year": 2002,
@@ -670,7 +670,7 @@
       }
     },
     {
-      "id": "between-the-buried-and-me_the-great-misdirect",
+      "id": "between_the_buried_and_me-the_great_misdirect",
       "artist": "Between the Buried and Me",
       "album": "The Great Misdirect",
       "year": 2009,
@@ -767,7 +767,7 @@
       }
     },
     {
-      "id": "animals-as-leaders_the-joy-of-motion",
+      "id": "animals_as_leaders-the_joy_of_motion",
       "artist": "Animals as Leaders",
       "album": "The Joy of Motion",
       "year": 2014,
@@ -893,7 +893,7 @@
       }
     },
     {
-      "id": "the-offspring_americana",
+      "id": "the_offspring-americana",
       "artist": "The Offspring",
       "album": "Americana",
       "year": 1998,
@@ -1011,7 +1011,7 @@
       }
     },
     {
-      "id": "between-the-buried-and-me_alaska",
+      "id": "between_the_buried_and_me-alaska",
       "artist": "Between the Buried and Me",
       "album": "Alaska",
       "year": 2005,

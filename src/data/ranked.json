@@ -1,7 +1,7 @@
 {
   "albums": [
     {
-      "id": "between-the-buried-and-me_the-parallax-ii-future-sequence",
+      "id": "between_the_buried_and_me-the_parallax_ii_future_sequence",
       "artist": "Between the Buried and Me",
       "album": "The Parallax II: Future Sequence",
       "year": 2012,
@@ -147,7 +147,7 @@
       }
     },
     {
-      "id": "the-schoenberg-automaton_apus",
+      "id": "the_schoenberg_automaton-apus",
       "artist": "The Schoenberg Automaton",
       "album": "Apus",
       "year": 2016,
@@ -264,7 +264,7 @@
       }
     },
     {
-      "id": "soilwork_the-living-infinite",
+      "id": "soilwork-the_living_infinite",
       "artist": "Soilwork",
       "album": "The Living Infinite",
       "year": 2013,
@@ -446,7 +446,7 @@
       }
     },
     {
-      "id": "periphery_juggernaut-alpha-omega",
+      "id": "periphery-juggernaut_alphaomega",
       "artist": "Periphery",
       "album": "Juggernaut: Alpha/Omega",
       "year": 2015,
@@ -611,7 +611,7 @@
       }
     },
     {
-      "id": "rivers-of-nihil_where-owls-know-my-name",
+      "id": "rivers_of_nihil-where_owls_know_my_name",
       "artist": "Rivers of Nihil",
       "album": "Where Owls Know My Name",
       "year": 2018,
@@ -721,7 +721,7 @@
       }
     },
     {
-      "id": "dimension-zero_he-who-shall-not-bleed",
+      "id": "dimension_zero-he_who_shall_not_bleed",
       "artist": "Dimension Zero",
       "album": "He Who Shall Not Bleed",
       "year": 2007,
@@ -832,7 +832,7 @@
       }
     },
     {
-      "id": "the-contortionist_intrinsic",
+      "id": "the_contortionist-intrinsic",
       "artist": "The Contortionist",
       "album": "Intrinsic",
       "year": 2012,
@@ -943,7 +943,7 @@
       }
     },
     {
-      "id": "textures_phenotype",
+      "id": "textures-phenotype",
       "artist": "Textures",
       "album": "Phenotype",
       "year": 2016,
@@ -1047,7 +1047,7 @@
       }
     },
     {
-      "id": "black-crown-initiate_song-of-the-crippled-bull",
+      "id": "black_crown_initiate-song_of_the_crippled_bull",
       "artist": "Black Crown Initiate",
       "album": "Song of the Crippled Bull",
       "year": 2013,
@@ -1109,7 +1109,7 @@
       }
     },
     {
-      "id": "gojira_from-mars-to-sirius",
+      "id": "gojira-from_mars_to_sirius",
       "artist": "Gojira",
       "album": "From Mars to Sirius",
       "year": 2005,
@@ -1234,7 +1234,7 @@
       }
     },
     {
-      "id": "dessiderium_aria",
+      "id": "dessiderium-aria",
       "artist": "Dessiderium",
       "album": "Aria",
       "year": 2021,
@@ -1295,7 +1295,7 @@
       }
     },
     {
-      "id": "after-the-burial_wolves-within",
+      "id": "after_the_burial-wolves_within",
       "artist": "After the Burial",
       "album": "Wolves Within",
       "year": 2013,
@@ -1405,7 +1405,7 @@
       }
     },
     {
-      "id": "dethklok_dethalbum-ii",
+      "id": "dethklok-dethalbum_ii",
       "artist": "Dethklok",
       "album": "Dethalbum II",
       "year": 2009,
@@ -1513,7 +1513,7 @@
       }
     },
     {
-      "id": "whitechapel_kin",
+      "id": "whitechapel-kin",
       "artist": "Whitechapel",
       "album": "Kin",
       "year": 2021,
@@ -1636,7 +1636,7 @@
       }
     },
     {
-      "id": "cynic_traced-in-air",
+      "id": "cynic-traced_in_air",
       "artist": "Cynic",
       "album": "Traced in Air",
       "year": 2008,
@@ -1735,7 +1735,7 @@
       }
     },
     {
-      "id": "intervals_a-voice-within",
+      "id": "intervals-a_voice_within",
       "artist": "Intervals",
       "album": "A Voice Within",
       "year": 2014,
@@ -1882,7 +1882,7 @@
       }
     },
     {
-      "id": "baroness_purple",
+      "id": "baroness-purple",
       "artist": "Baroness",
       "album": "Purple",
       "year": 2015,
@@ -1989,7 +1989,7 @@
       }
     },
     {
-      "id": "system-of-a-down_steal-this-album",
+      "id": "system_of_a_down-steal_this_album",
       "artist": "System of a Down",
       "album": "Steal This Album!",
       "year": 2002,
@@ -2122,7 +2122,7 @@
       }
     },
     {
-      "id": "warrel-dane_praises-to-the-war-machine",
+      "id": "warrel_dane-praises_to_the_war_machine",
       "artist": "Warrel Dane",
       "album": "Praises to the War Machine",
       "year": 2008,
@@ -2253,7 +2253,7 @@
       }
     },
     {
-      "id": "substructure_monolith",
+      "id": "substructure-monolith",
       "artist": "Substructure",
       "album": "Monolith",
       "year": 2011,
@@ -2331,7 +2331,7 @@
       }
     },
     {
-      "id": "opeth_ghost-reveries",
+      "id": "opeth-ghost_reveries",
       "artist": "Opeth",
       "album": "Ghost Reveries",
       "year": 2005,
@@ -2432,7 +2432,7 @@
       }
     },
     {
-      "id": "the-offspring_smash",
+      "id": "the_offspring-smash",
       "artist": "The Offspring",
       "album": "Smash",
       "year": 1994,
@@ -2573,7 +2573,7 @@
       }
     },
     {
-      "id": "killswitch-engage_as-daylight-dies-special-edition",
+      "id": "killswitch_engage-as_daylight_dies_special_edition",
       "artist": "Killswitch Engage",
       "album": "As Daylight Dies (Special Edition)",
       "year": 2007,
@@ -2708,7 +2708,7 @@
       }
     },
     {
-      "id": "corelia_nostalgia",
+      "id": "corelia-nostalgia",
       "artist": "Corelia",
       "album": "Nostalgia",
       "year": 2011,
@@ -2750,7 +2750,7 @@
       }
     },
     {
-      "id": "meshuggah_nothing",
+      "id": "meshuggah-nothing",
       "artist": "Meshuggah",
       "album": "Nothing",
       "year": 2002,
@@ -2796,7 +2796,7 @@
       }
     },
     {
-      "id": "in-flames_colony",
+      "id": "in_flames-colony",
       "artist": "In Flames",
       "album": "Colony",
       "year": 1999,
@@ -2844,7 +2844,7 @@
       }
     },
     {
-      "id": "vola_inmazes",
+      "id": "vola-inmazes",
       "artist": "VOLA",
       "album": "Inmazes",
       "year": 2015,
@@ -2885,7 +2885,7 @@
       }
     },
     {
-      "id": "devin-townsend-project_ki",
+      "id": "devin_townsend_project-ki",
       "artist": "Devin Townsend Project",
       "album": "Ki",
       "year": 2009,
