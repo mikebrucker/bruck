@@ -50,7 +50,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
       side={side}
       useTheme={useTheme}
     >
-      <div className="flex justify-end px-3 py-3">
+      <div className="flex justify-end p-3">
         <Button variant="keyboard" size="icon" onClick={onClose} aria-label="close menu">
           <HugeiconsIcon icon={Close} className="size-6" />
         </Button>

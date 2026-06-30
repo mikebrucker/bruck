@@ -13,16 +13,15 @@ interface DrawerProps {
 }
 
 function Drawer({ open, onClose, children, side = "right", useTheme = false, classNames }: DrawerProps) {
-  const translateClass = open ? "translate-x-0" : side === "right" ? "translate-x-full" : "-translate-x-full";
+  const slideIn = side === "right" ? "data-[state=open]:animate-drawer-slide-in-right" : "data-[state=open]:animate-drawer-slide-in-left";
+  const slideOut = side === "right" ? "data-[state=closed]:animate-drawer-slide-out-right" : "data-[state=closed]:animate-drawer-slide-out-left";
   return (
     <Dialog.Root open={open} onOpenChange={(o) => !o && onClose()}>
       <Dialog.Portal>
-        <Dialog.Overlay
-          className={`fixed inset-0 z-60 bg-black/75 transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        />
+        <Dialog.Overlay className="fixed inset-0 z-60 bg-black/75 data-[state=open]:animate-drawer-fade-in data-[state=closed]:animate-drawer-fade-out" />
         <Dialog.Content
           aria-describedby={undefined}
-          className={`fixed top-0 ${side === "right" ? "right-0" : "left-0"} z-60 h-full w-4/5 max-w-90 transition-transform duration-300 ease-in-out ${translateClass} ${classNames ?? ""}`}
+          className={`fixed top-0 ${side === "right" ? "right-0" : "left-0"} z-60 h-full w-4/5 max-w-90 ${slideIn} ${slideOut} ${classNames ?? ""}`}
           style={{
             background: useTheme
               ? `linear-gradient(to bottom ${side}, var(--theme-200), var(--background))`
