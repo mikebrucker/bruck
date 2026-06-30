@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-dvh items-center flex-start font-sans">
-      <Menu open={menuOpen} onClose={() => setMenuOpen(false)} useTheme />
+      <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />
       <Header onAction={() => setMenuOpen(true)} actionIcon={Menu01Icon} sticky />
       <main className="flex flex-col gap-4 grow items-center max-w-5xl p-1 sm:p-4 transition-all">
         <Accordion
