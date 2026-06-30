@@ -25,7 +25,7 @@ export default function Loader({
   if (!isOpen) return null;
 
   const wrapperClassName = fullScreen
-    ? `fixed inset-0 z-1000 flex items-center justify-center ${transparentBg ? "" : "bg-black/25 dark:bg-black/75"}`.trim()
+    ? `fixed inset-0 z-1000 flex items-center justify-center ${transparentBg ? "" : "bg-black/50"}`.trim()
     : undefined;
 
   const bars = (

@@ -42,6 +42,10 @@ export interface Album {
   personnel?: Personnel;
 }
 
+export interface JsonAlbum extends Omit<Album, "favoriteTrack"> {
+  favoriteTrack?: number | Array<number>;
+}
+
 export interface AlbumList {
   ranked: Array<Album>;
   honorableMentions: Array<Album>;

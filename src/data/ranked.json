@@ -10,6 +10,7 @@
       "runtime": "72:33",
       "review": "A landmark in progressive metal. BTBAM weaponize every dynamic from skull-crushing brutality to full orchestral bliss within a single track. The concept storytelling is airtight, and Silent Flight Parliament is one of the greatest album closers ever written.",
       "art": ["mbid-c1afd5ae-a8bb-4986-8a8d-83b87d1fd62c-32621144969.jpg"],
+      "favoriteTrack": 12,
       "discs": [
         {
           "disc": 1,
@@ -156,6 +157,7 @@
       "runtime": "57:21",
       "review": "Mechanized chaos with genuine songwriting intelligence behind it. Every track earns its place, transitions are seamless, ideas hit hard and keep moving. Don't Be Disputin' With Rasputin is a career-defining 6 minutes.",
       "art": ["mbid-956bdaaa-4dbc-4a8d-9915-3cc3268f7543-32085053052.jpg"],
+      "favoriteTrack": 6,
       "discs": [
         {
           "disc": 1,
@@ -273,6 +275,7 @@
       "runtime": "84:19",
       "review": "A double album with zero weak links, a near-impossible feat. Jens Bogren's production is enormous. Speed Strid delivers career-best vocal performances across 84 minutes that somehow never lose momentum.",
       "art": ["mbid-1b25945b-d360-4cf7-9718-2ad5fa314b24-7454301422.jpg"],
+      "favoriteTrack": [2, 9],
       "discs": [
         {
           "disc": 1,
@@ -458,6 +461,7 @@
         "mbid-28534466-df7c-4a98-91d4-2faad0735747-33071466337.jpg",
         "mbid-83600765-d021-4973-8a1a-abc40988caa6-28188611509.jpg"
       ],
+      "favoriteTrack": [1, 5],
       "discs": [
         {
           "disc": 1,
@@ -620,6 +624,7 @@
       "runtime": "56:43",
       "review": "A genre-defying leap forward, brutal tech death woven with saxophone, atmosphere, and devastating emotional weight. Every track earns its place. Capricorn / Agoratopia closes the album like a slow burning crescendo into oblivion.",
       "art": ["mbid-73788306-6f7c-4ac9-a55e-7475464ccf6f-19349849238.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -730,6 +735,7 @@
       "runtime": "34:16",
       "review": "Pure Gothenburg aggression at full sprint, fast, catchy, and loaded with tasty riffs. Deny and Hell Is Within cut deep. Eleven tracks of relentless melodic death metal.",
       "art": ["mbid-06cc8a20-970f-43cd-9dc6-7244a6701550-44168475256.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -841,6 +847,7 @@
       "runtime": "45:08",
       "review": "The Contortionist at their most dynamic and fearless, crushing riffs that pivot effortlessly into post-rock atmosphere and jazz-tinged passages without ever feeling forced. Holomovement through Geocentric Confusion is one of the strongest opening runs in modern prog metal.",
       "art": ["mbid-cc50bfa2-e1ed-4356-acb1-c3a7b0210eaa-12726112845.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -952,6 +959,7 @@
       "runtime": "43:50",
       "review": "Dense, ferocious, and endlessly rewarding. Zman's beautiful, introspective piano riff surges powerfully into Timeless, an emotionally explosive closer that detonates with everything the album built toward.",
       "art": ["mbid-23d19470-e0e9-446a-b7dc-5d117e398425-12707880560.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1056,6 +1064,7 @@
       "runtime": "21:34",
       "review": "A debut EP that hit like a full album. Raw, ferocious, and immediately fully formed. Stench of the Iron Age alone announced BCI as one of the most exciting bands in prog death.",
       "art": ["mbid-a49dd12f-ea79-43dd-95d6-c2adad7be650-11176896632.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1118,6 +1127,7 @@
       "runtime": "66:52",
       "review": "Gojira weaponize groove and atmosphere in equal measure, mighty chugging riffs that never sacrifice emotional weight. Flying Whales is the centrepiece and one of the greatest metal songs ever written, but the floor never drops across all 12 tracks.",
       "art": ["mbid-13df50d7-d3a5-4486-9863-bc0ef1c5b81b-18590894530.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1243,6 +1253,7 @@
       "runtime": "60:37",
       "review": "A solo one-man odyssey that punches well above its weight. Five tracks, all over nine minutes, each one a seamlessly shifting landscape of blackened aggression, cinematic orchestration, and melodic depth that rewards every listen.",
       "art": ["mbid-12edb14a-76a4-4a08-b9e3-31d5407bc7e6-30876116351.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1304,6 +1315,7 @@
       "runtime": "41:24",
       "review": "ATB at their most focused and ruthless. Riffs that stick, and a tracklist with no dead weight. Disconnect and A Wolf Amongst Ravens are the peaks, the latter closing the album with haunting atmosphere before detonating into pure controlled chaos.",
       "art": ["mbid-c2d99033-a193-4a85-a467-ba06448b8fd6-30331637158.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1414,6 +1426,7 @@
       "runtime": "52:00",
       "review": "Brendon Small and Gene Hoglan delivering absurdly tight melodic death metal with zero irony in the playing. Massive riffs, cinematic scope, and a tracklist that swings from brutal to epic without breaking stride. Black Fire Upon Us builds from brooding atmosphere into one of the most devastating crescendos on the record.",
       "art": ["mbid-6962a5f0-5687-3375-a966-c05fd15784db-996874208.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1522,6 +1535,7 @@
       "runtime": "47:49",
       "review": "The Valley opened the door and Kin walks through it without looking back. Bozeman's clean vocals are no longer a surprise, they're a weapon, and he deploys them with the same conviction as the growls. The concept running through it is genuinely heavy subject matter handled with real restraint. Lost Boy and A Bloodsoaked Symphony are the peaks but the whole thing holds together as a record, not just a collection of songs.",
       "art": ["mbid-1c3b4ce2-d45f-4da2-a1ef-42b0af2918a7-30899789361.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1645,6 +1659,7 @@
       "runtime": "34:17",
       "review": "Fifteen years gone and they came back with this, 34 minutes of something that sounds like nothing else. Masvidal's voice sits in that weightless processed register, Reinert plays like gravity is optional, and the whole thing floats between jazz, death metal and something harder to name. Evolutionary Sleeper and King of Those Who Know are the peaks but the album works as a single sustained mood. A record that earns every word of its reputation.",
       "art": ["mbid-bb960d30-45f7-4895-a84f-1e08f645f1f3-38342820255.png"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1744,6 +1759,7 @@
       "runtime": "49:32",
       "review": "Marshall and Semesky clicked immediately, the grooves hit harder with a voice anchoring them and Semesky's range suits the material perfectly without softening the edges. The Self Surrendered is the centrepiece, eight minutes that earns every second, and the title track closes the album with the same unhurried confidence. A debut that felt fully formed from the first listen.",
       "art": ["mbid-9f52305c-e2ca-4950-8278-cc3a95cb3d5e-39565669096.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1891,6 +1907,7 @@
       "runtime": "42:33",
       "review": "Baroness at their most focused and anthemic, mammoth guitars and scratching vocals upfront, with every chorus swinging hard. Chlorine & Wine is the centrepiece, dark and sprawling. The kind of album that rewards both the casual listen and the deep dive.",
       "art": ["mbid-9959a5d7-76c2-4cc0-8178-30453a225d78-12288745526.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -1998,6 +2015,7 @@
       "runtime": "43:22",
       "review": "Toxicity's overflow bin that turned out to hold some of the best songs in the catalogue. The chaos is more unfiltered here, shorter, weirder, less polished, and that works entirely in its favour. Chic 'N' Stu, Mr. Jack, Roulette and Pictures alone make a stronger case than half the albums bands spend years crafting. The fact that it started as a leak the band had to rescue makes it feel even more alive.",
       "art": ["mbid-d5e089ba-cec8-3b96-9825-841c6443ede1-17077922809.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2131,6 +2149,7 @@
       "runtime": "50:04",
       "review": "Dane and Wichers make a formidable pairing, heavy where it needs to be, gothic and brooding where it doesn't, and never losing sight of the melody. August alone justifies the whole record, a slow-burning gut punch that showcases everything Dane could do with his voice when given the space to breathe.",
       "art": ["mbid-6dc9d23f-84e0-44d9-ab8b-31db0ce35d3b-42639710728.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2262,6 +2281,7 @@
       "runtime": "22:16",
       "review": "Six tracks of surgical prog deathcore from St. Louis that punched way above its weight as a self-released debut. Constellation-named cuts flow seamlessly into each other, balancing djenty aggression with genuinely atmospheric breathing room. One of the most promising EPs to come out of the deathcore underground in 2011.",
       "art": ["mbid-df7d842e-28d7-4081-a57d-ee16f56e998d.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2340,6 +2360,7 @@
       "runtime": "66:46",
       "review": "The last Opeth album where the death metal and the prog exist in genuine tension rather than polite coexistence. Åkerfeldt was writing at the absolute peak of his powers, Ghost of Perdition and Reverie/Harlequin Forest are as good as anything in the catalogue. Per Wiberg's keys add a warmth and depth the band hadn't had before, and Jens Bogren's production gives it a weight that suits every dynamic shift. A landmark.",
       "art": ["mbid-2f087439-5d1b-38c7-99fd-0de138a11fc2-20838648318.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2441,6 +2462,7 @@
       "runtime": "46:47",
       "review": "The best-selling indie album of all time for a reason, every track pulls its weight and the sequencing is relentless. Bad Habit, Self Esteem and Gotta Get Away are the obvious peaks but Genocide and Nitro hit just as hard. Raw, fast, and built to last. Still sounds exactly right 30 years later.",
       "art": ["mbid-b50d155a-5cde-3600-b768-5a6fc0ce57eb-31844265343.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2582,6 +2604,7 @@
       "runtime": "58:59",
       "review": "Howard Jones-era KSE at their absolute peak. The balance between crushing riffs and massive clean choruses had never been tighter, and Jones delivers both sides with total conviction. My Curse and The Arms of Sorrow are the obvious centrepieces but Unbroken and Eye of the Storm hit just as hard. The Holy Diver cover is genuinely great and earns its place. The definitive metalcore album of the mid-2000s.",
       "art": ["mbid-cfdf9a54-ffb8-4d8a-b355-666e9984b51d-27238315257.png"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2717,6 +2740,7 @@
       "runtime": "30:36",
       "review": "Corelia built something rare with this EP, seven tracks that feel emotionally complete. The Sound of Glaciers Moving and Red Sky Harbor hit hardest but there's no filler in the runtime. Spencer Sotelo's guest spot on Treetops earns its place.",
       "art": ["mbid-c91e8da4-52d5-46ff-8536-6e8e67e0d8e5-2401210678.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2759,6 +2783,7 @@
       "runtime": "52:37",
       "review": "Ten tracks of pure rhythmic warfare that somehow never loses the thread. Haake's drumming operates in a different timezone from everything else on the planet and the riffs just grind relentlessly underneath, not fast, just inevitable. Closed Eye Visuals and Nebulous are the centrepieces but the whole record functions as a single suffocating mass. Mixed in two days and mastered in one.",
       "art": ["mbid-0edaf94b-2066-43fa-ba75-8175ca93ca37-31430636916.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,
@@ -2805,6 +2830,7 @@
       "runtime": "41:31",
       "review": "The classic lineup clicks into place and the results are immediate. With Zombie Inc. and Coerced Coexistence as the obvious peaks, but the whole record holds a relentless energy from front to back. Pallar Anders Visa is a folk interlude that has no business working as well as it does. Peak Gothenburg.",
       "art": ["mbid-e3f7ce6c-7a15-3518-b7d3-d4f383a79b9c-7389990128.jpg"],
+      "favoriteTrack": 0,
       "discs": [
         {
           "disc": 1,

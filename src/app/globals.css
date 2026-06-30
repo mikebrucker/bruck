@@ -4,6 +4,167 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@property --background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e4e4e7;
+}
+@property --foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #27272a;
+}
+@property --card {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: white;
+}
+@property --card-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #09090b;
+}
+@property --popover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: white;
+}
+@property --popover-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #09090b;
+}
+@property --primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #18181b;
+}
+@property --primary-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fafafa;
+}
+@property --secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4f4f5;
+}
+@property --secondary-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #18181b;
+}
+@property --muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4f4f5;
+}
+@property --muted-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #71717a;
+}
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4f4f5;
+}
+@property --accent-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #18181b;
+}
+@property --destructive {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #dc2626;
+}
+@property --border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a1a1aa;
+}
+@property --input {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e4e4e7;
+}
+@property --ring {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a1a1aa;
+}
+@property --keycap-edge {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e7e5e4;
+}
+@property --keycap-face {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5f5f4;
+}
+@property --keycap-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #44403c;
+}
+@property --theme-50 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ecfdf5;
+}
+@property --theme-100 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d1fae5;
+}
+@property --theme-200 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a7f3d0;
+}
+@property --theme-300 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6ee7b7;
+}
+@property --theme-400 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #34d399;
+}
+@property --theme-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #10b981;
+}
+@property --theme-600 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #059669;
+}
+@property --theme-700 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #047857;
+}
+@property --theme-800 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #065f46;
+}
+@property --theme-900 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #064e3b;
+}
+@property --theme-950 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #022c22;
+}
+
 :root {
   /* zinc 200 */
   --background: #e4e4e7;
@@ -57,6 +218,39 @@
   --keycap-face: #f5f5f4;
   /* stone 700 */
   --keycap-text: #44403c;
+  transition:
+    --background 300ms,
+    --foreground 300ms,
+    --card 300ms,
+    --card-foreground 300ms,
+    --popover 300ms,
+    --popover-foreground 300ms,
+    --primary 300ms,
+    --primary-foreground 300ms,
+    --secondary 300ms,
+    --secondary-foreground 300ms,
+    --muted 300ms,
+    --muted-foreground 300ms,
+    --accent 300ms,
+    --accent-foreground 300ms,
+    --destructive 300ms,
+    --border 300ms,
+    --input 300ms,
+    --ring 300ms,
+    --keycap-edge 300ms,
+    --keycap-face 300ms,
+    --keycap-text 300ms,
+    --theme-50 300ms,
+    --theme-100 300ms,
+    --theme-200 300ms,
+    --theme-300 300ms,
+    --theme-400 300ms,
+    --theme-500 300ms,
+    --theme-600 300ms,
+    --theme-700 300ms,
+    --theme-800 300ms,
+    --theme-900 300ms,
+    --theme-950 300ms;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -270,28 +464,52 @@ html.light {
 }
 
 @keyframes drawer-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes drawer-fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 @keyframes drawer-slide-in-right {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes drawer-slide-out-right {
-  from { transform: translateX(0); }
-  to { transform: translateX(100%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 @keyframes drawer-slide-in-left {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes drawer-slide-out-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 @layer base {
