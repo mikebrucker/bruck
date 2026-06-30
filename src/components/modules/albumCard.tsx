@@ -34,6 +34,19 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
     setImageLoading(false);
   };
 
+  const favoriteTrackTitle = (() => {
+    const ft = album.favoriteTrack;
+    if (!ft) return null;
+    if (Array.isArray(ft)) {
+      const [discNum, trackNum] = ft;
+      return (
+        album.discs.find((d) => d.disc === discNum)?.tracks.find((t) => t.number === trackNum)
+          ?.title ?? null
+      );
+    }
+    return album.discs[0]?.tracks.find((t) => t.number === ft)?.title ?? null;
+  })();
+
   const art = album.art?.map((a) => (
     <div key={a}>
       <Image
@@ -66,12 +79,12 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
           {rank ? (
-            <div className="row-span-1 sm:row-span-3 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono">
+            <div className="row-span-1 sm:row-span-4 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono">
               {rank < 10 ? <>&nbsp;</> : ""}
               {rank}
             </div>
           ) : (
-            <div className="row-span-1 sm:row-span-3 text-theme-600 pt-1 flex justify-end">
+            <div className="row-span-1 sm:row-span-4 text-theme-600 pt-1 flex justify-end">
               <HugeiconsIcon icon={Vynil02Icon} className="w-10 h-10 sm:w-14 sm:h-14" />
             </div>
           )}
@@ -95,6 +108,17 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
           </div>
 
           <div className="col-span-2 sm:hidden flex gap-1 flex-wrap">{art}</div>
+
+          {favoriteTrackTitle ? (
+            <div className="col-span-2 sm:col-span-1 flex gap-1.5 items-center">
+              <span className="text-xs text-muted-foreground">
+                {t(($) => $.albums.favorite_track)}:
+              </span>
+              <span className="bg-muted rounded px-1.5 py-0.5 text-sm font-medium">
+                {favoriteTrackTitle}
+              </span>
+            </div>
+          ) : null}
 
           <p className="col-span-2 sm:col-span-1 bg-accent border border-border border-l-4 border-l-theme-500 rounded-lg p-3 text-sm leading-relaxed italic">
             {album.review}
