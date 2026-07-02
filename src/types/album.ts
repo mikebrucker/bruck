@@ -16,6 +16,7 @@ export interface Track {
   number: number;
   title: string;
   duration: string;
+  notes?: string;
   instrumental?: boolean;
   personnel?: Array<Credit>;
 }
@@ -37,13 +38,8 @@ export interface Album {
   review: string;
   discs: Array<Disc>;
   art?: Array<string>;
-  /** Assume 1 disc if only number */
-  favoriteTrack?: number | [disc: number, track: number];
+  favoriteTrack?: { disc?: number; track: number };
   personnel?: Personnel;
-}
-
-export interface JsonAlbum extends Omit<Album, "favoriteTrack"> {
-  favoriteTrack?: number | Array<number>;
 }
 
 export interface AlbumList {

@@ -10,7 +10,7 @@
       "runtime": "72:33",
       "review": "A landmark in progressive metal. BTBAM weaponize every dynamic from skull-crushing brutality to full orchestral bliss within a single track. The concept storytelling is airtight, and Silent Flight Parliament is one of the greatest album closers ever written.",
       "art": ["mbid-c1afd5ae-a8bb-4986-8a8d-83b87d1fd62c-32621144969.jpg"],
-      "favoriteTrack": 11,
+      "favoriteTrack": { "disc": 0, "track": 11 },
       "discs": [
         {
           "disc": 1,
@@ -157,7 +157,7 @@
       "runtime": "57:21",
       "review": "Mechanized chaos with genuine songwriting intelligence behind it. Every track earns its place, transitions are seamless, ideas hit hard and keep moving. Don't Be Disputin' With Rasputin is a career-defining 6 minutes.",
       "art": ["mbid-956bdaaa-4dbc-4a8d-9915-3cc3268f7543-32085053052.jpg"],
-      "favoriteTrack": 6,
+      "favoriteTrack": { "disc": 0, "track": 6 },
       "discs": [
         {
           "disc": 1,
@@ -275,7 +275,7 @@
       "runtime": "84:19",
       "review": "A double album with zero weak links, a near-impossible feat. Jens Bogren's production is enormous. Speed Strid delivers career-best vocal performances across 84 minutes that somehow never lose momentum.",
       "art": ["mbid-1b25945b-d360-4cf7-9718-2ad5fa314b24-7454301422.jpg"],
-      "favoriteTrack": [2, 9],
+      "favoriteTrack": { "disc": 1, "track": 9 },
       "discs": [
         {
           "disc": 1,
@@ -461,7 +461,7 @@
         "mbid-28534466-df7c-4a98-91d4-2faad0735747-33071466337.jpg",
         "mbid-83600765-d021-4973-8a1a-abc40988caa6-28188611509.jpg"
       ],
-      "favoriteTrack": [1, 5],
+      "favoriteTrack": { "disc": 0, "track": 5 },
       "discs": [
         {
           "disc": 1,
@@ -624,7 +624,7 @@
       "runtime": "56:43",
       "review": "A genre-defying leap forward, brutal tech death woven with saxophone, atmosphere, and devastating emotional weight. Every track earns its place. Capricorn / Agoratopia closes the album like a slow burning crescendo into oblivion.",
       "art": ["mbid-73788306-6f7c-4ac9-a55e-7475464ccf6f-19349849238.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -735,7 +735,7 @@
       "runtime": "34:16",
       "review": "Pure Gothenburg aggression at full sprint, fast, catchy, and loaded with tasty riffs. Deny and Hell Is Within cut deep. Eleven tracks of relentless melodic death metal.",
       "art": ["mbid-06cc8a20-970f-43cd-9dc6-7244a6701550-44168475256.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -847,7 +847,7 @@
       "runtime": "45:08",
       "review": "The Contortionist at their most dynamic and fearless, crushing riffs that pivot effortlessly into post-rock atmosphere and jazz-tinged passages without ever feeling forced. Holomovement through Geocentric Confusion is one of the strongest opening runs in modern prog metal.",
       "art": ["mbid-cc50bfa2-e1ed-4356-acb1-c3a7b0210eaa-12726112845.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -959,7 +959,7 @@
       "runtime": "43:50",
       "review": "Dense, ferocious, and endlessly rewarding. Zman's beautiful, introspective piano riff surges powerfully into Timeless, an emotionally explosive closer that detonates with everything the album built toward.",
       "art": ["mbid-23d19470-e0e9-446a-b7dc-5d117e398425-12707880560.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1064,7 +1064,7 @@
       "runtime": "21:34",
       "review": "A debut EP that hit like a full album. Raw, ferocious, and immediately fully formed. Stench of the Iron Age alone announced BCI as one of the most exciting bands in prog death.",
       "art": ["mbid-a49dd12f-ea79-43dd-95d6-c2adad7be650-11176896632.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1127,7 +1127,7 @@
       "runtime": "66:52",
       "review": "Gojira weaponize groove and atmosphere in equal measure, mighty chugging riffs that never sacrifice emotional weight. Flying Whales is the centrepiece and one of the greatest metal songs ever written, but the floor never drops across all 12 tracks.",
       "art": ["mbid-13df50d7-d3a5-4486-9863-bc0ef1c5b81b-18590894530.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1253,7 +1253,7 @@
       "runtime": "60:37",
       "review": "A solo one-man odyssey that punches well above its weight. Five tracks, all over nine minutes, each one a seamlessly shifting landscape of blackened aggression, cinematic orchestration, and melodic depth that rewards every listen.",
       "art": ["mbid-12edb14a-76a4-4a08-b9e3-31d5407bc7e6-30876116351.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1315,7 +1315,7 @@
       "runtime": "41:24",
       "review": "ATB at their most focused and ruthless. Riffs that stick, and a tracklist with no dead weight. Disconnect and A Wolf Amongst Ravens are the peaks, the latter closing the album with haunting atmosphere before detonating into pure controlled chaos.",
       "art": ["mbid-c2d99033-a193-4a85-a467-ba06448b8fd6-30331637158.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1426,7 +1426,7 @@
       "runtime": "52:00",
       "review": "Brendon Small and Gene Hoglan delivering absurdly tight melodic death metal with zero irony in the playing. Massive riffs, cinematic scope, and a tracklist that swings from brutal to epic without breaking stride. Black Fire Upon Us builds from brooding atmosphere into one of the most devastating crescendos on the record.",
       "art": ["mbid-6962a5f0-5687-3375-a966-c05fd15784db-996874208.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1526,6 +1526,105 @@
       }
     },
     {
+      "id": "vola-inmazes",
+      "artist": "VOLA",
+      "album": "Inmazes",
+      "year": 2015,
+      "label": "Self-released",
+      "genre": "Progressive Metal / Djent",
+      "runtime": "51:56",
+      "review": "Mygind pulled off something rare on a debut, a fully realised sound that doesn't feel like it's still finding itself. The djent backbone hits hard but it's the atmospheric reach and the melodic restraint that make it stick. Owls and the title track are the peaks, but the back half of this record is an unbroken run of great songs.",
+      "art": ["mbid-10a42241-f2ec-4d36-8486-5713b0cdddd2-25863715958.jpg"],
+      "favoriteTrack": { "disc": 0, "track": 8 },
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "The Same War",
+              "duration": "5:11"
+            },
+            {
+              "number": 2,
+              "title": "Stray the Skies",
+              "duration": "4:14"
+            },
+            {
+              "number": 3,
+              "title": "Starburn",
+              "duration": "6:06"
+            },
+            {
+              "number": 4,
+              "title": "Owls",
+              "duration": "5:52"
+            },
+            {
+              "number": 5,
+              "title": "Your Mind Is a Helpless Dreamer",
+              "duration": "5:22"
+            },
+            {
+              "number": 6,
+              "title": "Emily",
+              "duration": "3:02"
+            },
+            {
+              "number": 7,
+              "title": "Gutter Moon",
+              "duration": "3:56"
+            },
+            {
+              "number": 8,
+              "title": "A Stare Without Eyes",
+              "duration": "4:59"
+            },
+            {
+              "number": 9,
+              "title": "Feed the Creatures",
+              "duration": "5:38"
+            },
+            {
+              "number": 10,
+              "title": "Inmazes",
+              "duration": "7:31"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Asger Mygind",
+            "roles": ["Vocals", "Guitar"]
+          },
+          {
+            "name": "Martin Werner",
+            "roles": ["Keyboards", "Programming"]
+          },
+          {
+            "name": "Nicolai Mogensen",
+            "roles": ["Bass"]
+          },
+          {
+            "name": "Felix Ewert",
+            "roles": ["Drums"]
+          }
+        ],
+        "production": [
+          {
+            "name": "Asger Mygind",
+            "roles": ["Producer", "Mixer"]
+          },
+          {
+            "name": "Jens Bogren",
+            "roles": ["Mastering Engineer"]
+          }
+        ]
+      }
+    },
+    {
       "id": "whitechapel-kin",
       "artist": "Whitechapel",
       "album": "Kin",
@@ -1535,7 +1634,7 @@
       "runtime": "47:49",
       "review": "The Valley opened the door and Kin walks through it without looking back. Bozeman's clean vocals are no longer a surprise, they're a weapon, and he deploys them with the same conviction as the growls. The concept running through it is genuinely heavy subject matter handled with real restraint. Lost Boy and A Bloodsoaked Symphony are the peaks but the whole thing holds together as a record, not just a collection of songs.",
       "art": ["mbid-1c3b4ce2-d45f-4da2-a1ef-42b0af2918a7-30899789361.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1659,7 +1758,7 @@
       "runtime": "34:17",
       "review": "Fifteen years gone and they came back with this, 34 minutes of something that sounds like nothing else. Masvidal's voice sits in that weightless processed register, Reinert plays like gravity is optional, and the whole thing floats between jazz, death metal and something harder to name. Evolutionary Sleeper and King of Those Who Know are the peaks but the album works as a single sustained mood. A record that earns every word of its reputation.",
       "art": ["mbid-bb960d30-45f7-4895-a84f-1e08f645f1f3-38342820255.png"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1750,6 +1849,97 @@
       }
     },
     {
+      "id": "corelia-nostalgia",
+      "artist": "Corelia",
+      "album": "Nostalgia",
+      "year": 2011,
+      "label": "Self-released",
+      "genre": "Progressive Metal / Djent",
+      "runtime": "30:36",
+      "review": "Corelia built something rare with this EP, seven tracks that feel emotionally complete. The Sound of Glaciers Moving and Red Sky Harbor hit hardest but there's no filler in the runtime. Spencer Sotelo's guest spot on Treetops earns its place.",
+      "art": ["mbid-c91e8da4-52d5-46ff-8536-6e8e67e0d8e5-2401210678.jpg"],
+      "favoriteTrack": { "disc": 0, "track": 0 },
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Treetops",
+              "duration": "4:51"
+            },
+            {
+              "number": 2,
+              "title": "Glass Faces",
+              "duration": "4:31"
+            },
+            {
+              "number": 3,
+              "title": "The Sound of Glaciers Moving",
+              "duration": "4:29"
+            },
+            {
+              "number": 4,
+              "title": "Aviation",
+              "duration": "3:14"
+            },
+            {
+              "number": 5,
+              "title": "Red Sky Harbor",
+              "duration": "6:00"
+            },
+            {
+              "number": 6,
+              "title": "Mute Swan",
+              "duration": "1:51"
+            },
+            {
+              "number": 7,
+              "title": "Blood Petals",
+              "duration": "6:14"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Ryan Devlin",
+            "roles": ["Vocals"]
+          },
+          {
+            "name": "Chris Dower",
+            "roles": ["Guitar"]
+          },
+          {
+            "name": "Ryan Borrell",
+            "roles": ["Guitar"]
+          },
+          {
+            "name": "Adrian Alperstein",
+            "roles": ["Bass"]
+          },
+          {
+            "name": "Clayton Pratt",
+            "roles": ["Drums"]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Spencer Sotelo",
+            "roles": ["Guest Vocals"],
+            "notes": "Appears on \"Treetops\""
+          }
+        ],
+        "production": [
+          {
+            "name": "Corelia",
+            "roles": ["Producer", "Engineer", "Mixer"]
+          }
+        ]
+      }
+    },
+    {
       "id": "intervals-a_voice_within",
       "artist": "Intervals",
       "album": "A Voice Within",
@@ -1759,7 +1949,7 @@
       "runtime": "49:32",
       "review": "Marshall and Semesky clicked immediately, the grooves hit harder with a voice anchoring them and Semesky's range suits the material perfectly without softening the edges. The Self Surrendered is the centrepiece, eight minutes that earns every second, and the title track closes the album with the same unhurried confidence. A debut that felt fully formed from the first listen.",
       "art": ["mbid-9f52305c-e2ca-4950-8278-cc3a95cb3d5e-39565669096.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -1898,6 +2088,372 @@
       }
     },
     {
+      "id": "devin_townsend_project-ki",
+      "artist": "Devin Townsend Project",
+      "album": "Ki",
+      "year": 2009,
+      "label": "HevyDevy / InsideOut",
+      "genre": "Progressive Rock / Ambient Rock",
+      "runtime": "1:06:45",
+      "review": "The most patient thing Townsend ever made and that's exactly the point. Coast and Terminal are stunning, minimal, heavy with atmosphere, totally unlike anything he'd done before. Heaven Send is where the lid finally comes off and it earns every second of the buildup. The title track closing out the main run is something else entirely. Not an easy listen but it rewards every visit.",
+      "art": ["mbid-ea509223-c2bd-44e6-86c0-baa652f9e4ad-30755243407.jpg"],
+      "favoriteTrack": { "disc": 0, "track": 9 },
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "A Monday",
+              "duration": "1:42"
+            },
+            {
+              "number": 2,
+              "title": "Coast",
+              "duration": "4:35"
+            },
+            {
+              "number": 3,
+              "title": "Disruptr",
+              "duration": "5:49"
+            },
+            {
+              "number": 4,
+              "title": "Gato",
+              "duration": "5:23"
+            },
+            {
+              "number": 5,
+              "title": "Terminal",
+              "duration": "6:58"
+            },
+            {
+              "number": 6,
+              "title": "Heaven Send",
+              "duration": "8:54"
+            },
+            {
+              "number": 7,
+              "title": "Ain't Never Gonna Win",
+              "duration": "3:17"
+            },
+            {
+              "number": 8,
+              "title": "Winter",
+              "duration": "4:47"
+            },
+            {
+              "number": 9,
+              "title": "Trainfire",
+              "duration": "5:58"
+            },
+            {
+              "number": 10,
+              "title": "Lady Helen",
+              "duration": "6:05"
+            },
+            {
+              "number": 11,
+              "title": "Ki",
+              "duration": "7:20"
+            },
+            {
+              "number": 12,
+              "title": "Quiet Riot",
+              "duration": "3:02"
+            },
+            {
+              "number": 13,
+              "title": "Deamon League",
+              "duration": "2:55"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Devin Townsend",
+            "roles": ["Vocals", "Guitar"]
+          },
+          {
+            "name": "Jean Savoie",
+            "roles": ["Bass"]
+          },
+          {
+            "name": "Duris Maxwell",
+            "roles": ["Drums"]
+          },
+          {
+            "name": "Dave Young",
+            "roles": ["Keyboards"]
+          }
+        ],
+        "guests": [
+          {
+            "name": "Che Aimee Dorval",
+            "roles": ["Guest Vocals"],
+            "notes": "Appears on \"Gato\", \"Heaven Send\", and \"Trainfire\""
+          }
+        ],
+        "production": [
+          {
+            "name": "Devin Townsend",
+            "roles": ["Producer", "Engineer", "Mixer"]
+          },
+          {
+            "name": "T-Roy",
+            "roles": ["Mastering Engineer"]
+          }
+        ],
+        "studios": ["Devestate Studios", "Studio D", "The Factory (bed tracks)"]
+      }
+    },
+    {
+      "id": "killswitch_engage-as_daylight_dies_special_edition",
+      "artist": "Killswitch Engage",
+      "album": "As Daylight Dies (Special Edition)",
+      "year": 2007,
+      "label": "Roadrunner",
+      "genre": "Melodic Metalcore",
+      "runtime": "58:59",
+      "review": "Howard Jones-era KSE at their absolute peak. The balance between crushing riffs and massive clean choruses had never been tighter, and Jones delivers both sides with total conviction. My Curse and The Arms of Sorrow are the obvious centrepieces but Unbroken and Eye of the Storm hit just as hard. The Holy Diver cover is genuinely great and earns its place. The definitive metalcore album of the mid-2000s.",
+      "art": ["mbid-cfdf9a54-ffb8-4d8a-b355-666e9984b51d-27238315257.png"],
+      "favoriteTrack": { "disc": 0, "track": 0 },
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Daylight Dies",
+              "duration": "4:05"
+            },
+            {
+              "number": 2,
+              "title": "This Is Absolution",
+              "duration": "3:34"
+            },
+            {
+              "number": 3,
+              "title": "The Arms of Sorrow",
+              "duration": "3:44"
+            },
+            {
+              "number": 4,
+              "title": "Unbroken",
+              "duration": "3:08"
+            },
+            {
+              "number": 5,
+              "title": "My Curse",
+              "duration": "4:04"
+            },
+            {
+              "number": 6,
+              "title": "For You",
+              "duration": "4:03"
+            },
+            {
+              "number": 7,
+              "title": "Still Beats Your Name",
+              "duration": "3:19"
+            },
+            {
+              "number": 8,
+              "title": "Eye of the Storm",
+              "duration": "3:56"
+            },
+            {
+              "number": 9,
+              "title": "Break the Silence",
+              "duration": "4:32"
+            },
+            {
+              "number": 10,
+              "title": "Desperate Times",
+              "duration": "4:25"
+            },
+            {
+              "number": 11,
+              "title": "Reject Yourself",
+              "duration": "4:45"
+            },
+            {
+              "number": 12,
+              "title": "Be One",
+              "duration": "3:31"
+            },
+            {
+              "number": 13,
+              "title": "Let the Bridges Burn",
+              "duration": "4:29"
+            },
+            {
+              "number": 14,
+              "title": "This Fire",
+              "duration": "3:09"
+            },
+            {
+              "number": 15,
+              "title": "Holy Diver",
+              "duration": "4:10"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Howard Jones",
+            "roles": ["Vocals"]
+          },
+          {
+            "name": "Adam Dutkiewicz",
+            "roles": ["Guitar", "Backing Vocals"]
+          },
+          {
+            "name": "Joel Stroetzel",
+            "roles": ["Guitar"]
+          },
+          {
+            "name": "Mike D'Antonio",
+            "roles": ["Bass"]
+          },
+          {
+            "name": "Justin Foley",
+            "roles": ["Drums"]
+          }
+        ],
+        "production": [
+          {
+            "name": "Adam Dutkiewicz",
+            "roles": ["Producer"]
+          },
+          {
+            "name": "Joel Stroetzel",
+            "roles": ["Producer"]
+          },
+          {
+            "name": "Andy Sneap",
+            "roles": ["Mixer"]
+          }
+        ],
+        "studios": [
+          "Zing Studios, Westfield, MA (all tracks except drums)",
+          "Longview Farm, North Brookfield, MA (drums)"
+        ]
+      }
+    },
+    {
+      "id": "meshuggah-nothing",
+      "artist": "Meshuggah",
+      "album": "Nothing",
+      "year": 2002,
+      "label": "Nuclear Blast",
+      "genre": "Progressive Metal / Groove Metal / Avant-Garde Metal",
+      "runtime": "52:37",
+      "review": "Ten tracks of pure rhythmic warfare that somehow never loses the thread. Haake's drumming operates in a different timezone from everything else on the planet and the riffs just grind relentlessly underneath, not fast, just inevitable. Closed Eye Visuals and Nebulous are the centrepieces but the whole record functions as a single suffocating mass. Mixed in two days and mastered in one.",
+      "art": ["mbid-0edaf94b-2066-43fa-ba75-8175ca93ca37-31430636916.jpg"],
+      "favoriteTrack": { "disc": 0, "track": 0 },
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Stengah",
+              "duration": "5:36"
+            },
+            {
+              "number": 2,
+              "title": "Rational Gaze",
+              "duration": "3:34"
+            },
+            {
+              "number": 3,
+              "title": "Perpetual Black Second",
+              "duration": "4:39"
+            },
+            {
+              "number": 4,
+              "title": "Closed Eye Visuals",
+              "duration": "7:26"
+            },
+            {
+              "number": 5,
+              "title": "Glints Collide",
+              "duration": "4:56"
+            },
+            {
+              "number": 6,
+              "title": "Organic Shadows",
+              "duration": "5:08"
+            },
+            {
+              "number": 7,
+              "title": "Straws Pulled at Random",
+              "duration": "5:11"
+            },
+            {
+              "number": 8,
+              "title": "Spasm",
+              "duration": "4:15"
+            },
+            {
+              "number": 9,
+              "title": "Nebulous",
+              "duration": "6:34"
+            },
+            {
+              "number": 10,
+              "title": "Obsidian",
+              "duration": "4:23"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "Jens Kidman",
+            "roles": ["Vocals"]
+          },
+          {
+            "name": "Fredrik Thordendal",
+            "roles": ["Guitar", "Bass", "Synthesizer"]
+          },
+          {
+            "name": "Mårten Hagström",
+            "roles": ["Guitar"]
+          },
+          {
+            "name": "Dick Lövgren",
+            "roles": ["Bass"]
+          },
+          {
+            "name": "Tomas Haake",
+            "roles": ["Drums", "Vocals"]
+          }
+        ],
+        "production": [
+          {
+            "name": "Meshuggah",
+            "roles": ["Producer"]
+          },
+          {
+            "name": "Fredrik Thordendal",
+            "roles": ["Engineer"]
+          }
+        ],
+        "studios": [
+          "Dug Out Studio, Uppsala, Sweden (drums)",
+          "Studio Area 51 (guitars, bass)",
+          "Fear and Loathing Studio, Stockholm, Sweden (vocals, mixing)"
+        ]
+      }
+    },
+    {
       "id": "baroness-purple",
       "artist": "Baroness",
       "album": "Purple",
@@ -1907,7 +2463,7 @@
       "runtime": "42:33",
       "review": "Baroness at their most focused and anthemic, mammoth guitars and scratching vocals upfront, with every chorus swinging hard. Chlorine & Wine is the centrepiece, dark and sprawling. The kind of album that rewards both the casual listen and the deep dive.",
       "art": ["mbid-9959a5d7-76c2-4cc0-8178-30453a225d78-12288745526.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -2015,7 +2571,7 @@
       "runtime": "43:22",
       "review": "Toxicity's overflow bin that turned out to hold some of the best songs in the catalogue. The chaos is more unfiltered here, shorter, weirder, less polished, and that works entirely in its favour. Chic 'N' Stu, Mr. Jack, Roulette and Pictures alone make a stronger case than half the albums bands spend years crafting. The fact that it started as a leak the band had to rescue makes it feel even more alive.",
       "art": ["mbid-d5e089ba-cec8-3b96-9825-841c6443ede1-17077922809.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -2140,6 +2696,85 @@
       }
     },
     {
+      "id": "substructure-monolith",
+      "artist": "Substructure",
+      "album": "Monolith",
+      "year": 2011,
+      "label": "Self-released",
+      "genre": "Progressive Deathcore",
+      "runtime": "22:16",
+      "review": "Six tracks of surgical prog deathcore from St. Louis that punched way above its weight as a self-released debut. Constellation-named cuts flow seamlessly into each other, balancing djenty aggression with genuinely atmospheric breathing room. One of the most promising EPs to come out of the deathcore underground in 2011.",
+      "art": ["mbid-df7d842e-28d7-4081-a57d-ee16f56e998d.jpg"],
+      "favoriteTrack": { "disc": 0, "track": 0 },
+      "discs": [
+        {
+          "disc": 1,
+          "tracks": [
+            {
+              "number": 1,
+              "title": "Cassiopeia",
+              "duration": "1:42"
+            },
+            {
+              "number": 2,
+              "title": "Canis Minor",
+              "duration": "3:02"
+            },
+            {
+              "number": 3,
+              "title": "Canis Major",
+              "duration": "6:07"
+            },
+            {
+              "number": 4,
+              "title": "Telescopium",
+              "duration": "3:37"
+            },
+            {
+              "number": 5,
+              "title": "Monoceros",
+              "duration": "2:38"
+            },
+            {
+              "number": 6,
+              "title": "Cepheus",
+              "duration": "5:14"
+            }
+          ]
+        }
+      ],
+      "personnel": {
+        "members": [
+          {
+            "name": "David Bruno",
+            "roles": ["Vocals"]
+          },
+          {
+            "name": "Kevin Danneman",
+            "roles": ["Guitar"]
+          },
+          {
+            "name": "Jordan Sanders",
+            "roles": ["Guitar"]
+          },
+          {
+            "name": "Joey Harrell",
+            "roles": ["Bass"]
+          },
+          {
+            "name": "Joey Nichols",
+            "roles": ["Drums"]
+          }
+        ],
+        "production": [
+          {
+            "name": "Jordan Sanders",
+            "roles": ["Producer", "Engineer"]
+          }
+        ]
+      }
+    },
+    {
       "id": "warrel_dane-praises_to_the_war_machine",
       "artist": "Warrel Dane",
       "album": "Praises to the War Machine",
@@ -2149,7 +2784,7 @@
       "runtime": "50:04",
       "review": "Dane and Wichers make a formidable pairing, heavy where it needs to be, gothic and brooding where it doesn't, and never losing sight of the melody. August alone justifies the whole record, a slow-burning gut punch that showcases everything Dane could do with his voice when given the space to breathe.",
       "art": ["mbid-6dc9d23f-84e0-44d9-ab8b-31db0ce35d3b-42639710728.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -2272,138 +2907,74 @@
       }
     },
     {
-      "id": "substructure-monolith",
-      "artist": "Substructure",
-      "album": "Monolith",
-      "year": 2011,
-      "label": "Self-released",
-      "genre": "Progressive Deathcore",
-      "runtime": "22:16",
-      "review": "Six tracks of surgical prog deathcore from St. Louis that punched way above its weight as a self-released debut. Constellation-named cuts flow seamlessly into each other, balancing djenty aggression with genuinely atmospheric breathing room. One of the most promising EPs to come out of the deathcore underground in 2011.",
-      "art": ["mbid-df7d842e-28d7-4081-a57d-ee16f56e998d.jpg"],
-      "favoriteTrack": 0,
+      "id": "in_flames-colony",
+      "artist": "In Flames",
+      "album": "Colony",
+      "year": 1999,
+      "label": "Nuclear Blast",
+      "genre": "Melodic Death Metal",
+      "runtime": "41:31",
+      "review": "The classic lineup clicks into place and the results are immediate. With Zombie Inc. and Coerced Coexistence as the obvious peaks, but the whole record holds a relentless energy from front to back. Pallar Anders Visa is a folk interlude that has no business working as well as it does. Peak Gothenburg.",
+      "art": ["mbid-e3f7ce6c-7a15-3518-b7d3-d4f383a79b9c-7389990128.jpg"],
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
           "tracks": [
             {
               "number": 1,
-              "title": "Cassiopeia",
-              "duration": "1:42"
-            },
-            {
-              "number": 2,
-              "title": "Canis Minor",
-              "duration": "3:02"
-            },
-            {
-              "number": 3,
-              "title": "Canis Major",
-              "duration": "6:07"
-            },
-            {
-              "number": 4,
-              "title": "Telescopium",
+              "title": "Embody the Invisible",
               "duration": "3:37"
             },
             {
-              "number": 5,
-              "title": "Monoceros",
-              "duration": "2:38"
-            },
-            {
-              "number": 6,
-              "title": "Cepheus",
-              "duration": "5:14"
-            }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          {
-            "name": "David Bruno",
-            "roles": ["Vocals"]
-          },
-          {
-            "name": "Kevin Danneman",
-            "roles": ["Guitar"]
-          },
-          {
-            "name": "Jordan Sanders",
-            "roles": ["Guitar"]
-          },
-          {
-            "name": "Joey Harrell",
-            "roles": ["Bass"]
-          },
-          {
-            "name": "Joey Nichols",
-            "roles": ["Drums"]
-          }
-        ],
-        "production": [
-          {
-            "name": "Jordan Sanders",
-            "roles": ["Producer", "Engineer"]
-          }
-        ]
-      }
-    },
-    {
-      "id": "opeth-ghost_reveries",
-      "artist": "Opeth",
-      "album": "Ghost Reveries",
-      "year": 2005,
-      "label": "Roadrunner",
-      "genre": "Progressive Death Metal",
-      "runtime": "66:46",
-      "review": "The last Opeth album where the death metal and the prog exist in genuine tension rather than polite coexistence. Åkerfeldt was writing at the absolute peak of his powers, Ghost of Perdition and Reverie/Harlequin Forest are as good as anything in the catalogue. Per Wiberg's keys add a warmth and depth the band hadn't had before, and Jens Bogren's production gives it a weight that suits every dynamic shift. A landmark.",
-      "art": ["mbid-2f087439-5d1b-38c7-99fd-0de138a11fc2-20838648318.jpg"],
-      "favoriteTrack": 0,
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            {
-              "number": 1,
-              "title": "Ghost of Perdition",
-              "duration": "10:29"
-            },
-            {
               "number": 2,
-              "title": "The Baying of the Hounds",
-              "duration": "10:41"
+              "title": "Ordinary Story",
+              "duration": "4:16"
             },
             {
               "number": 3,
-              "title": "Beneath the Mire",
-              "duration": "7:59"
+              "title": "Scorn",
+              "duration": "3:37"
             },
             {
               "number": 4,
-              "title": "Atonement",
-              "duration": "5:12"
+              "title": "Colony",
+              "duration": "4:39"
             },
             {
               "number": 5,
-              "title": "Reverie / Harlequin Forest",
-              "duration": "11:18"
+              "title": "Zombie Inc.",
+              "duration": "5:05"
             },
             {
               "number": 6,
-              "title": "Hours of Wealth",
-              "duration": "5:06"
+              "title": "Pallar Anders Visa",
+              "duration": "1:42"
             },
             {
               "number": 7,
-              "title": "The Grand Conjuration",
-              "duration": "10:22"
+              "title": "Coerced Coexistence",
+              "duration": "4:15"
             },
             {
               "number": 8,
-              "title": "Isolation Years",
-              "duration": "5:37"
+              "title": "Resin",
+              "duration": "3:22"
+            },
+            {
+              "number": 9,
+              "title": "Behind Space '99",
+              "duration": "3:59"
+            },
+            {
+              "number": 10,
+              "title": "Insipid 2000",
+              "duration": "3:46"
+            },
+            {
+              "number": 11,
+              "title": "The New Word",
+              "duration": "3:18"
             }
           ]
         }
@@ -2411,45 +2982,47 @@
       "personnel": {
         "members": [
           {
-            "name": "Mikael Åkerfeldt",
-            "roles": ["Vocals", "Guitar", "Mellotron"]
+            "name": "Anders Fridén",
+            "roles": ["Vocals"]
           },
           {
-            "name": "Peter Lindgren",
+            "name": "Jesper Strömblad",
+            "roles": ["Guitar", "Hammond Organ"]
+          },
+          {
+            "name": "Björn Gelotte",
             "roles": ["Guitar"]
           },
           {
-            "name": "Martín Méndez",
+            "name": "Peter Iwers",
             "roles": ["Bass"]
           },
           {
-            "name": "Martin Lopez",
-            "roles": ["Drums", "Percussion"]
-          },
+            "name": "Daniel Svensson",
+            "roles": ["Drums"]
+          }
+        ],
+        "guests": [
           {
-            "name": "Per Wiberg",
-            "roles": ["Mellotron", "Hammond Organ", "Grand Piano", "Moog"]
+            "name": "Charlie Storm",
+            "roles": ["Synthesizer", "Programming"]
           }
         ],
         "production": [
           {
-            "name": "Mikael Åkerfeldt",
+            "name": "Fredrik Nordström",
+            "roles": ["Producer", "Engineer", "Mixer", "Slide Guitar", "Hammond Organ"]
+          },
+          {
+            "name": "In Flames",
             "roles": ["Producer"]
           },
           {
-            "name": "Opeth",
-            "roles": ["Producer"]
-          },
-          {
-            "name": "Jens Bogren",
-            "roles": ["Engineer", "Mixer"]
-          },
-          {
-            "name": "Tomas Eberger",
+            "name": "Göran Finnberg",
             "roles": ["Mastering Engineer"]
           }
         ],
-        "studios": ["Fascination Street Studios, Örebro, Sweden"]
+        "studios": ["Studio Fredman, Gothenburg, Sweden"]
       }
     },
     {
@@ -2462,7 +3035,7 @@
       "runtime": "46:47",
       "review": "The best-selling indie album of all time for a reason, every track pulls its weight and the sequencing is relentless. Bad Habit, Self Esteem and Gotta Get Away are the obvious peaks but Genocide and Nitro hit just as hard. Raw, fast, and built to last. Still sounds exactly right 30 years later.",
       "art": ["mbid-b50d155a-5cde-3600-b768-5a6fc0ce57eb-31844265343.jpg"],
-      "favoriteTrack": 0,
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
@@ -2595,94 +3168,59 @@
       }
     },
     {
-      "id": "killswitch_engage-as_daylight_dies_special_edition",
-      "artist": "Killswitch Engage",
-      "album": "As Daylight Dies (Special Edition)",
-      "year": 2007,
+      "id": "opeth-ghost_reveries",
+      "artist": "Opeth",
+      "album": "Ghost Reveries",
+      "year": 2005,
       "label": "Roadrunner",
-      "genre": "Melodic Metalcore",
-      "runtime": "58:59",
-      "review": "Howard Jones-era KSE at their absolute peak. The balance between crushing riffs and massive clean choruses had never been tighter, and Jones delivers both sides with total conviction. My Curse and The Arms of Sorrow are the obvious centrepieces but Unbroken and Eye of the Storm hit just as hard. The Holy Diver cover is genuinely great and earns its place. The definitive metalcore album of the mid-2000s.",
-      "art": ["mbid-cfdf9a54-ffb8-4d8a-b355-666e9984b51d-27238315257.png"],
-      "favoriteTrack": 0,
+      "genre": "Progressive Death Metal",
+      "runtime": "66:46",
+      "review": "The last Opeth album where the death metal and the prog exist in genuine tension rather than polite coexistence. Åkerfeldt was writing at the absolute peak of his powers, Ghost of Perdition and Reverie/Harlequin Forest are as good as anything in the catalogue. Per Wiberg's keys add a warmth and depth the band hadn't had before, and Jens Bogren's production gives it a weight that suits every dynamic shift. A landmark.",
+      "art": ["mbid-2f087439-5d1b-38c7-99fd-0de138a11fc2-20838648318.jpg"],
+      "favoriteTrack": { "disc": 0, "track": 0 },
       "discs": [
         {
           "disc": 1,
           "tracks": [
             {
               "number": 1,
-              "title": "Daylight Dies",
-              "duration": "4:05"
+              "title": "Ghost of Perdition",
+              "duration": "10:29"
             },
             {
               "number": 2,
-              "title": "This Is Absolution",
-              "duration": "3:34"
+              "title": "The Baying of the Hounds",
+              "duration": "10:41"
             },
             {
               "number": 3,
-              "title": "The Arms of Sorrow",
-              "duration": "3:44"
+              "title": "Beneath the Mire",
+              "duration": "7:59"
             },
             {
               "number": 4,
-              "title": "Unbroken",
-              "duration": "3:08"
+              "title": "Atonement",
+              "duration": "5:12"
             },
             {
               "number": 5,
-              "title": "My Curse",
-              "duration": "4:04"
+              "title": "Reverie / Harlequin Forest",
+              "duration": "11:18"
             },
             {
               "number": 6,
-              "title": "For You",
-              "duration": "4:03"
+              "title": "Hours of Wealth",
+              "duration": "5:06"
             },
             {
               "number": 7,
-              "title": "Still Beats Your Name",
-              "duration": "3:19"
+              "title": "The Grand Conjuration",
+              "duration": "10:22"
             },
             {
               "number": 8,
-              "title": "Eye of the Storm",
-              "duration": "3:56"
-            },
-            {
-              "number": 9,
-              "title": "Break the Silence",
-              "duration": "4:32"
-            },
-            {
-              "number": 10,
-              "title": "Desperate Times",
-              "duration": "4:25"
-            },
-            {
-              "number": 11,
-              "title": "Reject Yourself",
-              "duration": "4:45"
-            },
-            {
-              "number": 12,
-              "title": "Be One",
-              "duration": "3:31"
-            },
-            {
-              "number": 13,
-              "title": "Let the Bridges Burn",
-              "duration": "4:29"
-            },
-            {
-              "number": 14,
-              "title": "This Fire",
-              "duration": "3:09"
-            },
-            {
-              "number": 15,
-              "title": "Holy Diver",
-              "duration": "4:10"
+              "title": "Isolation Years",
+              "duration": "5:37"
             }
           ]
         }
@@ -2690,276 +3228,45 @@
       "personnel": {
         "members": [
           {
-            "name": "Howard Jones",
-            "roles": ["Vocals"]
+            "name": "Mikael Åkerfeldt",
+            "roles": ["Vocals", "Guitar", "Mellotron"]
           },
           {
-            "name": "Adam Dutkiewicz",
-            "roles": ["Guitar", "Backing Vocals"]
-          },
-          {
-            "name": "Joel Stroetzel",
+            "name": "Peter Lindgren",
             "roles": ["Guitar"]
           },
           {
-            "name": "Mike D'Antonio",
+            "name": "Martín Méndez",
             "roles": ["Bass"]
           },
           {
-            "name": "Justin Foley",
-            "roles": ["Drums"]
+            "name": "Martin Lopez",
+            "roles": ["Drums", "Percussion"]
+          },
+          {
+            "name": "Per Wiberg",
+            "roles": ["Mellotron", "Hammond Organ", "Grand Piano", "Moog"]
           }
         ],
         "production": [
           {
-            "name": "Adam Dutkiewicz",
+            "name": "Mikael Åkerfeldt",
             "roles": ["Producer"]
           },
           {
-            "name": "Joel Stroetzel",
+            "name": "Opeth",
             "roles": ["Producer"]
           },
           {
-            "name": "Andy Sneap",
-            "roles": ["Mixer"]
-          }
-        ],
-        "studios": [
-          "Zing Studios, Westfield, MA (all tracks except drums)",
-          "Longview Farm, North Brookfield, MA (drums)"
-        ]
-      }
-    },
-    {
-      "id": "corelia-nostalgia",
-      "artist": "Corelia",
-      "album": "Nostalgia",
-      "year": 2011,
-      "label": "Self-released",
-      "genre": "Progressive Metal / Djent",
-      "runtime": "30:36",
-      "review": "Corelia built something rare with this EP, seven tracks that feel emotionally complete. The Sound of Glaciers Moving and Red Sky Harbor hit hardest but there's no filler in the runtime. Spencer Sotelo's guest spot on Treetops earns its place.",
-      "art": ["mbid-c91e8da4-52d5-46ff-8536-6e8e67e0d8e5-2401210678.jpg"],
-      "favoriteTrack": 0,
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            { "number": 1, "title": "Treetops", "duration": "4:51" },
-            { "number": 2, "title": "Glass Faces", "duration": "4:31" },
-            { "number": 3, "title": "The Sound of Glaciers Moving", "duration": "4:29" },
-            { "number": 4, "title": "Aviation", "duration": "3:14" },
-            { "number": 5, "title": "Red Sky Harbor", "duration": "6:00" },
-            { "number": 6, "title": "Mute Swan", "duration": "1:51" },
-            { "number": 7, "title": "Blood Petals", "duration": "6:14" }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          { "name": "Ryan Devlin", "roles": ["Vocals"] },
-          { "name": "Chris Dower", "roles": ["Guitar"] },
-          { "name": "Ryan Borrell", "roles": ["Guitar"] },
-          { "name": "Adrian Alperstein", "roles": ["Bass"] },
-          { "name": "Clayton Pratt", "roles": ["Drums"] }
-        ],
-        "guests": [
-          {
-            "name": "Spencer Sotelo",
-            "roles": ["Guest Vocals"],
-            "notes": "Appears on \"Treetops\""
-          }
-        ],
-        "production": [{ "name": "Corelia", "roles": ["Producer", "Engineer", "Mixer"] }]
-      }
-    },
-    {
-      "id": "meshuggah-nothing",
-      "artist": "Meshuggah",
-      "album": "Nothing",
-      "year": 2002,
-      "label": "Nuclear Blast",
-      "genre": "Progressive Metal / Groove Metal / Avant-Garde Metal",
-      "runtime": "52:37",
-      "review": "Ten tracks of pure rhythmic warfare that somehow never loses the thread. Haake's drumming operates in a different timezone from everything else on the planet and the riffs just grind relentlessly underneath, not fast, just inevitable. Closed Eye Visuals and Nebulous are the centrepieces but the whole record functions as a single suffocating mass. Mixed in two days and mastered in one.",
-      "art": ["mbid-0edaf94b-2066-43fa-ba75-8175ca93ca37-31430636916.jpg"],
-      "favoriteTrack": 0,
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            { "number": 1, "title": "Stengah", "duration": "5:36" },
-            { "number": 2, "title": "Rational Gaze", "duration": "3:34" },
-            { "number": 3, "title": "Perpetual Black Second", "duration": "4:39" },
-            { "number": 4, "title": "Closed Eye Visuals", "duration": "7:26" },
-            { "number": 5, "title": "Glints Collide", "duration": "4:56" },
-            { "number": 6, "title": "Organic Shadows", "duration": "5:08" },
-            { "number": 7, "title": "Straws Pulled at Random", "duration": "5:11" },
-            { "number": 8, "title": "Spasm", "duration": "4:15" },
-            { "number": 9, "title": "Nebulous", "duration": "6:34" },
-            { "number": 10, "title": "Obsidian", "duration": "4:23" }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          { "name": "Jens Kidman", "roles": ["Vocals"] },
-          { "name": "Fredrik Thordendal", "roles": ["Guitar", "Bass", "Synthesizer"] },
-          { "name": "Mårten Hagström", "roles": ["Guitar"] },
-          { "name": "Dick Lövgren", "roles": ["Bass"] },
-          { "name": "Tomas Haake", "roles": ["Drums", "Vocals"] }
-        ],
-        "production": [
-          { "name": "Meshuggah", "roles": ["Producer"] },
-          { "name": "Fredrik Thordendal", "roles": ["Engineer"] }
-        ],
-        "studios": [
-          "Dug Out Studio, Uppsala, Sweden (drums)",
-          "Studio Area 51 (guitars, bass)",
-          "Fear and Loathing Studio, Stockholm, Sweden (vocals, mixing)"
-        ]
-      }
-    },
-    {
-      "id": "in_flames-colony",
-      "artist": "In Flames",
-      "album": "Colony",
-      "year": 1999,
-      "label": "Nuclear Blast",
-      "genre": "Melodic Death Metal",
-      "runtime": "41:31",
-      "review": "The classic lineup clicks into place and the results are immediate. With Zombie Inc. and Coerced Coexistence as the obvious peaks, but the whole record holds a relentless energy from front to back. Pallar Anders Visa is a folk interlude that has no business working as well as it does. Peak Gothenburg.",
-      "art": ["mbid-e3f7ce6c-7a15-3518-b7d3-d4f383a79b9c-7389990128.jpg"],
-      "favoriteTrack": 0,
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            { "number": 1, "title": "Embody the Invisible", "duration": "3:37" },
-            { "number": 2, "title": "Ordinary Story", "duration": "4:16" },
-            { "number": 3, "title": "Scorn", "duration": "3:37" },
-            { "number": 4, "title": "Colony", "duration": "4:39" },
-            { "number": 5, "title": "Zombie Inc.", "duration": "5:05" },
-            { "number": 6, "title": "Pallar Anders Visa", "duration": "1:42" },
-            { "number": 7, "title": "Coerced Coexistence", "duration": "4:15" },
-            { "number": 8, "title": "Resin", "duration": "3:22" },
-            { "number": 9, "title": "Behind Space '99", "duration": "3:59" },
-            { "number": 10, "title": "Insipid 2000", "duration": "3:46" },
-            { "number": 11, "title": "The New Word", "duration": "3:18" }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          { "name": "Anders Fridén", "roles": ["Vocals"] },
-          { "name": "Jesper Strömblad", "roles": ["Guitar", "Hammond Organ"] },
-          { "name": "Björn Gelotte", "roles": ["Guitar"] },
-          { "name": "Peter Iwers", "roles": ["Bass"] },
-          { "name": "Daniel Svensson", "roles": ["Drums"] }
-        ],
-        "guests": [{ "name": "Charlie Storm", "roles": ["Synthesizer", "Programming"] }],
-        "production": [
-          {
-            "name": "Fredrik Nordström",
-            "roles": ["Producer", "Engineer", "Mixer", "Slide Guitar", "Hammond Organ"]
+            "name": "Jens Bogren",
+            "roles": ["Engineer", "Mixer"]
           },
-          { "name": "In Flames", "roles": ["Producer"] },
-          { "name": "Göran Finnberg", "roles": ["Mastering Engineer"] }
-        ],
-        "studios": ["Studio Fredman, Gothenburg, Sweden"]
-      }
-    },
-    {
-      "id": "vola-inmazes",
-      "artist": "VOLA",
-      "album": "Inmazes",
-      "year": 2015,
-      "label": "Self-released",
-      "genre": "Progressive Metal / Djent",
-      "runtime": "51:56",
-      "review": "Mygind pulled off something rare on a debut, a fully realised sound that doesn't feel like it's still finding itself. The djent backbone hits hard but it's the atmospheric reach and the melodic restraint that make it stick. Owls and the title track are the peaks, but the back half of this record is an unbroken run of great songs.",
-      "art": ["mbid-10a42241-f2ec-4d36-8486-5713b0cdddd2-25863715958.jpg"],
-      "favoriteTrack": 8,
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            { "number": 1, "title": "The Same War", "duration": "5:11" },
-            { "number": 2, "title": "Stray the Skies", "duration": "4:14" },
-            { "number": 3, "title": "Starburn", "duration": "6:06" },
-            { "number": 4, "title": "Owls", "duration": "5:52" },
-            { "number": 5, "title": "Your Mind Is a Helpless Dreamer", "duration": "5:22" },
-            { "number": 6, "title": "Emily", "duration": "3:02" },
-            { "number": 7, "title": "Gutter Moon", "duration": "3:56" },
-            { "number": 8, "title": "A Stare Without Eyes", "duration": "4:59" },
-            { "number": 9, "title": "Feed the Creatures", "duration": "5:38" },
-            { "number": 10, "title": "Inmazes", "duration": "7:31" }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          { "name": "Asger Mygind", "roles": ["Vocals", "Guitar"] },
-          { "name": "Martin Werner", "roles": ["Keyboards", "Programming"] },
-          { "name": "Nicolai Mogensen", "roles": ["Bass"] },
-          { "name": "Felix Ewert", "roles": ["Drums"] }
-        ],
-        "production": [
-          { "name": "Asger Mygind", "roles": ["Producer", "Mixer"] },
-          { "name": "Jens Bogren", "roles": ["Mastering Engineer"] }
-        ]
-      }
-    },
-    {
-      "id": "devin_townsend_project-ki",
-      "artist": "Devin Townsend Project",
-      "album": "Ki",
-      "year": 2009,
-      "label": "HevyDevy / InsideOut",
-      "genre": "Progressive Rock / Ambient Rock",
-      "runtime": "1:06:45",
-      "review": "The most patient thing Townsend ever made and that's exactly the point. Coast and Terminal are stunning, minimal, heavy with atmosphere, totally unlike anything he'd done before. Heaven Send is where the lid finally comes off and it earns every second of the buildup. The title track closing out the main run is something else entirely. Not an easy listen but it rewards every visit.",
-      "art": ["mbid-ea509223-c2bd-44e6-86c0-baa652f9e4ad-30755243407.jpg"],
-      "favoriteTrack": 9,
-      "discs": [
-        {
-          "disc": 1,
-          "tracks": [
-            { "number": 1, "title": "A Monday", "duration": "1:42" },
-            { "number": 2, "title": "Coast", "duration": "4:35" },
-            { "number": 3, "title": "Disruptr", "duration": "5:49" },
-            { "number": 4, "title": "Gato", "duration": "5:23" },
-            { "number": 5, "title": "Terminal", "duration": "6:58" },
-            { "number": 6, "title": "Heaven Send", "duration": "8:54" },
-            { "number": 7, "title": "Ain't Never Gonna Win", "duration": "3:17" },
-            { "number": 8, "title": "Winter", "duration": "4:47" },
-            { "number": 9, "title": "Trainfire", "duration": "5:58" },
-            { "number": 10, "title": "Lady Helen", "duration": "6:05" },
-            { "number": 11, "title": "Ki", "duration": "7:20" },
-            { "number": 12, "title": "Quiet Riot", "duration": "3:02" },
-            { "number": 13, "title": "Deamon League", "duration": "2:55" }
-          ]
-        }
-      ],
-      "personnel": {
-        "members": [
-          { "name": "Devin Townsend", "roles": ["Vocals", "Guitar"] },
-          { "name": "Jean Savoie", "roles": ["Bass"] },
-          { "name": "Duris Maxwell", "roles": ["Drums"] },
-          { "name": "Dave Young", "roles": ["Keyboards"] }
-        ],
-        "guests": [
           {
-            "name": "Che Aimee Dorval",
-            "roles": ["Guest Vocals"],
-            "notes": "Appears on \"Gato\", \"Heaven Send\", and \"Trainfire\""
+            "name": "Tomas Eberger",
+            "roles": ["Mastering Engineer"]
           }
         ],
-        "production": [
-          { "name": "Devin Townsend", "roles": ["Producer", "Engineer", "Mixer"] },
-          { "name": "T-Roy", "roles": ["Mastering Engineer"] }
-        ],
-        "studios": ["Devestate Studios", "Studio D", "The Factory (bed tracks)"]
+        "studios": ["Fascination Street Studios, Örebro, Sweden"]
       }
     }
   ]

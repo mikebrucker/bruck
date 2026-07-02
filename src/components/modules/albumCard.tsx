@@ -34,20 +34,12 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
     setImageLoading(false);
   };
 
-  const favoriteTrackTitle = (() => {
-    const ft = album.favoriteTrack;
-    if (!ft) return null;
-    if (Array.isArray(ft)) {
-      const [discNum, trackNum] = ft;
-      return (
-        album.discs.find((d) => d.disc === discNum)?.tracks.find((t) => t.number === trackNum)
-          ?.title ?? null
-      );
-    }
-    return album.discs[0]?.tracks.find((t) => t.number === ft)?.title ?? null;
-  })();
+  const { disc, track } = album.favoriteTrack ?? { disc: 0, track: 0 };
+  const favoriteTrackTitle = track
+    ? album.discs[disc ?? 0]?.tracks.find((t) => t.number === track)?.title
+    : null;
 
-  const art = album.art?.map((a) => (
+  const art = album.art?.map((a, i) => (
     <div key={a}>
       <Image
         onClick={() => openModal(a)}
@@ -55,7 +47,8 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
         alt={t(($) => $.albums.cover_art, { album: album.album })}
         width={256}
         height={256}
-        className="rounded-sm object-cover cursor-pointer"
+        priority={i === 0}
+        className="w-64 h-64 rounded-sm object-cover cursor-pointer"
       />
     </div>
   ));
@@ -219,7 +212,8 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
                 alt={t(($) => $.albums.cover_art, { album: album.album })}
                 width={1024}
                 height={1024}
-                className="w-full h-auto cursor-pointer"
+                style={{ height: "auto" }}
+                className="w-full cursor-pointer"
               />
             </div>
           ) : null}
