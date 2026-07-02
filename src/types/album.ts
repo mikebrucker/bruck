@@ -19,12 +19,7 @@ export interface Track {
   notes?: string;
   instrumental?: boolean;
   personnel?: Array<Credit>;
-}
-
-export interface Disc {
-  disc: number;
-  title?: string;
-  tracks: Array<Track>;
+  disc?: number;
 }
 
 export interface Album {
@@ -36,9 +31,11 @@ export interface Album {
   genre: string;
   runtime: string;
   review: string;
-  discs: Array<Disc>;
+  tracks: Array<Track>;
+  discTitles?: Array<string>;
   art?: Array<string>;
-  favoriteTrack?: { disc?: number; track: number };
+  favoriteTrack: number;
+  favoriteDisc?: number;
   personnel?: Personnel;
 }
 

@@ -34,10 +34,25 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
     setImageLoading(false);
   };
 
-  const { disc, track } = album.favoriteTrack ?? { disc: 0, track: 0 };
-  const favoriteTrackTitle = track
-    ? album.discs[disc ?? 0]?.tracks.find((t) => t.number === track)?.title
+  const favoriteTrackTitle = album.favoriteTrack
+    ? album.tracks.find(
+        (track) =>
+          track.number === album.favoriteTrack && (track.disc ?? 0) === (album.favoriteDisc ?? 0),
+      )?.title
     : null;
+
+  const discCount =
+    album.discTitles?.length ?? Math.max(...album.tracks.map((track) => (track.disc ?? 0) + 1));
+
+  const discs = Array.from({ length: discCount }, (_, discIndex) => ({
+    discIndex,
+    title:
+      album.discTitles?.[discIndex] ??
+      (discCount > 1
+        ? t(($) => $.albums.disc, { number: discIndex + 1 })
+        : t(($) => $.albums.tracks)),
+    tracks: album.tracks.filter((track) => (track.disc ?? 0) === discIndex),
+  }));
 
   const art = album.art?.map((a, i) => (
     <div key={a}>
@@ -122,28 +137,26 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
       </div>
 
       <div className="space-y-2">
-        {album.discs.map((disc) => {
-          let title = disc.title ?? t(($) => $.albums.tracks);
-          if (album.discs.length > 1 && !disc.title)
-            title = t(($) => $.albums.disc, { number: disc.disc });
-
-          return (
-            <Accordion key={disc.disc} title={title} classNames="p-2 rounded-md bg-secondary">
-              <div>
-                {disc.tracks.map((track) => (
-                  <div
-                    key={track.number}
-                    className="flex gap-2 text-sm odd:bg-card rounded px-2 py-1 transition-colors"
-                  >
-                    <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
-                    <span className="flex-1">{track.title}</span>
-                    <span className="shrink-0 tabular-nums">{track.duration}</span>
-                  </div>
-                ))}
-              </div>
-            </Accordion>
-          );
-        })}
+        {discs.map((group) => (
+          <Accordion
+            key={group.discIndex}
+            title={group.title}
+            classNames="p-2 rounded-md bg-secondary"
+          >
+            <div>
+              {group.tracks.map((track) => (
+                <div
+                  key={track.number}
+                  className="flex gap-2 text-sm odd:bg-card rounded px-2 py-1 transition-colors"
+                >
+                  <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
+                  <span className="flex-1">{track.title}</span>
+                  <span className="shrink-0 tabular-nums">{track.duration}</span>
+                </div>
+              ))}
+            </div>
+          </Accordion>
+        ))}
 
         {album.personnel ? (
           <div>
