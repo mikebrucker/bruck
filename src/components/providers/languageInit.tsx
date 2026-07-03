@@ -20,5 +20,9 @@ export function LanguageInit() {
     document.documentElement.lang = language;
   }, [language]);
 
+  useEffect(() => {
+    useLanguageStore.setState({ ready: true });
+  }, []);
+
   return null;
 }

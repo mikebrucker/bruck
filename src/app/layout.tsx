@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Asimovian, Figtree, Geist_Mono } from "next/font/google";
+import { AppGate } from "@/components/providers/appGate";
 import I18nProvider from "@/components/providers/i18n-provider";
 import { LanguageInit } from "@/components/providers/languageInit";
 import { ThemeInit } from "@/components/providers/themeInit";
@@ -33,12 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={figtree.variable}>
-      <body
-        className={`${geistMono.variable} ${asimovian.variable} antialiased`}
-      >
+      <body className={`${geistMono.variable} ${asimovian.variable} antialiased`}>
         <LanguageInit />
         <ThemeInit />
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider>
+          <AppGate>{children}</AppGate>
+        </I18nProvider>
       </body>
     </html>
   );
