@@ -27,8 +27,9 @@ export const ranked = {
   "substructure-monolith": 24,
   "warrel_dane-praises_to_the_war_machine": 25,
   "in_flames-colony": 26,
-  "the_offspring-smash": 27,
-  "opeth-ghost_reveries": 28,
+  "dark-tranquillity_atoma": 27,
+  "the_offspring-smash": 28,
+  "opeth-ghost_reveries": 29,
 };
 
 export const honorable = {
