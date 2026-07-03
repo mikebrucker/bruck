@@ -19,6 +19,7 @@ export interface Track {
   notes?: string;
   instrumental?: boolean;
   personnel?: Array<Credit>;
+  /** 0 indexed; Only used when multi-disc; */
   disc?: number;
 }
 
@@ -34,12 +35,9 @@ export interface Album {
   tracks: Array<Track>;
   discTitles?: Array<string>;
   art?: Array<string>;
+  /** @default 0 */
   favoriteTrack: number;
+  /** 0 indexed; assumed first disc if empty; */
   favoriteDisc?: number;
   personnel?: Personnel;
-}
-
-export interface AlbumList {
-  ranked: Array<Album>;
-  honorableMentions: Array<Album>;
 }
