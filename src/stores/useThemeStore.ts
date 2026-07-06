@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { createHmrStore } from "@/stores/createHmrStore";
 
 type Theme = "light" | "dark";
 
@@ -15,7 +15,7 @@ const applyTheme = (theme: Theme) => {
   localStorage.setItem("theme", theme);
 };
 
-export const useThemeStore = create<ThemeState>((set, get) => ({
+export const useThemeStore = createHmrStore<ThemeState>("theme", ["theme", "ready"], (set, get) => ({
   theme: "light",
   ready: false,
   setTheme: (theme) => {

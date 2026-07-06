@@ -1,6 +1,6 @@
-import { create } from "zustand";
 import { defaultLocale, isLocale, type Language } from "@/i18n/config";
 import { i18n } from "@/i18n/i18n";
+import { createHmrStore } from "@/stores/createHmrStore";
 
 type LanguageState = {
   language: Language;
@@ -15,7 +15,7 @@ const setLang = (setLang?: string): Language => {
   return isLocale(language) ? (language as Language) : defaultLocale;
 };
 
-export const useLanguageStore = create<LanguageState>((set) => ({
+export const useLanguageStore = createHmrStore<LanguageState>("language", ["language", "ready"], (set) => ({
   language: setLang(),
   ready: false,
   setLanguage: (lang) => {
