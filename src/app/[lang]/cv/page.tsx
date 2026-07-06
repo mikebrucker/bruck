@@ -219,9 +219,9 @@ export default function CvPage() {
         <Image
           src="/headshot.jpg"
           alt="Mike Brucker headshot"
-          width={112}
-          height={112}
-          className="rounded-full size-28 object-cover shrink-0"
+          width={144}
+          height={144}
+          className="rounded-full size-36 object-cover shrink-0"
         />
         <div className="flex-1">
           <h1 className="text-2xl sm:text-3xl font-bold leading-tight">Mike Brucker</h1>
