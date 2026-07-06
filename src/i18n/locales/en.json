@@ -18,6 +18,8 @@
     "favorite_track": "Favorite track"
   },
   "menu": {
+    "albums": "Albums",
+    "about": "About",
     "cv": "Résumé/CV",
     "dark": "Dark Mode",
     "light": "Light Mode"

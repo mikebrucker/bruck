@@ -1,11 +1,13 @@
 "use client";
 
 import {
+  Alien01Icon,
   Close,
   HtmlFile02Icon,
   Moon02Icon,
   Pdf02Icon,
   Sun02Icon,
+  Vynil02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
@@ -56,6 +58,30 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         </Button>
       </div>
       <nav className="flex flex-col px-3 gap-3">
+        <Button
+          asChild
+          variant="keyboard"
+          className="justify-start h-13"
+          onClick={onClose}
+          aria-label="open about page"
+        >
+          <Link href={`/${language}/albums/`}>
+            <HugeiconsIcon icon={Vynil02Icon} className="size-6" />
+            {t(($) => $.menu.albums)}
+          </Link>
+        </Button>
+        <Button
+          asChild
+          variant="keyboard"
+          className="justify-start h-13"
+          onClick={onClose}
+          aria-label="open about page"
+        >
+          <Link href={`/${language}/about/`}>
+            <HugeiconsIcon icon={Alien01Icon} className="size-6" />
+            {t(($) => $.menu.about)}
+          </Link>
+        </Button>
         <Button
           asChild
           variant="keyboard"

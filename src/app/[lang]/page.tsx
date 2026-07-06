@@ -1,11 +1,7 @@
-import { HomeClient } from "@/app/[lang]/homeClient";
-import { honorable, ranked, sortByRank } from "@/data/albumOrder";
-import { albumRepository } from "@/data/albumRepository";
+import { redirect } from "next/navigation";
+import { defaultRoute } from "@/i18n/config";
 
-export default async function Home() {
-  const albums = await albumRepository.getAll();
-  const rankedAlbums = sortByRank(albums.filter((album) => album.id in ranked));
-  const honorableMentionAlbums = sortByRank(albums.filter((album) => album.id in honorable));
-
-  return <HomeClient rankedAlbums={rankedAlbums} honorableMentionAlbums={honorableMentionAlbums} />;
+export default async function Page({ params }: PageProps<"/[lang]">) {
+  const { lang } = await params;
+  redirect(`/${lang}/${defaultRoute}`);
 }

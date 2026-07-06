@@ -191,5 +191,6 @@ export const ExistingLanguages = {
 
 export type Language = keyof typeof Languages;
 export const defaultLocale = Languages.en;
+export const defaultRoute = "albums";
 export const locales = [Languages.en, Languages.de] as const;
 export const isLocale = (lang: string) => locales.includes(lang as Language);

@@ -18,6 +18,8 @@
     "favorite_track": "Lieblingssong"
   },
   "menu": {
+    "albums": "Alben",
+    "about": "Über mich",
     "cv": "Lebenslauf/CV",
     "dark": "Dunkelmodus",
     "light": "Hellmodus"
