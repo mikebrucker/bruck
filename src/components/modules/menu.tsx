@@ -57,15 +57,6 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
       </div>
       <nav className="flex flex-col px-3 gap-3">
         <Button
-          variant="keyboard"
-          onClick={toggle}
-          className="justify-start h-13"
-          aria-label="toggle theme"
-        >
-          <HugeiconsIcon icon={theme === "dark" ? Moon02Icon : Sun02Icon} className="size-6" />
-          {theme === "dark" ? t(($) => $.menu.dark) : t(($) => $.menu.light)}
-        </Button>
-        <Button
           asChild
           variant="keyboard"
           className="justify-start h-13"
@@ -90,20 +81,29 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           </Link>
         </Button>
       </nav>
-      <div className="mt-auto p-3 gap-3 flex justify-end">
+      <div className="mt-auto p-3 gap-0.5 flex flex-wrap-reverse justify-end">
+        <Button
+          variant="keyboard"
+          onClick={toggle}
+          className="justify-start h-13"
+          aria-label="toggle theme"
+        >
+          <HugeiconsIcon icon={theme === "dark" ? Moon02Icon : Sun02Icon} className="size-6" />
+          {theme === "dark" ? t(($) => $.menu.dark) : t(($) => $.menu.light)}
+        </Button>
         {locales.map((locale) => (
           <Button
             key={locale}
             variant="keyboard"
             size="icon"
-            className={locale === language ? "bg-theme-300 border-theme-300" : ""}
+            className={`h-13 w-13 ${locale === language ? "bg-theme-300 border-theme-300" : ""}`}
             aria-label={`language ${languageLabels[locale]}`}
             onClick={() => {
               setLanguage(locale);
               changeLanguageUrl(locale);
             }}
           >
-            <span className={`fi fi-${flagMap[locale]}`} />
+            <span className={`fi fi-${flagMap[locale]} text-lg`} />
           </Button>
         ))}
       </div>
