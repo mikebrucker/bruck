@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write",
-    "add-album": "node neon/add-album.mjs"
+    "format": "biome format --write"
   },
   "dependencies": {
     "@hugeicons/core-free-icons": "^4.0.0",
