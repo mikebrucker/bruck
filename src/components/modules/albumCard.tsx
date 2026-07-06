@@ -7,7 +7,9 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Loader from "@/components/modules/loader";
 import { Accordion } from "@/components/ui/accordion";
+import { Chip } from "@/components/ui/chip";
 import { Modal } from "@/components/ui/modal";
+import { Note } from "@/components/ui/note";
 import type { Album, Credit } from "@/types/album";
 
 type AlbumCardProps = {
@@ -103,16 +105,10 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
           </div>
 
           <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
-            <span className="bg-muted rounded px-1.5 py-0.5 text-sm font-medium">{album.year}</span>
-            <span className="bg-muted rounded px-1.5 py-0.5 text-sm font-medium">
-              {album.genre}
-            </span>
-            <span className="bg-muted rounded px-1.5 py-0.5 text-sm font-medium">
-              {album.runtime}
-            </span>
-            <span className="bg-muted rounded px-1.5 py-0.5 text-sm font-medium">
-              {album.label}
-            </span>
+            <Chip text={String(album.year)} />
+            <Chip text={album.genre} />
+            <Chip text={album.runtime} />
+            <Chip text={album.label} />
           </div>
 
           <div className="col-span-2 sm:hidden flex gap-1 flex-wrap">{art}</div>
@@ -122,15 +118,11 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
               <span className="text-xs text-muted-foreground">
                 {t(($) => $.albums.favorite_track)}:
               </span>
-              <span className="bg-muted rounded px-1.5 py-0.5 text-sm font-medium">
-                {favoriteTrackTitle}
-              </span>
+              <Chip text={favoriteTrackTitle} />
             </div>
           ) : null}
 
-          <p className="col-span-2 sm:col-span-1 bg-accent border border-border border-l-4 border-l-theme-500 rounded-lg p-3 text-sm leading-relaxed italic">
-            {album.review}
-          </p>
+          <Note className="col-span-2 sm:col-span-1" text={album.review} />
         </div>
 
         <div className="hidden sm:flex shrink-0 sm:flex-col lg:flex-row gap-1">{art}</div>
