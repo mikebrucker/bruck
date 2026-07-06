@@ -20,7 +20,8 @@
   "menu": {
     "albums": "Alben",
     "about": "Über mich",
-    "cv": "Lebenslauf/CV",
+    "cv": "CV",
+    "resume": "Lebenslauf",
     "dark": "Dunkelmodus",
     "light": "Hellmodus"
   }

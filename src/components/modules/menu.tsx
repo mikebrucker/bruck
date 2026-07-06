@@ -3,6 +3,7 @@
 import {
   Alien01Icon,
   Close,
+  FileBadgeIcon,
   HtmlFile02Icon,
   Moon02Icon,
   Pdf02Icon,
@@ -11,6 +12,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Drawer } from "@/components/ui/drawer";
@@ -38,10 +40,14 @@ const flagMap: Record<Language, string> = {
 
 function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const { t } = useTranslation();
+  const pathname = usePathname();
   // use in links
   const { language, setLanguage } = useLanguageStore();
   const changeLanguageUrl = useChangeLanguageUrl();
-
+  const isAlbumsSelected = pathname.startsWith(`/${language}/albums`);
+  const isAboutSelected = pathname.startsWith(`/${language}/about`);
+  const isCvSelected = pathname.startsWith(`/${language}/cv`);
+  const selectedClassName = "bg-theme-300 border-theme-300";
   const { theme, toggle } = useThemeStore();
 
   return (
@@ -61,7 +67,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         <Button
           asChild
           variant="keyboard"
-          className="justify-start h-13"
+          className={`justify-start h-13 ${isAlbumsSelected ? selectedClassName : ""}`}
           onClick={onClose}
           aria-label="open about page"
         >
@@ -73,7 +79,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         <Button
           asChild
           variant="keyboard"
-          className="justify-start h-13"
+          className={`justify-start h-13 ${isAboutSelected ? selectedClassName : ""}`}
           onClick={onClose}
           aria-label="open about page"
         >
@@ -82,30 +88,44 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
             {t(($) => $.menu.about)}
           </Link>
         </Button>
-        <Button
-          asChild
-          variant="keyboard"
-          className="justify-start h-13"
-          onClick={onClose}
-          aria-label="open html cv"
-        >
-          <Link href="/mike-brucker-cv.html" target="_blank" rel="noopener noreferrer">
-            <HugeiconsIcon icon={HtmlFile02Icon} className="size-6" />
-            {t(($) => $.menu.cv)} - HTML
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant="keyboard"
-          className="justify-start h-13"
-          onClick={onClose}
-          aria-label="open pdf cv"
-        >
-          <Link href="/mike-brucker-cv.pdf" target="_blank" rel="noopener noreferrer">
-            <HugeiconsIcon icon={Pdf02Icon} className="size-6" />
-            {t(($) => $.menu.cv)} - PDF
-          </Link>
-        </Button>
+        <div className="mt-auto gap-0.5 flex">
+          <Button
+            asChild
+            variant="keyboard"
+            className={`justify-start h-13 grow ${isCvSelected ? selectedClassName : ""}`}
+            onClick={onClose}
+            aria-label="open about page"
+          >
+            <Link href={`/${language}/cv/`}>
+              <HugeiconsIcon icon={FileBadgeIcon} className="size-6" />
+              {t(($) => $.menu.cv)}
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="keyboard"
+            size="icon"
+            className="h-13 w-13"
+            onClick={onClose}
+            aria-label="open html cv"
+          >
+            <Link href="/mike-brucker-cv.html" target="_blank" rel="noopener noreferrer">
+              <HugeiconsIcon icon={HtmlFile02Icon} className="size-6" />
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="keyboard"
+            size="icon"
+            className="h-13 w-13"
+            onClick={onClose}
+            aria-label="open pdf cv"
+          >
+            <Link href="/mike-brucker-cv.pdf" target="_blank" rel="noopener noreferrer">
+              <HugeiconsIcon icon={Pdf02Icon} className="size-6" />
+            </Link>
+          </Button>
+        </div>
       </nav>
       <div className="mt-auto p-3 gap-0.5 flex flex-wrap-reverse justify-end">
         <Button
@@ -122,7 +142,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
             key={locale}
             variant="keyboard"
             size="icon"
-            className={`h-13 w-13 ${locale === language ? "bg-theme-300 border-theme-300" : ""}`}
+            className={`h-13 w-13 ${locale === language ? selectedClassName : ""}`}
             aria-label={`language ${languageLabels[locale]}`}
             onClick={() => {
               setLanguage(locale);

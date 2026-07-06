@@ -20,7 +20,8 @@
   "menu": {
     "albums": "Albums",
     "about": "About",
-    "cv": "Résumé/CV",
+    "cv": "CV",
+    "resume": "Résumé",
     "dark": "Dark Mode",
     "light": "Light Mode"
   }
