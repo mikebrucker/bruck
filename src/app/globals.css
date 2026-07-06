@@ -275,8 +275,8 @@
     --secondary: #27272a;
     /* zinc 50 */
     --secondary-foreground: #fafafa;
-    /* zinc 800 */
-    --muted: #27272a;
+    /* zinc 700 */
+    --muted: #3f3f46;
     /* zinc 400 */
     --muted-foreground: #a1a1aa;
     /* zinc 800 */
@@ -332,8 +332,8 @@ html.dark {
   --secondary: #27272a;
   /* zinc 50 */
   --secondary-foreground: #fafafa;
-  /* zinc 800 */
-  --muted: #27272a;
+  /* zinc 700 */
+  --muted: #3f3f46;
   /* zinc 400 */
   --muted-foreground: #a1a1aa;
   /* zinc 800 */

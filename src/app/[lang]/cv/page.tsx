@@ -1,18 +1,31 @@
 import {
   AircraftGameIcon,
+  AmazonIcon,
+  AndroidIcon,
+  AppleIcon,
   Bone01Icon,
   Call02Icon,
+  ClaudeIcon,
+  CssThreeIcon,
+  FigmaIcon,
   Github01Icon,
+  GitMergeIcon,
+  HtmlFiveIcon,
   IceHockeyIcon,
+  JavaScriptIcon,
   Linkedin01Icon,
   LinkSquare01Icon,
   Location01Icon,
   Mail01Icon,
   MicrochipIcon,
   MusicNote01Icon,
+  ReactIcon,
   Restaurant01Icon,
   SnowIcon,
+  SqlIcon,
+  TailwindcssIcon,
   TriangleRightIcon,
+  Typescript01Icon,
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
@@ -31,7 +44,7 @@ type LinkItem = {
 
 type SkillGroup = {
   label: string;
-  items: Array<string>;
+  items: Array<{ label: string; icon?: IconSvgElement }>;
 };
 
 type CvEntry = {
@@ -76,18 +89,80 @@ const socialLinks: Array<LinkItem> = [
 ];
 
 const skills: Array<SkillGroup> = [
-  { label: "Languages", items: ["TypeScript", "JavaScript", "HTML", "CSS", "Sass"] },
-  { label: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "MobX", "Zustand"] },
-  { label: "Backend", items: ["Node.js", "Express", "NestJS"] },
-  { label: "Testing", items: ["Cypress", "Jest"] },
-  { label: "Data", items: ["MySQL", "PostgreSQL", "Amazon Aurora", "Elasticsearch"] },
+  {
+    label: "Languages",
+    items: [
+      { label: "TypeScript", icon: Typescript01Icon },
+      { label: "JavaScript", icon: JavaScriptIcon },
+      { label: "HTML", icon: HtmlFiveIcon },
+      { label: "CSS", icon: CssThreeIcon },
+      { label: "Sass" },
+    ],
+  },
+  {
+    label: "Frontend",
+    items: [
+      { label: "React", icon: ReactIcon },
+      { label: "Next.js" },
+      { label: "Tailwind CSS", icon: TailwindcssIcon },
+      { label: "MobX" },
+      { label: "Zustand" },
+    ],
+  },
+  {
+    label: "Backend",
+    items: [{ label: "Node.js" }, { label: "Express" }, { label: "NestJS" }],
+  },
+  { label: "Testing", items: [{ label: "Cypress" }, { label: "Jest" }] },
+  {
+    label: "Data",
+    items: [
+      { label: "MySQL", icon: SqlIcon },
+      { label: "PostgreSQL", icon: SqlIcon },
+      { label: "Amazon Aurora" },
+      { label: "Elasticsearch" },
+    ],
+  },
   {
     label: "DevOps",
-    items: ["Git", "Docker", "AWS", "CI/CD Pipelines", "Bamboo", "Bitbucket", "Github"],
+    items: [
+      { label: "Git", icon: GitMergeIcon },
+      { label: "Docker" },
+      { label: "AWS", icon: AmazonIcon },
+      { label: "CI/CD Pipelines" },
+      { label: "Bamboo" },
+      { label: "Bitbucket" },
+      { label: "Github", icon: Github01Icon },
+    ],
   },
-  { label: "Tooling", items: ["Claude AI", "Vite", "ESLint", "Prettier", "Biome"] },
-  { label: "Collaboration", items: ["Figma", "Atlassian Suite", "Jira", "Confluence"] },
-  { label: "Mobile", items: ["Ionic", "Capacitor", "Android", "iOS"] },
+  {
+    label: "Tooling",
+    items: [
+      { label: "Claude AI", icon: ClaudeIcon },
+      { label: "Vite" },
+      { label: "ESLint" },
+      { label: "Prettier" },
+      { label: "Biome" },
+    ],
+  },
+  {
+    label: "Collaboration",
+    items: [
+      { label: "Figma", icon: FigmaIcon },
+      { label: "Atlassian Suite" },
+      { label: "Jira" },
+      { label: "Confluence" },
+    ],
+  },
+  {
+    label: "Mobile",
+    items: [
+      { label: "Ionic" },
+      { label: "Capacitor" },
+      { label: "Android", icon: AndroidIcon },
+      { label: "iOS", icon: AppleIcon },
+    ],
+  },
 ];
 
 const experience: Array<CvEntry> = [
@@ -235,7 +310,7 @@ export default function CvPage() {
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   >
-                    <HugeiconsIcon icon={item.icon} className="size-4" />
+                    <HugeiconsIcon icon={item.icon} className="size-5" />
                     {item.label}
                   </Link>
                 </Button>
@@ -249,7 +324,7 @@ export default function CvPage() {
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   >
-                    <HugeiconsIcon icon={item.icon} className="size-4" />
+                    <HugeiconsIcon icon={item.icon} className="size-5" />
                     {item.label}
                   </Link>
                 </Button>
@@ -266,7 +341,7 @@ export default function CvPage() {
               <p className="font-semibold">{group.label}</p>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {group.items.map((item) => (
-                  <Chip key={item} text={item} />
+                  <Chip key={item.label} text={item.label} icon={item.icon} useIconThemeColor />
                 ))}
               </div>
             </div>
@@ -301,13 +376,7 @@ export default function CvPage() {
       <Accordion size="xl" title="Hobbies">
         <div className="flex flex-wrap gap-1.5 px-3">
           {hobbies.map((hobby) => (
-            <div
-              key={hobby.label}
-              className="flex items-center gap-2 bg-card rounded px-2 py-1 text-sm"
-            >
-              <HugeiconsIcon icon={hobby.icon} className="size-5 text-theme-600" />
-              <span>{hobby.label}</span>
-            </div>
+            <Chip key={hobby.label} text={hobby.label} icon={hobby.icon} useIconThemeColor />
           ))}
         </div>
       </Accordion>
