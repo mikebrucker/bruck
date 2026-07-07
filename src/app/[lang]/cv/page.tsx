@@ -3,6 +3,7 @@ import {
   AmazonIcon,
   AndroidIcon,
   AppleIcon,
+  BbqGrillIcon,
   Bone01Icon,
   Call02Icon,
   ClaudeIcon,
@@ -20,7 +21,6 @@ import {
   Mail01Icon,
   MusicNote01Icon,
   ReactIcon,
-  Restaurant01Icon,
   SnowIcon,
   SqlIcon,
   TailwindcssIcon,
@@ -253,7 +253,7 @@ const otherExperience: Array<CvEntry> = [
 
 const hobbies: Array<Hobby> = [
   { icon: IceHockeyIcon, label: "Hockey (Goalie)" },
-  { icon: Restaurant01Icon, label: "Cooking" },
+  { icon: BbqGrillIcon, label: "Cooking" },
   { icon: MachineRobotIcon, label: "Home Tech Projects" },
   { icon: Bone01Icon, label: "Dog" },
   { icon: MusicNote01Icon, label: "Guitar" },
