@@ -47,7 +47,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const isAlbumsSelected = pathname.startsWith(`/${language}/albums`);
   const isAboutSelected = pathname.startsWith(`/${language}/about`);
   const isCvSelected = pathname.startsWith(`/${language}/cv`);
-  const selectedClassName = "bg-theme-300 border-theme-300";
+  const selectedClassName = "bg-theme-400 border-theme-300";
   const { theme, toggle } = useThemeStore();
 
   return (
