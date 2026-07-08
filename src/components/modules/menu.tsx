@@ -130,12 +130,12 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
       <div className="mt-auto p-3 gap-0.5 flex flex-wrap-reverse justify-end">
         <Button
           variant="keyboard"
+          size="icon"
           onClick={toggle}
-          className="justify-start h-13"
+          className={`h-13 w-13 ${theme === Themes.light ? "bg-amber-200 border-yellow-200" : "bg-violet-900 border-violet-950"}`}
           aria-label="toggle theme"
         >
           <HugeiconsIcon icon={theme === Themes.dark ? Moon02Icon : Sun02Icon} className="size-6" />
-          {theme === Themes.dark ? t(($) => $.menu.dark) : t(($) => $.menu.light)}
         </Button>
         {locales.map((locale) => (
           <Button
