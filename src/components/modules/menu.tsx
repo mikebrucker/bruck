@@ -58,12 +58,12 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
       side={side}
       useTheme={useTheme}
     >
-      <div className="flex justify-end p-3">
+      <div className="flex justify-end py-3 px-2.5 sm:px-3">
         <Button variant="keyboard" size="icon" onClick={onClose} aria-label="close menu">
           <HugeiconsIcon icon={Close} className="size-6" />
         </Button>
       </div>
-      <nav className="flex flex-col px-3 gap-0.5">
+      <nav className="flex flex-col px-2.5 sm:px-3 gap-0.5">
         <Button
           asChild
           variant="keyboard"
@@ -98,7 +98,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           >
             <Link href={`/${language}/cv/`}>
               <HugeiconsIcon icon={FileBadgeIcon} className="size-6" />
-              {t(($) => $.menu.cv)}
+              {t(($) => $.menu.cv)}/{t(($) => $.menu.resume)}
             </Link>
           </Button>
           <Button
@@ -127,12 +127,12 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           </Button>
         </div>
       </nav>
-      <div className="mt-auto p-3 gap-0.5 flex flex-wrap-reverse justify-end">
+      <div className="mt-auto py-3 px-2.5 sm:px-3 gap-0.5 flex flex-wrap-reverse justify-end">
         <Button
           variant="keyboard"
           size="icon"
           onClick={toggle}
-          className={`h-13 w-13 ${theme === Themes.light ? "bg-amber-200 border-yellow-200" : "bg-violet-900 border-violet-950"}`}
+          className={`h-13 w-13 ${theme === Themes.light ? "bg-amber-200 border-yellow-200" : "bg-indigo-800 border-indigo-900"}`}
           aria-label="toggle theme"
         >
           <HugeiconsIcon icon={theme === Themes.dark ? Moon02Icon : Sun02Icon} className="size-6" />

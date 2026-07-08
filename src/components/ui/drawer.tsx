@@ -34,7 +34,7 @@ function Drawer({
         <Dialog.Overlay className="fixed inset-0 z-60 bg-black/50 data-[state=open]:animate-drawer-fade-in data-[state=closed]:animate-drawer-fade-out" />
         <Dialog.Content
           aria-describedby={undefined}
-          className={`fixed top-0 ${side === "right" ? "right-0" : "left-0"} z-60 h-full w-4/5 max-w-90 ${slideIn} ${slideOut} ${classNames ?? ""}`}
+          className={`fixed top-0 ${side === "right" ? "right-0" : "left-0"} z-60 h-full w-9/10 max-w-90 ${slideIn} ${slideOut} ${classNames ?? ""}`}
           style={{
             background: useTheme
               ? `linear-gradient(to bottom ${side}, var(--theme-200), var(--background))`
