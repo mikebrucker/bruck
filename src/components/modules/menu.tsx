@@ -19,7 +19,7 @@ import { Drawer } from "@/components/ui/drawer";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { type Language, locales } from "@/i18n/config";
 import { useLanguageStore } from "@/stores/useLanguageStore";
-import { useThemeStore } from "@/stores/useThemeStore";
+import { Themes, useThemeStore } from "@/stores/useThemeStore";
 
 interface MenuProps {
   open: boolean;
@@ -134,8 +134,8 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           className="justify-start h-13"
           aria-label="toggle theme"
         >
-          <HugeiconsIcon icon={theme === "dark" ? Moon02Icon : Sun02Icon} className="size-6" />
-          {theme === "dark" ? t(($) => $.menu.dark) : t(($) => $.menu.light)}
+          <HugeiconsIcon icon={theme === Themes.dark ? Moon02Icon : Sun02Icon} className="size-6" />
+          {theme === Themes.dark ? t(($) => $.menu.dark) : t(($) => $.menu.light)}
         </Button>
         {locales.map((locale) => (
           <Button

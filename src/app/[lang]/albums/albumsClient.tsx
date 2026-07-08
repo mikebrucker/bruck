@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { AlbumList } from "@/components/modules/albumList";
+import { AlbumList } from "@/components/modules/album/albumList";
 import type { Album } from "@/types/album";
 
 type AlbumsClientProps = {
@@ -19,8 +19,13 @@ export function AlbumsClient({ rankedAlbums, honorableMentionAlbums }: AlbumsCli
         title={t(($) => $.albums.ranked)}
         subtitle={t(($) => $.albums.ranked_info)}
         showRank
+        filterKey="ranked"
       />
-      <AlbumList albums={honorableMentionAlbums} title={t(($) => $.albums.honorable_mentions)} />
+      <AlbumList
+        albums={honorableMentionAlbums}
+        title={t(($) => $.albums.honorable_mentions)}
+        filterKey="honorable-mentions"
+      />
     </>
   );
 }
