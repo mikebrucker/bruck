@@ -1,10 +1,10 @@
 "use client";
 
 import {
-  Alien01Icon,
   Close,
   FileBadgeIcon,
   HtmlFile02Icon,
+  LaptopProgrammingIcon,
   Moon02Icon,
   Pdf02Icon,
   Sun02Icon,
@@ -52,7 +52,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
 
   return (
     <Drawer
-      classNames={`flex flex-col ${side === "right" ? "border-l border-r-2" : "border-r border-l-2"}`}
+      classNames={`flex flex-col ${side === "right" ? "border-l border-r-2" : "border-r border-l-2"} rounded-l-lg`}
       open={open}
       onClose={onClose}
       side={side}
@@ -63,7 +63,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           <HugeiconsIcon icon={Close} className="size-6" />
         </Button>
       </div>
-      <nav className="flex flex-col px-3 gap-3">
+      <nav className="flex flex-col px-3 gap-0.5">
         <Button
           asChild
           variant="keyboard"
@@ -84,7 +84,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           aria-label="open about page"
         >
           <Link href={`/${language}/about/`}>
-            <HugeiconsIcon icon={Alien01Icon} className="size-6" />
+            <HugeiconsIcon icon={LaptopProgrammingIcon} className="size-6" />
             {t(($) => $.menu.about)}
           </Link>
         </Button>

@@ -334,8 +334,12 @@ export default function CvPage() {
         </div>
       </div>
 
-      <Accordion size="xl" title="Skills">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 px-3">
+      <Accordion
+        size="xl"
+        title="Skills"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 pb-2">
           {skills.map((group) => (
             <div key={group.label}>
               <p className="font-semibold">{group.label}</p>
@@ -349,32 +353,48 @@ export default function CvPage() {
         </div>
       </Accordion>
 
-      <Accordion size="xl" title="Work Experience">
-        <div className="flex flex-col gap-3 px-3">
+      <Accordion
+        size="xl"
+        title="Work Experience"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+      >
+        <div className="flex flex-col gap-3">
           {experience.map((entry) => (
             <EntryCard key={entry.title} {...entry} />
           ))}
         </div>
       </Accordion>
 
-      <Accordion size="xl" title="Education">
-        <div className="flex flex-col gap-3 px-3">
+      <Accordion
+        size="xl"
+        title="Education"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+      >
+        <div className="flex flex-col gap-3">
           {education.map((entry) => (
             <EntryCard key={entry.title} {...entry} />
           ))}
         </div>
       </Accordion>
 
-      <Accordion size="xl" title="Other Experience">
-        <div className="flex flex-col gap-3 px-3">
+      <Accordion
+        size="xl"
+        title="Other Experience"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+      >
+        <div className="flex flex-col gap-3">
           {otherExperience.map((entry) => (
             <EntryCard key={entry.title} {...entry} />
           ))}
         </div>
       </Accordion>
 
-      <Accordion size="xl" title="Hobbies">
-        <div className="flex flex-wrap gap-1.5 px-3">
+      <Accordion
+        size="xl"
+        title="Hobbies"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+      >
+        <div className="flex flex-wrap gap-1.5 pb-2">
           {hobbies.map((hobby) => (
             <Chip key={hobby.label} text={hobby.label} icon={hobby.icon} useIconThemeColor />
           ))}

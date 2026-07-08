@@ -24,6 +24,7 @@ type AccordionProps = {
   defaultOpen?: boolean;
   size?: Size;
   duration?: number;
+  actionButton?: React.ReactNode;
 };
 
 export function Accordion({
@@ -34,59 +35,63 @@ export function Accordion({
   defaultOpen = true,
   size = "md",
   duration = 300,
+  actionButton,
 }: AccordionProps) {
   const [open, setOpen] = useState(defaultOpen);
   const s = sizes[size];
 
   return (
     <div className={`w-full ${classNames ?? ""}`}>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className={`flex px-3 items-center gap-4 w-full text-left ${s.title} font-semibold text-muted-foreground tracking-widest ${s.py} hover:text-foreground transition-colors cursor-pointer`}
-      >
-        <svg
-          width={s.svgSize}
-          height={s.svgSize}
-          viewBox="0 0 12 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className={`shrink-0 transition-transform ease-in-out origin-center ${open ? "rotate-0" : "rotate-180"}`}
-          style={{ transitionDuration: `${duration}ms` }}
-          aria-hidden="true"
+      <div className="flex items-center w-full">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className={`flex flex-1 min-w-0 p-2 items-center gap-4 text-left ${s.title} font-semibold text-muted-foreground tracking-widest ${s.py} hover:text-foreground transition-colors cursor-pointer`}
         >
-          <line
-            x1="6"
-            y1="1"
-            x2="6"
-            y2="11"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            className={`transition-transform transform-fill ease-in-out origin-center ${open ? "scale-y-0" : "scale-y-100"}`}
+          <svg
+            width={s.svgSize}
+            height={s.svgSize}
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={`shrink-0 transition-transform ease-in-out origin-center ${open ? "rotate-0" : "rotate-180"}`}
             style={{ transitionDuration: `${duration}ms` }}
-          />
-          <line
-            x1="1"
-            y1="6"
-            x2="11"
-            y2="6"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-        <div className="flex flex-col text-foreground">
-          <span>{title}</span>
-          {subtitle && (
-            <span
-              className={`${s.subtitle} normal-case tracking-normal font-normal text-muted-foreground`}
-            >
-              {subtitle}
-            </span>
-          )}
-        </div>
-      </button>
+            aria-hidden="true"
+          >
+            <line
+              x1="6"
+              y1="1"
+              x2="6"
+              y2="11"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              className={`transition-transform transform-fill ease-in-out origin-center ${open ? "scale-y-0" : "scale-y-100"}`}
+              style={{ transitionDuration: `${duration}ms` }}
+            />
+            <line
+              x1="1"
+              y1="6"
+              x2="11"
+              y2="6"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+          <div className="flex flex-col text-foreground min-w-0">
+            <span>{title}</span>
+            {subtitle && (
+              <span
+                className={`${s.subtitle} normal-case tracking-normal font-normal text-muted-foreground`}
+              >
+                {subtitle}
+              </span>
+            )}
+          </div>
+        </button>
+        {actionButton ? <div className="shrink-0 pr-2">{actionButton}</div> : null}
+      </div>
       <div
         className={`grid overflow-hidden transition-[grid-template-rows] ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
         style={{ transitionDuration: `${duration}ms` }}
