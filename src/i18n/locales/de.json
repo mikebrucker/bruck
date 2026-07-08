@@ -15,7 +15,17 @@
     "production": "Produktion",
     "studios": "Studios",
     "notes": "Notizen",
-    "favorite_track": "Lieblingssong"
+    "favorite_track": "Lieblingssong",
+    "filter_genre": "Genre",
+    "filter_year": "Jahr",
+    "filter_label": "Label",
+    "filter_runtime": "Laufzeit",
+    "no_results": "Keine Alben entsprechen den ausgewählten Filtern.",
+    "filter_no_genres": "Keine Genres",
+    "filter_no_labels": "Keine Labels",
+    "filter_button": "Filtern",
+    "filter_mode_or": "ODER – trifft auf jede Auswahl zu",
+    "filter_mode_and": "UND – muss auf alle Auswahl zutreffen"
   },
   "menu": {
     "albums": "Alben",

@@ -284,8 +284,8 @@
     /* zinc 50 */
     --accent-foreground: #fafafa;
     --destructive: #ef4444;
-    /* zinc 700 */
-    --border: #3f3f46;
+    /* zinc 600 */
+    --border: #52525b;
     /* zinc 800 */
     --input: #27272a;
     /* zinc 500 */
@@ -341,8 +341,8 @@ html.dark {
   /* zinc 50 */
   --accent-foreground: #fafafa;
   --destructive: #ef4444;
-  /* zinc 700 */
-  --border: #3f3f46;
+  /* zinc 600 */
+  --border: #52525b;
   /* zinc 800 */
   --input: #27272a;
   /* zinc 500 */
