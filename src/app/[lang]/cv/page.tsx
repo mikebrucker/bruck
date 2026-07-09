@@ -1,50 +1,60 @@
 import {
   AircraftGameIcon,
-  AmazonIcon,
-  AndroidIcon,
-  AppleIcon,
   BbqGrillIcon,
   Bone01Icon,
-  Call02Icon,
   ClaudeIcon,
   CssThreeIcon,
-  FigmaIcon,
-  Github01Icon,
-  GitMergeIcon,
   HtmlFiveIcon,
   IceHockeyIcon,
   JavaScriptIcon,
-  Linkedin01Icon,
-  LinkSquare01Icon,
-  Location01Icon,
+  Location03Icon,
   MachineRobotIcon,
   Mail01Icon,
   MusicNote01Icon,
-  ReactIcon,
   SnowIcon,
   SqlIcon,
   TailwindcssIcon,
+  TelephoneIcon,
   TriangleRightIcon,
   Typescript01Icon,
   Vynil02Icon,
+  WebDesign01Icon,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
-import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  gitMerge,
+  infiniteSharp,
+  logoAmazon,
+  logoAndroid,
+  logoApple,
+  logoBitbucket,
+  logoCapacitor,
+  logoDocker,
+  logoFigma,
+  logoGithub,
+  logoIonic,
+  logoLinkedin,
+  logoNodejs,
+  logoReact,
+  logoSass,
+  logoVercel,
+} from "ionicons/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { AppIcon } from "@/components/ui/icon";
 
 type LinkItem = {
-  icon: IconSvgElement;
+  icon: IconSvgElement | string;
   label: string;
   href: string;
 };
 
 type SkillGroup = {
   label: string;
-  items: Array<{ label: string; icon?: IconSvgElement }>;
+  items: Array<{ label: string; icon?: IconSvgElement | string }>;
 };
 
 type CvEntry = {
@@ -66,23 +76,23 @@ const contactLinks: Array<LinkItem> = [
     label: "michael.w.brucker@gmail.com",
     href: "mailto:michael.w.brucker@gmail.com",
   },
-  { icon: Call02Icon, label: "+43 677 638 00 748", href: "tel:+4367763800748" },
+  { icon: TelephoneIcon, label: "+43 677 638 00 748", href: "tel:+4367763800748" },
   {
-    icon: Location01Icon,
+    icon: Location03Icon,
     label: "Innsbruck, Austria",
     href: "https://www.google.com/maps?q=Innsbruck,+Austria",
   },
 ];
 
 const socialLinks: Array<LinkItem> = [
-  { icon: LinkSquare01Icon, label: "mikebrucker.com", href: "https://mikebrucker.com" },
+  { icon: WebDesign01Icon, label: "mikebrucker.com", href: "https://mikebrucker.com" },
   {
-    icon: Linkedin01Icon,
+    icon: logoLinkedin,
     label: "linkedin.com/in/mike-brucker",
     href: "https://www.linkedin.com/in/mike-brucker",
   },
   {
-    icon: Github01Icon,
+    icon: logoGithub,
     label: "github.com/mikebrucker",
     href: "https://www.github.com/mikebrucker",
   },
@@ -96,14 +106,14 @@ const skills: Array<SkillGroup> = [
       { label: "JavaScript", icon: JavaScriptIcon },
       { label: "HTML", icon: HtmlFiveIcon },
       { label: "CSS", icon: CssThreeIcon },
-      { label: "Sass" },
+      { label: "Sass", icon: logoSass },
     ],
   },
   {
     label: "Frontend",
     items: [
-      { label: "React", icon: ReactIcon },
-      { label: "Next.js" },
+      { label: "React", icon: logoReact },
+      { label: "Next.js", icon: logoVercel },
       { label: "Tailwind CSS", icon: TailwindcssIcon },
       { label: "MobX" },
       { label: "Zustand" },
@@ -111,7 +121,7 @@ const skills: Array<SkillGroup> = [
   },
   {
     label: "Backend",
-    items: [{ label: "Node.js" }, { label: "Express" }, { label: "NestJS" }],
+    items: [{ label: "Node.js", icon: logoNodejs }, { label: "Express" }, { label: "NestJS" }],
   },
   { label: "Testing", items: [{ label: "Cypress" }, { label: "Jest" }] },
   {
@@ -119,20 +129,20 @@ const skills: Array<SkillGroup> = [
     items: [
       { label: "MySQL", icon: SqlIcon },
       { label: "PostgreSQL", icon: SqlIcon },
-      { label: "Amazon Aurora" },
+      { label: "Amazon Aurora", icon: logoAmazon },
       { label: "Elasticsearch" },
     ],
   },
   {
     label: "DevOps",
     items: [
-      { label: "Git", icon: GitMergeIcon },
-      { label: "Docker" },
-      { label: "AWS", icon: AmazonIcon },
-      { label: "CI/CD Pipelines" },
+      { label: "Git", icon: gitMerge },
+      { label: "Docker", icon: logoDocker },
+      { label: "AWS", icon: logoAmazon },
+      { label: "CI/CD Pipelines", icon: infiniteSharp },
       { label: "Bamboo" },
-      { label: "Bitbucket" },
-      { label: "Github", icon: Github01Icon },
+      { label: "Bitbucket", icon: logoBitbucket },
+      { label: "Github", icon: logoGithub },
     ],
   },
   {
@@ -148,7 +158,7 @@ const skills: Array<SkillGroup> = [
   {
     label: "Collaboration",
     items: [
-      { label: "Figma", icon: FigmaIcon },
+      { label: "Figma", icon: logoFigma },
       { label: "Atlassian Suite" },
       { label: "Jira" },
       { label: "Confluence" },
@@ -157,10 +167,10 @@ const skills: Array<SkillGroup> = [
   {
     label: "Mobile",
     items: [
-      { label: "Ionic" },
-      { label: "Capacitor" },
-      { label: "Android", icon: AndroidIcon },
-      { label: "iOS", icon: AppleIcon },
+      { label: "Ionic", icon: logoIonic },
+      { label: "Capacitor", icon: logoCapacitor },
+      { label: "Android", icon: logoAndroid },
+      { label: "iOS", icon: logoApple },
     ],
   },
 ];
@@ -310,7 +320,7 @@ export default function CvPage() {
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   >
-                    <HugeiconsIcon icon={item.icon} className="size-5" />
+                    <AppIcon icon={item.icon} className="size-5" />
                     {item.label}
                   </Link>
                 </Button>
@@ -324,7 +334,7 @@ export default function CvPage() {
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   >
-                    <HugeiconsIcon icon={item.icon} className="size-5" />
+                    <AppIcon icon={item.icon} className="size-5" />
                     {item.label}
                   </Link>
                 </Button>

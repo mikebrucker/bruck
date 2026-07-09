@@ -1,10 +1,10 @@
 import type { IconSvgElement } from "@hugeicons/react";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { AppIcon } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 
 type ChipProps = {
   text: string;
-  icon?: IconSvgElement;
+  icon?: IconSvgElement | string;
   slot?: "start" | "end";
   useIconThemeColor?: boolean;
   className?: string;
@@ -18,10 +18,7 @@ export function Chip({
   className,
 }: ChipProps) {
   const iconElement = icon ? (
-    <HugeiconsIcon
-      icon={icon}
-      className={cn("size-5 shrink-0", useIconThemeColor ? "text-theme-600" : undefined)}
-    />
+    <AppIcon icon={icon} className="size-5 shrink-0" useThemeColor={useIconThemeColor} />
   ) : null;
 
   return (
