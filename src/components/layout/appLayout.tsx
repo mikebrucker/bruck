@@ -1,13 +1,24 @@
 "use client";
 
 import { Menu01Icon } from "@hugeicons/core-free-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Menu } from "@/components/modules/menu";
+import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 
-function AppShell({ children }: { children: React.ReactNode }) {
+function AppLayout({
+  children,
+  adminToken,
+}: {
+  children: React.ReactNode;
+  adminToken: string | undefined;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    useAdminAuthStore.getState().setToken(adminToken);
+  }, [adminToken]);
 
   return (
     <div className="flex flex-col min-h-dvh items-center flex-start font-sans">
@@ -21,4 +32,4 @@ function AppShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-export { AppShell };
+export { AppLayout };

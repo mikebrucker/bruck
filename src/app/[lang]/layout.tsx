@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { AppShell } from "@/components/layout/appShell";
+import { AppLayout } from "@/components/layout/appLayout";
 import { isLocale } from "@/i18n/config";
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[lang]">) {
@@ -9,5 +9,5 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     redirect("/");
   }
 
-  return <AppShell>{children}</AppShell>;
+  return <AppLayout adminToken={process.env.ADMIN_TOKEN}>{children}</AppLayout>;
 }

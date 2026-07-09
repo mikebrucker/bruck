@@ -2,6 +2,7 @@
 
 import { Dialog } from "radix-ui";
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 interface DrawerProps {
   open: boolean;
@@ -20,6 +21,7 @@ function Drawer({
   useTheme = false,
   classNames,
 }: DrawerProps) {
+  const { t } = useTranslation();
   const slideIn =
     side === "right"
       ? "data-[state=open]:animate-drawer-slide-in-right"
@@ -41,7 +43,7 @@ function Drawer({
               : "var(--background)",
           }}
         >
-          <Dialog.Title className="sr-only">Menu</Dialog.Title>
+          <Dialog.Title className="sr-only">{t(($) => $.ariaLabels.menu)}</Dialog.Title>
           {children}
         </Dialog.Content>
       </Dialog.Portal>

@@ -47,6 +47,10 @@
       "suspicious": {
         "noUnknownAtRules": "off",
         "noExplicitAny": "error"
+      },
+      "complexity": {
+        "noStaticOnlyClass": "off",
+        "noThisInStatic": "off"
       }
     },
     "domains": {

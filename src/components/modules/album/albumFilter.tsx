@@ -78,14 +78,8 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const genreOptions = useMemo(() => distinctSorted(albums.map((album) => album.genre)), [albums]);
   const labelOptions = useMemo(() => distinctSorted(albums.map((album) => album.label)), [albums]);
 
-  const genreValues = useMemo(
-    () => selectedValuesForField(selected, ChipFields.genre),
-    [selected],
-  );
-  const labelValues = useMemo(
-    () => selectedValuesForField(selected, ChipFields.label),
-    [selected],
-  );
+  const genreValues = useMemo(() => selectedValuesForField(selected, ChipFields.genre), [selected]);
+  const labelValues = useMemo(() => selectedValuesForField(selected, ChipFields.label), [selected]);
 
   const genreInRange = useMemo(() => {
     const pool =
@@ -157,7 +151,7 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         </button>
       }
     >
-      <div className="flex flex-wrap gap-1.5 pb-2">
+      <div className="flex flex-wrap gap-1.5">
         {options.length === 0 ? (
           <Chip text={noOptionsText(field)} className="opacity-50 pointer-events-none" />
         ) : (

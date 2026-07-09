@@ -4,6 +4,7 @@ import { Close } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Popover as PopoverPrimitive } from "radix-ui";
 import type * as React from "react";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
 type PopoverProps = {
@@ -14,6 +15,7 @@ type PopoverProps = {
 };
 
 function Popover({ trigger, children, className, useCloseButton }: PopoverProps) {
+  const { t } = useTranslation();
   return (
     <PopoverPrimitive.Root>
       <PopoverPrimitive.Trigger asChild>{trigger}</PopoverPrimitive.Trigger>
@@ -30,7 +32,7 @@ function Popover({ trigger, children, className, useCloseButton }: PopoverProps)
             <div className="flex justify-end w-full">
               <PopoverPrimitive.Close
                 className="cursor-pointer rounded-md p-1 hover:bg-accent"
-                aria-label="Close"
+                aria-label={t(($) => $.ariaLabels.close)}
               >
                 <HugeiconsIcon icon={Close} className="size-5" />
               </PopoverPrimitive.Close>

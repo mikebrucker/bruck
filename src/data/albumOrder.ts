@@ -34,30 +34,17 @@ export const ranked = {
 };
 
 export const honorable = {
-  "between_the_buried_and_me-colors": 1,
-  "black_crown_initiate-selves_we_cannot_forgive": 2,
-  "the_contortionist-exoplanet": 3,
-  "rivers_of_nihil-rivers_of_nihil": 4,
-  "between_the_buried_and_me-the_parallax_hypersleep_dialogues": 5,
-  "in_flames-reroute_to_remain": 6,
-  "between_the_buried_and_me-the_great_misdirect": 7,
-  "animals_as_leaders-the_joy_of_motion": 8,
-  "the_offspring-americana": 9,
-  "between_the_buried_and_me-alaska": 10,
+  "between_the_buried_and_me-colors": 1001,
+  "black_crown_initiate-selves_we_cannot_forgive": 1002,
+  "the_contortionist-exoplanet": 1003,
+  "rivers_of_nihil-rivers_of_nihil": 1004,
+  "between_the_buried_and_me-the_parallax_hypersleep_dialogues": 1005,
+  "in_flames-reroute_to_remain": 1006,
+  "between_the_buried_and_me-the_great_misdirect": 1007,
+  "animals_as_leaders-the_joy_of_motion": 1008,
+  "the_offspring-americana": 1009,
+  "between_the_buried_and_me-alaska": 1000,
 };
-
-export const toSlug = (str: string): string =>
-  str
-    .toLowerCase()
-    .replace(/[àáâãäå]/g, "a")
-    .replace(/[èéêë]/g, "e")
-    .replace(/[ìíîï]/g, "i")
-    .replace(/[òóôõö]/g, "o")
-    .replace(/[ùúûü]/g, "u")
-    .replace(/ñ/g, "n")
-    .replace(/ç/g, "c")
-    .replace(/ /g, "_")
-    .replace(/[^a-z0-9_]/g, "");
 
 const glossary: Record<string, number> = { ...ranked, ...honorable };
 

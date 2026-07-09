@@ -8,7 +8,7 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const variantColors = {
-  default: "bg-primary text-primary-foreground",
+  default: "bg-card text-card-foreground",
   outline: "border border-border bg-input/30 text-foreground",
   secondary: "bg-secondary text-secondary-foreground",
   ghost: "text-foreground",
@@ -20,7 +20,7 @@ const selectVariants = cva(
   {
     variants: {
       variant: {
-        default: `${variantColors.default} hover:bg-primary/80`,
+        default: `${variantColors.default} hover:bg-card/80`,
         outline: `${variantColors.outline} hover:bg-input/50`,
         secondary: `${variantColors.secondary} hover:bg-secondary/80`,
         ghost: `${variantColors.ghost} hover:bg-muted dark:hover:bg-muted/50`,
@@ -45,6 +45,7 @@ type Option = { value: string; label: string; icon?: React.ReactNode };
 
 function Select({
   className,
+  contentClassName,
   variant,
   size,
   options,
@@ -53,14 +54,17 @@ function Select({
   onValueChange,
   disabled,
   placeholder,
+  id,
 }: VariantProps<typeof selectVariants> & {
   options: Array<Option>;
   className?: string;
+  contentClassName?: string;
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string) => void;
   disabled?: boolean;
   placeholder?: string;
+  id?: string;
 }) {
   const isKeyboard = variant === "keyboard";
   return (
@@ -71,6 +75,7 @@ function Select({
       disabled={disabled}
     >
       <SelectPrimitive.Trigger
+        id={id}
         data-slot="select"
         data-variant={variant}
         data-size={size}
@@ -86,13 +91,15 @@ function Select({
           position="popper"
           sideOffset={4}
           className={cn(
-            "relative z-9999 min-w-(--radix-select-trigger-width) rounded-sm shadow-md",
-            isKeyboard ? "overflow-visible p-1" : "overflow-hidden",
+            "relative z-9999 min-w-(--radix-select-trigger-width) max-h-(--radix-select-content-available-height) rounded-sm shadow-md",
+            isKeyboard ? "overflow-y-auto p-1" : "overflow-hidden",
             variantColors[variant ?? "default"],
-            className,
+            contentClassName,
           )}
         >
-          <SelectPrimitive.Viewport className={isKeyboard ? "flex flex-col gap-2" : undefined}>
+          <SelectPrimitive.Viewport
+            className={cn("max-h-full", isKeyboard ? "flex flex-col gap-2" : "overflow-y-auto")}
+          >
             {options.map((option) => (
               <SelectPrimitive.Item
                 key={option.value}
@@ -101,7 +108,7 @@ function Select({
                   "flex w-full cursor-pointer items-center justify-between gap-1.5 outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50",
                   isKeyboard
                     ? "rounded-[10px] [border-style:outset] border-(--keycap-edge,rgb(240,240,203)) [border-width:6px_8px_8px_6px] bg-(--keycap-face,beige) px-3 py-2 text-xs font-medium text-(--keycap-text,#3a382c) shadow-[0_4px_8px_2px_rgba(0,0,0,0.4)] transition-[box-shadow,transform,border-width] duration-100 ease-out data-highlighted:translate-y-0.5 data-highlighted:brightness-95 data-highlighted:[border-style:inset] data-highlighted:[border-width:6px_6px_4px_6px] data-highlighted:shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.3),0_1px_2px_1px_rgba(0,0,0,0.4)]"
-                    : "rounded-sm px-3 h-9 text-sm font-medium data-highlighted:bg-theme-300",
+                    : "rounded-sm px-3 h-9 text-sm font-medium not-data-highlighted:even:bg-black/5 dark:not-data-highlighted:even:bg-white/5 data-highlighted:bg-theme-300",
                 )}
               >
                 <SelectPrimitive.ItemText>

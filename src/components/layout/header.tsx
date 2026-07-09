@@ -1,6 +1,7 @@
 import type { IconSvgElement } from "@hugeicons/react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";
@@ -16,11 +17,13 @@ function Header({
   className,
   onAction,
   actionIcon,
-  actionLabel = "Action",
+  actionLabel,
   sticky = false,
   ...props
 }: HeaderProps) {
+  const { t } = useTranslation();
   const language = useLanguageStore((state) => state.language);
+  const resolvedActionLabel = actionLabel ?? t(($) => $.ariaLabels.action);
 
   return (
     <header
@@ -37,7 +40,7 @@ function Header({
         </h1>
       </Link>
       {onAction && actionIcon ? (
-        <Button variant="keyboard" size="icon" onClick={onAction} aria-label={actionLabel}>
+        <Button variant="keyboard" size="icon" onClick={onAction} aria-label={resolvedActionLabel}>
           <HugeiconsIcon icon={actionIcon} className="size-6" />
         </Button>
       ) : null}

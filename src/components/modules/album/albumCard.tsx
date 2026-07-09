@@ -133,7 +133,7 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
           <Accordion
             key={group.discIndex}
             title={group.title}
-            classNames="p-2 rounded-md bg-secondary"
+            classNames="p-2 rounded-lg bg-secondary"
           >
             <div>
               {group.tracks.map((track) => (

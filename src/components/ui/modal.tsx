@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 interface ModalProps {
   open: boolean;
@@ -9,6 +10,7 @@ interface ModalProps {
 }
 
 function Modal({ open, onClose, children }: ModalProps) {
+  const { t } = useTranslation();
   if (!open) return null;
 
   return (
@@ -18,7 +20,7 @@ function Modal({ open, onClose, children }: ModalProps) {
         className="absolute inset-0 w-full h-full cursor-pointer"
         style={{ background: "rgba(0,0,0,0.75)" }}
         onClick={onClose}
-        aria-label="Close"
+        aria-label={t(($) => $.ariaLabels.close)}
       />
       <div className="relative bg-background overflow-hidden">{children}</div>
     </div>

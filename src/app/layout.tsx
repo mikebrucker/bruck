@@ -24,7 +24,7 @@ const asimovian = Asimovian({
 
 export const metadata: Metadata = {
   title: "Mike Brucker",
-  description: "Mike Brucker: Senior Software Developer II: Electric Boogaloo",
+  description: "Mike Brucker: Senior Software Developer",
 };
 
 export default function RootLayout({
