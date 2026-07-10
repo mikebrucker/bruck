@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Asimovian, Figtree, Geist_Mono, Kablammo } from "next/font/google";
+import { Asimovian, Figtree, Geist_Mono, Metal_Mania } from "next/font/google";
 import { AppGate } from "@/components/providers/appGate";
 import I18nProvider from "@/components/providers/i18n-provider";
 import { LanguageInit } from "@/components/providers/languageInit";
@@ -23,8 +23,8 @@ const asimovian = Asimovian({
   fallback: ["sans"],
 });
 
-const kablammo = Kablammo({
-  variable: "--font-asimovian",
+const metalMania = Metal_Mania({
+  variable: "--font-metal-mania",
   subsets: ["latin"],
   weight: "400",
   fallback: ["sans"],
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={figtree.variable}>
       <body
-        className={`${geistMono.variable} ${asimovian.variable} ${kablammo.variable} antialiased`}
+        className={`${geistMono.variable} ${asimovian.variable} ${metalMania.variable} antialiased`}
       >
         <LanguageInit />
         <ThemeInit />

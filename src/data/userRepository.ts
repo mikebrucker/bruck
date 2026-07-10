@@ -1,26 +1,34 @@
-import { sql } from "@/lib/db";
+import { eq } from "drizzle-orm";
+import { users } from "@/db/schema";
+import { db as defaultDb } from "@/lib/db";
 import type { User } from "@/types/user";
 import type { UserSettingsUpdateInput } from "./userSchema";
-import { userRowSchema } from "./userSchema";
 
 export class UserRepository {
-  constructor(private readonly db: typeof sql = sql) {}
+  constructor(private readonly db: typeof defaultDb = defaultDb) {}
 
   async get(): Promise<User> {
-    const [row] = await this.db`
-      SELECT id, settings, created_at AS "createdAt", updated_at AS "updatedAt"
-      FROM users WHERE id = 'me'
-    `;
-    return userRowSchema.parse(row);
+    const [row] = await this.db.select().from(users).where(eq(users.id, "me"));
+    return this.mapUser(row);
   }
 
   async updateSettings(input: UserSettingsUpdateInput): Promise<User> {
-    const [row] = await this.db`
-      UPDATE users SET settings = ${input.settings}, updated_at = now()
-      WHERE id = 'me'
-      RETURNING id, settings, created_at AS "createdAt", updated_at AS "updatedAt"
-    `;
-    return userRowSchema.parse(row);
+    const [row] = await this.db
+      .update(users)
+      .set({ settings: input.settings, updatedAt: new Date().toISOString() })
+      .where(eq(users.id, "me"))
+      .returning();
+    return this.mapUser(row);
+  }
+
+  private mapUser(row: typeof users.$inferSelect | undefined): User {
+    if (!row) throw new Error('User "me" not found');
+    return {
+      id: row.id,
+      settings: row.settings,
+      createdAt: new Date(row.createdAt),
+      updatedAt: new Date(row.updatedAt),
+    };
   }
 }
 

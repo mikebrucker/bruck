@@ -42,7 +42,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const { token } = useAdminAuthStore();
   const isAdmin = Boolean(token);
   const changeLanguageUrl = useChangeLanguageUrl();
-  const isAlbumsSelected = pathname.startsWith(`/${language}/albums`);
+  const isAlbumsSelected = pathname.startsWith(`/${language}/music`);
   const isAboutSelected = pathname.startsWith(`/${language}/about`);
   const isCvSelected = pathname.startsWith(`/${language}/cv`);
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
@@ -73,11 +73,11 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           variant="keyboard"
           className={`justify-start h-13 ${isAlbumsSelected ? selectedClassName : ""}`}
           onClick={onClose}
-          aria-label={t(($) => $.ariaLabels.open_albums_page)}
+          aria-label={t(($) => $.ariaLabels.open_music_page)}
         >
-          <Link href={`/${language}/albums/`}>
+          <Link href={`/${language}/music/`}>
             <HugeiconsIcon icon={Vynil02Icon} className="size-6" />
-            {t(($) => $.menu.albums)}
+            {t(($) => $.menu.music)}
           </Link>
         </Button>
         <Button
@@ -132,7 +132,9 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         </div>
         {isAdmin ? (
           <div className="flex flex-col gap-0.5 pt-8">
-            <h2 className="text-lg font-bold leading-tight px-4">{t(($) => $.menu.admin)}</h2>
+            <h2 className="font-metal-mania text-lg font-bold leading-tight px-4">
+              {t(($) => $.menu.admin)}
+            </h2>
             <Button
               asChild
               variant="keyboard"

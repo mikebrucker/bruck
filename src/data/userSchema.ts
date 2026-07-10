@@ -5,10 +5,3 @@ export const userSettingsUpdateSchema = z
   .strict();
 
 export type UserSettingsUpdateInput = z.infer<typeof userSettingsUpdateSchema>;
-
-export const userRowSchema = z.object({
-  id: z.string(),
-  settings: z.record(z.string(), z.unknown()),
-  createdAt: z.coerce.date(),
-  updatedAt: z.coerce.date(),
-});

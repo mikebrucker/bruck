@@ -35,7 +35,7 @@ function Header({
       {...props}
     >
       <Link href={`/${language}`}>
-        <h1 className="font-bold text-xl sm:text-3xl md:text-4xl tracking-widest font-asimovian text-shadow-lg text-shadow-theme-600 dark:text-shadow-theme-400 transition-[font-size] duration-1000">
+        <h1 className="font-bold text-xl sm:text-3xl md:text-4xl tracking-widest font-metal-mania text-shadow-lg text-shadow-theme-600 dark:text-shadow-theme-400 transition-[font-size] duration-1000">
           Mike Brucker
         </h1>
       </Link>

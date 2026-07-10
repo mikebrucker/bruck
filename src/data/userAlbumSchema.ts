@@ -12,12 +12,3 @@ export const userAlbumUpdateSchema = z
   });
 
 export type UserAlbumUpdateInput = z.infer<typeof userAlbumUpdateSchema>;
-
-export const userAlbumRowSchema = z.object({
-  id: z.string(),
-  albumId: z.string(),
-  trackId: z.string().nullable(),
-  review: z.string(),
-  honorable: z.boolean(),
-  rank: z.number().nullable(),
-});

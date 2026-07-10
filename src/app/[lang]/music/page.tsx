@@ -1,4 +1,4 @@
-import { AlbumsClient } from "@/app/[lang]/albums/albumsClient";
+import { AlbumsClient } from "@/app/[lang]/music/albumsClient";
 import { albumRepository } from "@/data/albumRepository";
 import { userAlbumRepository } from "@/data/userAlbumRepository";
 
