@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Asimovian, Figtree, Geist_Mono, Metal_Mania } from "next/font/google";
 import { AppGate } from "@/components/providers/appGate";
@@ -5,7 +7,6 @@ import I18nProvider from "@/components/providers/i18n-provider";
 import { LanguageInit } from "@/components/providers/languageInit";
 import { ThemeInit } from "@/components/providers/themeInit";
 import { UserInit } from "@/components/providers/userInit";
-import { Analytics } from "@vercel/analytics/next"
 
 import "@/app/globals.css";
 import "flag-icons/css/flag-icons.min.css";
@@ -50,6 +51,7 @@ export default function RootLayout({
         <ThemeInit />
         <UserInit />
         <Analytics />
+        <SpeedInsights />
         <I18nProvider>
           <AppGate>{children}</AppGate>
         </I18nProvider>
