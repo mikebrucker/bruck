@@ -27,6 +27,12 @@
     "filter_mode_or": "ODER - trifft auf jede Auswahl zu",
     "filter_mode_and": "UND - muss auf alle Auswahl zutreffen"
   },
+  "about": {
+    "frontend": "Frontend",
+    "styling": "Styling",
+    "data": "Daten",
+    "i18n": "I18N"
+  },
   "menu": {
     "music": "Musik",
     "about": "Über mich",

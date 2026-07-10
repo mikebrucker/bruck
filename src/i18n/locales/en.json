@@ -27,6 +27,12 @@
     "filter_mode_or": "OR — matches any selected",
     "filter_mode_and": "AND — must match all selected"
   },
+  "about": {
+    "frontend": "Frontend",
+    "styling": "Styling",
+    "data": "Data",
+    "i18n": "I18N"
+  },
   "menu": {
     "music": "Music",
     "about": "About",

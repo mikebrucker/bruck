@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ReactIcon,
   ShadcnIcon,
@@ -8,13 +10,15 @@ import {
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { useTranslation } from "react-i18next";
+import type en from "@/i18n/locales/en.json";
 
 type Item = { label: string; icon?: IconSvgElement };
-type Group = { label: string; items: Array<Item> };
+type Group = { label: keyof typeof en.about; items: Array<Item> };
 
 const groups: Array<Group> = [
   {
-    label: "Frontend",
+    label: "frontend",
     items: [
       { label: "TypeScript", icon: Typescript01Icon },
       { label: "React", icon: ReactIcon },
@@ -22,7 +26,7 @@ const groups: Array<Group> = [
     ],
   },
   {
-    label: "Styling",
+    label: "styling",
     items: [
       { label: "Tailwind CSS", icon: TailwindcssIcon },
       { label: "Radix UI" },
@@ -30,16 +34,22 @@ const groups: Array<Group> = [
     ],
   },
   {
-    label: "Data",
-    items: [{ label: "Neon Postgres", icon: SqlIcon }, { label: "Zod" }, { label: "Zustand" }],
+    label: "data",
+    items: [
+      { label: "Neon Postgres", icon: SqlIcon },
+      { label: "Drizzle ORM" },
+      { label: "Zod" },
+      { label: "Zustand" },
+    ],
   },
   {
-    label: "Language",
+    label: "i18n",
     items: [{ label: "i18next", icon: TranslateIcon }],
   },
 ];
 
 export default function AboutPage() {
+  const { t } = useTranslation();
   return (
     <div className="w-full flex flex-col gap-4">
       <code className="text-2xl mx-3 px-3 py-0.5 w-fit rounded-sm bg-card font-semibold font-mono">
@@ -49,7 +59,7 @@ export default function AboutPage() {
       </code>
       {groups.map((group) => (
         <div key={group.label} className="px-3">
-          <p className="font-semibold font-mono">{group.label}</p>
+          <p className="font-semibold font-mono">{t(($) => $.about[group.label])}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
             {group.items.map((item) => (
               <div
