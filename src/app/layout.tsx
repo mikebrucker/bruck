@@ -5,6 +5,7 @@ import I18nProvider from "@/components/providers/i18n-provider";
 import { LanguageInit } from "@/components/providers/languageInit";
 import { ThemeInit } from "@/components/providers/themeInit";
 import { UserInit } from "@/components/providers/userInit";
+import { Analytics } from "@vercel/analytics/next"
 
 import "@/app/globals.css";
 import "flag-icons/css/flag-icons.min.css";
@@ -48,6 +49,7 @@ export default function RootLayout({
         <LanguageInit />
         <ThemeInit />
         <UserInit />
+        <Analytics />
         <I18nProvider>
           <AppGate>{children}</AppGate>
         </I18nProvider>
