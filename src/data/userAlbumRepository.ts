@@ -1,46 +1,64 @@
-import { sql } from "@/lib/db";
+import { eq, sql } from "drizzle-orm";
+import { userAlbums } from "@/db/schema";
+import { db as defaultDb } from "@/lib/db";
 import type { UserAlbum } from "@/types/userAlbum";
-import { userAlbumRowSchema } from "./userAlbumSchema";
+
+const conflictTarget = [userAlbums.userId, userAlbums.albumId];
 
 export class UserAlbumRepository {
-  constructor(private readonly db: typeof sql = sql) {}
+  constructor(private readonly db: typeof defaultDb = defaultDb) {}
 
   async getAll(): Promise<Array<UserAlbum>> {
-    const rows = await this.db`
-      SELECT id::text AS id, album_id AS "albumId", track_id AS "trackId", review, honorable, rank
-      FROM user_albums WHERE user_id = 'me'
-    `;
-    return rows.map((row) => userAlbumRowSchema.parse(row));
+    const rows = await this.db.select().from(userAlbums).where(eq(userAlbums.userId, "me"));
+    return rows.map((row) => this.mapUserAlbum(row));
   }
 
   async setTrackId(albumId: string, trackId: string | null): Promise<UserAlbum> {
-    const [row] = await this.db`
-      INSERT INTO user_albums (user_id, album_id, track_id)
-      VALUES ('me', ${albumId}, ${trackId})
-      ON CONFLICT (user_id, album_id) DO UPDATE SET track_id = EXCLUDED.track_id, updated_at = now()
-      RETURNING id::text AS id, album_id AS "albumId", track_id AS "trackId", review, honorable, rank
-    `;
-    return userAlbumRowSchema.parse(row);
+    const [row] = await this.db
+      .insert(userAlbums)
+      .values({ userId: "me", albumId, trackId })
+      .onConflictDoUpdate({
+        target: conflictTarget,
+        set: { trackId, updatedAt: sql`now()` },
+      })
+      .returning();
+    return this.mapUserAlbum(row);
   }
 
   async setReview(albumId: string, review: string): Promise<UserAlbum> {
-    const [row] = await this.db`
-      INSERT INTO user_albums (user_id, album_id, review)
-      VALUES ('me', ${albumId}, ${review})
-      ON CONFLICT (user_id, album_id) DO UPDATE SET review = EXCLUDED.review, updated_at = now()
-      RETURNING id::text AS id, album_id AS "albumId", track_id AS "trackId", review, honorable, rank
-    `;
-    return userAlbumRowSchema.parse(row);
+    const [row] = await this.db
+      .insert(userAlbums)
+      .values({ userId: "me", albumId, review })
+      .onConflictDoUpdate({
+        target: conflictTarget,
+        set: { review, updatedAt: sql`now()` },
+      })
+      .returning();
+    return this.mapUserAlbum(row);
   }
 
   async setHonorable(albumId: string, honorable: boolean): Promise<UserAlbum> {
-    const [row] = await this.db`
-      INSERT INTO user_albums (user_id, album_id, honorable)
-      VALUES ('me', ${albumId}, ${honorable})
-      ON CONFLICT (user_id, album_id) DO UPDATE SET honorable = EXCLUDED.honorable, updated_at = now()
-      RETURNING id::text AS id, album_id AS "albumId", track_id AS "trackId", review, honorable, rank
-    `;
-    return userAlbumRowSchema.parse(row);
+    const [row] = await this.db
+      .insert(userAlbums)
+      .values({ userId: "me", albumId, honorable })
+      .onConflictDoUpdate({
+        target: conflictTarget,
+        set: { honorable, updatedAt: sql`now()` },
+      })
+      .returning();
+    return this.mapUserAlbum(row);
+  }
+
+  private mapUserAlbum(row: typeof userAlbums.$inferSelect | undefined): UserAlbum {
+    if (!row) throw new Error("Failed to upsert user album");
+    return {
+      id: String(row.id),
+      albumId: row.albumId,
+      trackId: row.trackId,
+      review: row.review,
+      honorable: row.honorable,
+      rank: row.rank,
+    };
   }
 }
 

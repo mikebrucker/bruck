@@ -7,7 +7,15 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!public/mike-brucker-cv.html"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!public/mike-brucker-cv.html",
+      "!drizzle/meta"
+    ]
   },
   "css": {
     "parser": {

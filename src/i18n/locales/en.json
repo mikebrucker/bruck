@@ -28,7 +28,7 @@
     "filter_mode_and": "AND — must match all selected"
   },
   "menu": {
-    "albums": "Albums",
+    "music": "Music",
     "about": "About",
     "cv": "CV",
     "resume": "Résumé",
@@ -38,7 +38,7 @@
   },
   "ariaLabels": {
     "close_menu": "Close menu",
-    "open_albums_page": "Open albums page",
+    "open_music_page": "Open music page",
     "open_about_page": "Open about page",
     "open_cv_page": "Open CV page",
     "open_html_cv": "Open HTML CV",
