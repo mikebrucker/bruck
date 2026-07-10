@@ -43,8 +43,9 @@ export default function AboutPage() {
   return (
     <div className="w-full flex flex-col gap-4">
       <code className="text-2xl mx-3 px-3 py-0.5 w-fit rounded-sm bg-card font-semibold font-mono">
-        <span className="text-[#569CD6]">this</span>.<span className="text-[#DCDCAA]">website</span>
-        <span className="text-[#FFD700]">()</span>
+        <span className="text-[#0431FA] dark:text-[#569CD6]">this</span>.
+        <span className="text-[#795E26] dark:text-[#DCDCAA]">website</span>
+        <span className="text-[#B8860B] dark:text-[#FFD700]">()</span>
       </code>
       {groups.map((group) => (
         <div key={group.label} className="px-3">
