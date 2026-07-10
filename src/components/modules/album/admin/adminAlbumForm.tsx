@@ -1,15 +1,16 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AlbumController from "@/controllers/album";
-import { sortByRank } from "@/data/albumOrder";
+import UserAlbumController from "@/controllers/userAlbum";
 import { toSlug } from "@/lib/album";
 import type { Album } from "@/types/album";
+import type { UserAlbum } from "@/types/userAlbum";
 import { AdminAlbumFormFields } from "./adminAlbumFormFields";
 import {
   albumToForm,
@@ -34,6 +35,7 @@ export function AdminAlbumForm() {
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [albums, setAlbums] = useState<Array<Album>>([]);
+  const [userAlbums, setUserAlbums] = useState<Array<UserAlbum>>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [originalForm, setOriginalForm] = useState<AlbumForm | null>(null);
   const [loading, setLoading] = useState(false);
@@ -42,7 +44,7 @@ export function AdminAlbumForm() {
   const refreshAlbums = useCallback(async () => {
     try {
       const data = await AlbumController.getAlbums();
-      setAlbums(sortByRank(data));
+      setAlbums(data);
     } catch (error) {
       setStatus({
         kind: "error",
@@ -52,9 +54,35 @@ export function AdminAlbumForm() {
     }
   }, [t]);
 
+  const refreshUserAlbums = useCallback(async () => {
+    try {
+      const data = await UserAlbumController.getUserAlbums();
+      setUserAlbums(data);
+    } catch (error) {
+      setStatus({
+        kind: "error",
+        text:
+          error instanceof Error ? error.message : t(($) => $.admin.error.refresh_favorites_failed),
+      });
+    }
+  }, [t]);
+
   useEffect(() => {
     refreshAlbums();
-  }, [refreshAlbums]);
+    refreshUserAlbums();
+  }, [refreshAlbums, refreshUserAlbums]);
+
+  const sortedAlbums = useMemo(() => {
+    const userAlbumByAlbumId = new Map(userAlbums.map((ua) => [ua.albumId, ua]));
+    return [...albums].sort((a, b) => {
+      const rankA = userAlbumByAlbumId.get(a.id)?.rank;
+      const rankB = userAlbumByAlbumId.get(b.id)?.rank;
+      if (rankA != null && rankB != null) return rankA - rankB;
+      if (rankA != null) return -1;
+      if (rankB != null) return 1;
+      return `${a.artist} ${a.album}`.localeCompare(`${b.artist} ${b.album}`);
+    });
+  }, [albums, userAlbums]);
 
   useEffect(() => {
     if (editingId) return;
@@ -131,21 +159,6 @@ export function AdminAlbumForm() {
     set("tracks", [...form.tracks, { ...emptyTrack(), number: String(nextNumber) }]);
   };
 
-  const selectFavoriteTrack = (value: string) => {
-    if (value === "0") {
-      setForm((prev) => ({ ...prev, favoriteTrack: "0", favoriteDisc: "" }));
-      return;
-    }
-    const track = form.tracks[Number(value) - 1];
-    if (!track) return;
-    const discNumber = parseNumber(track.disc);
-    setForm((prev) => ({
-      ...prev,
-      favoriteTrack: track.number,
-      favoriteDisc: discNumber !== undefined && discNumber > 0 ? track.disc : "",
-    }));
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus(null);
@@ -194,19 +207,11 @@ export function AdminAlbumForm() {
     }
   };
 
-  const favoriteTrackIndex = form.tracks.findIndex(
-    (track) =>
-      track.number === form.favoriteTrack &&
-      (parseNumber(track.disc) ?? 0) === (parseNumber(form.favoriteDisc) ?? 0),
-  );
-
   const albumFormFields = (
     <AdminAlbumFormFields
       form={form}
       fieldChanged={fieldChanged}
       set={set}
-      favoriteTrackIndex={favoriteTrackIndex}
-      selectFavoriteTrack={selectFavoriteTrack}
       updateTrack={updateTrack}
       removeTrack={removeTrack}
       addTrack={addTrack}
@@ -246,7 +251,7 @@ export function AdminAlbumForm() {
             value={editingId ?? undefined}
             disabled={loading}
             onValueChange={loadAlbum}
-            options={albums.map((album) => ({
+            options={sortedAlbums.map((album) => ({
               value: album.id,
               label: `${album.artist} — ${album.album}`,
             }))}
@@ -259,7 +264,7 @@ export function AdminAlbumForm() {
       </TabsContent>
 
       <TabsContent value={FormTabs.json}>
-        <AdminAlbumJsonUpload albums={albums} onUploaded={refreshAlbums} />
+        <AdminAlbumJsonUpload albums={sortedAlbums} onUploaded={refreshAlbums} />
       </TabsContent>
     </Tabs>
   );

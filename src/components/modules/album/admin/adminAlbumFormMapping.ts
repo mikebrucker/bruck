@@ -38,12 +38,9 @@ const ALBUM_FIELD_KEYS: Array<keyof AlbumFieldValues> = [
   "label",
   "genre",
   "runtime",
-  "review",
   "tracks",
   "discTitles",
   "art",
-  "favoriteTrack",
-  "favoriteDisc",
   "personnel",
 ];
 
@@ -66,7 +63,6 @@ function buildAlbumFields(form: AlbumForm): AlbumFieldValues {
     label: form.label.trim(),
     genre: form.genre.trim(),
     runtime: form.runtime.trim(),
-    review: form.review.trim(),
     tracks: form.tracks.map((track) => ({
       number: parseNumber(track.number) ?? 0,
       title: track.title.trim(),
@@ -78,8 +74,6 @@ function buildAlbumFields(form: AlbumForm): AlbumFieldValues {
     })),
     discTitles: discTitles.length > 0 ? discTitles : undefined,
     art: art.length > 0 ? art : undefined,
-    favoriteTrack: parseNumber(form.favoriteTrack) ?? 0,
-    favoriteDisc: parseNumber(form.favoriteDisc),
     personnel: hasPersonnel
       ? { members, guests, production, studios, notes: personnelNotes }
       : undefined,
@@ -134,11 +128,8 @@ export function albumToForm(album: Album): AlbumForm {
     label: album.label,
     genre: album.genre,
     runtime: album.runtime,
-    review: album.review,
     discTitles: (album.discTitles ?? []).join(", "),
     art: (album.art ?? []).join(", "),
-    favoriteTrack: String(album.favoriteTrack),
-    favoriteDisc: album.favoriteDisc !== undefined ? String(album.favoriteDisc) : "",
     tracks: album.tracks.length > 0 ? album.tracks.map(trackToForm) : [emptyTrack()],
     personnel: {
       members: (album.personnel?.members ?? []).map(creditToForm),

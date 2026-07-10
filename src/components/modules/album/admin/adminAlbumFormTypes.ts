@@ -26,11 +26,8 @@ export type AlbumForm = {
   label: string;
   genre: string;
   runtime: string;
-  review: string;
   discTitles: string;
   art: string;
-  favoriteTrack: string;
-  favoriteDisc: string;
   tracks: Array<TrackForm>;
   personnel: PersonnelForm;
 };
@@ -55,11 +52,8 @@ export const emptyForm = (): AlbumForm => ({
   label: "",
   genre: "",
   runtime: "",
-  review: "",
   discTitles: "",
   art: "",
-  favoriteTrack: "0",
-  favoriteDisc: "",
   tracks: [emptyTrack()],
   personnel: { members: [], guests: [], production: [], studios: "", notes: "" },
 });

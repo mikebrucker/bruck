@@ -38,12 +38,9 @@ export const albumUpdateSchema = z
     label: z.string().optional(),
     genre: z.string().optional(),
     runtime: z.string().optional(),
-    review: z.string().optional(),
     tracks: z.array(trackSchema).min(1).optional(),
     discTitles: z.array(z.string()).nullable().optional(),
     art: z.array(z.string()).nullable().optional(),
-    favoriteTrack: z.number().optional(),
-    favoriteDisc: z.number().nullable().optional(),
     personnel: personnelSchema.nullable().optional(),
   })
   .strict()
@@ -62,12 +59,9 @@ export const albumCreateSchema = z
     label: z.string(),
     genre: z.string(),
     runtime: z.string(),
-    review: z.string(),
     tracks: z.array(trackSchema).min(1),
     discTitles: z.array(z.string()).optional(),
     art: z.array(z.string()).optional(),
-    favoriteTrack: z.number().default(0),
-    favoriteDisc: z.number().optional(),
     personnel: personnelSchema.optional(),
   })
   .strict();

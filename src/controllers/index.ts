@@ -73,9 +73,12 @@ export default class HttpController {
     });
   }
 
-  public static doDELETE<T>(route: string, options: Partial<HttpOptions> = {}): Promise<T> {
+  public static async doDELETE(route: string, options: Partial<HttpOptions> = {}): Promise<void> {
     const { requireAuth, headersInit } = { ...HttpController.defaultOptions, ...options };
     const headers = requireAuth ? HttpController.authHeaders(headersInit) : headersInit;
-    return HttpController.request<T>(`${this.route}${route}`, { method: "DELETE", headers });
+    const response = await fetch(`${this.route}${route}`, { method: "DELETE", headers });
+    if (!response.ok) {
+      throw new Error(await HttpController.parseErrorMessage(response));
+    }
   }
 }

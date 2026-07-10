@@ -128,25 +128,20 @@ function AdminAlbumJsonUpload({
 
   return (
     <div className="flex w-full flex-col gap-3">
-      <div className="flex items-end gap-2">
-        <div className="flex flex-1 flex-col gap-1">
-          <label htmlFor="json-album-load" className="text-sm font-medium text-muted-foreground">
-            {t(($) => $.admin.label.load_existing_album_optional)}
-          </label>
-          <Select
-            key={selectResetKey}
-            id="json-album-load"
-            contentClassName="border border-border"
-            placeholder={t(($) => $.admin.placeholder.select_album_json)}
-            value={loadedId ?? undefined}
-            onValueChange={loadAlbumJson}
-            options={albums.map((album) => ({
-              value: album.id,
-              label: `${album.artist} — ${album.album}`,
-            }))}
-          />
-        </div>
-        <Button type="button" variant="outline" size="sm" onClick={clear}>
+      <div className="flex items-center justify-between gap-2">
+        <Select
+          key={selectResetKey}
+          id="json-album-load"
+          contentClassName="border border-border"
+          placeholder={t(($) => $.admin.placeholder.select_album_json)}
+          value={loadedId ?? undefined}
+          onValueChange={loadAlbumJson}
+          options={albums.map((album) => ({
+            value: album.id,
+            label: `${album.artist} — ${album.album}`,
+          }))}
+        />
+        <Button type="button" variant="outline" onClick={clear}>
           {t(($) => $.admin.button.clear)}
         </Button>
       </div>

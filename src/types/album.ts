@@ -31,13 +31,8 @@ export interface Album {
   label: string;
   genre: string;
   runtime: string;
-  review: string;
   tracks: Array<Track>;
   discTitles?: Array<string>;
   art?: Array<string>;
-  /** @default 0 */
-  favoriteTrack: number;
-  /** 0 indexed; assumed first disc if empty; */
-  favoriteDisc?: number;
   personnel?: Personnel;
 }

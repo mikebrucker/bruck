@@ -10,14 +10,17 @@ import { Accordion } from "@/components/ui/accordion";
 import { Chip } from "@/components/ui/chip";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
+import { parseTrackId } from "@/lib/favoriteTrack";
 import type { Album, Credit } from "@/types/album";
+import type { UserAlbum } from "@/types/userAlbum";
 
 type AlbumCardProps = {
   album: Album;
   rank?: number;
+  userAlbum?: UserAlbum;
 };
 
-export default function AlbumCard({ album, rank }: AlbumCardProps) {
+export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
   const { t } = useTranslation();
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
@@ -36,11 +39,12 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
     setImageLoading(false);
   };
 
-  const favoriteTrackTitle = album.favoriteTrack
-    ? album.tracks.find(
-        (track) =>
-          track.number === album.favoriteTrack && (track.disc ?? 0) === (album.favoriteDisc ?? 0),
-      )?.title
+  const favoriteTrackId = userAlbum?.trackId;
+  const favoriteTrackTitle = favoriteTrackId
+    ? album.tracks.find((track) => {
+        const { number, disc } = parseTrackId(favoriteTrackId);
+        return track.number === number && (track.disc ?? 0) === disc;
+      })?.title
     : null;
 
   const discCount =
@@ -122,7 +126,7 @@ export default function AlbumCard({ album, rank }: AlbumCardProps) {
             </div>
           ) : null}
 
-          <Note className="col-span-2 sm:col-span-1" text={album.review} />
+          <Note className="col-span-2 sm:col-span-1" text={userAlbum?.review ?? ""} />
         </div>
 
         <div className="hidden sm:flex shrink-0 sm:flex-col lg:flex-row gap-1">{art}</div>

@@ -131,18 +131,21 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           </Button>
         </div>
         {isAdmin ? (
-          <Button
-            asChild
-            variant="keyboard"
-            className={`justify-start h-13 grow ${isAdminSelected ? selectedClassName : ""}`}
-            onClick={onClose}
-            aria-label={t(($) => $.ariaLabels.open_admin_page)}
-          >
-            <Link href={`/${language}/admin/`}>
-              <HugeiconsIcon icon={Castle02Icon} className="size-6" />
-              {t(($) => $.menu.admin)}
-            </Link>
-          </Button>
+          <div className="flex flex-col gap-0.5 pt-8">
+            <h2 className="text-lg font-bold leading-tight px-4">{t(($) => $.menu.admin)}</h2>
+            <Button
+              asChild
+              variant="keyboard"
+              className={`justify-start h-13 grow ${isAdminSelected ? selectedClassName : ""}`}
+              onClick={onClose}
+              aria-label={t(($) => $.ariaLabels.open_admin_page)}
+            >
+              <Link href={`/${language}/admin/`}>
+                <HugeiconsIcon icon={Castle02Icon} className="size-6" />
+                {t(($) => $.menu.admin)}
+              </Link>
+            </Button>
+          </div>
         ) : null}
       </nav>
       <div className="mt-auto py-3 px-2.5 sm:px-3 gap-0.5 flex flex-wrap-reverse justify-end">

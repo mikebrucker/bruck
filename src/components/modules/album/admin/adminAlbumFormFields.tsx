@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Note } from "@/components/ui/note";
-import { Select } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { AdminAlbumCreditListEditor } from "./adminAlbumCreditListEditor";
 import type { AlbumForm, TrackForm } from "./adminAlbumFormTypes";
 import { AdminAlbumTrackEditor } from "./adminAlbumTrackEditor";
@@ -18,8 +16,6 @@ function AdminAlbumFormFields({
   form,
   fieldChanged,
   set,
-  favoriteTrackIndex,
-  selectFavoriteTrack,
   updateTrack,
   removeTrack,
   addTrack,
@@ -31,8 +27,6 @@ function AdminAlbumFormFields({
   form: AlbumForm;
   fieldChanged: (key: keyof AlbumForm) => boolean;
   set: <K extends keyof AlbumForm>(key: K, value: AlbumForm[K]) => void;
-  favoriteTrackIndex: number;
-  selectFavoriteTrack: (value: string) => void;
   updateTrack: (index: number, patch: Partial<TrackForm>) => void;
   removeTrack: (index: number) => void;
   addTrack: () => void;
@@ -48,117 +42,85 @@ function AdminAlbumFormFields({
   return (
     <Form onSubmit={onSubmit} className="w-full flex flex-col gap-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <FormField name="id">
-          <FormLabel>{t(($) => $.admin.label.id)}</FormLabel>
-          <FormControl asChild>
-            <Input disabled value={form.artist && form.album ? form.id : ""} />
-          </FormControl>
-        </FormField>
-        <FormField name="artist">
-          <FormLabel>{t(($) => $.admin.label.artist)}</FormLabel>
-          <FormControl asChild>
-            <Input
-              required
-              className={fieldChanged("artist") ? valueHasChangedClassName : undefined}
-              value={form.artist}
-              onChange={(e) => set("artist", e.target.value)}
-            />
-          </FormControl>
-        </FormField>
-        <FormField name="album">
-          <FormLabel>{t(($) => $.admin.label.album)}</FormLabel>
-          <FormControl asChild>
-            <Input
-              required
-              className={fieldChanged("album") ? valueHasChangedClassName : undefined}
-              value={form.album}
-              onChange={(e) => set("album", e.target.value)}
-            />
-          </FormControl>
-        </FormField>
-        <FormField name="year">
-          <FormLabel>{t(($) => $.admin.label.year)}</FormLabel>
-          <FormControl asChild>
-            <Input
-              required
-              type="number"
-              className={fieldChanged("year") ? valueHasChangedClassName : undefined}
-              value={form.year}
-              onChange={(e) => set("year", e.target.value)}
-            />
-          </FormControl>
-        </FormField>
-        <FormField name="label">
-          <FormLabel>{t(($) => $.admin.label.label)}</FormLabel>
-          <FormControl asChild>
-            <Input
-              required
-              className={fieldChanged("label") ? valueHasChangedClassName : undefined}
-              value={form.label}
-              onChange={(e) => set("label", e.target.value)}
-            />
-          </FormControl>
-        </FormField>
-        <FormField name="genre">
-          <FormLabel>{t(($) => $.admin.label.genre)}</FormLabel>
-          <FormControl asChild>
-            <Input
-              required
-              className={fieldChanged("genre") ? valueHasChangedClassName : undefined}
-              value={form.genre}
-              onChange={(e) => set("genre", e.target.value)}
-            />
-          </FormControl>
-        </FormField>
-        <FormField name="runtime">
-          <FormLabel>{t(($) => $.admin.label.runtime)}</FormLabel>
-          <FormControl asChild>
-            <Input
-              required
-              className={fieldChanged("runtime") ? valueHasChangedClassName : undefined}
-              value={form.runtime}
-              onChange={(e) => set("runtime", e.target.value)}
-            />
-          </FormControl>
-        </FormField>
-        <div className="flex flex-col gap-1">
-          <label htmlFor="favorite-track" className="text-sm font-medium text-muted-foreground">
-            {t(($) => $.admin.label.favorite_track)}
-          </label>
-          <Select
-            id="favorite-track"
-            className={fieldChanged("favoriteTrack") ? valueHasChangedClassName : ""}
-            contentClassName="border-border border"
-            placeholder={t(($) => $.admin.placeholder.select_track)}
-            value={favoriteTrackIndex >= 0 ? String(favoriteTrackIndex + 1) : "0"}
-            onValueChange={selectFavoriteTrack}
-            options={[
-              { value: "0", label: t(($) => $.admin.option.none) },
-              ...form.tracks.map((track, index) => ({
-                value: String(index + 1),
-                label: `${track.number || index + 1}. ${track.title || t(($) => $.admin.option.untitled)}`,
-              })),
-            ]}
-          />
+        <div className="flex flex-col gap-3">
+          <FormField name="id">
+            <FormLabel>{t(($) => $.admin.label.id)}</FormLabel>
+            <FormControl asChild>
+              <Input disabled value={form.artist && form.album ? form.id : ""} />
+            </FormControl>
+          </FormField>
+          <FormField name="artist">
+            <FormLabel>{t(($) => $.admin.label.artist)}</FormLabel>
+            <FormControl asChild>
+              <Input
+                required
+                className={fieldChanged("artist") ? valueHasChangedClassName : undefined}
+                value={form.artist}
+                onChange={(e) => set("artist", e.target.value)}
+              />
+            </FormControl>
+          </FormField>
+          <FormField name="album">
+            <FormLabel>{t(($) => $.admin.label.album)}</FormLabel>
+            <FormControl asChild>
+              <Input
+                required
+                className={fieldChanged("album") ? valueHasChangedClassName : undefined}
+                value={form.album}
+                onChange={(e) => set("album", e.target.value)}
+              />
+            </FormControl>
+          </FormField>
         </div>
-        <FormField name="favoriteDisc">
-          <FormLabel>{t(($) => $.admin.label.favorite_disc)}</FormLabel>
-          <FormControl asChild>
-            <Input disabled value={form.favoriteDisc ? Number(form.favoriteDisc) + 1 : 1} />
-          </FormControl>
-        </FormField>
+        <div className="flex flex-col gap-3">
+          <FormField name="year">
+            <FormLabel>{t(($) => $.admin.label.year)}</FormLabel>
+            <FormControl asChild>
+              <Input
+                required
+                type="number"
+                className={fieldChanged("year") ? valueHasChangedClassName : undefined}
+                value={form.year}
+                onChange={(e) => set("year", e.target.value)}
+              />
+            </FormControl>
+          </FormField>
+          <FormField name="genre">
+            <FormLabel>{t(($) => $.admin.label.genre)}</FormLabel>
+            <FormControl asChild>
+              <Input
+                required
+                className={fieldChanged("genre") ? valueHasChangedClassName : undefined}
+                value={form.genre}
+                onChange={(e) => set("genre", e.target.value)}
+              />
+            </FormControl>
+          </FormField>
+          <FormField name="label">
+            <FormLabel>{t(($) => $.admin.label.label)}</FormLabel>
+            <FormControl asChild>
+              <Input
+                required
+                className={fieldChanged("label") ? valueHasChangedClassName : undefined}
+                value={form.label}
+                onChange={(e) => set("label", e.target.value)}
+              />
+            </FormControl>
+          </FormField>
+          <FormField name="runtime">
+            <FormLabel>{t(($) => $.admin.label.runtime)}</FormLabel>
+            <FormControl asChild>
+              <Input
+                required
+                className={fieldChanged("runtime") ? valueHasChangedClassName : undefined}
+                value={form.runtime}
+                onChange={(e) => set("runtime", e.target.value)}
+              />
+            </FormControl>
+          </FormField>
+        </div>
       </div>
       <div className="flex flex-col gap-2 mt-2">
-        <FormField name="discTitles">
-          <FormLabel>{t(($) => $.admin.label.disc_titles)}</FormLabel>
-          <FormControl asChild>
-            <Input
-              className={fieldChanged("discTitles") ? valueHasChangedClassName : undefined}
-              value={form.discTitles}
-              onChange={(e) => set("discTitles", e.target.value)}
-            />
-          </FormControl>
-        </FormField>
         <FormField name="art">
           <FormLabel>{t(($) => $.admin.label.art)}</FormLabel>
           <FormControl asChild>
@@ -169,14 +131,13 @@ function AdminAlbumFormFields({
             />
           </FormControl>
         </FormField>
-        <FormField name="review">
-          <FormLabel>{t(($) => $.admin.label.review)}</FormLabel>
+        <FormField name="discTitles">
+          <FormLabel>{t(($) => $.admin.label.disc_titles)}</FormLabel>
           <FormControl asChild>
-            <Textarea
-              required
-              className={fieldChanged("review") ? valueHasChangedClassName : undefined}
-              value={form.review}
-              onChange={(e) => set("review", e.target.value)}
+            <Input
+              className={fieldChanged("discTitles") ? valueHasChangedClassName : undefined}
+              value={form.discTitles}
+              onChange={(e) => set("discTitles", e.target.value)}
             />
           </FormControl>
         </FormField>

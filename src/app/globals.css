@@ -421,6 +421,7 @@ html.light {
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-asimovian: "Asimovian", sans-serif;
+  --font-kablammo: "Kablammo", "serif";
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);

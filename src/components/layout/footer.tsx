@@ -16,8 +16,10 @@ function Footer({ className, sticky = false, ...props }: FooterProps) {
       )}
       {...props}
     >
-      <div className="font-asimovian tracking-widest text-shadow-md text-shadow-theme-600 dark:text-shadow-theme-400">
-        &copy; {new Date().getFullYear()} · Mike Brucker
+      <div className="flex font-asimovian tracking-widest text-shadow-md text-shadow-theme-600 dark:text-shadow-theme-400">
+        <span>&copy; {new Date().getFullYear()}</span>
+        <span>&nbsp;&nbsp;~&nbsp;&nbsp;</span>
+        <span>Mike Brucker</span>
       </div>
     </footer>
   );

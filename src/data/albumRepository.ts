@@ -15,11 +15,8 @@ const albumColumnByField: Record<string, string> = {
   label: "label",
   genre: "genre",
   runtime: "runtime",
-  review: "review",
   discTitles: "disc_titles",
   art: "art",
-  favoriteTrack: "favorite_track",
-  favoriteDisc: "favorite_disc",
   personnel: "personnel",
 };
 
@@ -35,12 +32,9 @@ const albumRowSchema = z.object({
   label: z.string(),
   genre: z.string(),
   runtime: z.string(),
-  review: z.string(),
   art: z.array(z.string()).nullable(),
   personnel: personnelSchema.nullable(),
   discTitles: z.array(z.string()).nullable(),
-  favoriteTrack: z.number(),
-  favoriteDisc: z.number().nullable(),
 });
 type AlbumRow = z.infer<typeof albumRowSchema>;
 
@@ -64,11 +58,9 @@ export class AlbumRepository {
     const [albumRows, trackRows] = await Promise.all([
       this.db`
         SELECT
-          id, artist, album, year, label, genre, runtime, review,
+          id, artist, album, year, label, genre, runtime,
           art, personnel,
-          disc_titles AS "discTitles",
-          favorite_track AS "favoriteTrack",
-          favorite_disc AS "favoriteDisc"
+          disc_titles AS "discTitles"
         FROM albums
       `,
       this.db`
@@ -96,11 +88,9 @@ export class AlbumRepository {
     const [albumRows, trackRows] = await Promise.all([
       this.db`
         SELECT
-          id, artist, album, year, label, genre, runtime, review,
+          id, artist, album, year, label, genre, runtime,
           art, personnel,
-          disc_titles AS "discTitles",
-          favorite_track AS "favoriteTrack",
-          favorite_disc AS "favoriteDisc"
+          disc_titles AS "discTitles"
         FROM albums
         WHERE id = ${id}
       `,
@@ -172,11 +162,11 @@ export class AlbumRepository {
     await this.db.transaction((tx) => {
       const batch: Array<NeonQueryInTransaction> = [
         tx`
-          INSERT INTO albums (id, artist, album, year, label, genre, runtime, review, disc_titles, art, favorite_track, favorite_disc, personnel)
+          INSERT INTO albums (id, artist, album, year, label, genre, runtime, disc_titles, art, personnel)
           VALUES (
             ${input.id}, ${input.artist}, ${input.album}, ${input.year}, ${input.label}, ${input.genre},
-            ${input.runtime}, ${input.review}, ${input.discTitles ?? null}, ${input.art ?? null},
-            ${input.favoriteTrack}, ${input.favoriteDisc ?? null}, ${input.personnel ?? null}
+            ${input.runtime}, ${input.discTitles ?? null}, ${input.art ?? null},
+            ${input.personnel ?? null}
           )
         `,
       ];
@@ -228,12 +218,9 @@ export class AlbumRepository {
       label: row.label,
       genre: row.genre,
       runtime: row.runtime,
-      review: row.review,
       tracks,
       discTitles: row.discTitles ?? undefined,
       art: row.art ?? undefined,
-      favoriteTrack: row.favoriteTrack,
-      favoriteDisc: row.favoriteDisc ?? undefined,
       personnel: row.personnel ?? undefined,
     };
   }

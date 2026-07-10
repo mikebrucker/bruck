@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Asimovian, Figtree, Geist_Mono } from "next/font/google";
+import { Asimovian, Figtree, Geist_Mono, Kablammo } from "next/font/google";
 import { AppGate } from "@/components/providers/appGate";
 import I18nProvider from "@/components/providers/i18n-provider";
 import { LanguageInit } from "@/components/providers/languageInit";
 import { ThemeInit } from "@/components/providers/themeInit";
+import { UserInit } from "@/components/providers/userInit";
 
 import "@/app/globals.css";
 import "flag-icons/css/flag-icons.min.css";
@@ -22,6 +23,13 @@ const asimovian = Asimovian({
   fallback: ["sans"],
 });
 
+const kablammo = Kablammo({
+  variable: "--font-asimovian",
+  subsets: ["latin"],
+  weight: "400",
+  fallback: ["sans"],
+});
+
 export const metadata: Metadata = {
   title: "Mike Brucker",
   description: "Mike Brucker: Senior Software Developer",
@@ -34,9 +42,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={figtree.variable}>
-      <body className={`${geistMono.variable} ${asimovian.variable} antialiased`}>
+      <body
+        className={`${geistMono.variable} ${asimovian.variable} ${kablammo.variable} antialiased`}
+      >
         <LanguageInit />
         <ThemeInit />
+        <UserInit />
         <I18nProvider>
           <AppGate>{children}</AppGate>
         </I18nProvider>
