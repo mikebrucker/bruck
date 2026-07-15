@@ -108,13 +108,10 @@ export function Accordion({
           {actionButton ? <div className="shrink-0 pr-2">{actionButton}</div> : null}
         </div>
         <AccordionPrimitive.Content
-          forceMount
-          className="grid overflow-hidden transition-[grid-template-rows] ease-in-out grid-rows-[0fr] data-[state=open]:grid-rows-[1fr]"
-          style={durationStyle}
+          className="overflow-hidden ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+          style={{ animationDuration: `${duration}ms` }}
         >
-          <div className="min-h-0">
-            <div className={cn("mt-1 flex flex-col", s.gap)}>{children}</div>
-          </div>
+          <div className={cn("mt-1 flex flex-col", s.gap)}>{children}</div>
         </AccordionPrimitive.Content>
       </AccordionPrimitive.Item>
     </AccordionPrimitive.Root>
