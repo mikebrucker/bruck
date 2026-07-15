@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCard from "@/components/modules/album/albumCard";
 import { AlbumFilter } from "@/components/modules/album/albumFilter";
-import { Accordion } from "@/components/ui/accordion";
 import { parseRuntimeSeconds } from "@/lib/album";
 import { type ChipMode, ChipModes, useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
@@ -110,26 +109,35 @@ export function AlbumList({
   }, [rankedAlbums, genreValues, labelValues, chipMode, yearRange, runtimeRange]);
 
   return (
-    <Accordion
-      title={title}
-      subtitle={subtitle}
-      size="xl"
-      classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
-      duration={1000}
-      actionButton={<AlbumFilter albums={albums} filterKey={filterKey} />}
-    >
-      {filteredAlbums.length === 0 ? (
-        <p className="text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
-      ) : null}
+    <div className="w-full px-1">
+      <div className="flex items-center w-full">
+        <div className="flex flex-1 min-w-0 flex-col p-2 text-xl font-semibold tracking-widest text-foreground">
+          <span>{title}</span>
+          {subtitle ? (
+            <span className="normal-case tracking-normal font-normal text-base text-muted-foreground">
+              {subtitle}
+            </span>
+          ) : null}
+        </div>
+        <div className="shrink-0 pr-2">
+          <AlbumFilter albums={albums} filterKey={filterKey} />
+        </div>
+      </div>
 
-      {filteredAlbums.map(({ album, rank }) => (
-        <AlbumCard
-          key={album.id}
-          rank={rank}
-          album={album}
-          userAlbum={userAlbums.find((ua) => ua.albumId === album.id)}
-        />
-      ))}
-    </Accordion>
+      <div className="mt-1 flex flex-col gap-3">
+        {filteredAlbums.length === 0 ? (
+          <p className="text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
+        ) : null}
+
+        {filteredAlbums.map(({ album, rank }) => (
+          <AlbumCard
+            key={album.id}
+            rank={rank}
+            album={album}
+            userAlbum={userAlbums.find((ua) => ua.albumId === album.id)}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
