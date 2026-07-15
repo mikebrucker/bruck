@@ -22,7 +22,7 @@ function Modal({ open, onClose, children }: ModalProps) {
         onClick={onClose}
         aria-label={t(($) => $.ariaLabels.close)}
       />
-      <div className="relative bg-background overflow-hidden">{children}</div>
+      <div className="relative bg-background overflow-hidden rounded-lg">{children}</div>
     </div>
   );
 }

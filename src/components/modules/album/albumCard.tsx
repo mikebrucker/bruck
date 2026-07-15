@@ -1,12 +1,13 @@
 "use client";
 
-import { Vynil02Icon } from "@hugeicons/core-free-icons";
+import { Cancel01Icon, Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Loader from "@/components/modules/loader";
 import { Accordion } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
@@ -26,6 +27,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
+  const [selectedMention, setSelectedMention] = useState<Album | null>(null);
 
   const openModal = (url: string) => {
     setSelectedImage(url);
@@ -38,6 +40,9 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
     setSelectedImage(null);
     setImageLoading(false);
   };
+
+  const openMention = (mention: Album) => setSelectedMention(mention);
+  const closeMention = () => setSelectedMention(null);
 
   const favoriteTrackId = userAlbum?.trackId;
   const favoriteTrackTitle = favoriteTrackId
@@ -208,17 +213,45 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
           <div className="pt-1">
             <div className="flex flex-col bg-background p-2 rounded-lg">
               <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1.5">
-                {t(($) => $.albums.honorable_mentions)}
+                {album.honorableMentions.length === 1
+                  ? t(($) => $.albums.honorable_mention)
+                  : t(($) => $.albums.honorable_mentions)}
               </p>
-              {album.honorableMentions.map((mention) => (
-                <div
-                  key={mention.id}
-                  className="flex items-center gap-2 text-sm even:bg-card rounded px-2 py-1"
-                >
-                  <span className="flex-1">{mention.album}</span>
-                  <span className="tabular-nums">{mention.year}</span>
-                </div>
-              ))}
+              <div className="flex gap-2 overflow-x-auto">
+                {album.honorableMentions.map((mention) => {
+                  const cover = mention.art?.[0];
+                  return (
+                    <button
+                      key={mention.id}
+                      type="button"
+                      onClick={() => openMention(mention)}
+                      className="relative w-40 h-40 shrink-0 cursor-pointer text-left"
+                    >
+                      {cover ? (
+                        <Image
+                          src={`/${cover}`}
+                          alt={t(($) => $.albums.cover_art, { album: mention.album })}
+                          width={160}
+                          height={160}
+                          className="w-40 h-40 rounded-sm object-cover"
+                        />
+                      ) : (
+                        <div className="w-40 h-40 rounded-sm bg-card" />
+                      )}
+                      <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
+                        <Chip
+                          text={String(mention.year)}
+                          className="bg-background/70 backdrop-blur-sm text-xs tabular-nums"
+                        />
+                        <Chip
+                          text={mention.album}
+                          className="max-w-full bg-background/70 backdrop-blur-sm text-xs"
+                        />
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         ) : null}
@@ -242,6 +275,24 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
                 style={{ height: "auto" }}
                 className="w-full cursor-pointer"
               />
+            </div>
+          ) : null}
+        </Modal>
+        <Modal open={selectedMention !== null} onClose={closeMention}>
+          {selectedMention ? (
+            <div className="max-w-3xl max-h-[85vh] overflow-y-auto px-2 py-1">
+              <div className="flex justify-end py-1">
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  onClick={closeMention}
+                  aria-label={t(($) => $.ariaLabels.close)}
+                  className="rounded-full"
+                >
+                  <HugeiconsIcon icon={Cancel01Icon} />
+                </Button>
+              </div>
+              <AlbumCard album={selectedMention} />
             </div>
           ) : null}
         </Modal>

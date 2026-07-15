@@ -5,6 +5,7 @@
   "albums": {
     "ranked": "Ranked Albums",
     "ranked_info": "The greatest albums of all time. Not one skippable track. Each artist can only have max one album in the list.",
+    "honorable_mention": "Honorable Mention",
     "honorable_mentions": "Honorable Mentions",
     "tracks": "Tracks",
     "disc": "Disc {{number}}",
