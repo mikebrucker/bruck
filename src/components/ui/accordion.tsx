@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { Accordion as AccordionPrimitive } from "radix-ui";
+import type * as React from "react";
+import { cn } from "@/lib/utils";
 
 type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
@@ -37,69 +39,84 @@ export function Accordion({
   duration = 300,
   actionButton,
 }: AccordionProps) {
-  const [open, setOpen] = useState(defaultOpen);
   const s = sizes[size];
+  const durationStyle = { transitionDuration: `${duration}ms` };
 
   return (
-    <div className={`w-full ${classNames ?? ""}`}>
-      <div className="flex items-center w-full">
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className={`flex flex-1 min-w-0 p-2 items-center gap-4 text-left ${s.title} font-semibold text-muted-foreground tracking-widest ${s.py} hover:text-foreground transition-colors cursor-pointer`}
-        >
-          <svg
-            width={s.svgSize}
-            height={s.svgSize}
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={`shrink-0 transition-transform ease-in-out origin-center ${open ? "rotate-0" : "rotate-180"}`}
-            style={{ transitionDuration: `${duration}ms` }}
-            aria-hidden="true"
-          >
-            <line
-              x1="6"
-              y1="1"
-              x2="6"
-              y2="11"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              className={`transition-transform transform-fill ease-in-out origin-center ${open ? "scale-y-0" : "scale-y-100"}`}
-              style={{ transitionDuration: `${duration}ms` }}
-            />
-            <line
-              x1="1"
-              y1="6"
-              x2="11"
-              y2="6"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-          <div className="flex flex-col text-foreground min-w-0">
-            <span>{title}</span>
-            {subtitle && (
-              <span
-                className={`${s.subtitle} normal-case tracking-normal font-normal text-muted-foreground`}
+    <AccordionPrimitive.Root
+      type="single"
+      collapsible
+      defaultValue={defaultOpen ? "item" : undefined}
+      className={cn("w-full", classNames)}
+    >
+      <AccordionPrimitive.Item value="item">
+        <div className="flex items-center w-full">
+          <AccordionPrimitive.Header className="flex flex-1 min-w-0">
+            <AccordionPrimitive.Trigger
+              className={cn(
+                "group flex flex-1 min-w-0 p-2 items-center gap-4 text-left font-semibold text-muted-foreground tracking-widest hover:text-foreground transition-colors cursor-pointer",
+                s.title,
+                s.py,
+              )}
+            >
+              <svg
+                width={s.svgSize}
+                height={s.svgSize}
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="shrink-0 transition-transform ease-in-out origin-center rotate-180 group-data-[state=open]:rotate-0"
+                style={durationStyle}
+                aria-hidden="true"
               >
-                {subtitle}
-              </span>
-            )}
-          </div>
-        </button>
-        {actionButton ? <div className="shrink-0 pr-2">{actionButton}</div> : null}
-      </div>
-      <div
-        className={`grid overflow-hidden transition-[grid-template-rows] ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-        style={{ transitionDuration: `${duration}ms` }}
-      >
-        <div className="min-h-0">
-          <div className={`mt-1 flex flex-col ${s.gap}`}>{children}</div>
+                <line
+                  x1="6"
+                  y1="1"
+                  x2="6"
+                  y2="11"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  className="transition-transform transform-fill ease-in-out origin-center scale-y-100 group-data-[state=open]:scale-y-0"
+                  style={durationStyle}
+                />
+                <line
+                  x1="1"
+                  y1="6"
+                  x2="11"
+                  y2="6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="flex flex-col text-foreground min-w-0">
+                <span>{title}</span>
+                {subtitle ? (
+                  <span
+                    className={cn(
+                      "normal-case tracking-normal font-normal text-muted-foreground",
+                      s.subtitle,
+                    )}
+                  >
+                    {subtitle}
+                  </span>
+                ) : null}
+              </div>
+            </AccordionPrimitive.Trigger>
+          </AccordionPrimitive.Header>
+          {actionButton ? <div className="shrink-0 pr-2">{actionButton}</div> : null}
         </div>
-      </div>
-    </div>
+        <AccordionPrimitive.Content
+          forceMount
+          className="grid overflow-hidden transition-[grid-template-rows] ease-in-out grid-rows-[0fr] data-[state=open]:grid-rows-[1fr]"
+          style={durationStyle}
+        >
+          <div className="min-h-0">
+            <div className={cn("mt-1 flex flex-col", s.gap)}>{children}</div>
+          </div>
+        </AccordionPrimitive.Content>
+      </AccordionPrimitive.Item>
+    </AccordionPrimitive.Root>
   );
 }
