@@ -213,7 +213,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
               {album.honorableMentions.map((mention) => (
                 <div
                   key={mention.id}
-                  className="flex items-center gap-2 text-sm odd:bg-card rounded px-2 py-1"
+                  className="flex items-center gap-2 text-sm even:bg-card rounded px-2 py-1"
                 >
                   <span className="flex-1">{mention.album}</span>
                   <span className="tabular-nums">{mention.year}</span>
