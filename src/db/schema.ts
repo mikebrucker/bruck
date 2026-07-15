@@ -22,6 +22,8 @@ export const albums = pgTable("albums", {
   discTitles: text("disc_titles").array(),
   art: text().array(),
   personnel: jsonb().$type<Personnel>(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" }),
 });
 
 export const tracks = pgTable(
@@ -50,7 +52,7 @@ export const users = pgTable("users", {
   id: text().default("me").primaryKey().notNull(),
   settings: jsonb().$type<Record<string, unknown>>().default({}).notNull(),
   createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).defaultNow().notNull(),
-  updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" }),
 });
 
 export const userAlbums = pgTable(
@@ -65,9 +67,7 @@ export const userAlbums = pgTable(
     createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
       .defaultNow()
       .notNull(),
-    updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
-      .defaultNow()
-      .notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" }),
     rank: integer(),
   },
   (table) => [

@@ -35,4 +35,6 @@ export interface Album {
   discTitles?: Array<string>;
   art?: Array<string>;
   personnel?: Personnel;
+  createdAt: Date;
+  updatedAt?: Date;
 }

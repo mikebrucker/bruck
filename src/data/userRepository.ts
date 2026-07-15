@@ -27,7 +27,7 @@ export class UserRepository {
       id: row.id,
       settings: row.settings,
       createdAt: new Date(row.createdAt),
-      updatedAt: new Date(row.updatedAt),
+      updatedAt: row.updatedAt ? new Date(row.updatedAt) : undefined,
     };
   }
 }

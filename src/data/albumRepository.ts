@@ -64,8 +64,13 @@ export class AlbumRepository {
     const { tracks: newTracks, ...albumFields } = input;
     const batch: Array<BatchItem<"pg">> = [];
 
-    if (Object.keys(albumFields).length > 0) {
-      batch.push(this.db.update(albums).set(albumFields).where(eq(albums.id, id)));
+    if (Object.keys(albumFields).length > 0 || newTracks) {
+      batch.push(
+        this.db
+          .update(albums)
+          .set({ ...albumFields, updatedAt: rawSql`now()` })
+          .where(eq(albums.id, id)),
+      );
     }
 
     if (newTracks) {
@@ -164,6 +169,8 @@ export class AlbumRepository {
       discTitles: row.discTitles ?? undefined,
       art: row.art ?? undefined,
       personnel: row.personnel ?? undefined,
+      createdAt: new Date(row.createdAt),
+      updatedAt: row.updatedAt ? new Date(row.updatedAt) : undefined,
     };
   }
 }

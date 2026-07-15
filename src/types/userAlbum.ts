@@ -5,4 +5,6 @@ export interface UserAlbum {
   review: string;
   honorable: boolean;
   rank: number | null;
+  createdAt: Date;
+  updatedAt?: Date;
 }

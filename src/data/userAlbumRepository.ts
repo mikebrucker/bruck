@@ -58,6 +58,8 @@ export class UserAlbumRepository {
       review: row.review,
       honorable: row.honorable,
       rank: row.rank,
+      createdAt: new Date(row.createdAt),
+      updatedAt: row.updatedAt ? new Date(row.updatedAt) : undefined,
     };
   }
 }
