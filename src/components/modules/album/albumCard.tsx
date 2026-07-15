@@ -204,6 +204,24 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
             </Accordion>
           </div>
         ) : null}
+        {album.honorableMentions?.length ? (
+          <div className="pt-1">
+            <div className="flex flex-col bg-background p-2 rounded-lg">
+              <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1.5">
+                {t(($) => $.albums.honorable_mentions)}
+              </p>
+              {album.honorableMentions.map((mention) => (
+                <div
+                  key={mention.id}
+                  className="flex items-center gap-2 text-sm odd:bg-card rounded px-2 py-1"
+                >
+                  <span className="flex-1">{mention.album}</span>
+                  <span className="tabular-nums">{mention.year}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
         <Modal open={imageModalOpen} onClose={closeModal}>
           {selectedImage ? (
             <div className="relative">

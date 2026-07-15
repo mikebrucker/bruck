@@ -15,6 +15,7 @@ import type { Album } from "@/types/album";
 type AlbumFilterProps = {
   albums: Array<Album>;
   filterKey: string;
+  showRank?: boolean;
 };
 
 const ChipFields = {
@@ -39,17 +40,21 @@ const fieldMatches = (values: Array<string>, mode: ChipMode, albumValue: string)
   values.length === 0 ||
   (mode === ChipModes.and ? values.every((v) => v === albumValue) : values.includes(albumValue));
 
-export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
+export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
   const { t } = useTranslation();
 
   const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
   const toggleFilter = useAlbumFilterStore((s) => s.toggleFilter);
+  const storedRankRange = useAlbumFilterStore((s) => s.rankRangeByList[filterKey]);
+  const setRankRange = useAlbumFilterStore((s) => s.setRankRange);
   const storedYearRange = useAlbumFilterStore((s) => s.yearRangeByList[filterKey]);
   const setYearRange = useAlbumFilterStore((s) => s.setYearRange);
   const storedRuntimeRange = useAlbumFilterStore((s) => s.runtimeRangeByList[filterKey]);
   const setRuntimeRange = useAlbumFilterStore((s) => s.setRuntimeRange);
   const chipMode = useAlbumFilterStore((s) => s.chipModeByList[filterKey]) ?? ChipModes.or;
   const toggleChipMode = useAlbumFilterStore((s) => s.toggleChipMode);
+
+  const rankBounds = useMemo((): [number, number] => [1, Math.max(1, albums.length)], [albums]);
 
   const yearBounds = useMemo((): [number, number] => {
     const years = albums.map((album) => album.year);
@@ -61,18 +66,20 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
     return [Math.min(...seconds), Math.max(...seconds)];
   }, [albums]);
 
+  const rankRange = storedRankRange ?? rankBounds;
   const yearRange = storedYearRange ?? yearBounds;
   const runtimeRange = storedRuntimeRange ?? runtimeBounds;
 
   const rangeFilteredAlbums = useMemo(
     () =>
-      albums.filter((album) => {
+      albums.filter((album, i) => {
+        const rankOk = !showRank || (i + 1 >= rankRange[0] && i + 1 <= rankRange[1]);
         const yearOk = album.year >= yearRange[0] && album.year <= yearRange[1];
         const runtimeSeconds = parseRuntimeSeconds(album.runtime);
         const runtimeOk = runtimeSeconds >= runtimeRange[0] && runtimeSeconds <= runtimeRange[1];
-        return yearOk && runtimeOk;
+        return rankOk && yearOk && runtimeOk;
       }),
-    [albums, yearRange, runtimeRange],
+    [albums, showRank, rankRange, yearRange, runtimeRange],
   );
 
   const genreOptions = useMemo(() => distinctSorted(albums.map((album) => album.genre)), [albums]);
@@ -212,8 +219,33 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         labelInRange,
       )}
 
+      {showRank ? (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
+          <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
+            <span className="text-xs font-medium tabular-nums text-muted-foreground">
+              {rankRange[0]}
+            </span>
+            <span className="text-center text-xs font-medium text-muted-foreground">
+              {t(($) => $.albums.filter_rank)}
+            </span>
+            <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
+              {rankRange[1]}
+            </span>
+          </div>
+          <Slider
+            className="w-full"
+            min={rankBounds[0]}
+            max={rankBounds[1]}
+            value={rankRange}
+            onValueChange={(range) => {
+              if (range.length === 2) setRankRange(filterKey, range);
+            }}
+          />
+        </div>
+      ) : null}
+
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
-        <div className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-2">
+        <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
           <span className="text-xs font-medium tabular-nums text-muted-foreground">
             {yearRange[0]}
           </span>
@@ -236,7 +268,7 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
       </div>
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
-        <div className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-2">
+        <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
           <span className="text-xs font-medium tabular-nums text-muted-foreground">
             {formatRuntimeSeconds(runtimeRange[0])}
           </span>

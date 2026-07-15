@@ -37,4 +37,5 @@ export interface Album {
   personnel?: Personnel;
   createdAt: Date;
   updatedAt?: Date;
+  honorableMentions?: Array<Album>;
 }

@@ -1,6 +1,6 @@
-import { asc, eq, sql as rawSql } from "drizzle-orm";
+import { asc, eq, inArray, sql as rawSql } from "drizzle-orm";
 import type { BatchItem } from "drizzle-orm/batch";
-import { albums, tracks } from "@/db/schema";
+import { albums, tracks, userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { Album, Track } from "@/types/album";
 import type { AlbumCreateInput, AlbumUpdateInput } from "./albumSchema";
@@ -36,6 +36,59 @@ export class AlbumRepository {
     }
 
     return albumRows.map((row) => this.mapAlbum(row, tracksByAlbum.get(row.id) ?? []));
+  }
+
+  async getRanked(userId = "me"): Promise<Array<Album>> {
+    const userRows = await this.db.select().from(userAlbums).where(eq(userAlbums.userId, userId));
+
+    const rankedRows = userRows
+      .filter((row) => row.rank !== null)
+      .sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0));
+    const honorableIds = userRows
+      .filter((row) => row.honorable && row.rank === null)
+      .map((row) => row.albumId);
+
+    const albumIds = [...new Set([...rankedRows.map((row) => row.albumId), ...honorableIds])];
+    if (albumIds.length === 0) return [];
+
+    const [albumRows, trackRows] = await Promise.all([
+      this.db.select().from(albums).where(inArray(albums.id, albumIds)),
+      this.db
+        .select()
+        .from(tracks)
+        .where(inArray(tracks.albumId, albumIds))
+        .orderBy(...trackOrder),
+    ]);
+
+    const tracksByAlbum = new Map<string, Array<Track>>();
+    for (const row of trackRows) {
+      const track = this.mapTrack(row);
+      const existing = tracksByAlbum.get(row.albumId);
+      existing ? existing.push(track) : tracksByAlbum.set(row.albumId, [track]);
+    }
+
+    const albumById = new Map(
+      albumRows.map((row) => [row.id, this.mapAlbum(row, tracksByAlbum.get(row.id) ?? [])]),
+    );
+
+    const honorableByArtist = new Map<string, Array<Album>>();
+    for (const id of honorableIds) {
+      const album = albumById.get(id);
+      if (!album) continue;
+      const existing = honorableByArtist.get(album.artist);
+      existing ? existing.push(album) : honorableByArtist.set(album.artist, [album]);
+    }
+    for (const list of honorableByArtist.values()) {
+      list.sort((a, b) => a.year - b.year);
+    }
+
+    return rankedRows
+      .map((row) => albumById.get(row.albumId))
+      .filter((album): album is Album => album !== undefined)
+      .map((album) => {
+        const mentions = honorableByArtist.get(album.artist);
+        return mentions?.length ? { ...album, honorableMentions: mentions } : album;
+      });
   }
 
   async getById(id: string): Promise<Album | null> {

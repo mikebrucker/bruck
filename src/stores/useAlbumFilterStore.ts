@@ -8,10 +8,12 @@ export type ChipMode = keyof typeof ChipModes;
 
 type AlbumFilterState = {
   selectedByList: Record<string, Set<string>>;
+  rankRangeByList: Record<string, [number, number]>;
   yearRangeByList: Record<string, [number, number]>;
   runtimeRangeByList: Record<string, [number, number]>;
   chipModeByList: Record<string, ChipMode>;
   toggleFilter: (listKey: string, filterKey: string) => void;
+  setRankRange: (listKey: string, range: [number, number]) => void;
   setYearRange: (listKey: string, range: [number, number]) => void;
   setRuntimeRange: (listKey: string, range: [number, number]) => void;
   toggleChipMode: (listKey: string) => void;
@@ -19,9 +21,10 @@ type AlbumFilterState = {
 
 export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
   "albumFilter",
-  ["selectedByList", "yearRangeByList", "runtimeRangeByList", "chipModeByList"],
+  ["selectedByList", "rankRangeByList", "yearRangeByList", "runtimeRangeByList", "chipModeByList"],
   (set, get) => ({
     selectedByList: {},
+    rankRangeByList: {},
     yearRangeByList: {},
     runtimeRangeByList: {},
     chipModeByList: {},
@@ -34,6 +37,9 @@ export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
         next.add(filterKey);
       }
       set({ selectedByList: { ...get().selectedByList, [listKey]: next } });
+    },
+    setRankRange: (listKey, range) => {
+      set({ rankRangeByList: { ...get().rankRangeByList, [listKey]: range } });
     },
     setYearRange: (listKey, range) => {
       set({ yearRangeByList: { ...get().yearRangeByList, [listKey]: range } });

@@ -7,33 +7,20 @@ import type { UserAlbum } from "@/types/userAlbum";
 
 type AlbumsClientProps = {
   rankedAlbums: Array<Album>;
-  honorableMentionAlbums: Array<Album>;
   userAlbums: Array<UserAlbum>;
 };
 
-export function AlbumsClient({
-  rankedAlbums,
-  honorableMentionAlbums,
-  userAlbums,
-}: AlbumsClientProps) {
+export function AlbumsClient({ rankedAlbums, userAlbums }: AlbumsClientProps) {
   const { t } = useTranslation();
 
   return (
-    <>
-      <AlbumList
-        albums={rankedAlbums}
-        userAlbums={userAlbums}
-        title={t(($) => $.albums.ranked)}
-        subtitle={t(($) => $.albums.ranked_info)}
-        showRank
-        filterKey="ranked"
-      />
-      <AlbumList
-        albums={honorableMentionAlbums}
-        userAlbums={userAlbums}
-        title={t(($) => $.albums.honorable_mentions)}
-        filterKey="honorable-mentions"
-      />
-    </>
+    <AlbumList
+      albums={rankedAlbums}
+      userAlbums={userAlbums}
+      title={t(($) => $.albums.ranked)}
+      subtitle={t(($) => $.albums.ranked_info)}
+      showRank
+      filterKey="ranked"
+    />
   );
 }

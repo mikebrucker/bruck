@@ -20,6 +20,7 @@
     "filter_year": "Year",
     "filter_label": "Label",
     "filter_runtime": "Runtime",
+    "filter_rank": "Rank",
     "no_results": "No albums match the selected filters.",
     "filter_no_genres": "No Genres",
     "filter_no_labels": "No Labels",

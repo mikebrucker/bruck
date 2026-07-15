@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { userAlbumRepository } from "@/data/userAlbumRepository";
+import { RankedHonorableError, userAlbumRepository } from "@/data/userAlbumRepository";
 import { userAlbumUpdateSchema } from "@/data/userAlbumSchema";
 import { isAuthorized } from "@/lib/auth";
 import type { UserAlbum } from "@/types/userAlbum";
@@ -43,6 +43,9 @@ export async function PATCH(
     }
     return NextResponse.json(updated);
   } catch (error) {
+    if (error instanceof RankedHonorableError) {
+      return NextResponse.json({ error: error.message }, { status: 409 });
+    }
     console.error(`Failed to update user album "${albumId}"`, error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
