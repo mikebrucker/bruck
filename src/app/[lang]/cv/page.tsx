@@ -88,13 +88,13 @@ const socialLinks: Array<LinkItem> = [
   { icon: WebDesign01Icon, label: "mikebrucker.com", href: "https://mikebrucker.com" },
   {
     icon: logoLinkedin,
-    label: "linkedin.com/in/mike-brucker",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/in/mike-brucker",
   },
   {
     icon: logoGithub,
-    label: "github.com/mikebrucker",
-    href: "https://www.github.com/mikebrucker",
+    label: "GitHub",
+    href: "https://github.com/mikebrucker",
   },
 ];
 
