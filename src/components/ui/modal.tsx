@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 interface ModalProps {
@@ -9,8 +9,21 @@ interface ModalProps {
   children: ReactNode;
 }
 
+let openModalCount = 0;
+
 function Modal({ open, onClose, children }: ModalProps) {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!open) return;
+    openModalCount += 1;
+    document.body.style.overflow = "hidden";
+    return () => {
+      openModalCount -= 1;
+      if (openModalCount === 0) document.body.style.overflow = "";
+    };
+  }, [open]);
+
   if (!open) return null;
 
   return (
