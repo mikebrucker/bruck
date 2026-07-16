@@ -278,7 +278,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
             </div>
           ) : null}
         </Modal>
-        <Modal open={selectedMention !== null} onClose={closeMention}>
+        <Modal open={selectedMention !== null} onClose={closeMention} className="rounded-lg">
           {selectedMention ? (
             <div className="max-w-3xl max-h-[85vh] overflow-y-auto px-2 py-1">
               <div className="flex justify-end py-1">
