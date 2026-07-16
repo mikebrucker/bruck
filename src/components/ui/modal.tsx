@@ -2,16 +2,18 @@
 
 import { type ReactNode, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
 
 interface ModalProps {
   open: boolean;
   onClose: () => void;
   children: ReactNode;
+  className?: string;
 }
 
 let openModalCount = 0;
 
-function Modal({ open, onClose, children }: ModalProps) {
+function Modal({ open, onClose, children, className }: ModalProps) {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -35,7 +37,7 @@ function Modal({ open, onClose, children }: ModalProps) {
         onClick={onClose}
         aria-label={t(($) => $.ariaLabels.close)}
       />
-      <div className="relative bg-background overflow-hidden rounded-lg">{children}</div>
+      <div className={cn("relative bg-background overflow-hidden", className)}>{children}</div>
     </div>
   );
 }
