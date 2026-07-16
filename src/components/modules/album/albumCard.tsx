@@ -292,7 +292,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
                   <HugeiconsIcon icon={Cancel01Icon} />
                 </Button>
               </div>
-              <AlbumCard album={selectedMention} />
+              <AlbumCard album={selectedMention} userAlbum={selectedMention.userAlbum} />
             </div>
           ) : null}
         </Modal>

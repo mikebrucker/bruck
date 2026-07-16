@@ -4,6 +4,7 @@ import { albums, tracks, userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { Album, Track } from "@/types/album";
 import type { AlbumCreateInput, AlbumUpdateInput } from "./albumSchema";
+import { mapUserAlbum } from "./userAlbumMapper";
 
 export type { AlbumCreateInput, AlbumUpdateInput } from "./albumSchema";
 export { albumCreateSchema, albumUpdateSchema } from "./albumSchema";
@@ -67,8 +68,14 @@ export class AlbumRepository {
       existing ? existing.push(track) : tracksByAlbum.set(row.albumId, [track]);
     }
 
+    const userAlbumByAlbumId = new Map(userRows.map((row) => [row.albumId, mapUserAlbum(row)]));
+
     const albumById = new Map(
-      albumRows.map((row) => [row.id, this.mapAlbum(row, tracksByAlbum.get(row.id) ?? [])]),
+      albumRows.map((row) => {
+        const album = this.mapAlbum(row, tracksByAlbum.get(row.id) ?? []);
+        album.userAlbum = userAlbumByAlbumId.get(row.id);
+        return [row.id, album] as const;
+      }),
     );
 
     const honorableByArtist = new Map<string, Array<Album>>();
