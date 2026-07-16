@@ -2,6 +2,7 @@ import { and, eq, sql } from "drizzle-orm";
 import { userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { UserAlbum } from "@/types/userAlbum";
+import { mapUserAlbum } from "./userAlbumMapper";
 
 const conflictTarget = [userAlbums.userId, userAlbums.albumId];
 
@@ -17,7 +18,7 @@ export class UserAlbumRepository {
 
   async getAll(): Promise<Array<UserAlbum>> {
     const rows = await this.db.select().from(userAlbums).where(eq(userAlbums.userId, "me"));
-    return rows.map((row) => this.mapUserAlbum(row));
+    return rows.map((row) => mapUserAlbum(row));
   }
 
   async setTrackId(albumId: string, trackId: string | null): Promise<UserAlbum> {
@@ -29,7 +30,7 @@ export class UserAlbumRepository {
         set: { trackId, updatedAt: sql`now()` },
       })
       .returning();
-    return this.mapUserAlbum(row);
+    return mapUserAlbum(row);
   }
 
   async setReview(albumId: string, review: string): Promise<UserAlbum> {
@@ -41,7 +42,7 @@ export class UserAlbumRepository {
         set: { review, updatedAt: sql`now()` },
       })
       .returning();
-    return this.mapUserAlbum(row);
+    return mapUserAlbum(row);
   }
 
   async setHonorable(albumId: string, honorable: boolean): Promise<UserAlbum> {
@@ -63,21 +64,7 @@ export class UserAlbumRepository {
         set: { honorable, updatedAt: sql`now()` },
       })
       .returning();
-    return this.mapUserAlbum(row);
-  }
-
-  private mapUserAlbum(row: typeof userAlbums.$inferSelect | undefined): UserAlbum {
-    if (!row) throw new Error("Failed to upsert user album");
-    return {
-      id: String(row.id),
-      albumId: row.albumId,
-      trackId: row.trackId,
-      review: row.review,
-      honorable: row.honorable,
-      rank: row.rank,
-      createdAt: new Date(row.createdAt),
-      updatedAt: row.updatedAt ? new Date(row.updatedAt) : undefined,
-    };
+    return mapUserAlbum(row);
   }
 }
 

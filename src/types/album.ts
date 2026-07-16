@@ -1,3 +1,5 @@
+import type { UserAlbum } from "./userAlbum";
+
 export interface Credit {
   name: string;
   roles: Array<string>;
@@ -38,4 +40,6 @@ export interface Album {
   createdAt: Date;
   updatedAt?: Date;
   honorableMentions?: Array<Album>;
+  /** Per-user data (review, favorite track) joined in AlbumRepository.getRanked */
+  userAlbum?: UserAlbum;
 }

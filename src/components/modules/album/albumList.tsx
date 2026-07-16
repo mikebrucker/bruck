@@ -7,11 +7,9 @@ import { AlbumFilter } from "@/components/modules/album/albumFilter";
 import { parseRuntimeSeconds } from "@/lib/album";
 import { type ChipMode, ChipModes, useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
-import type { UserAlbum } from "@/types/userAlbum";
 
 type AlbumListProps = {
   albums: Array<Album>;
-  userAlbums: Array<UserAlbum>;
   title: string;
   subtitle?: string;
   showRank?: boolean;
@@ -37,14 +35,7 @@ const fieldMatches = (values: Array<string>, mode: ChipMode, albumValue: string)
   values.length === 0 ||
   (mode === ChipModes.and ? values.every((v) => v === albumValue) : values.includes(albumValue));
 
-export function AlbumList({
-  albums,
-  userAlbums,
-  title,
-  subtitle,
-  showRank,
-  filterKey,
-}: AlbumListProps) {
+export function AlbumList({ albums, title, subtitle, showRank, filterKey }: AlbumListProps) {
   const { t } = useTranslation();
 
   const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
@@ -129,12 +120,7 @@ export function AlbumList({
         ) : null}
 
         {filteredAlbums.map(({ album, rank }) => (
-          <AlbumCard
-            key={album.id}
-            rank={rank}
-            album={album}
-            userAlbum={userAlbums.find((ua) => ua.albumId === album.id)}
-          />
+          <AlbumCard key={album.id} rank={rank} album={album} userAlbum={album.userAlbum} />
         ))}
       </div>
     </div>
