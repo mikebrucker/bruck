@@ -190,8 +190,8 @@
   --muted-foreground: #71717a;
   /* zinc 100 */
   --accent: #f4f4f5;
-  /* zinc 900 */
-  --accent-foreground: #18181b;
+  /* zinc 800 */
+  --accent-foreground: #27272a;
   --destructive: #dc2626;
   /* zinc 400 */
   --border: #a1a1aa;
@@ -281,8 +281,8 @@
     --muted-foreground: #a1a1aa;
     /* zinc 800 */
     --accent: #27272a;
-    /* zinc 50 */
-    --accent-foreground: #fafafa;
+    /* zinc 200 */
+    --accent-foreground: #e4e4e7;
     --destructive: #ef4444;
     /* zinc 600 */
     --border: #52525b;
@@ -338,8 +338,8 @@ html.dark {
   --muted-foreground: #a1a1aa;
   /* zinc 800 */
   --accent: #27272a;
-  /* zinc 50 */
-  --accent-foreground: #fafafa;
+  /* zinc 200 */
+  --accent-foreground: #e4e4e7;
   --destructive: #ef4444;
   /* zinc 600 */
   --border: #52525b;
@@ -392,8 +392,8 @@ html.light {
   --muted-foreground: #71717a;
   /* zinc 100 */
   --accent: #f4f4f5;
-  /* zinc 900 */
-  --accent-foreground: #18181b;
+  /* zinc 800 */
+  --accent-foreground: #27272a;
   --destructive: #dc2626;
   /* zinc 400 */
   --border: #a1a1aa;

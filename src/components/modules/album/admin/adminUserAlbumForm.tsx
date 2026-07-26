@@ -1,19 +1,23 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { ChampionIcon, Layers02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import Image from "next/image";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormLabel } from "@/components/ui/form";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
+import { SortableList } from "@/components/ui/sortableList";
+import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Textarea } from "@/components/ui/textarea";
+import { Toggle } from "@/components/ui/toggle";
+import { Tooltip } from "@/components/ui/tooltip";
 import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
-import type { UserAlbumUpdateInput } from "@/data/userAlbumSchema";
-import { makeTrackId } from "@/lib/favoriteTrack";
 import type { Album } from "@/types/album";
 import type { UserAlbum } from "@/types/userAlbum";
+import { AdminUserAlbumEditForm } from "./adminUserAlbumEditForm";
 
 const FormTabs = {
   review: "review",
@@ -21,27 +25,41 @@ const FormTabs = {
 } as const;
 type FormTab = keyof typeof FormTabs;
 
-type UserAlbumForm = {
-  trackId: string | null;
-  review: string;
+type OrderRow = {
+  id: string;
+  album: Album;
 };
-
-const emptyForm = (): UserAlbumForm => ({
-  trackId: null,
-  review: "",
-});
 
 export function AdminUserAlbumForm() {
   const { t } = useTranslation();
   const [albums, setAlbums] = useState<Array<Album>>([]);
   const [userAlbums, setUserAlbums] = useState<Array<UserAlbum>>([]);
   const [selectedId, setSelectedId] = useState("");
-  const [form, setForm] = useState<UserAlbumForm>(emptyForm());
-  const [originalForm, setOriginalForm] = useState<UserAlbumForm | null>(null);
+  const [allMode, setAllMode] = useState(false);
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.review);
+  const [orderRows, setOrderRows] = useState<Array<OrderRow>>([]);
+  const [honorableRows, setHonorableRows] = useState<Array<OrderRow>>([]);
+
+  const sortedAlbums = useMemo(() => {
+    const groupOf = (album: Album) => {
+      const ua = userAlbums.find((u) => u.albumId === album.id);
+      if (ua?.rank !== null && ua?.rank !== undefined) return 0;
+      if (!ua?.honorable) return 1;
+      return 2;
+    };
+    return [...albums].sort((a, b) => {
+      const groupDiff = groupOf(a) - groupOf(b);
+      if (groupDiff !== 0) return groupDiff;
+      const rankA = userAlbums.find((u) => u.albumId === a.id)?.rank;
+      const rankB = userAlbums.find((u) => u.albumId === b.id)?.rank;
+      if (rankA !== null && rankA !== undefined && rankB !== null && rankB !== undefined) {
+        return rankA - rankB;
+      }
+      return a.id.localeCompare(b.id);
+    });
+  }, [albums, userAlbums]);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -67,33 +85,32 @@ export function AdminUserAlbumForm() {
     refresh();
   }, [refresh]);
 
-  const selectAlbum = (id: string) => {
-    setSelectedId(id);
-    const userAlbum = userAlbums.find((ua) => ua.albumId === id);
-    const next: UserAlbumForm = {
-      trackId: userAlbum?.trackId ?? null,
-      review: userAlbum?.review ?? "",
-    };
-    setForm(next);
-    setOriginalForm(next);
-    setStatus(null);
-  };
+  useEffect(() => {
+    const rows = userAlbums
+      .filter((ua) => ua.rank !== null)
+      .sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0))
+      .map((ua) => albums.find((album) => album.id === ua.albumId))
+      .filter((album): album is Album => album !== undefined)
+      .map((album) => ({ id: album.id, album }));
+    setOrderRows(rows);
 
-  const resetEditAlbum = () => {
-    if (!originalForm) return;
-    setForm(originalForm);
-    setStatus(null);
-  };
+    const rankedIds = new Set(rows.map((row) => row.id));
+    const rankedArtists = new Set(rows.map((row) => row.album.artist));
+    const honorable = albums
+      .filter((album) => !rankedIds.has(album.id))
+      .map((album) => ({ id: album.id, album }))
+      .sort((a, b) => {
+        const rankedDiff =
+          Number(rankedArtists.has(a.album.artist)) - Number(rankedArtists.has(b.album.artist));
+        if (rankedDiff !== 0) return rankedDiff;
+        const artistDiff = a.album.artist.localeCompare(b.album.artist);
+        if (artistDiff !== 0) return artistDiff;
+        return a.album.album.localeCompare(b.album.album);
+      });
+    setHonorableRows(honorable);
+  }, [albums, userAlbums]);
 
-  const selectedAlbum = albums.find((album) => album.id === selectedId);
-  const trackOptions = selectedAlbum
-    ? selectedAlbum.tracks.map((track) => ({
-        value: makeTrackId(track.number, track.disc),
-        label: `${track.number}. ${track.title}`,
-      }))
-    : [];
-
-  const selectedUserAlbum = userAlbums.find((ua) => ua.albumId === selectedId);
+  const selectedAlbum = sortedAlbums.find((album) => album.id === selectedId);
 
   const isFormTab = (value: string): value is FormTab => value in FormTabs;
   const handleTabChange = (value: string) => {
@@ -101,49 +118,17 @@ export function AdminUserAlbumForm() {
     setActiveTab(value);
   };
 
-  const buildPayload = (): UserAlbumUpdateInput => {
-    if (!originalForm) return {};
-    const payload: UserAlbumUpdateInput = {};
-    if (form.trackId !== originalForm.trackId) payload.trackId = form.trackId;
-    if (form.review !== originalForm.review) payload.review = form.review;
-    return payload;
+  const applyUserAlbumUpdate = (updated: UserAlbum) => {
+    setUserAlbums((prev) => {
+      const index = prev.findIndex((ua) => ua.albumId === updated.albumId);
+      if (index === -1) return [...prev, updated];
+      return prev.map((ua, i) => (i === index ? updated : ua));
+    });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!selectedId) return;
-    setStatus(null);
-
-    const payload = buildPayload();
-    if (Object.keys(payload).length === 0) {
-      setStatus({ kind: "success", text: t(($) => $.admin.status.no_changes) });
-      return;
-    }
-
-    setSubmitting(true);
-    try {
-      const updated = await UserAlbumController.updateUserAlbum(selectedId, payload);
-      setUserAlbums((prev) => {
-        const index = prev.findIndex((ua) => ua.albumId === selectedId);
-        if (index === -1) return [...prev, updated];
-        return prev.map((ua, i) => (i === index ? updated : ua));
-      });
-      const next: UserAlbumForm = {
-        trackId: updated.trackId,
-        review: updated.review,
-      };
-      setForm(next);
-      setOriginalForm(next);
-      setStatus({ kind: "success", text: t(($) => $.admin.status.user_album_updated) });
-    } catch (error) {
-      setStatus({
-        kind: "error",
-        text:
-          error instanceof Error ? error.message : t(($) => $.admin.error.update_user_album_failed),
-      });
-    } finally {
-      setSubmitting(false);
-    }
+  const toggleAllMode = (pressed: boolean) => {
+    setAllMode(pressed);
+    if (pressed) setSelectedId("");
   };
 
   return (
@@ -155,7 +140,8 @@ export function AdminUserAlbumForm() {
 
       <TabsContent value={FormTabs.review}>
         <div className="w-full flex flex-col gap-4">
-          <div className="flex items-center justify-between gap-2">
+          {status ? <Note text={status.text} /> : null}
+          <div className="flex items-center gap-2">
             <Select
               placeholder={
                 loading
@@ -164,86 +150,162 @@ export function AdminUserAlbumForm() {
               }
               contentClassName="border border-border"
               value={selectedId}
-              disabled={loading}
-              onValueChange={selectAlbum}
-              options={albums.map((album) => ({
+              disabled={loading || allMode}
+              onValueChange={setSelectedId}
+              options={sortedAlbums.map((album) => ({
                 value: album.id,
                 label: `${album.artist} - ${album.album}`,
               }))}
             />
-            <Button type="button" variant="outline" disabled={!selectedId} onClick={resetEditAlbum}>
-              {t(($) => $.admin.button.reset)}
-            </Button>
+            <Toggle
+              icon={Layers02Icon}
+              pressed={allMode}
+              disabled={loading}
+              onPressedChange={toggleAllMode}
+            >
+              {t(($) => $.admin.toggle.all)}
+            </Toggle>
           </div>
 
-          {selectedId ? (
-            <Form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
-              <FormField name="trackId">
-                <FormLabel>{t(($) => $.albums.favorite_track)}</FormLabel>
-                <div className="flex items-center gap-2">
-                  <Select
-                    placeholder={t(($) => $.admin.placeholder.no_favorite_track)}
-                    contentClassName="border border-border"
-                    value={form.trackId ?? ""}
-                    onValueChange={(trackId) => setForm((prev) => ({ ...prev, trackId }))}
-                    options={trackOptions}
-                  />
-                  <Button
-                    type="button"
-                    variant="outline"
-                    disabled={!form.trackId}
-                    onClick={() => setForm((prev) => ({ ...prev, trackId: null }))}
-                  >
-                    {t(($) => $.admin.button.clear)}
-                  </Button>
-                </div>
-              </FormField>
-              <FormField name="review">
-                <FormLabel>{t(($) => $.admin.label.review)}</FormLabel>
-                <FormControl asChild>
-                  <Textarea
-                    value={form.review}
-                    onChange={(e) => setForm((prev) => ({ ...prev, review: e.target.value }))}
-                  />
-                </FormControl>
-              </FormField>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">
-                  {t(($) => $.albums.honorable_mention)}
-                </span>
-                <span>
-                  {selectedUserAlbum?.honorable
-                    ? t(($) => $.admin.label.yes)
-                    : t(($) => $.admin.label.no)}
-                </span>
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">{t(($) => $.albums.filter_rank)}</span>
-                <span>{selectedUserAlbum?.rank ?? t(($) => $.admin.label.na)}</span>
-              </div>
-
-              {status ? (
-                <Note
-                  text={status.text}
-                  className={status.kind === "error" ? "border-l-destructive" : undefined}
-                />
-              ) : null}
-
-              <Button type="submit" disabled={submitting} className="self-start">
-                {submitting ? t(($) => $.admin.button.saving) : t(($) => $.admin.button.save)}
-              </Button>
-            </Form>
+          {allMode ? (
+            <div className="flex flex-col">
+              {sortedAlbums.map((album, index) => {
+                const striped = index % 2 === 0;
+                return (
+                  <div key={album.id} className={`rounded-lg p-3 ${striped ? "bg-card" : ""}`}>
+                    <AdminUserAlbumEditForm
+                      variant={striped ? "outline" : "default"}
+                      album={album}
+                      userAlbum={userAlbums.find((ua) => ua.albumId === album.id)}
+                      onSaved={applyUserAlbumUpdate}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          ) : selectedAlbum ? (
+            <AdminUserAlbumEditForm
+              key={selectedId}
+              album={selectedAlbum}
+              userAlbum={userAlbums.find((ua) => ua.albumId === selectedId)}
+              onSaved={applyUserAlbumUpdate}
+            />
           ) : (
-            <>
-              {status ? <Note text={status.text} /> : null}
-              <Note text={t(($) => $.admin.note.select_album_to_edit)} />
-            </>
+            <Note text={t(($) => $.admin.note.select_album_to_edit)} />
           )}
         </div>
       </TabsContent>
 
       <TabsContent value={FormTabs.order}>
-        <div />
+        <div className="max-w-lg mx-auto flex flex-col gap-6">
+          <div className="flex items-center gap-3 pb-2 text-sm font-medium text-muted-foreground">
+            <span className="w-26 shrink-0 text-left">{t(($) => $.admin.label.reorder)}</span>
+            <div className="min-w-0 flex-1 flex items-center justify-between">
+              <span>{t(($) => $.admin.label.album)}</span>
+              <span>{t(($) => $.albums.honorable_mention)}</span>
+            </div>
+          </div>
+          <SortableList
+            items={orderRows}
+            onChange={setOrderRows}
+            renderItem={(item, index) => {
+              const cover = item.album.art?.[0];
+              const honorable = userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
+              return (
+                <div className="flex items-center gap-3">
+                  {cover ? (
+                    <Image
+                      src={`/${cover}`}
+                      alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                      width={64}
+                      height={64}
+                      className="w-16 h-16 rounded-sm object-cover shrink-0"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium truncate">{item.album.album}</p>
+                    <p className="text-sm text-muted-foreground truncate">{item.album.artist}</p>
+                  </div>
+                  <span className="text-lg font-bold text-theme-600 tabular-nums shrink-0">
+                    {index + 1}
+                  </span>
+                  <Switch
+                    defaultChecked={honorable}
+                    aria-label={t(($) => $.albums.honorable_mention)}
+                  />
+                </div>
+              );
+            }}
+          />
+
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-3 pb-2 text-sm font-medium text-muted-foreground">
+              <div className="min-w-0 flex-1 flex items-center justify-between">
+                <span>{t(($) => $.albums.unranked_albums)}</span>
+                <span>{t(($) => $.albums.honorable_mention)}</span>
+              </div>
+            </div>
+
+            {honorableRows.map((item) => {
+              const cover = item.album.art?.[0];
+              const honorable = userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
+              const artistAlreadyRanked = orderRows.some(
+                (row) => row.album.artist === item.album.artist,
+              );
+              return (
+                <div key={item.id} className="flex items-center gap-2">
+                  {artistAlreadyRanked ? (
+                    <Tooltip
+                      trigger={
+                        <span>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            disabled
+                            className="pointer-events-none"
+                          >
+                            <HugeiconsIcon icon={ChampionIcon} className="size-5" />
+                            {t(($) => $.admin.button.rank)}
+                          </Button>
+                        </span>
+                      }
+                    >
+                      {t(($) => $.admin.tooltip.artist_already_ranked)}
+                    </Tooltip>
+                  ) : (
+                    <Button type="button" variant="outline">
+                      <HugeiconsIcon icon={ChampionIcon} className="size-5" />
+                      {t(($) => $.admin.button.rank)}
+                    </Button>
+                  )}
+                  <div className="min-w-0 flex-1 flex items-center gap-3">
+                    {cover ? (
+                      <Image
+                        src={`/${cover}`}
+                        alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 rounded-sm object-cover shrink-0"
+                      />
+                    ) : (
+                      <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium truncate">{item.album.album}</p>
+                      <p className="text-sm text-muted-foreground truncate">{item.album.artist}</p>
+                    </div>
+                  </div>
+                  <Switch
+                    defaultChecked={honorable}
+                    aria-label={t(($) => $.albums.honorable_mention)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </TabsContent>
     </Tabs>
   );

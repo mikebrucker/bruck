@@ -7,6 +7,7 @@
     "ranked_info": "Die größten Alben aller Zeiten. Kein einziger Skip. Jeder Künstler kann maximal ein Album in der Liste haben.",
     "honorable_mention": "Ehrenwerte Erwähnung",
     "honorable_mentions": "Ehrenwerte Erwähnungen",
+    "unranked_albums": "Ungerankte Alben",
     "tracks": "Titel",
     "disc": "Scheibe {{number}}",
     "cover_art": "{{album}} Albumcover",
@@ -75,6 +76,12 @@
       "unknown": "Unbekannter Fehler",
       "update_user_album_failed": "Albumdaten konnten nicht aktualisiert werden"
     },
+    "tooltip": {
+      "artist_already_ranked": "Künstler ist bereits gerankt"
+    },
+    "toggle": {
+      "all": "Alle"
+    },
     "status": {
       "no_changes": "Keine Änderungen zum Aktualisieren",
       "album_updated": "Album \"{{id}}\" aktualisiert",
@@ -101,7 +108,8 @@
       "create_album": "Album erstellen",
       "uploading": "Lädt hoch...",
       "upload": "Hochladen",
-      "save": "Speichern"
+      "save": "Speichern",
+      "rank": "Rang"
     },
     "placeholder": {
       "loading": "Lädt...",
@@ -121,6 +129,7 @@
       "id": "ID (automatisch generiert)",
       "artist": "Künstler",
       "album": "Album",
+      "reorder": "Sortieren",
       "year": "Jahr",
       "label": "Label",
       "genre": "Genre",

@@ -7,6 +7,7 @@
     "ranked_info": "The greatest albums of all time. Not one skippable track. Each artist can only have max one album in the list.",
     "honorable_mention": "Honorable Mention",
     "honorable_mentions": "Honorable Mentions",
+    "unranked_albums": "Unranked Albums",
     "tracks": "Tracks",
     "disc": "Disc {{number}}",
     "cover_art": "{{album}} cover art",
@@ -75,6 +76,12 @@
       "unknown": "Unknown error",
       "update_user_album_failed": "Could not update album data"
     },
+    "tooltip": {
+      "artist_already_ranked": "Artist is already Ranked"
+    },
+    "toggle": {
+      "all": "All"
+    },
     "status": {
       "no_changes": "No changes to update",
       "album_updated": "Album \"{{id}}\" updated",
@@ -101,7 +108,8 @@
       "create_album": "Create album",
       "uploading": "Uploading...",
       "upload": "Upload",
-      "save": "Save"
+      "save": "Save",
+      "rank": "Rank"
     },
     "placeholder": {
       "loading": "Loading...",
@@ -121,6 +129,7 @@
       "id": "ID (auto-generated)",
       "artist": "Artist",
       "album": "Album",
+      "reorder": "Reorder",
       "year": "Year",
       "label": "Label",
       "genre": "Genre",
