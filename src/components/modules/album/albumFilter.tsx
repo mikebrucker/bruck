@@ -195,7 +195,7 @@ export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
   return (
     <Popover
       useCloseButton
-      className="w-[90vw] max-w-120 max-h-[70vh] overflow-y-auto flex flex-col gap-3 p-3 pb-4"
+      className="w-[90vw] max-w-120 max-h-[70dvh] overflow-y-auto flex flex-col gap-3 p-3 pb-4"
       trigger={
         <button
           type="button"
