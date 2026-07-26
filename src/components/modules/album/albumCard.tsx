@@ -74,7 +74,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
         width={256}
         height={256}
         priority={i === 0}
-        className="w-64 h-64 rounded-sm object-cover cursor-pointer"
+        className="w-64 h-auto rounded-sm cursor-pointer"
       />
     </div>
   ));
@@ -272,8 +272,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
                 alt={t(($) => $.albums.cover_art, { album: album.album })}
                 width={1024}
                 height={1024}
-                style={{ height: "auto" }}
-                className="w-full cursor-pointer"
+                className="w-full h-auto max-h-screen object-contain cursor-pointer"
               />
             </div>
           ) : null}
