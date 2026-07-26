@@ -519,10 +519,10 @@ html.light {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground h-dvh overflow-hidden;
   }
 
   html {
-    @apply font-sans;
+    @apply font-sans h-dvh overflow-hidden;
   }
 }

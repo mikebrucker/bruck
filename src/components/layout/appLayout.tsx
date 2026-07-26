@@ -21,10 +21,10 @@ function AppLayout({
   }, [adminToken]);
 
   return (
-    <div className="flex flex-col min-h-dvh items-center flex-start font-sans">
+    <div className="flex flex-col h-dvh items-center flex-start font-sans">
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} useTheme />
       <Header onAction={() => setMenuOpen(true)} actionIcon={Menu01Icon} sticky />
-      <main className="flex flex-col gap-4 grow items-center max-w-5xl w-full p-1 py-4 sm:p-4 transition-all">
+      <main className="flex flex-col gap-4 grow items-center max-w-5xl w-full mx-auto p-1 py-4 sm:p-4 overflow-y-auto transition-all">
         {children}
       </main>
       <Footer sticky />
