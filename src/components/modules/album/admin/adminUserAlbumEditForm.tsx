@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Form, FormControl, FormField, FormLabel } from "@/components/ui/form";
-import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Toast } from "@/components/ui/toast";
 import UserAlbumController from "@/controllers/userAlbum";
 import type { UserAlbumUpdateInput } from "@/data/userAlbumSchema";
 import { makeTrackId } from "@/lib/favoriteTrack";
@@ -20,6 +20,8 @@ type UserAlbumForm = {
   trackId: string | null;
   review: string;
 };
+
+type Status = { kind: "success" | "error"; text: string };
 
 const formFromUserAlbum = (userAlbum: UserAlbum | undefined): UserAlbumForm => ({
   trackId: userAlbum?.trackId ?? null,
@@ -51,11 +53,18 @@ export function AdminUserAlbumEditForm({
   const [originalForm, setOriginalForm] = useState<UserAlbumForm>(() =>
     formFromUserAlbum(userAlbum),
   );
-  const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
+  const [status, setStatus] = useState<Status | null>(null);
+  const [toastOpen, setToastOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const toastId = useRef(0);
+
+  const showStatus = (next: Status) => {
+    toastId.current += 1;
+    setStatus(next);
+    setToastOpen(true);
+  };
 
   const hasChanges = JSON.stringify(form) !== JSON.stringify(originalForm);
-  const cover = album.art?.[0];
   const trackOptions = album.tracks.map((track) => ({
     value: makeTrackId(track.number, track.disc),
     label: `${track.number}. ${track.title}`,
@@ -63,16 +72,16 @@ export function AdminUserAlbumEditForm({
 
   const resetForm = () => {
     setForm(originalForm);
-    setStatus(null);
+    setToastOpen(false);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus(null);
+    setToastOpen(false);
 
     const payload = buildPayload(form, originalForm);
     if (Object.keys(payload).length === 0) {
-      setStatus({ kind: "success", text: t(($) => $.admin.status.no_changes) });
+      showStatus({ kind: "success", text: t(($) => $.admin.status.no_changes) });
       return;
     }
 
@@ -85,10 +94,15 @@ export function AdminUserAlbumEditForm({
       };
       setForm(next);
       setOriginalForm(next);
-      setStatus({ kind: "success", text: t(($) => $.admin.status.user_album_updated) });
+      showStatus({
+        kind: "success",
+        text: t(($) => $.admin.status.user_album_updated, {
+          album: album.album ?? t(($) => $.admin.label.na),
+        }),
+      });
       onSaved(updated);
     } catch (error) {
-      setStatus({
+      showStatus({
         kind: "error",
         text:
           error instanceof Error ? error.message : t(($) => $.admin.error.update_user_album_failed),
@@ -113,7 +127,9 @@ export function AdminUserAlbumEditForm({
             />
           ))}
         </div>
-        {!cover ? <div className="w-16 h-16 rounded-sm bg-card shrink-0" /> : null}
+        {!album.art || album.art.length === 0 ? (
+          <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
+        ) : null}
         <div className="min-w-0 flex-1">
           <p className="font-medium truncate">{album.album}</p>
           <p className="text-sm text-muted-foreground truncate">{album.artist}</p>
@@ -165,14 +181,22 @@ export function AdminUserAlbumEditForm({
         </FormField>
 
         {status ? (
-          <Note
+          <Toast
+            key={toastId.current}
+            open={toastOpen}
+            onOpenChange={setToastOpen}
             text={status.text}
-            className={status.kind === "error" ? "border-l-destructive" : undefined}
+            variant={status.kind === "error" ? "error" : "default"}
           />
         ) : null}
 
         <div className="flex items-center gap-2">
-          <Button type="submit" variant={variant} disabled={submitting || !hasChanges}>
+          <Button
+            type="submit"
+            variant={variant}
+            className={hasChanges ? "bg-theme-700/30 shadow-[0_0_5px_var(--color-theme-800)]" : ""}
+            disabled={submitting || !hasChanges}
+          >
             {submitting ? t(($) => $.admin.button.saving) : t(($) => $.admin.button.save)}
           </Button>
           <Button type="button" variant="outline" disabled={!hasChanges} onClick={resetForm}>

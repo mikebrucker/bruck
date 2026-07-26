@@ -88,7 +88,7 @@
       "album_created": "Album \"{{id}}\" erstellt",
       "json_album_updated": "Album aktualisiert",
       "json_album_created": "Album erstellt",
-      "user_album_updated": "Albumdaten aktualisiert"
+      "user_album_updated": "Albumdaten für {{album}} aktualisiert"
     },
     "tab": {
       "new_album": "Neues Album",
