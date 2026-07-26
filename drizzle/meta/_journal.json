@@ -15,6 +15,13 @@
       "when": 1784125340532,
       "tag": "0001_oval_epoch",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1785062594191,
+      "tag": "0002_generated_album_id",
+      "breakpoints": true
     }
   ]
 }

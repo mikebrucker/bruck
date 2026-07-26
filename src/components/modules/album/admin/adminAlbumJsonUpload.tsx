@@ -52,14 +52,10 @@ function AdminAlbumJsonUpload({
     setSelectResetKey((key) => key + 1);
   };
 
-  const submitAlbum = async (
-    performRequest: () => Promise<Album>,
-    isUpdate: boolean,
-    id: string | null,
-  ) => {
+  const submitAlbum = async (performRequest: () => Promise<Album>, isUpdate: boolean) => {
     setSubmitting(true);
     try {
-      await performRequest();
+      const result = await performRequest();
       setStatus({
         kind: "success",
         text: isUpdate
@@ -69,7 +65,7 @@ function AdminAlbumJsonUpload({
       if (!isUpdate) {
         setJsonText("");
       }
-      setLoadedId(id);
+      setLoadedId(result.id);
       onUploaded();
     } catch (error) {
       setStatus({
@@ -100,30 +96,22 @@ function AdminAlbumJsonUpload({
 
     const parsedId = extractId(body);
     const isUpdate = Boolean(loadedId && parsedId === loadedId);
-    const rawPayload = isUpdate ? stripId(body) : body;
+    const rawPayload = stripId(body);
 
     if (isUpdate && loadedId) {
-      await submitAlbum(
-        () => {
-          const validated = albumUpdateSchema.safeParse(rawPayload);
-          if (!validated.success) throw new Error(z.prettifyError(validated.error));
-          return AlbumController.updateAlbumRaw(loadedId, validated.data);
-        },
-        true,
-        parsedId ?? null,
-      );
+      await submitAlbum(() => {
+        const validated = albumUpdateSchema.safeParse(rawPayload);
+        if (!validated.success) throw new Error(z.prettifyError(validated.error));
+        return AlbumController.updateAlbumRaw(loadedId, validated.data);
+      }, true);
       return;
     }
 
-    await submitAlbum(
-      () => {
-        const validated = albumCreateSchema.safeParse(rawPayload);
-        if (!validated.success) throw new Error(z.prettifyError(validated.error));
-        return AlbumController.createAlbumRaw(validated.data);
-      },
-      false,
-      parsedId ?? null,
-    );
+    await submitAlbum(() => {
+      const validated = albumCreateSchema.safeParse(rawPayload);
+      if (!validated.success) throw new Error(z.prettifyError(validated.error));
+      return AlbumController.createAlbumRaw(validated.data);
+    }, false);
   };
 
   return (

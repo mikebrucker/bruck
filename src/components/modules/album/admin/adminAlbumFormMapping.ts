@@ -81,7 +81,7 @@ function buildAlbumFields(form: AlbumForm): AlbumFieldValues {
 }
 
 export function buildPayload(form: AlbumForm): AlbumCreateInput {
-  return { id: form.id.trim(), ...buildAlbumFields(form) };
+  return buildAlbumFields(form);
 }
 
 function assignChanged<K extends keyof AlbumFieldValues>(

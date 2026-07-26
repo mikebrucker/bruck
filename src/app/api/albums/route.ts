@@ -25,19 +25,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: z.prettifyError(parsed.error) }, { status: 400 });
   }
 
-  const existing = await albumRepository.getById(parsed.data.id);
-  if (existing) {
-    return NextResponse.json(
-      { error: `Album "${parsed.data.id}" already exists` },
-      { status: 409 },
-    );
-  }
-
   try {
     const created = await albumRepository.create(parsed.data);
     return NextResponse.json(created, { status: 201 });
   } catch (error) {
-    console.error(`Failed to create album "${parsed.data.id}"`, error);
+    if (error instanceof Error && "code" in error && error.code === "23505") {
+      return NextResponse.json(
+        { error: "An album with this artist/album already exists" },
+        { status: 409 },
+      );
+    }
+    console.error("Failed to create album", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

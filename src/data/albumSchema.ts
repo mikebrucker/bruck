@@ -52,7 +52,6 @@ export type AlbumUpdateInput = z.infer<typeof albumUpdateSchema>;
 
 export const albumCreateSchema = z
   .object({
-    id: z.string(),
     artist: z.string(),
     album: z.string(),
     year: z.number(),

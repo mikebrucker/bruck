@@ -172,12 +172,14 @@ export function AdminAlbumForm() {
 
       setSubmitting(true);
       try {
-        await AlbumController.updateAlbum(editingId, payload);
+        const updated = await AlbumController.updateAlbum(editingId, payload);
         setStatus({
           kind: "success",
-          text: t(($) => $.admin.status.album_updated, { id: form.id }),
+          text: t(($) => $.admin.status.album_updated, { id: updated.id }),
         });
-        setOriginalForm(form);
+        setEditingId(updated.id);
+        setForm((prev) => ({ ...prev, id: updated.id }));
+        setOriginalForm({ ...form, id: updated.id });
         refreshAlbums();
       } catch (error) {
         setStatus({
@@ -193,8 +195,11 @@ export function AdminAlbumForm() {
 
     setSubmitting(true);
     try {
-      await AlbumController.createAlbum(buildPayload(form));
-      setStatus({ kind: "success", text: t(($) => $.admin.status.album_created, { id: form.id }) });
+      const created = await AlbumController.createAlbum(buildPayload(form));
+      setStatus({
+        kind: "success",
+        text: t(($) => $.admin.status.album_created, { id: created.id }),
+      });
       setForm(emptyForm());
       refreshAlbums();
     } catch (error) {

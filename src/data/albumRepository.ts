@@ -122,23 +122,23 @@ export class AlbumRepository {
     if (!existing) return null;
 
     const { tracks: newTracks, ...albumFields } = input;
-    const batch: Array<BatchItem<"pg">> = [];
+    let currentId = id;
 
-    if (Object.keys(albumFields).length > 0 || newTracks) {
-      batch.push(
-        this.db
-          .update(albums)
-          .set({ ...albumFields, updatedAt: rawSql`now()` })
-          .where(eq(albums.id, id)),
-      );
+    if (Object.keys(albumFields).length > 0) {
+      const [updated] = await this.db
+        .update(albums)
+        .set({ ...albumFields, updatedAt: rawSql`now()` })
+        .where(eq(albums.id, id))
+        .returning({ id: albums.id });
+      currentId = updated.id;
     }
 
     if (newTracks) {
-      batch.push(this.db.delete(tracks).where(eq(tracks.albumId, id)));
-      for (const track of newTracks) {
-        batch.push(
+      const batch: Array<BatchItem<"pg">> = [
+        this.db.delete(tracks).where(eq(tracks.albumId, currentId)),
+        ...newTracks.map((track) =>
           this.db.insert(tracks).values({
-            albumId: id,
+            albumId: currentId,
             number: track.number,
             title: track.title,
             duration: track.duration,
@@ -147,20 +147,19 @@ export class AlbumRepository {
             disc: track.disc ?? null,
             personnel: track.personnel ?? null,
           }),
-        );
-      }
+        ),
+      ];
+      assertNonEmptyBatch(batch);
+      await this.db.batch(batch);
     }
 
-    assertNonEmptyBatch(batch);
-    await this.db.batch(batch);
-
-    return this.getById(id);
+    return this.getById(currentId);
   }
 
   async create(input: AlbumCreateInput): Promise<Album> {
-    const batch: Array<BatchItem<"pg">> = [
-      this.db.insert(albums).values({
-        id: input.id,
+    const [inserted] = await this.db
+      .insert(albums)
+      .values({
         artist: input.artist,
         album: input.album,
         year: input.year,
@@ -170,29 +169,27 @@ export class AlbumRepository {
         discTitles: input.discTitles ?? null,
         art: input.art ?? null,
         personnel: input.personnel ?? null,
-      }),
-    ];
+      })
+      .returning({ id: albums.id });
 
-    for (const track of input.tracks) {
-      batch.push(
-        this.db.insert(tracks).values({
-          albumId: input.id,
-          number: track.number,
-          title: track.title,
-          duration: track.duration,
-          notes: track.notes ?? null,
-          instrumental: track.instrumental ?? null,
-          disc: track.disc ?? null,
-          personnel: track.personnel ?? null,
-        }),
-      );
-    }
+    const batch: Array<BatchItem<"pg">> = input.tracks.map((track) =>
+      this.db.insert(tracks).values({
+        albumId: inserted.id,
+        number: track.number,
+        title: track.title,
+        duration: track.duration,
+        notes: track.notes ?? null,
+        instrumental: track.instrumental ?? null,
+        disc: track.disc ?? null,
+        personnel: track.personnel ?? null,
+      }),
+    );
 
     assertNonEmptyBatch(batch);
     await this.db.batch(batch);
 
-    const created = await this.getById(input.id);
-    if (!created) throw new Error(`Failed to create album "${input.id}"`);
+    const created = await this.getById(inserted.id);
+    if (!created) throw new Error(`Failed to create album "${inserted.id}"`);
     return created;
   }
 

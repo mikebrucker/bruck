@@ -1,3 +1,4 @@
+import { type SQL, sql } from "drizzle-orm";
 import {
   boolean,
   foreignKey,
@@ -12,7 +13,13 @@ import {
 import type { Credit, Personnel } from "@/types/album";
 
 export const albums = pgTable("albums", {
-  id: text().primaryKey().notNull(),
+  id: text()
+    .generatedAlwaysAs(
+      (): SQL =>
+        sql`(regexp_replace(replace(translate(lower(${albums.artist}), 'àáâãäåèéêëìíîïòóôõöùúûüñç', 'aaaaaaeeeeiiiiooooouuuunc'), ' ', '_'), '[^a-z0-9_]', '', 'g') || '-' || regexp_replace(replace(translate(lower(${albums.album}), 'àáâãäåèéêëìíîïòóôõöùúûüñç', 'aaaaaaeeeeiiiiooooouuuunc'), ' ', '_'), '[^a-z0-9_]', '', 'g'))`,
+    )
+    .primaryKey()
+    .notNull(),
   artist: text().notNull(),
   album: text().notNull(),
   year: integer().notNull(),
@@ -44,7 +51,9 @@ export const tracks = pgTable(
       columns: [table.albumId],
       foreignColumns: [albums.id],
       name: "tracks_album_id_fkey",
-    }).onDelete("cascade"),
+    })
+      .onDelete("cascade")
+      .onUpdate("cascade"),
   ],
 );
 
@@ -80,7 +89,9 @@ export const userAlbums = pgTable(
       columns: [table.albumId],
       foreignColumns: [albums.id],
       name: "user_albums_album_id_fkey",
-    }).onDelete("cascade"),
+    })
+      .onDelete("cascade")
+      .onUpdate("cascade"),
     unique("user_albums_user_id_album_id_key").on(table.userId, table.albumId),
   ],
 );
