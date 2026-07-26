@@ -15,6 +15,7 @@ import { Toggle } from "@/components/ui/toggle";
 import { Tooltip } from "@/components/ui/tooltip";
 import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
+import { cn } from "@/lib/utils";
 import type { Album } from "@/types/album";
 import type { UserAlbum } from "@/types/userAlbum";
 import { AdminUserAlbumEditForm } from "./adminUserAlbumEditForm";
@@ -35,7 +36,7 @@ export function AdminUserAlbumForm() {
   const [albums, setAlbums] = useState<Array<Album>>([]);
   const [userAlbums, setUserAlbums] = useState<Array<UserAlbum>>([]);
   const [selectedId, setSelectedId] = useState("");
-  const [allMode, setAllMode] = useState(false);
+  const [allMode, setAllMode] = useState(true);
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.review);
@@ -158,6 +159,12 @@ export function AdminUserAlbumForm() {
               }))}
             />
             <Toggle
+              className={cn(
+                "border border-border data-[state=on]:bg-theme-900 transition-colors duration-300",
+                allMode
+                  ? "border-primary bg-primary/10 shadow-[0_0_5px_var(--color-theme-800)]"
+                  : "border-border",
+              )}
               icon={Layers02Icon}
               pressed={allMode}
               disabled={loading}

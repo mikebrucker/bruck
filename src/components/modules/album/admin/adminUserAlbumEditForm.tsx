@@ -136,8 +136,8 @@ export function AdminUserAlbumEditForm({
           <div className="flex items-center gap-2">
             <Select
               variant={variant}
+              contentClassName={cn("border border-border", variant === "outline" ? "bg-input" : "")}
               placeholder={t(($) => $.admin.placeholder.no_favorite_track)}
-              contentClassName="border border-border"
               value={form.trackId ?? ""}
               onValueChange={(trackId) => setForm((prev) => ({ ...prev, trackId }))}
               options={trackOptions}
