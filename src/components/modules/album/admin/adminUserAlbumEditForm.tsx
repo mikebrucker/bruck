@@ -156,7 +156,7 @@ export function AdminUserAlbumEditForm({
           <FormLabel>{t(($) => $.admin.label.review)}</FormLabel>
           <FormControl asChild>
             <Textarea
-              size="lg"
+              className="min-h-20"
               variant={variant}
               value={form.review}
               onChange={(e) => setForm((prev) => ({ ...prev, review: e.target.value }))}
