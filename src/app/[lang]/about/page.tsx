@@ -52,13 +52,13 @@ export default function AboutPage() {
   const { t } = useTranslation();
   return (
     <div className="w-full flex flex-col gap-4">
-      <code className="text-2xl mx-3 px-3 py-0.5 w-fit rounded-sm bg-card font-semibold font-mono">
+      <code className="text-2xl px-1 py-0.5 w-fit rounded-sm bg-card font-semibold font-mono">
         <span className="text-[#0431FA] dark:text-[#569CD6]">this</span>.
         <span className="text-[#795E26] dark:text-[#DCDCAA]">website</span>
         <span className="text-[#B8860B] dark:text-[#FFD700]">()</span>
       </code>
       {groups.map((group) => (
-        <div key={group.label} className="px-3">
+        <div key={group.label} className="px-1">
           <p className="font-semibold font-mono">{t(($) => $.about[group.label])}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
             {group.items.map((item) => (

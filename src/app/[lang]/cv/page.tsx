@@ -300,7 +300,7 @@ function EntryCard({ title, role, location, dateRanges, bullets }: CvEntry) {
 export default function CvPage() {
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4 p-3">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 px-1">
         <Image
           src="/headshot.jpg"
           alt="Mike Brucker headshot"
@@ -347,7 +347,7 @@ export default function CvPage() {
       <Accordion
         size="xl"
         title="Skills"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 pb-2">
           {skills.map((group) => (
@@ -366,7 +366,7 @@ export default function CvPage() {
       <Accordion
         size="xl"
         title="Work Experience"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
       >
         <div className="flex flex-col gap-3">
           {experience.map((entry) => (
@@ -378,7 +378,7 @@ export default function CvPage() {
       <Accordion
         size="xl"
         title="Education"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
       >
         <div className="flex flex-col gap-3">
           {education.map((entry) => (
@@ -390,7 +390,7 @@ export default function CvPage() {
       <Accordion
         size="xl"
         title="Other Experience"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
       >
         <div className="flex flex-col gap-3">
           {otherExperience.map((entry) => (
@@ -402,7 +402,7 @@ export default function CvPage() {
       <Accordion
         size="xl"
         title="Hobbies"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-3"
+        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
       >
         <div className="flex flex-wrap gap-1.5 pb-2">
           {hobbies.map((hobby) => (
