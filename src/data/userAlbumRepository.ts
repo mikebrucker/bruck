@@ -13,6 +13,13 @@ export class RankedHonorableError extends Error {
   }
 }
 
+export class HonorableRankedError extends Error {
+  constructor(albumId: string) {
+    super(`Album "${albumId}" is an honorable mention and cannot be ranked`);
+    this.name = "HonorableRankedError";
+  }
+}
+
 export class UserAlbumRepository {
   constructor(private readonly db: typeof defaultDb = defaultDb) {}
 
@@ -62,6 +69,28 @@ export class UserAlbumRepository {
       .onConflictDoUpdate({
         target: conflictTarget,
         set: { honorable, updatedAt: sql`now()` },
+      })
+      .returning();
+    return mapUserAlbum(row);
+  }
+
+  async setRank(albumId: string, rank: number | null): Promise<UserAlbum> {
+    if (rank !== null) {
+      const [existing] = await this.db
+        .select()
+        .from(userAlbums)
+        .where(and(eq(userAlbums.userId, "me"), eq(userAlbums.albumId, albumId)));
+      if (existing?.honorable) {
+        throw new HonorableRankedError(albumId);
+      }
+    }
+
+    const [row] = await this.db
+      .insert(userAlbums)
+      .values({ userId: "me", albumId, rank })
+      .onConflictDoUpdate({
+        target: conflictTarget,
+        set: { rank, updatedAt: sql`now()` },
       })
       .returning();
     return mapUserAlbum(row);

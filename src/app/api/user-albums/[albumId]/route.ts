@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { RankedHonorableError, userAlbumRepository } from "@/data/userAlbumRepository";
+import {
+  HonorableRankedError,
+  RankedHonorableError,
+  userAlbumRepository,
+} from "@/data/userAlbumRepository";
 import { userAlbumUpdateSchema } from "@/data/userAlbumSchema";
 import { isAuthorized } from "@/lib/auth";
 import type { UserAlbum } from "@/types/userAlbum";
@@ -38,12 +42,15 @@ export async function PATCH(
     if (parsed.data.honorable !== undefined) {
       updated = await userAlbumRepository.setHonorable(albumId, parsed.data.honorable);
     }
+    if (parsed.data.rank !== undefined) {
+      updated = await userAlbumRepository.setRank(albumId, parsed.data.rank);
+    }
     if (!updated) {
       return NextResponse.json({ error: "No fields to update" }, { status: 400 });
     }
     return NextResponse.json(updated);
   } catch (error) {
-    if (error instanceof RankedHonorableError) {
+    if (error instanceof RankedHonorableError || error instanceof HonorableRankedError) {
       return NextResponse.json({ error: error.message }, { status: 409 });
     }
     console.error(`Failed to update user album "${albumId}"`, error);

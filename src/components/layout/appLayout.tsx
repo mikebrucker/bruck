@@ -24,8 +24,8 @@ function AppLayout({
     <div className="flex flex-col h-dvh items-center flex-start font-sans">
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} useTheme />
       <Header onAction={() => setMenuOpen(true)} actionIcon={Menu01Icon} sticky />
-      <main className="flex flex-col gap-4 grow items-center max-w-5xl w-full mx-auto p-1 py-4 sm:p-4 overflow-y-auto transition-all">
-        {children}
+      <main className="flex flex-col items-center grow w-full overflow-y-auto transition-all">
+        <div className="flex flex-col gap-4 max-w-5xl w-full p-1 py-4 sm:p-4">{children}</div>
       </main>
       <Footer sticky />
     </div>

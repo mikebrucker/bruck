@@ -124,11 +124,11 @@ function AdminAlbumJsonUpload({
           id="json-album-load"
           contentClassName="border border-border"
           placeholder={t(($) => $.admin.placeholder.select_album_json)}
-          value={loadedId ?? undefined}
+          value={loadedId ?? ""}
           onValueChange={loadAlbumJson}
           options={albums.map((album) => ({
             value: album.id,
-            label: `${album.artist} — ${album.album}`,
+            label: `${album.artist} - ${album.album}`,
           }))}
         />
         <Button type="button" variant="outline" onClick={clear}>

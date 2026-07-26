@@ -229,7 +229,7 @@ export function AdminAlbumForm() {
 
   return (
     <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full flex flex-col gap-4">
-      <TabsList>
+      <TabsList className="self-center">
         <TabsTrigger value={FormTabs.new}>{t(($) => $.admin.tab.new_album)}</TabsTrigger>
         <TabsTrigger value={FormTabs.edit}>{t(($) => $.admin.tab.edit_album)}</TabsTrigger>
         <TabsTrigger value={FormTabs.json}>{t(($) => $.admin.tab.json_album)}</TabsTrigger>
@@ -253,12 +253,12 @@ export function AdminAlbumForm() {
                 : t(($) => $.admin.placeholder.load_existing_album)
             }
             contentClassName="border border-border"
-            value={editingId ?? undefined}
+            value={editingId ?? ""}
             disabled={loading}
             onValueChange={loadAlbum}
             options={sortedAlbums.map((album) => ({
               value: album.id,
-              label: `${album.artist} — ${album.album}`,
+              label: `${album.artist} - ${album.album}`,
             }))}
           />
           <Button type="button" variant="outline" disabled={!editingId} onClick={resetEditAlbum}>

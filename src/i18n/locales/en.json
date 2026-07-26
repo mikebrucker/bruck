@@ -26,8 +26,8 @@
     "filter_no_genres": "No Genres",
     "filter_no_labels": "No Labels",
     "filter_button": "Filter",
-    "filter_mode_or": "OR — matches any selected",
-    "filter_mode_and": "AND — must match all selected"
+    "filter_mode_or": "OR - matches any selected",
+    "filter_mode_and": "AND - must match all selected"
   },
   "about": {
     "frontend": "Frontend",
@@ -72,19 +72,23 @@
       "update_album_failed": "Could not update album",
       "create_album_failed": "Could not create album",
       "invalid_json": "Invalid JSON",
-      "unknown": "Unknown error"
+      "unknown": "Unknown error",
+      "update_user_album_failed": "Could not update album data"
     },
     "status": {
       "no_changes": "No changes to update",
       "album_updated": "Album \"{{id}}\" updated",
       "album_created": "Album \"{{id}}\" created",
       "json_album_updated": "Album updated",
-      "json_album_created": "Album created"
+      "json_album_created": "Album created",
+      "user_album_updated": "Album data updated"
     },
     "tab": {
       "new_album": "New Album",
       "edit_album": "Edit Album",
-      "json_album": "JSON Album"
+      "json_album": "JSON Album",
+      "review": "Review",
+      "order": "Order"
     },
     "button": {
       "reset": "Reset",
@@ -96,7 +100,8 @@
       "update_album": "Update album",
       "create_album": "Create album",
       "uploading": "Uploading...",
-      "upload": "Upload"
+      "upload": "Upload",
+      "save": "Save"
     },
     "placeholder": {
       "loading": "Loading...",
@@ -109,7 +114,8 @@
       "disc": "Disc (optional)",
       "notes": "Notes",
       "name": "Name",
-      "roles": "Roles (comma separated)"
+      "roles": "Roles (comma separated)",
+      "no_favorite_track": "No favorite track"
     },
     "label": {
       "id": "ID (auto-generated)",
@@ -124,7 +130,11 @@
       "studios": "Studios (comma separated)",
       "personnel_notes": "Personnel notes",
       "album_json": "Album JSON",
-      "instrumental": "Instrumental"
+      "instrumental": "Instrumental",
+      "review": "Review",
+      "yes": "Yes",
+      "no": "No",
+      "na": "N/A"
     },
     "heading": {
       "members": "Members",
@@ -139,6 +149,10 @@
     },
     "note": {
       "select_album_to_edit": "Select an album above to edit."
+    },
+    "nav": {
+      "album": "Album",
+      "user_album": "User Album"
     }
   }
 }

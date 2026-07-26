@@ -272,7 +272,8 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
                 alt={t(($) => $.albums.cover_art, { album: album.album })}
                 width={1024}
                 height={1024}
-                className="w-full h-auto max-h-screen object-contain cursor-pointer"
+                style={{ height: "auto" }}
+                className="w-full max-h-screen object-contain cursor-pointer"
               />
             </div>
           ) : null}

@@ -1,10 +1,6 @@
-import { notFound } from "next/navigation";
-import { AdminAlbumForm } from "@/components/modules/album/admin/adminAlbumForm";
+import { redirect } from "next/navigation";
 
-export default function AdminPage() {
-  if (!process.env.ADMIN_TOKEN) {
-    notFound();
-  }
-
-  return <AdminAlbumForm />;
+export default async function AdminPage({ params }: PageProps<"/[lang]/admin">) {
+  const { lang } = await params;
+  redirect(`/${lang}/admin/album/`);
 }

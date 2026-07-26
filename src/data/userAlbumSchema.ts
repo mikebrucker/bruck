@@ -5,6 +5,7 @@ export const userAlbumUpdateSchema = z
     trackId: z.string().nullable().optional(),
     review: z.string().optional(),
     honorable: z.boolean().optional(),
+    rank: z.number().int().positive().nullable().optional(),
   })
   .strict()
   .refine((data) => Object.keys(data).length > 0, {
