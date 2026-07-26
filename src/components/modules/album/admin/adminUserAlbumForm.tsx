@@ -204,7 +204,7 @@ export function AdminUserAlbumForm() {
       </TabsContent>
 
       <TabsContent value={FormTabs.order}>
-        <div className="max-w-lg mx-auto flex flex-col gap-6">
+        <div className="max-w-xl w-full mx-auto flex flex-col gap-6">
           <div className="flex items-center gap-3 pb-2 text-sm font-medium text-muted-foreground">
             <span className="w-26 shrink-0 text-left">{t(($) => $.admin.label.reorder)}</span>
             <div className="min-w-0 flex-1 flex items-center justify-between">
@@ -262,7 +262,7 @@ export function AdminUserAlbumForm() {
                 (row) => row.album.artist === item.album.artist,
               );
               return (
-                <div key={item.id} className="flex items-center gap-2">
+                <div key={item.id} className="flex items-center gap-2 sm:gap-4">
                   {artistAlreadyRanked ? (
                     <Tooltip
                       trigger={
