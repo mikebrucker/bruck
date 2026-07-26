@@ -64,8 +64,10 @@ function AdminAlbumJsonUpload({
       });
       if (!isUpdate) {
         setJsonText("");
+        setLoadedId(null);
+      } else {
+        setLoadedId(result.id);
       }
-      setLoadedId(result.id);
       onUploaded();
     } catch (error) {
       setStatus({

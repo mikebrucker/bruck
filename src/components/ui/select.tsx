@@ -108,7 +108,7 @@ function Select({
                   "flex w-full cursor-pointer items-center justify-between gap-1.5 outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50",
                   isKeyboard
                     ? "rounded-[10px] [border-style:outset] border-(--keycap-edge,rgb(240,240,203)) [border-width:6px_8px_8px_6px] bg-(--keycap-face,beige) px-3 py-2 text-xs font-medium text-(--keycap-text,#3a382c) shadow-[0_4px_8px_2px_rgba(0,0,0,0.4)] transition-[box-shadow,transform,border-width] duration-100 ease-out data-highlighted:translate-y-0.5 data-highlighted:brightness-95 data-highlighted:[border-style:inset] data-highlighted:[border-width:6px_6px_4px_6px] data-highlighted:shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.3),0_1px_2px_1px_rgba(0,0,0,0.4)]"
-                    : "rounded-sm px-3 h-9 text-sm font-medium not-data-highlighted:even:bg-black/5 dark:not-data-highlighted:even:bg-white/5 data-highlighted:bg-theme-300",
+                    : "px-3 h-9 text-sm font-medium not-data-highlighted:even:bg-black/5 dark:not-data-highlighted:even:bg-white/5 data-highlighted:bg-theme-300",
                 )}
               >
                 <SelectPrimitive.ItemText>
