@@ -131,7 +131,9 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
             </div>
           ) : null}
 
-          <Note className="col-span-2 sm:col-span-1" text={userAlbum?.review ?? ""} />
+          {userAlbum?.review ? (
+            <Note className="col-span-2 sm:col-span-1" text={userAlbum.review} />
+          ) : null}
         </div>
 
         <div className="hidden sm:flex shrink-0 sm:flex-col lg:flex-row gap-1">{art}</div>

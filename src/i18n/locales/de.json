@@ -76,7 +76,8 @@
       "create_album_failed": "Album konnte nicht erstellt werden",
       "invalid_json": "Ungültiges JSON",
       "unknown": "Unbekannter Fehler",
-      "update_user_album_failed": "Albumdaten konnten nicht aktualisiert werden"
+      "update_user_album_failed": "Albumdaten konnten nicht aktualisiert werden",
+      "save_order_failed": "Reihenfolge konnte nicht gespeichert werden"
     },
     "tooltip": {
       "artist_already_ranked": "Künstler ist bereits gerankt"
@@ -90,7 +91,8 @@
       "album_created": "Album \"{{id}}\" erstellt",
       "json_album_updated": "Album aktualisiert",
       "json_album_created": "Album erstellt",
-      "user_album_updated": "Albumdaten für {{album}} aktualisiert"
+      "user_album_updated": "Albumdaten für {{album}} aktualisiert",
+      "saving": "Wird gespeichert..."
     },
     "tab": {
       "new_album": "Neues Album",

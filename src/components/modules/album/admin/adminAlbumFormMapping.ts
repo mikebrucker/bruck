@@ -1,7 +1,31 @@
 import type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumRepository";
-import type { Album, Credit, Track } from "@/types/album";
-import type { AlbumForm, CreditForm, TrackForm } from "./adminAlbumFormTypes";
-import { emptyTrack } from "./adminAlbumFormTypes";
+import type { Album, AlbumForm, Credit, CreditForm, Track, TrackForm } from "@/types/album";
+
+export const emptyCredit = (): CreditForm => ({ name: "", roles: "", notes: "" });
+
+export const emptyTrack = (): TrackForm => ({
+  number: "",
+  title: "",
+  duration: "",
+  notes: "",
+  instrumental: false,
+  disc: "",
+  personnel: [],
+});
+
+export const emptyForm = (): AlbumForm => ({
+  id: "",
+  artist: "",
+  album: "",
+  year: "",
+  label: "",
+  genre: "",
+  runtime: "",
+  discTitles: "",
+  art: "",
+  tracks: [emptyTrack()],
+  personnel: { members: [], guests: [], production: [], studios: "", notes: "" },
+});
 
 export function parseNumber(value: string): number | undefined {
   if (value.trim() === "") return undefined;

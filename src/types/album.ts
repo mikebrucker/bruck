@@ -131,3 +131,37 @@ export interface Album {
   /** Per-user data (review, favorite track) joined in AlbumRepository.getRanked */
   userAlbum?: UserAlbum;
 }
+
+export type CreditForm = { name: string; roles: string; notes: string };
+
+export type TrackForm = {
+  number: string;
+  title: string;
+  duration: string;
+  notes: string;
+  instrumental: boolean;
+  disc: string;
+  personnel: Array<CreditForm>;
+};
+
+export type PersonnelForm = {
+  members: Array<CreditForm>;
+  guests: Array<CreditForm>;
+  production: Array<CreditForm>;
+  studios: string;
+  notes: string;
+};
+
+export type AlbumForm = {
+  id: string;
+  artist: string;
+  album: string;
+  year: string;
+  label: string;
+  genre: string;
+  runtime: string;
+  discTitles: string;
+  art: string;
+  tracks: Array<TrackForm>;
+  personnel: PersonnelForm;
+};

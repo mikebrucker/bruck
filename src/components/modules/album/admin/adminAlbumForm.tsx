@@ -9,17 +9,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
 import { toSlug } from "@/lib/album";
-import type { Album } from "@/types/album";
+import type { Album, AlbumForm, TrackForm } from "@/types/album";
 import type { UserAlbum } from "@/types/userAlbum";
 import { AdminAlbumFormFields } from "./adminAlbumFormFields";
 import {
   albumToForm,
   buildPayload,
   buildUpdatePayload,
+  emptyForm,
+  emptyTrack,
   parseNumber,
 } from "./adminAlbumFormMapping";
-import type { AlbumForm, TrackForm } from "./adminAlbumFormTypes";
-import { emptyForm, emptyTrack } from "./adminAlbumFormTypes";
 import { AdminAlbumJsonUpload } from "./adminAlbumJsonUpload";
 
 const FormTabs = {

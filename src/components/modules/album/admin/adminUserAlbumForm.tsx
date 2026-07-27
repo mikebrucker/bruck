@@ -3,7 +3,7 @@
 import { ChampionIcon, Layers02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
@@ -15,9 +15,11 @@ import { Toggle } from "@/components/ui/toggle";
 import { Tooltip } from "@/components/ui/tooltip";
 import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
-import { cn } from "@/lib/utils";
+import type { UserAlbumBulkUpdateItem } from "@/data/userAlbumSchema";
+import { applyPatches, mergeUserAlbums } from "@/lib/userAlbum";
+import { cn, debounce } from "@/lib/utils";
 import type { Album } from "@/types/album";
-import type { UserAlbum } from "@/types/userAlbum";
+import type { OrderPatch, OrderUpdate, UserAlbum } from "@/types/userAlbum";
 import { AdminUserAlbumEditForm } from "./adminUserAlbumEditForm";
 
 const FormTabs = {
@@ -31,6 +33,8 @@ type OrderRow = {
   album: Album;
 };
 
+const SAVE_DELAY_MS = 300;
+
 export function AdminUserAlbumForm() {
   const { t } = useTranslation();
   const [albums, setAlbums] = useState<Array<Album>>([]);
@@ -39,9 +43,12 @@ export function AdminUserAlbumForm() {
   const [allMode, setAllMode] = useState(true);
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.review);
-  const [orderRows, setOrderRows] = useState<Array<OrderRow>>([]);
-  const [honorableRows, setHonorableRows] = useState<Array<OrderRow>>([]);
+
+  const pendingRef = useRef<Map<string, OrderPatch>>(new Map());
+  const flushRef = useRef<() => Promise<void>>(() => Promise.resolve());
+  const chainRef = useRef<Promise<void>>(Promise.resolve());
 
   const sortedAlbums = useMemo(() => {
     const groupOf = (album: Album) => {
@@ -86,18 +93,21 @@ export function AdminUserAlbumForm() {
     refresh();
   }, [refresh]);
 
-  useEffect(() => {
-    const rows = userAlbums
-      .filter((ua) => ua.rank !== null)
-      .sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0))
-      .map((ua) => albums.find((album) => album.id === ua.albumId))
-      .filter((album): album is Album => album !== undefined)
-      .map((album) => ({ id: album.id, album }));
-    setOrderRows(rows);
+  const orderRows = useMemo<Array<OrderRow>>(
+    () =>
+      userAlbums
+        .filter((ua) => ua.rank !== null)
+        .sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0))
+        .map((ua) => albums.find((album) => album.id === ua.albumId))
+        .filter((album): album is Album => album !== undefined)
+        .map((album) => ({ id: album.id, album })),
+    [albums, userAlbums],
+  );
 
-    const rankedIds = new Set(rows.map((row) => row.id));
-    const rankedArtists = new Set(rows.map((row) => row.album.artist));
-    const honorable = albums
+  const honorableRows = useMemo<Array<OrderRow>>(() => {
+    const rankedIds = new Set(orderRows.map((row) => row.id));
+    const rankedArtists = new Set(orderRows.map((row) => row.album.artist));
+    return albums
       .filter((album) => !rankedIds.has(album.id))
       .map((album) => ({ id: album.id, album }))
       .sort((a, b) => {
@@ -108,14 +118,93 @@ export function AdminUserAlbumForm() {
         if (artistDiff !== 0) return artistDiff;
         return a.album.album.localeCompare(b.album.album);
       });
-    setHonorableRows(honorable);
-  }, [albums, userAlbums]);
+  }, [albums, orderRows]);
+
+  const flush = async () => {
+    const updates: Array<UserAlbumBulkUpdateItem> = Array.from(
+      pendingRef.current,
+      ([albumId, patch]) => ({ albumId, ...patch }),
+    );
+    pendingRef.current.clear();
+    if (updates.length === 0) return;
+
+    setSaving(true);
+    try {
+      const saved = await UserAlbumController.updateUserAlbums(updates);
+      // Rows queued again while this request was in flight keep their optimistic value.
+      const settled = saved.filter((ua) => !pendingRef.current.has(ua.albumId));
+      setUserAlbums((prev) => mergeUserAlbums(prev, settled));
+    } catch (error) {
+      setStatus({
+        kind: "error",
+        text: error instanceof Error ? error.message : t(($) => $.admin.error.save_order_failed),
+      });
+      await refresh();
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  useEffect(() => {
+    flushRef.current = flush;
+  });
+
+  const [debouncedFlush] = useState(() =>
+    debounce(() => {
+      chainRef.current = chainRef.current.then(() => flushRef.current()).catch(() => {});
+    }, SAVE_DELAY_MS),
+  );
+
+  useEffect(() => () => debouncedFlush.flush(), [debouncedFlush]);
+
+  const queueUpdates = (updates: Array<OrderUpdate>) => {
+    if (updates.length === 0) return;
+    setUserAlbums((prev) => applyPatches(prev, updates));
+    for (const { albumId, ...patch } of updates) {
+      pendingRef.current.set(albumId, { ...pendingRef.current.get(albumId), ...patch });
+    }
+    debouncedFlush();
+  };
+
+  const rankOf = (albumId: string) => userAlbums.find((ua) => ua.albumId === albumId)?.rank ?? null;
+
+  const handleReorder = (next: Array<OrderRow>) => {
+    queueUpdates(
+      next
+        .map((row, index) => ({ albumId: row.id, rank: index + 1 }))
+        .filter((update) => rankOf(update.albumId) !== update.rank),
+    );
+  };
+
+  const handleHonorableChange = (albumId: string, honorable: boolean) => {
+    const rank = rankOf(albumId);
+    if (!honorable || rank === null) {
+      queueUpdates([{ albumId, honorable }]);
+      return;
+    }
+    const updates: Array<OrderUpdate> = [{ albumId, rank: null, honorable: true }];
+    for (const ua of userAlbums) {
+      if (ua.rank !== null && ua.rank > rank) {
+        updates.push({ albumId: ua.albumId, rank: ua.rank - 1 });
+      }
+    }
+    queueUpdates(updates);
+  };
+
+  const handleRank = (albumId: string) => {
+    const maxRank = userAlbums.reduce(
+      (max, ua) => (ua.rank !== null && ua.rank > max ? ua.rank : max),
+      0,
+    );
+    queueUpdates([{ albumId, rank: maxRank + 1, honorable: false }]);
+  };
 
   const selectedAlbum = sortedAlbums.find((album) => album.id === selectedId);
 
   const isFormTab = (value: string): value is FormTab => value in FormTabs;
   const handleTabChange = (value: string) => {
     if (!isFormTab(value)) return;
+    if (activeTab === FormTabs.order && value !== FormTabs.order) debouncedFlush.flush();
     setActiveTab(value);
   };
 
@@ -205,8 +294,11 @@ export function AdminUserAlbumForm() {
 
       <TabsContent value={FormTabs.order}>
         <div className="max-w-xl w-full mx-auto flex flex-col gap-6">
+          {status ? <Note text={status.text} /> : null}
           <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
-            <span className="w-27 shrink-0 text-left">{t(($) => $.admin.label.reorder)}</span>
+            <span className="w-27 shrink-0 text-left">
+              {saving ? t(($) => $.admin.status.saving) : t(($) => $.admin.label.reorder)}
+            </span>
             <div className="min-w-0 flex-1 flex items-center justify-between">
               <span>{t(($) => $.admin.label.album)}</span>
               <span>{t(($) => $.albums.honorable_mention)}</span>
@@ -214,7 +306,7 @@ export function AdminUserAlbumForm() {
           </div>
           <SortableList
             items={orderRows}
-            onChange={setOrderRows}
+            onChange={handleReorder}
             renderItem={(item, index) => {
               const cover = item.album.art?.[0];
               const honorable = userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
@@ -239,7 +331,8 @@ export function AdminUserAlbumForm() {
                     {index + 1}
                   </span>
                   <Switch
-                    defaultChecked={honorable}
+                    checked={honorable}
+                    onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
                     aria-label={t(($) => $.albums.honorable_mention)}
                   />
                 </div>
@@ -280,7 +373,11 @@ export function AdminUserAlbumForm() {
                       {t(($) => $.admin.tooltip.artist_already_ranked)}
                     </Tooltip>
                   ) : (
-                    <Button type="button" className="border-border">
+                    <Button
+                      type="button"
+                      className="border-border"
+                      onClick={() => handleRank(item.id)}
+                    >
                       <HugeiconsIcon icon={ChampionIcon} className="size-5 text-amber-400" />
                       {t(($) => $.admin.button.rank)}
                     </Button>
@@ -303,7 +400,8 @@ export function AdminUserAlbumForm() {
                     </div>
                   </div>
                   <Switch
-                    defaultChecked={honorable}
+                    checked={honorable}
+                    onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
                     aria-label={t(($) => $.albums.honorable_mention)}
                   />
                 </div>

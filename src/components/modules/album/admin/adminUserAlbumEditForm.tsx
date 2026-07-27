@@ -10,30 +10,13 @@ import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Toast } from "@/components/ui/toast";
 import UserAlbumController from "@/controllers/userAlbum";
-import type { UserAlbumUpdateInput } from "@/data/userAlbumSchema";
 import { makeTrackId } from "@/lib/favoriteTrack";
+import { buildPayload, formFromUserAlbum } from "@/lib/userAlbum";
 import { cn } from "@/lib/utils";
 import type { Album } from "@/types/album";
-import type { UserAlbum } from "@/types/userAlbum";
-
-type UserAlbumForm = {
-  trackId: string | null;
-  review: string;
-};
+import type { UserAlbum, UserAlbumForm } from "@/types/userAlbum";
 
 type Status = { kind: "success" | "error"; text: string };
-
-const formFromUserAlbum = (userAlbum: UserAlbum | undefined): UserAlbumForm => ({
-  trackId: userAlbum?.trackId ?? null,
-  review: userAlbum?.review ?? "",
-});
-
-const buildPayload = (form: UserAlbumForm, originalForm: UserAlbumForm): UserAlbumUpdateInput => {
-  const payload: UserAlbumUpdateInput = {};
-  if (form.trackId !== originalForm.trackId) payload.trackId = form.trackId;
-  if (form.review !== originalForm.review) payload.review = form.review;
-  return payload;
-};
 
 export function AdminUserAlbumEditForm({
   album,

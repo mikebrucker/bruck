@@ -7,8 +7,8 @@ import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import type { TrackForm } from "@/types/album";
 import { AdminAlbumCreditListEditor } from "./adminAlbumCreditListEditor";
-import type { TrackForm } from "./adminAlbumFormTypes";
 
 function AdminAlbumTrackEditor({
   track,

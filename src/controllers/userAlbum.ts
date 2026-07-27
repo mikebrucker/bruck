@@ -1,5 +1,5 @@
 import HttpController from "@/controllers";
-import type { UserAlbumUpdateInput } from "@/data/userAlbumSchema";
+import type { UserAlbumBulkUpdateItem, UserAlbumUpdateInput } from "@/data/userAlbumSchema";
 import type { UserAlbum } from "@/types/userAlbum";
 
 export default class UserAlbumController {
@@ -11,5 +11,11 @@ export default class UserAlbumController {
 
   public static updateUserAlbum(albumId: string, input: UserAlbumUpdateInput): Promise<UserAlbum> {
     return HttpController.doPATCH(`${this.route}/${albumId}`, input);
+  }
+
+  public static updateUserAlbums(
+    updates: Array<UserAlbumBulkUpdateItem>,
+  ): Promise<Array<UserAlbum>> {
+    return HttpController.doPATCH(this.route, { updates });
   }
 }

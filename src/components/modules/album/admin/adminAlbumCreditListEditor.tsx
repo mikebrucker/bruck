@@ -5,7 +5,8 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { type CreditForm, emptyCredit } from "./adminAlbumFormTypes";
+import type { CreditForm } from "@/types/album";
+import { emptyCredit } from "./adminAlbumFormMapping";
 
 function AdminAlbumCreditListEditor({
   credits,

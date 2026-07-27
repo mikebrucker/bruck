@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Note } from "@/components/ui/note";
+import type { AlbumForm, TrackForm } from "@/types/album";
 import { AdminAlbumCreditListEditor } from "./adminAlbumCreditListEditor";
-import type { AlbumForm, TrackForm } from "./adminAlbumFormTypes";
 import { AdminAlbumTrackEditor } from "./adminAlbumTrackEditor";
 
 function AdminAlbumFormFields({

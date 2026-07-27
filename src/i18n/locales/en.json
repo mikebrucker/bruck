@@ -76,7 +76,8 @@
       "create_album_failed": "Could not create album",
       "invalid_json": "Invalid JSON",
       "unknown": "Unknown error",
-      "update_user_album_failed": "Could not update album data"
+      "update_user_album_failed": "Could not update album data",
+      "save_order_failed": "Could not save order"
     },
     "tooltip": {
       "artist_already_ranked": "Artist is already Ranked"
@@ -90,7 +91,8 @@
       "album_created": "Album \"{{id}}\" created",
       "json_album_updated": "Album updated",
       "json_album_created": "Album created",
-      "user_album_updated": "Album data updated for {{album}}"
+      "user_album_updated": "Album data updated for {{album}}",
+      "saving": "Saving..."
     },
     "tab": {
       "new_album": "New Album",
