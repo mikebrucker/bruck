@@ -120,11 +120,7 @@ export function AdminUserAlbumEditForm({
             {userAlbum?.rank ? (
               <Chip text={`${t(($) => $.albums.filter_rank)}: ${userAlbum.rank}`} />
             ) : null}
-            <Chip
-              text={`${t(($) => $.albums.honorable_mention)}: ${
-                userAlbum?.honorable ? t(($) => $.admin.label.yes) : t(($) => $.admin.label.no)
-              }`}
-            />
+            {userAlbum?.honorable ? <Chip text={t(($) => $.albums.honorable_mention)} /> : null}
           </div>
         </div>
       </div>
@@ -176,8 +172,12 @@ export function AdminUserAlbumEditForm({
         <div className="flex items-center gap-2">
           <Button
             type="submit"
-            variant={variant}
-            className={hasChanges ? "bg-theme-700/30 shadow-[0_0_5px_var(--color-theme-800)]" : ""}
+            variant={hasChanges ? "outline" : variant}
+            className={
+              hasChanges
+                ? "text-primary-foreground border border-theme-900 bg-theme-900 shadow-[0_0_5px_var(--color-theme-800)] transition-colors duration-300"
+                : ""
+            }
             disabled={submitting || !hasChanges}
           >
             {submitting ? t(($) => $.admin.button.saving) : t(($) => $.admin.button.save)}

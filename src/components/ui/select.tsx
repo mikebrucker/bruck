@@ -16,7 +16,7 @@ const variantColors = {
 } as const;
 
 const selectVariants = cva(
-  "inline-flex min-w-40 shrink-0 items-center justify-between rounded-sm bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "inline-flex min-w-40 shrink-0 items-center justify-between rounded-sm text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
   {
     variants: {
       variant: {

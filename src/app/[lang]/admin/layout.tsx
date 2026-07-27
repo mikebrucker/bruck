@@ -9,7 +9,7 @@ export default async function AdminLayout({ children, params }: LayoutProps<"/[l
   const { lang } = await params;
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full grow flex flex-col gap-4">
       <AdminNav lang={lang} />
       {children}
     </div>

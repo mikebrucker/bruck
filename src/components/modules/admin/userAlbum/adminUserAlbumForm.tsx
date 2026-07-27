@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AdminUserAlbumEditForm } from "@/components/modules/admin/userAlbum/adminUserAlbumEditForm";
+import Loader from "@/components/modules/loader";
 import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
@@ -18,7 +19,7 @@ import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
 import type { UserAlbumBulkUpdateItem } from "@/data/userAlbumSchema";
 import { applyPatches, mergeUserAlbums } from "@/lib/userAlbum";
-import { cn, debounce } from "@/lib/utils";
+import { debounce } from "@/lib/utils";
 import type { Album } from "@/types/album";
 import type { OrderPatch, OrderUpdate, UserAlbum } from "@/types/userAlbum";
 
@@ -44,7 +45,7 @@ export function AdminUserAlbumForm() {
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.review);
+  const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.order);
 
   const pendingRef = useRef<Map<string, OrderPatch>>(new Map());
   const flushRef = useRef<() => Promise<void>>(() => Promise.resolve());
@@ -222,14 +223,151 @@ export function AdminUserAlbumForm() {
   };
 
   return (
-    <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full flex flex-col gap-4">
+    <Tabs
+      value={activeTab}
+      onValueChange={handleTabChange}
+      className="w-full grow flex flex-col gap-4"
+    >
       <TabsList className="self-center">
-        <TabsTrigger value={FormTabs.review}>{t(($) => $.admin.tab.review)}</TabsTrigger>
         <TabsTrigger value={FormTabs.order}>{t(($) => $.admin.tab.order)}</TabsTrigger>
+        <TabsTrigger value={FormTabs.review}>{t(($) => $.admin.tab.review)}</TabsTrigger>
       </TabsList>
 
-      <TabsContent value={FormTabs.review}>
-        <div className="w-full flex flex-col gap-4">
+      <TabsContent value={FormTabs.order} className="grow">
+        <div className="max-w-xl w-full mx-auto grow flex flex-col gap-6">
+          {status ? <Note text={status.text} /> : null}
+          {loading ? (
+            <div className="flex grow w-full items-center justify-center">
+              <Loader className="text-theme-500" isOpen />
+            </div>
+          ) : (
+            <>
+              <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
+                <span className="w-27 shrink-0 text-left">
+                  {saving ? t(($) => $.admin.status.saving) : t(($) => $.admin.label.reorder)}
+                </span>
+                <div className="min-w-0 flex-1 flex items-center justify-between">
+                  <span>{t(($) => $.admin.label.album)}</span>
+                  <span>{t(($) => $.albums.honorable_mention)}</span>
+                </div>
+              </div>
+              <SortableList
+                items={orderRows}
+                onChange={handleReorder}
+                renderItem={(item, index) => {
+                  const cover = item.album.art?.[0];
+                  const honorable =
+                    userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
+                  return (
+                    <div className="flex items-center gap-3">
+                      {cover ? (
+                        <Image
+                          src={`/${cover}`}
+                          alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                          width={64}
+                          height={64}
+                          className="w-16 h-16 rounded-sm object-cover shrink-0"
+                        />
+                      ) : (
+                        <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
+                      )}
+                      <div className="min-w-0 flex-1">
+                        <p className="font-medium truncate">{item.album.album}</p>
+                        <p className="text-sm text-muted-foreground truncate">
+                          {item.album.artist}
+                        </p>
+                      </div>
+                      <span className="text-lg font-bold text-theme-600 tabular-nums shrink-0">
+                        {index + 1}
+                      </span>
+                      <Switch
+                        checked={honorable}
+                        onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
+                        aria-label={t(($) => $.albums.honorable_mention)}
+                      />
+                    </div>
+                  );
+                }}
+              />
+
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
+                  <span>{t(($) => $.albums.unranked_albums)}</span>
+                  <span>{t(($) => $.albums.honorable_mention)}</span>
+                </div>
+
+                {honorableRows.map((item) => {
+                  const cover = item.album.art?.[0];
+                  const honorable =
+                    userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
+                  const artistAlreadyRanked = orderRows.some(
+                    (row) => row.album.artist === item.album.artist,
+                  );
+                  return (
+                    <div key={item.id} className="flex items-center gap-2 sm:gap-4">
+                      {artistAlreadyRanked ? (
+                        <Tooltip
+                          trigger={
+                            <span>
+                              <Button
+                                type="button"
+                                variant="outline"
+                                disabled
+                                className="pointer-events-none"
+                              >
+                                <HugeiconsIcon icon={ChampionIcon} className="size-5" />
+                                {t(($) => $.admin.button.rank)}
+                              </Button>
+                            </span>
+                          }
+                        >
+                          {t(($) => $.admin.tooltip.artist_already_ranked)}
+                        </Tooltip>
+                      ) : (
+                        <Button
+                          type="button"
+                          className="border-border"
+                          onClick={() => handleRank(item.id)}
+                        >
+                          <HugeiconsIcon icon={ChampionIcon} className="size-5 text-amber-400" />
+                          {t(($) => $.admin.button.rank)}
+                        </Button>
+                      )}
+                      <div className="min-w-0 flex-1 flex items-center gap-3">
+                        {cover ? (
+                          <Image
+                            src={`/${cover}`}
+                            alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                            width={64}
+                            height={64}
+                            className="w-16 h-16 rounded-sm object-cover shrink-0"
+                          />
+                        ) : (
+                          <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
+                        )}
+                        <div className="min-w-0 flex-1">
+                          <p className="font-medium truncate">{item.album.album}</p>
+                          <p className="text-sm text-muted-foreground truncate">
+                            {item.album.artist}
+                          </p>
+                        </div>
+                      </div>
+                      <Switch
+                        checked={honorable}
+                        onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
+                        aria-label={t(($) => $.albums.honorable_mention)}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </div>
+      </TabsContent>
+
+      <TabsContent value={FormTabs.review} className="grow">
+        <div className="w-full grow flex flex-col gap-4">
           {status ? <Note text={status.text} /> : null}
           <div className="flex items-center gap-2">
             <Select
@@ -248,12 +386,7 @@ export function AdminUserAlbumForm() {
               }))}
             />
             <Toggle
-              className={cn(
-                "border border-border data-[state=on]:bg-theme-900 transition-colors duration-300",
-                allMode
-                  ? "border-primary bg-primary/10 shadow-[0_0_5px_var(--color-theme-800)]"
-                  : "border-border",
-              )}
+              className="border border-border data-[state=on]:border data-[state=on]:border-theme-900 data-[state=on]:bg-theme-900 data-[state=on]:shadow-[0_0_5px_var(--color-theme-800)] transition-colors duration-300"
               icon={Layers02Icon}
               pressed={allMode}
               disabled={loading}
@@ -263,7 +396,11 @@ export function AdminUserAlbumForm() {
             </Toggle>
           </div>
 
-          {allMode ? (
+          {loading ? (
+            <div className="flex grow w-full items-center justify-center">
+              <Loader className="text-theme-500" isOpen />
+            </div>
+          ) : allMode ? (
             <div className="flex flex-col">
               {sortedAlbums.map((album, index) => {
                 const striped = index % 2 === 0;
@@ -289,125 +426,6 @@ export function AdminUserAlbumForm() {
           ) : (
             <Note text={t(($) => $.admin.note.select_album_to_edit)} />
           )}
-        </div>
-      </TabsContent>
-
-      <TabsContent value={FormTabs.order}>
-        <div className="max-w-xl w-full mx-auto flex flex-col gap-6">
-          {status ? <Note text={status.text} /> : null}
-          <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
-            <span className="w-27 shrink-0 text-left">
-              {saving ? t(($) => $.admin.status.saving) : t(($) => $.admin.label.reorder)}
-            </span>
-            <div className="min-w-0 flex-1 flex items-center justify-between">
-              <span>{t(($) => $.admin.label.album)}</span>
-              <span>{t(($) => $.albums.honorable_mention)}</span>
-            </div>
-          </div>
-          <SortableList
-            items={orderRows}
-            onChange={handleReorder}
-            renderItem={(item, index) => {
-              const cover = item.album.art?.[0];
-              const honorable = userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
-              return (
-                <div className="flex items-center gap-3">
-                  {cover ? (
-                    <Image
-                      src={`/${cover}`}
-                      alt={t(($) => $.albums.cover_art, { album: item.album.album })}
-                      width={64}
-                      height={64}
-                      className="w-16 h-16 rounded-sm object-cover shrink-0"
-                    />
-                  ) : (
-                    <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
-                  )}
-                  <div className="min-w-0 flex-1">
-                    <p className="font-medium truncate">{item.album.album}</p>
-                    <p className="text-sm text-muted-foreground truncate">{item.album.artist}</p>
-                  </div>
-                  <span className="text-lg font-bold text-theme-600 tabular-nums shrink-0">
-                    {index + 1}
-                  </span>
-                  <Switch
-                    checked={honorable}
-                    onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
-                    aria-label={t(($) => $.albums.honorable_mention)}
-                  />
-                </div>
-              );
-            }}
-          />
-
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-between p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
-              <span>{t(($) => $.albums.unranked_albums)}</span>
-              <span>{t(($) => $.albums.honorable_mention)}</span>
-            </div>
-
-            {honorableRows.map((item) => {
-              const cover = item.album.art?.[0];
-              const honorable = userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
-              const artistAlreadyRanked = orderRows.some(
-                (row) => row.album.artist === item.album.artist,
-              );
-              return (
-                <div key={item.id} className="flex items-center gap-2 sm:gap-4">
-                  {artistAlreadyRanked ? (
-                    <Tooltip
-                      trigger={
-                        <span>
-                          <Button
-                            type="button"
-                            variant="outline"
-                            disabled
-                            className="pointer-events-none"
-                          >
-                            <HugeiconsIcon icon={ChampionIcon} className="size-5" />
-                            {t(($) => $.admin.button.rank)}
-                          </Button>
-                        </span>
-                      }
-                    >
-                      {t(($) => $.admin.tooltip.artist_already_ranked)}
-                    </Tooltip>
-                  ) : (
-                    <Button
-                      type="button"
-                      className="border-border"
-                      onClick={() => handleRank(item.id)}
-                    >
-                      <HugeiconsIcon icon={ChampionIcon} className="size-5 text-amber-400" />
-                      {t(($) => $.admin.button.rank)}
-                    </Button>
-                  )}
-                  <div className="min-w-0 flex-1 flex items-center gap-3">
-                    {cover ? (
-                      <Image
-                        src={`/${cover}`}
-                        alt={t(($) => $.albums.cover_art, { album: item.album.album })}
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 rounded-sm object-cover shrink-0"
-                      />
-                    ) : (
-                      <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
-                    )}
-                    <div className="min-w-0 flex-1">
-                      <p className="font-medium truncate">{item.album.album}</p>
-                      <p className="text-sm text-muted-foreground truncate">{item.album.artist}</p>
-                    </div>
-                  </div>
-                  <Switch
-                    checked={honorable}
-                    onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
-                    aria-label={t(($) => $.albums.honorable_mention)}
-                  />
-                </div>
-              );
-            })}
-          </div>
         </div>
       </TabsContent>
     </Tabs>
