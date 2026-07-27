@@ -1,9 +1,9 @@
 import { and, eq, inArray, sql } from "drizzle-orm";
+import { mapUserAlbum } from "@/data/userAlbumMapper";
+import type { UserAlbumBulkUpdateItem } from "@/data/userAlbumSchema";
 import { userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { UserAlbum } from "@/types/userAlbum";
-import { mapUserAlbum } from "./userAlbumMapper";
-import type { UserAlbumBulkUpdateItem } from "./userAlbumSchema";
 
 const conflictTarget = [userAlbums.userId, userAlbums.albumId];
 

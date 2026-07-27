@@ -2,6 +2,16 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AdminAlbumFormFields } from "@/components/modules/admin/album/adminAlbumFormFields";
+import {
+  albumToForm,
+  buildPayload,
+  buildUpdatePayload,
+  emptyForm,
+  emptyTrack,
+  parseNumber,
+} from "@/components/modules/admin/album/adminAlbumFormMapping";
+import { AdminAlbumJsonUpload } from "@/components/modules/admin/album/adminAlbumJsonUpload";
 import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
@@ -11,16 +21,6 @@ import UserAlbumController from "@/controllers/userAlbum";
 import { toSlug } from "@/lib/album";
 import type { Album, AlbumForm, TrackForm } from "@/types/album";
 import type { UserAlbum } from "@/types/userAlbum";
-import { AdminAlbumFormFields } from "./adminAlbumFormFields";
-import {
-  albumToForm,
-  buildPayload,
-  buildUpdatePayload,
-  emptyForm,
-  emptyTrack,
-  parseNumber,
-} from "./adminAlbumFormMapping";
-import { AdminAlbumJsonUpload } from "./adminAlbumJsonUpload";
 
 const FormTabs = {
   new: "new",
@@ -39,7 +39,7 @@ export function AdminAlbumForm() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [originalForm, setOriginalForm] = useState<AlbumForm | null>(null);
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.new);
+  const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.edit);
 
   const refreshAlbums = useCallback(async () => {
     try {
@@ -230,19 +230,10 @@ export function AdminAlbumForm() {
   return (
     <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full flex flex-col gap-4">
       <TabsList className="self-center">
-        <TabsTrigger value={FormTabs.new}>{t(($) => $.admin.tab.new_album)}</TabsTrigger>
         <TabsTrigger value={FormTabs.edit}>{t(($) => $.admin.tab.edit_album)}</TabsTrigger>
+        <TabsTrigger value={FormTabs.new}>{t(($) => $.admin.tab.new_album)}</TabsTrigger>
         <TabsTrigger value={FormTabs.json}>{t(($) => $.admin.tab.json_album)}</TabsTrigger>
       </TabsList>
-
-      <TabsContent value={FormTabs.new}>
-        <div className="flex items-center justify-end gap-2">
-          <Button type="button" variant="outline" onClick={startNewAlbum}>
-            {t(($) => $.admin.button.reset)}
-          </Button>
-        </div>
-        {albumFormFields}
-      </TabsContent>
 
       <TabsContent value={FormTabs.edit}>
         <div className="flex items-center justify-between gap-2">
@@ -266,6 +257,15 @@ export function AdminAlbumForm() {
           </Button>
         </div>
         {editingId ? albumFormFields : <Note text={t(($) => $.admin.note.select_album_to_edit)} />}
+      </TabsContent>
+
+      <TabsContent value={FormTabs.new}>
+        <div className="flex items-center justify-end gap-2">
+          <Button type="button" variant="outline" onClick={startNewAlbum}>
+            {t(($) => $.admin.button.reset)}
+          </Button>
+        </div>
+        {albumFormFields}
       </TabsContent>
 
       <TabsContent value={FormTabs.json}>

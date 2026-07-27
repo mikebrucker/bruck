@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
+import type { UserSettingsUpdateInput } from "@/data/userSchema";
 import { users } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { User } from "@/types/user";
-import type { UserSettingsUpdateInput } from "./userSchema";
 
 export class UserRepository {
   constructor(private readonly db: typeof defaultDb = defaultDb) {}

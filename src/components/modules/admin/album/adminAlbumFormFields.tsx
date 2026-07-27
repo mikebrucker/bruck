@@ -3,14 +3,14 @@
 import { Add01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslation } from "react-i18next";
+import { AdminAlbumCreditListEditor } from "@/components/modules/admin/album/adminAlbumCreditListEditor";
+import { AdminAlbumTrackEditor } from "@/components/modules/admin/album/adminAlbumTrackEditor";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Note } from "@/components/ui/note";
 import type { AlbumForm, TrackForm } from "@/types/album";
-import { AdminAlbumCreditListEditor } from "./adminAlbumCreditListEditor";
-import { AdminAlbumTrackEditor } from "./adminAlbumTrackEditor";
 
 function AdminAlbumFormFields({
   form,

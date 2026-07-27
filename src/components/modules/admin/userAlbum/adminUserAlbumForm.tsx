@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AdminUserAlbumEditForm } from "@/components/modules/admin/userAlbum/adminUserAlbumEditForm";
 import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
@@ -20,7 +21,6 @@ import { applyPatches, mergeUserAlbums } from "@/lib/userAlbum";
 import { cn, debounce } from "@/lib/utils";
 import type { Album } from "@/types/album";
 import type { OrderPatch, OrderUpdate, UserAlbum } from "@/types/userAlbum";
-import { AdminUserAlbumEditForm } from "./adminUserAlbumEditForm";
 
 const FormTabs = {
   review: "review",

@@ -3,12 +3,12 @@
 import { Delete02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslation } from "react-i18next";
+import { AdminAlbumCreditListEditor } from "@/components/modules/admin/album/adminAlbumCreditListEditor";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import type { TrackForm } from "@/types/album";
-import { AdminAlbumCreditListEditor } from "./adminAlbumCreditListEditor";
 
 function AdminAlbumTrackEditor({
   track,

@@ -1,4 +1,4 @@
-import type { UserAlbum } from "./userAlbum";
+import type { UserAlbum } from "@/types/userAlbum";
 
 /** Reference only - Credit.roles stays free text */
 export type Role =

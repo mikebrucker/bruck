@@ -1,13 +1,13 @@
 import { asc, eq, inArray, sql as rawSql } from "drizzle-orm";
 import type { BatchItem } from "drizzle-orm/batch";
+import type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumSchema";
+import { mapUserAlbum } from "@/data/userAlbumMapper";
 import { albums, tracks, userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { Album, Track } from "@/types/album";
-import type { AlbumCreateInput, AlbumUpdateInput } from "./albumSchema";
-import { mapUserAlbum } from "./userAlbumMapper";
 
-export type { AlbumCreateInput, AlbumUpdateInput } from "./albumSchema";
-export { albumCreateSchema, albumUpdateSchema } from "./albumSchema";
+export type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumSchema";
+export { albumCreateSchema, albumUpdateSchema } from "@/data/albumSchema";
 
 function assertNonEmptyBatch<T>(items: Array<T>): asserts items is [T, ...Array<T>] {
   if (items.length === 0) {
