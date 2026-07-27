@@ -306,6 +306,7 @@ export default function CvPage() {
           alt="Mike Brucker headshot"
           width={144}
           height={144}
+          style={{ height: "auto" }}
           className="rounded-full size-36 object-cover shrink-0"
         />
         <div className="flex-1">

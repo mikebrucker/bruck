@@ -102,11 +102,12 @@ export function AdminUserAlbumEditForm({
           {album.art?.map((aa) => (
             <Image
               key={aa}
-              src={`/${aa}`}
+              src={`/albums/${aa}`}
               alt={t(($) => $.albums.cover_art, { album: album.album })}
               width={64}
               height={64}
-              className="w-16 h-16 rounded-sm object-cover shrink-0"
+              style={{ height: "auto" }}
+              className="w-16 h-16 rounded-sm object-contain shrink-0"
             />
           ))}
         </div>

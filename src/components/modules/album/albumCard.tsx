@@ -45,11 +45,14 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
   const closeMention = () => setSelectedMention(null);
 
   const favoriteTrackId = userAlbum?.trackId;
-  const favoriteTrackTitle = favoriteTrackId
+  const favoriteTrack = favoriteTrackId
     ? album.tracks.find((track) => {
         const { number, disc } = parseTrackId(favoriteTrackId);
         return track.number === number && (track.disc ?? 0) === disc;
-      })?.title
+      })
+    : null;
+  const favoriteTrackTitle = favoriteTrack
+    ? `${favoriteTrack.number}. ${favoriteTrack.title}`
     : null;
 
   const discCount =
@@ -65,14 +68,15 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
     tracks: album.tracks.filter((track) => (track.disc ?? 0) === discIndex),
   }));
 
-  const art = album.art?.map((a, i) => (
-    <div key={a}>
+  const art = album.art?.map((aa, i) => (
+    <div key={aa}>
       <Image
-        onClick={() => openModal(a)}
-        src={`/${a}`}
+        onClick={() => openModal(aa)}
+        src={`/albums/${aa}`}
         alt={t(($) => $.albums.cover_art, { album: album.album })}
         width={256}
         height={256}
+        style={{ height: "auto" }}
         priority={i === 0}
         className="w-64 h-auto rounded-sm cursor-pointer"
       />
@@ -113,17 +117,17 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
             <p className="text-muted-foreground font-medium">{album.artist}</p>
           </div>
 
-          <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
+          <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5 justify-center sm:justify-start">
             <Chip text={String(album.year)} />
             <Chip text={album.genre} />
             <Chip text={album.runtime} />
             <Chip text={album.label} />
           </div>
 
-          <div className="col-span-2 sm:hidden flex gap-1 flex-wrap">{art}</div>
+          <div className="col-span-2 sm:hidden flex gap-1 flex-wrap justify-center">{art}</div>
 
           {favoriteTrackTitle ? (
-            <div className="col-span-2 sm:col-span-1 flex gap-1.5 items-center">
+            <div className="col-span-2 sm:col-span-1 flex gap-1.5 items-center justify-center sm:justify-start">
               <span className="text-xs text-muted-foreground">
                 {t(($) => $.albums.favorite_track)}:
               </span>
@@ -231,10 +235,11 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
                     >
                       {cover ? (
                         <Image
-                          src={`/${cover}`}
+                          src={`/albums/${cover}`}
                           alt={t(($) => $.albums.cover_art, { album: mention.album })}
                           width={160}
                           height={160}
+                          style={{ height: "auto" }}
                           className="w-40 h-40 rounded-sm object-cover"
                         />
                       ) : (
@@ -270,7 +275,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
               <Image
                 onClick={closeModal}
                 onLoad={() => setImageLoading(false)}
-                src={`/${selectedImage}`}
+                src={`/albums/${selectedImage}`}
                 alt={t(($) => $.albums.cover_art, { album: album.album })}
                 width={1024}
                 height={1024}

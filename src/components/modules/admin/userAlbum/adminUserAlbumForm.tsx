@@ -262,11 +262,12 @@ export function AdminUserAlbumForm() {
                     <div className="flex items-center gap-3">
                       {cover ? (
                         <Image
-                          src={`/${cover}`}
+                          src={`/albums/${cover}`}
                           alt={t(($) => $.albums.cover_art, { album: item.album.album })}
                           width={64}
                           height={64}
-                          className="w-16 h-16 rounded-sm object-cover shrink-0"
+                          style={{ height: "auto" }}
+                          className="w-16 h-16 rounded-sm object-contain shrink-0"
                         />
                       ) : (
                         <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
@@ -336,11 +337,12 @@ export function AdminUserAlbumForm() {
                       <div className="min-w-0 flex-1 flex items-center gap-3">
                         {cover ? (
                           <Image
-                            src={`/${cover}`}
+                            src={`/albums/${cover}`}
                             alt={t(($) => $.albums.cover_art, { album: item.album.album })}
                             width={64}
                             height={64}
-                            className="w-16 h-16 rounded-sm object-cover shrink-0"
+                            style={{ height: "auto" }}
+                            className="w-16 h-16 rounded-sm object-contain shrink-0"
                           />
                         ) : (
                           <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
