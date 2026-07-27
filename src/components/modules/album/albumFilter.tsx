@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Accordion } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Popover } from "@/components/ui/popover";
 import { Slider } from "@/components/ui/slider";
@@ -197,13 +198,14 @@ export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
       useCloseButton
       className="w-[90vw] max-w-120 max-h-[70dvh] overflow-y-auto flex flex-col gap-3 p-3 pb-4"
       trigger={
-        <button
-          type="button"
+        <Button
+          size="icon-lg"
+          variant="outline"
           aria-label={t(($) => $.albums.filter_button)}
-          className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
+          className="hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
         >
           <HugeiconsIcon icon={FilterHorizontalIcon} className="size-6" aria-hidden="true" />
-        </button>
+        </Button>
       }
     >
       {filterRow(

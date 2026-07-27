@@ -101,8 +101,10 @@ export function AlbumList({ albums, title, subtitle, showRank, filterKey }: Albu
   return (
     <div className="w-full px-1">
       <div className="flex items-center w-full">
-        <div className="flex flex-1 min-w-0 flex-col p-2 text-xl font-semibold tracking-widest text-foreground">
-          <span>{title}</span>
+        <div className="flex flex-1 min-w-0 flex-col gap-2 p-2">
+          <span className="font-metal-mania text-2xl font-semibold tracking-widest text-foreground">
+            {title}
+          </span>
           {subtitle ? (
             <span className="normal-case tracking-normal font-normal text-base text-muted-foreground">
               {subtitle}

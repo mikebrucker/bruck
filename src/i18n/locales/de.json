@@ -3,8 +3,8 @@
     "under_construction": "Im Bau..."
   },
   "albums": {
-    "ranked": "Die besten Alben",
-    "ranked_info": "Die größten Alben aller Zeiten. Kein einziger Skip. Jeder Künstler kann maximal ein Album in der Liste haben.",
+    "ranked": "Die größten Alben aller Zeiten",
+    "ranked_info": "Jeder Künstler kann maximal ein Album in der Liste haben.",
     "honorable_mention": "Ehrenwerte Erwähnung",
     "honorable_mentions": "Ehrenwerte Erwähnungen",
     "unranked_albums": "Ungerankte Alben",
