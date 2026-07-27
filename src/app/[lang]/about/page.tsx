@@ -9,11 +9,12 @@ import {
   Typescript01Icon,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { logoVercel } from "ionicons/icons";
 import { useTranslation } from "react-i18next";
+import { AppIcon } from "@/components/ui/icon";
 import type en from "@/i18n/locales/en.json";
 
-type Item = { label: string; icon?: IconSvgElement };
+type Item = { label: string; icon?: string | IconSvgElement };
 type Group = { label: keyof typeof en.about; items: Array<Item> };
 
 const groups: Array<Group> = [
@@ -22,7 +23,7 @@ const groups: Array<Group> = [
     items: [
       { label: "TypeScript", icon: Typescript01Icon },
       { label: "React", icon: ReactIcon },
-      { label: "Next.js" },
+      { label: "Next.js", icon: logoVercel },
     ],
   },
   {
@@ -67,7 +68,11 @@ export default function AboutPage() {
                 className="bg-muted rounded-lg border border-border p-3 flex items-center gap-2.5"
               >
                 {item.icon ? (
-                  <HugeiconsIcon icon={item.icon} className="size-6 text-theme-600 shrink-0" />
+                  <AppIcon
+                    icon={item.icon}
+                    useThemeColor
+                    className="size-6 text-theme-600 shrink-0"
+                  />
                 ) : null}
                 <p className="font-medium">{item.label}</p>
               </div>
