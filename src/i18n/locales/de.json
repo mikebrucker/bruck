@@ -43,7 +43,9 @@
     "resume": "Lebenslauf",
     "dark": "Dunkelmodus",
     "light": "Hellmodus",
-    "admin": "Admin"
+    "admin": "Admin",
+    "album": "Alben",
+    "userAlbum": "UserAlben"
   },
   "ariaLabels": {
     "close_menu": "Menü schließen",

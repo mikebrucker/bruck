@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AudioBook02Icon,
   Castle02Icon,
   Close,
   FileBadgeIcon,
@@ -8,6 +9,7 @@ import {
   LaptopProgrammingIcon,
   Moon02Icon,
   Pdf02Icon,
+  Playlist01Icon,
   Sun02Icon,
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
@@ -132,21 +134,36 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         </div>
         {isAdmin ? (
           <div className="flex flex-col gap-0.5 pt-8">
-            <h2 className="font-metal-mania text-lg font-bold leading-tight px-4">
+            <h2 className="font-metal-mania text-lg font-bold leading-tight px-5 pb-2 flex items-center gap-2">
+              <HugeiconsIcon icon={Castle02Icon} className="size-6 shrink-0" />
               {t(($) => $.menu.admin)}
             </h2>
-            <Button
-              asChild
-              variant="keyboard"
-              className={`justify-start h-13 grow ${isAdminSelected ? selectedClassName : ""}`}
-              onClick={onClose}
-              aria-label={t(($) => $.ariaLabels.open_admin_page)}
-            >
-              <Link href={`/${language}/admin/`}>
-                <HugeiconsIcon icon={Castle02Icon} className="size-6" />
-                {t(($) => $.menu.admin)}
-              </Link>
-            </Button>
+            <div className="mt-auto gap-0.5 flex">
+              <Button
+                asChild
+                variant="keyboard"
+                className={`justify-start h-13 grow ${isAdminSelected ? selectedClassName : ""}`}
+                onClick={onClose}
+                aria-label={t(($) => $.ariaLabels.open_admin_page)}
+              >
+                <Link href={`/${language}/admin/album`}>
+                  <HugeiconsIcon icon={Playlist01Icon} className="size-6" />
+                  {t(($) => $.menu.album)}
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="keyboard"
+                className={`justify-start h-13 grow ${isAdminSelected ? selectedClassName : ""}`}
+                onClick={onClose}
+                aria-label={t(($) => $.ariaLabels.open_admin_page)}
+              >
+                <Link href={`/${language}/admin/user-album`}>
+                  <HugeiconsIcon icon={AudioBook02Icon} className="size-6" />
+                  {t(($) => $.menu.userAlbum)}
+                </Link>
+              </Button>
+            </div>
           </div>
         ) : null}
       </nav>

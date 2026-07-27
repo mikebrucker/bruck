@@ -205,8 +205,8 @@ export function AdminUserAlbumForm() {
 
       <TabsContent value={FormTabs.order}>
         <div className="max-w-xl w-full mx-auto flex flex-col gap-6">
-          <div className="flex items-center gap-3 pb-2 text-sm font-medium text-muted-foreground">
-            <span className="w-26 shrink-0 text-left">{t(($) => $.admin.label.reorder)}</span>
+          <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
+            <span className="w-27 shrink-0 text-left">{t(($) => $.admin.label.reorder)}</span>
             <div className="min-w-0 flex-1 flex items-center justify-between">
               <span>{t(($) => $.admin.label.album)}</span>
               <span>{t(($) => $.albums.honorable_mention)}</span>
@@ -248,11 +248,9 @@ export function AdminUserAlbumForm() {
           />
 
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-3 pb-2 text-sm font-medium text-muted-foreground">
-              <div className="min-w-0 flex-1 flex items-center justify-between">
-                <span>{t(($) => $.albums.unranked_albums)}</span>
-                <span>{t(($) => $.albums.honorable_mention)}</span>
-              </div>
+            <div className="flex items-center justify-between p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
+              <span>{t(($) => $.albums.unranked_albums)}</span>
+              <span>{t(($) => $.albums.honorable_mention)}</span>
             </div>
 
             {honorableRows.map((item) => {
@@ -282,8 +280,8 @@ export function AdminUserAlbumForm() {
                       {t(($) => $.admin.tooltip.artist_already_ranked)}
                     </Tooltip>
                   ) : (
-                    <Button type="button" variant="outline">
-                      <HugeiconsIcon icon={ChampionIcon} className="size-5" />
+                    <Button type="button" className="border-border">
+                      <HugeiconsIcon icon={ChampionIcon} className="size-5 text-amber-400" />
                       {t(($) => $.admin.button.rank)}
                     </Button>
                   )}

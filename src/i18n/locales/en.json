@@ -43,7 +43,9 @@
     "resume": "Résumé",
     "dark": "Dark Mode",
     "light": "Light Mode",
-    "admin": "Admin"
+    "admin": "Admin",
+    "album": "Album",
+    "userAlbum": "UserAlbum"
   },
   "ariaLabels": {
     "close_menu": "Close menu",
