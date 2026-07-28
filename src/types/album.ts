@@ -239,8 +239,10 @@ export interface Album {
   createdAt: Date;
   updatedAt?: Date;
   honorableMentions?: Array<Album>;
-  /** Per-user data (review, favorite track) joined in AlbumRepository.getRanked */
+  /** Per-user data joined in AlbumRepository.getRanked */
   userAlbum?: UserAlbum;
+  /** Resolved from userAlbum.trackId in AlbumRepository.getRanked; undefined when unset or stale */
+  favoriteTrack?: Track;
 }
 
 export type CreditForm = { name: string; roles: string; notes: string };

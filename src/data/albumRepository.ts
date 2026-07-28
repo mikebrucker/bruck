@@ -4,6 +4,7 @@ import type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumSchema";
 import { mapUserAlbum } from "@/data/userAlbumMapper";
 import { albums, tracks, userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
+import { parseTrackId } from "@/lib/favoriteTrack";
 import type { Album, Track } from "@/types/album";
 
 export type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumSchema";
@@ -74,6 +75,10 @@ export class AlbumRepository {
       albumRows.map((row) => {
         const album = this.mapAlbum(row, tracksByAlbum.get(row.id) ?? []);
         album.userAlbum = userAlbumByAlbumId.get(row.id);
+        album.favoriteTrack = this.resolveFavoriteTrack(
+          album.tracks,
+          album.userAlbum?.trackId ?? null,
+        );
         return [row.id, album] as const;
       }),
     );
@@ -199,6 +204,15 @@ export class AlbumRepository {
 
     await this.db.delete(albums).where(eq(albums.id, id));
     return true;
+  }
+
+  private resolveFavoriteTrack(
+    tracksList: Array<Track>,
+    trackId: string | null,
+  ): Track | undefined {
+    if (!trackId) return undefined;
+    const { number, disc } = parseTrackId(trackId);
+    return tracksList.find((track) => track.number === number && (track.disc ?? 0) === disc);
   }
 
   private mapTrack(row: typeof tracks.$inferSelect): Track {
