@@ -4,7 +4,7 @@ import { Toggle as TogglePrimitive } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const toggleVariants = cva(
-  "group/toggle inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-sm px-2.5 text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground cursor-pointer",
+  "group/toggle inline-flex shrink-0 items-center justify-center rounded-sm text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer",
   {
     variants: {
       variant: {
@@ -12,9 +12,20 @@ const toggleVariants = cva(
         outline:
           "border border-border bg-input/30 hover:bg-input/50 hover:text-foreground data-[state=on]:border-primary",
       },
+      size: {
+        default: "h-9 gap-1.5 px-3",
+        xs: "h-6 gap-1 px-2.5 text-xs [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-8 gap-1 px-3",
+        lg: "h-10 gap-1.5 px-4",
+        icon: "size-9",
+        "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm": "size-8",
+        "icon-lg": "size-10",
+      },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   },
 );
@@ -22,6 +33,7 @@ const toggleVariants = cva(
 function Toggle({
   className,
   variant = "default",
+  size = "default",
   icon,
   children,
   ...props
@@ -33,10 +45,11 @@ function Toggle({
     <TogglePrimitive.Root
       data-slot="toggle"
       data-variant={variant}
-      className={cn(toggleVariants({ variant, className }))}
+      data-size={size}
+      className={cn(toggleVariants({ variant, size, className }))}
       {...props}
     >
-      <HugeiconsIcon icon={icon} className="size-5" />
+      <HugeiconsIcon icon={icon} />
       {children}
     </TogglePrimitive.Root>
   );

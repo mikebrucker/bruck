@@ -1,5 +1,6 @@
 "use client";
 
+import { SecondBracketSquareIcon } from "@hugeicons/core-free-icons";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
@@ -7,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Toggle } from "@/components/ui/toggle";
 import AlbumController from "@/controllers/album";
 import { albumCreateSchema, albumUpdateSchema } from "@/data/albumSchema";
 import type { Album } from "@/types/album";
@@ -24,6 +26,9 @@ function AdminAlbumJsonUpload({
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [selectResetKey, setSelectResetKey] = useState(0);
+  const [useArray, setUseArray] = useState(false);
+
+  const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const extractId = (value: unknown): string | undefined => {
     if (typeof value !== "object" || value === null || !("id" in value)) return undefined;
@@ -84,6 +89,51 @@ function AdminAlbumJsonUpload({
     }
   };
 
+  const createAlbum = async (payload: unknown) => {
+    const validated = albumCreateSchema.safeParse(stripId(payload));
+    if (!validated.success) throw new Error(z.prettifyError(validated.error));
+    await AlbumController.createAlbumRaw(validated.data);
+  };
+
+  const submitAlbums = async (payloads: Array<unknown>) => {
+    setSubmitting(true);
+    let created = 0;
+    const errors: Array<string> = [];
+
+    for (const [index, payload] of payloads.entries()) {
+      if (index > 0) await wait(100);
+      try {
+        await createAlbum(payload);
+        created += 1;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : t(($) => $.admin.error.unknown);
+        errors.push(`#${index + 1}: ${message}`);
+      }
+    }
+
+    setSubmitting(false);
+
+    if (errors.length > 0) {
+      setStatus({
+        kind: "error",
+        text: t(($) => $.admin.error.json_albums_failed, {
+          created,
+          failed: errors.length,
+          errors: errors.join(" | "),
+        }),
+      });
+    } else {
+      setStatus({
+        kind: "success",
+        text: t(($) => $.admin.status.json_albums_created, { created }),
+      });
+      setJsonText("");
+      setLoadedId(null);
+    }
+
+    if (created > 0) onUploaded();
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus(null);
@@ -93,6 +143,15 @@ function AdminAlbumJsonUpload({
       body = JSON.parse(jsonText);
     } catch {
       setStatus({ kind: "error", text: t(($) => $.admin.error.invalid_json) });
+      return;
+    }
+
+    if (useArray) {
+      if (!Array.isArray(body)) {
+        setStatus({ kind: "error", text: t(($) => $.admin.error.json_not_array) });
+        return;
+      }
+      await submitAlbums(body);
       return;
     }
 
@@ -131,9 +190,19 @@ function AdminAlbumJsonUpload({
             label: `${album.artist} - ${album.album}`,
           }))}
         />
-        <Button type="button" variant="outline" onClick={clear}>
-          {t(($) => $.admin.button.clear)}
-        </Button>
+        <div className="flex items-center gap-2">
+          <Toggle
+            icon={SecondBracketSquareIcon}
+            variant="outline"
+            pressed={useArray}
+            onPressedChange={setUseArray}
+          >
+            {t(($) => $.admin.button.useArray)}
+          </Toggle>
+          <Button type="button" variant="outline" onClick={clear}>
+            {t(($) => $.admin.button.clear)}
+          </Button>
+        </div>
       </div>
       <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3">
         <label htmlFor="json-album-input" className="text-sm font-medium text-muted-foreground">

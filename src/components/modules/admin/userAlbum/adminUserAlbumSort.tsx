@@ -36,7 +36,7 @@ type OrderRow = {
 
 const SAVE_DELAY_MS = 300;
 
-export function AdminUserAlbumForm() {
+export function AdminUserAlbumSort() {
   const { t } = useTranslation();
   const [albums, setAlbums] = useState<Array<Album>>([]);
   const [userAlbums, setUserAlbums] = useState<Array<UserAlbum>>([]);

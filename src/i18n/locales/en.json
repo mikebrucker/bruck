@@ -75,6 +75,8 @@
       "update_album_failed": "Could not update album",
       "create_album_failed": "Could not create album",
       "invalid_json": "Invalid JSON",
+      "json_not_array": "JSON must be an array of albums",
+      "json_albums_failed": "{{created}} created, {{failed}} failed — {{errors}}",
       "unknown": "Unknown error",
       "update_user_album_failed": "Could not update album data",
       "save_order_failed": "Could not save order"
@@ -91,6 +93,7 @@
       "album_created": "Album \"{{id}}\" created",
       "json_album_updated": "Album updated",
       "json_album_created": "Album created",
+      "json_albums_created": "{{created}} albums created",
       "user_album_updated": "Album data updated for {{album}}",
       "saving": "Saving..."
     },
@@ -107,6 +110,7 @@
       "add_credit": "Add credit",
       "remove_track": "Remove track",
       "clear": "Clear",
+      "useArray": "Use Array",
       "saving": "Saving...",
       "update_album": "Update album",
       "create_album": "Create album",

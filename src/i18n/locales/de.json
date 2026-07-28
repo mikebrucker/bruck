@@ -75,6 +75,8 @@
       "update_album_failed": "Album konnte nicht aktualisiert werden",
       "create_album_failed": "Album konnte nicht erstellt werden",
       "invalid_json": "Ungültiges JSON",
+      "json_not_array": "JSON muss ein Array von Alben sein",
+      "json_albums_failed": "{{created}} erstellt, {{failed}} fehlgeschlagen — {{errors}}",
       "unknown": "Unbekannter Fehler",
       "update_user_album_failed": "Albumdaten konnten nicht aktualisiert werden",
       "save_order_failed": "Reihenfolge konnte nicht gespeichert werden"
@@ -91,6 +93,7 @@
       "album_created": "Album \"{{id}}\" erstellt",
       "json_album_updated": "Album aktualisiert",
       "json_album_created": "Album erstellt",
+      "json_albums_created": "{{created}} Alben erstellt",
       "user_album_updated": "Albumdaten für {{album}} aktualisiert",
       "saving": "Wird gespeichert..."
     },
@@ -107,6 +110,7 @@
       "add_credit": "Credit hinzufügen",
       "remove_track": "Titel entfernen",
       "clear": "Leeren",
+      "useArray": "Array verwenden",
       "saving": "Speichert...",
       "update_album": "Album aktualisieren",
       "create_album": "Album erstellen",

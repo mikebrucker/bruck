@@ -1,5 +1,5 @@
-import { AdminUserAlbumForm } from "@/components/modules/admin/userAlbum/adminUserAlbumForm";
+import { AdminUserAlbumSort } from "@/components/modules/admin/userAlbum/adminUserAlbumSort";
 
 export default function AdminUserAlbumPage() {
-  return <AdminUserAlbumForm />;
+  return <AdminUserAlbumSort />;
 }
