@@ -104,8 +104,7 @@ export type Genre =
   | "Melodic Metalcore"
   | "Nu Metal"
   | "Pop Punk"
-  | "Progressive"
-  | "Progressive Black"
+  | "Progressive Black Metal"
   | "Progressive Death Metal"
   | "Progressive Deathcore"
   | "Progressive Extreme Metal"
@@ -115,8 +114,6 @@ export type Genre =
   | "Punk Rock"
   | "Skate Punk"
   | "Sludge Metal"
-  | "Tech Death Metal"
-  | "Technical"
   | "Technical Death Metal"
   | "Thrash Metal";
 
