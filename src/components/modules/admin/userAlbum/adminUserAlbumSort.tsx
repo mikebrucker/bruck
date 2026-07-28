@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 import { AdminUserAlbumEditForm } from "@/components/modules/admin/userAlbum/adminUserAlbumEditForm";
 import Loader from "@/components/modules/loader";
 import { Button } from "@/components/ui/button";
+import { Chip } from "@/components/ui/chip";
+import { Collapsible } from "@/components/ui/collapsible";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
 import { SortableList } from "@/components/ui/sortableList";
@@ -169,6 +171,12 @@ export function AdminUserAlbumSort() {
 
   const rankOf = (albumId: string) => userAlbums.find((ua) => ua.albumId === albumId)?.rank ?? null;
 
+  const nextAvailableRank = useMemo(
+    () =>
+      userAlbums.reduce((max, ua) => (ua.rank !== null && ua.rank > max ? ua.rank : max), 0) + 1,
+    [userAlbums],
+  );
+
   const handleReorder = (next: Array<OrderRow>) => {
     queueUpdates(
       next
@@ -193,11 +201,7 @@ export function AdminUserAlbumSort() {
   };
 
   const handleRank = (albumId: string) => {
-    const maxRank = userAlbums.reduce(
-      (max, ua) => (ua.rank !== null && ua.rank > max ? ua.rank : max),
-      0,
-    );
-    queueUpdates([{ albumId, rank: maxRank + 1, honorable: false }]);
+    queueUpdates([{ albumId, rank: nextAvailableRank, honorable: false }]);
   };
 
   const selectedAlbum = sortedAlbums.find((album) => album.id === selectedId);
@@ -234,107 +238,44 @@ export function AdminUserAlbumSort() {
       </TabsList>
 
       <TabsContent value={FormTabs.order} className="grow">
-        <div className="max-w-xl w-full mx-auto grow flex flex-col gap-6">
-          {status ? <Note text={status.text} /> : null}
+        <div className="w-full mx-auto grow flex flex-col gap-6">
+          {status ? (
+            <div className="max-w-xl w-full mx-auto">
+              <Note text={status.text} />
+            </div>
+          ) : null}
           {loading ? (
             <div className="flex grow w-full items-center justify-center">
               <Loader className="text-theme-500" isOpen />
             </div>
           ) : (
             <>
-              <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
-                <span className="w-27 shrink-0 text-left">
-                  {saving ? t(($) => $.admin.status.saving) : t(($) => $.admin.label.reorder)}
-                </span>
-                <div className="min-w-0 flex-1 flex items-center justify-between">
-                  <span>{t(($) => $.admin.label.album)}</span>
-                  <span>{t(($) => $.albums.honorable_mention)}</span>
+              <Collapsible
+                title={t(($) => $.admin.label.reorder)}
+                collapsedHeight={128}
+                duration={500}
+                defaultOpen
+                className="max-w-xl w-full mx-auto"
+                contentClassName="gap-6"
+              >
+                <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
+                  <span className="w-27 shrink-0 text-left">
+                    {saving ? t(($) => $.admin.status.saving) : t(($) => $.admin.label.reorder)}
+                  </span>
+                  <div className="min-w-0 flex-1 flex items-center justify-between">
+                    <span>{t(($) => $.admin.label.album)}</span>
+                    <span>{t(($) => $.albums.honorable_mention)}</span>
+                  </div>
                 </div>
-              </div>
-              <SortableList
-                items={orderRows}
-                onChange={handleReorder}
-                renderItem={(item, index) => {
-                  const cover = item.album.art?.[0];
-                  const honorable =
-                    userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
-                  return (
-                    <div className="flex items-center gap-3">
-                      {cover ? (
-                        <Image
-                          src={`/albums/${cover}`}
-                          alt={t(($) => $.albums.cover_art, { album: item.album.album })}
-                          width={64}
-                          height={64}
-                          style={{ height: "auto" }}
-                          className="w-16 h-16 rounded-sm object-contain shrink-0"
-                        />
-                      ) : (
-                        <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
-                      )}
-                      <div className="min-w-0 flex-1">
-                        <p className="font-medium truncate">{item.album.album}</p>
-                        <p className="text-sm text-muted-foreground truncate">
-                          {item.album.artist}
-                        </p>
-                      </div>
-                      <span className="text-lg font-bold text-theme-600 tabular-nums shrink-0">
-                        {index + 1}
-                      </span>
-                      <Switch
-                        checked={honorable}
-                        onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
-                        aria-label={t(($) => $.albums.honorable_mention)}
-                      />
-                    </div>
-                  );
-                }}
-              />
-
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center justify-between p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
-                  <span>{t(($) => $.albums.unranked_albums)}</span>
-                  <span>{t(($) => $.albums.honorable_mention)}</span>
-                </div>
-
-                {honorableRows.map((item) => {
-                  const cover = item.album.art?.[0];
-                  const honorable =
-                    userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
-                  const artistAlreadyRanked = orderRows.some(
-                    (row) => row.album.artist === item.album.artist,
-                  );
-                  return (
-                    <div key={item.id} className="flex items-center gap-2 sm:gap-4">
-                      {artistAlreadyRanked ? (
-                        <Tooltip
-                          trigger={
-                            <span>
-                              <Button
-                                type="button"
-                                variant="outline"
-                                disabled
-                                className="pointer-events-none"
-                              >
-                                <HugeiconsIcon icon={ChampionIcon} className="size-5" />
-                                {t(($) => $.admin.button.rank)}
-                              </Button>
-                            </span>
-                          }
-                        >
-                          {t(($) => $.admin.tooltip.artist_already_ranked)}
-                        </Tooltip>
-                      ) : (
-                        <Button
-                          type="button"
-                          className="border-border"
-                          onClick={() => handleRank(item.id)}
-                        >
-                          <HugeiconsIcon icon={ChampionIcon} className="size-5 text-amber-400" />
-                          {t(($) => $.admin.button.rank)}
-                        </Button>
-                      )}
-                      <div className="min-w-0 flex-1 flex items-center gap-3">
+                <SortableList
+                  items={orderRows}
+                  onChange={handleReorder}
+                  renderItem={(item, index) => {
+                    const cover = item.album.art?.[0];
+                    const honorable =
+                      userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
+                    return (
+                      <div className="flex items-center gap-3">
                         {cover ? (
                           <Image
                             src={`/albums/${cover}`}
@@ -353,15 +294,114 @@ export function AdminUserAlbumSort() {
                             {item.album.artist}
                           </p>
                         </div>
+                        <span className="text-lg font-bold text-theme-600 tabular-nums shrink-0">
+                          {index + 1}
+                        </span>
+                        <Switch
+                          checked={honorable}
+                          onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
+                          aria-label={t(($) => $.albums.honorable_mention)}
+                        />
                       </div>
-                      <Switch
-                        checked={honorable}
-                        onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
-                        aria-label={t(($) => $.albums.honorable_mention)}
-                      />
-                    </div>
-                  );
-                })}
+                    );
+                  }}
+                />
+              </Collapsible>
+
+              <div className="max-w-5xl w-full mx-auto flex flex-col gap-2">
+                <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
+                  <span>{t(($) => $.albums.unranked_albums)}</span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-3">
+                  {honorableRows.map((item) => {
+                    const cover = item.album.art?.[0];
+                    const honorable =
+                      userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
+                    const artistAlreadyRanked = orderRows.some(
+                      (row) => row.album.artist === item.album.artist,
+                    );
+                    const switchId = `honorable-${item.id}`;
+                    return (
+                      <div
+                        key={item.id}
+                        className="relative flex flex-col gap-16 p-3 rounded-lg border border-border bg-card overflow-hidden"
+                      >
+                        {cover ? (
+                          <Image
+                            src={`/albums/${cover}`}
+                            alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                            fill
+                            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                            className="object-contain"
+                          />
+                        ) : null}
+
+                        <div className="relative flex items-start justify-between gap-2">
+                          {artistAlreadyRanked ? (
+                            <Tooltip
+                              trigger={
+                                <span className="shrink-0">
+                                  <Button
+                                    type="button"
+                                    variant="ghost"
+                                    size="icon-lg"
+                                    disabled
+                                    aria-label={t(($) => $.admin.button.rank)}
+                                    className="pointer-events-none bg-background/70 backdrop-blur-sm px-2"
+                                  >
+                                    <HugeiconsIcon icon={ChampionIcon} className="size-6" />
+                                  </Button>
+                                </span>
+                              }
+                            >
+                              {t(($) => $.admin.tooltip.artist_already_ranked)}
+                            </Tooltip>
+                          ) : (
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="lg"
+                              aria-label={t(($) => $.admin.button.rank)}
+                              className="shrink-0 bg-background/70 backdrop-blur-sm px-2"
+                              onClick={() => handleRank(item.id)}
+                            >
+                              <HugeiconsIcon
+                                icon={ChampionIcon}
+                                className="size-6 -mr-1.5 text-amber-400"
+                              />
+                              <span className="text-xl">+{nextAvailableRank}</span>
+                            </Button>
+                          )}
+                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/70 backdrop-blur-sm text-foreground rounded-sm p-2">
+                            <label
+                              htmlFor={switchId}
+                              className="text-2xs text-foreground cursor-pointer"
+                            >
+                              {t(($) => $.albums.honorable)}
+                            </label>
+                            <Switch
+                              id={switchId}
+                              checked={honorable}
+                              onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="relative min-w-0 flex flex-col items-start gap-1">
+                          <Chip
+                            text={item.album.album}
+                            className="block max-w-full truncate bg-background/70 text-foreground backdrop-blur-sm"
+                          />
+                          <Chip
+                            text={item.album.artist}
+                            className="block max-w-full truncate bg-background/70 text-foreground backdrop-blur-sm"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </>
           )}

@@ -5,6 +5,7 @@
   "albums": {
     "ranked": "Die größten Alben aller Zeiten",
     "ranked_info": "Jeder Künstler kann maximal ein Album in der Liste haben.",
+    "honorable": "Ehrenwert",
     "honorable_mention": "Ehrenwerte Erwähnung",
     "honorable_mentions": "Ehrenwerte Erwähnungen",
     "unranked_albums": "Ungerankte Alben",

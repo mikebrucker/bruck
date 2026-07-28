@@ -422,6 +422,8 @@ html.light {
   --font-mono: var(--font-geist-mono);
   --font-asimovian: "Asimovian", sans-serif;
   --font-metal-mania: "Metal Mania", "serif";
+  --text-2xs: 0.625rem;
+  --text-2xs--line-height: 0.875rem;
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -462,6 +464,10 @@ html.light {
   --animate-drawer-slide-out-right: drawer-slide-out-right 0.3s ease-in-out;
   --animate-drawer-slide-in-left: drawer-slide-in-left 0.3s ease-in-out;
   --animate-drawer-slide-out-left: drawer-slide-out-left 0.3s ease-in-out;
+  /* Deliberately not named `collapsible-up`/`collapsible-down`: tw-animate-css
+     ships keyframes under those names that always collapse to 0. */
+  --animate-collapsible-expand: collapsible-expand 0.3s ease-in-out;
+  --animate-collapsible-collapse: collapsible-collapse 0.3s ease-in-out;
 }
 
 @keyframes drawer-fade-in {
@@ -510,6 +516,24 @@ html.light {
   }
   to {
     transform: translateX(-100%);
+  }
+}
+/* `--collapsible-content-height` is measured by `Collapsible` when it peeks;
+   plain collapsibles fall through to the height Radix publishes itself. */
+@keyframes collapsible-expand {
+  from {
+    height: var(--collapsible-collapsed-height, 0px);
+  }
+  to {
+    height: var(--collapsible-content-height, var(--radix-collapsible-content-height, auto));
+  }
+}
+@keyframes collapsible-collapse {
+  from {
+    height: var(--collapsible-content-height, var(--radix-collapsible-content-height, auto));
+  }
+  to {
+    height: var(--collapsible-collapsed-height, 0px);
   }
 }
 

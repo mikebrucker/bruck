@@ -5,6 +5,7 @@
   "albums": {
     "ranked": "The Greatest Albums of All Time",
     "ranked_info": "Each artist can only have max one album ranked in the list.",
+    "honorable": "Honorable",
     "honorable_mention": "Honorable Mention",
     "honorable_mentions": "Honorable Mentions",
     "unranked_albums": "Unranked Albums",
