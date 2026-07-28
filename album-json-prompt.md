@@ -13,8 +13,8 @@ Output ONE JSON object matching this shape (matches albumCreateSchema in src/dat
   "artist": string,
   "album": string,
   "year": number,
-  "label": [string, ...], // every label that released it, primary first
-  "genre": [string, ...], // every genre that applies, primary first
+  "label": [string, ...], // every label that released it, primary first, check RecordLabel type for normalization alert me if not present
+  "genre": [string, ...], // every genre that applies, primary first, check Genre type for normalization alert me if not present
   "runtime": string,      // "MM:SS" or "H:MM:SS" total
   "art": [""],               // always empty string, placeholder
   "personnel": {
