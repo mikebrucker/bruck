@@ -5,7 +5,7 @@ Reusable prompt for generating album upload JSON for [adminAlbumJsonUpload.tsx](
 ```
 Generate album JSON for: {ARTIST} - {ALBUM}
 
-Look up the real release on Wikipedia (or Discogs/RYM if Wikipedia lacks it): year, label, genre, total runtime, full track listing with per-track durations, and the full personnel/credits section (band members + instruments, guest musicians + which track they appear on, production credits).
+Look up the real release on Wikipedia (or Discogs/RYM if Wikipedia lacks it): year, label(s), genre(s), total runtime, full track listing with per-track durations, and the full personnel/credits section (band members + instruments, guest musicians + which track they appear on, production credits).
 
 Output ONE JSON object matching this shape (matches albumCreateSchema in src/data/albumSchema.ts, strict — no extra keys):
 
@@ -13,8 +13,8 @@ Output ONE JSON object matching this shape (matches albumCreateSchema in src/dat
   "artist": string,
   "album": string,
   "year": number,
-  "label": string,
-  "genre": string,        // singular, pick the primary genre
+  "label": [string, ...], // every label that released it, primary first
+  "genre": [string, ...], // every genre that applies, primary first
   "runtime": string,      // "MM:SS" or "H:MM:SS" total
   "art": [""],               // always empty string, placeholder
   "personnel": {
@@ -45,8 +45,8 @@ Give me only the final JSON in a code block, ready to paste into the admin uploa
   "artist": "The Faceless",
   "album": "Autotheism",
   "year": 2012,
-  "label": "Sumerian Records",
-  "genre": "Technical death metal",
+  "label": ["Sumerian Records"],
+  "genre": ["Technical Death Metal", "Progressive Metal"],
   "runtime": "40:56",
   "art": [""],
   "personnel": {

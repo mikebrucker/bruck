@@ -88,6 +88,115 @@ export type Role =
   | "Drum Technician"
   | "Guest Guitar Solo";
 
+/** Reference only - Album.genre stays free text */
+export type Genre =
+  | "Alternative Metal"
+  | "Ambient Rock"
+  | "Avant-Garde Metal"
+  | "Death Metal"
+  | "Deathcore"
+  | "Djent"
+  | "Gothic Metal"
+  | "Groove Metal"
+  | "Hard Rock"
+  | "Jazz Fusion"
+  | "Melodic Death Metal"
+  | "Melodic Metalcore"
+  | "Nu Metal"
+  | "Pop Punk"
+  | "Progressive"
+  | "Progressive Black"
+  | "Progressive Death Metal"
+  | "Progressive Deathcore"
+  | "Progressive Extreme Metal"
+  | "Progressive Metal"
+  | "Progressive Metalcore"
+  | "Progressive Rock"
+  | "Punk Rock"
+  | "Skate Punk"
+  | "Sludge Metal"
+  | "Tech Death Metal"
+  | "Technical"
+  | "Technical Death Metal"
+  | "Thrash Metal";
+
+/** Reference only - Album.artist stays free text */
+export type Artist =
+  | "After the Burial"
+  | "Animals as Leaders"
+  | "Baroness"
+  | "Between the Buried and Me"
+  | "Black Crown Initiate"
+  | "Corelia"
+  | "Cynic"
+  | "Dark Tranquillity"
+  | "Dessiderium"
+  | "Dethklok"
+  | "Devin Townsend Project"
+  | "Dimension Zero"
+  | "Gojira"
+  | "In Flames"
+  | "Intervals"
+  | "Killswitch Engage"
+  | "Lamb of God"
+  | "Meshuggah"
+  | "Ne Obliviscaris"
+  | "Opeth"
+  | "Papa Roach"
+  | "Periphery"
+  | "Pink Floyd"
+  | "Protest the Hero"
+  | "Rivers of Nihil"
+  | "Soilwork"
+  | "Substructure"
+  | "System of a Down"
+  | "Textures"
+  | "The Contortionist"
+  | "The Faceless"
+  | "The Offspring"
+  | "The Schoenberg Automaton"
+  | "The Zenith Passage"
+  | "Tool"
+  | "VOLA"
+  | "Vale of Pnath"
+  | "Virvum"
+  | "Warrel Dane"
+  | "Whitechapel";
+
+/** Reference only - Album.label stays free text */
+export type RecordLabel =
+  | "Abraxan Hymns"
+  | "American"
+  | "Basick"
+  | "Century Media"
+  | "Columbia"
+  | "DreamWorks Records"
+  | "eOne"
+  | "Epic"
+  | "Epitaph"
+  | "Good Fight"
+  | "Harvest Records"
+  | "HevyDevy"
+  | "InsideOut"
+  | "Lifeblood"
+  | "Listenable"
+  | "Metal Blade"
+  | "Nuclear Blast"
+  | "Prosthetic"
+  | "Razor & Tie"
+  | "Roadrunner"
+  | "Season of Mist"
+  | "Self-released"
+  | "Sumerian Records"
+  | "The Artisan Era"
+  | "Unique Leader"
+  | "Vic Records"
+  | "Victory"
+  | "Volcano"
+  | "Williams Street"
+  | "Willowtip Records"
+  | "Zoo";
+
 export interface Credit {
   name: string;
   roles: Array<string>;
@@ -115,11 +224,11 @@ export interface Track {
 
 export interface Album {
   id: string;
-  artist: string;
+  artist: string | Artist;
   album: string;
   year: number;
-  label: string;
-  genre: string;
+  label: Array<string | RecordLabel>;
+  genre: Array<string | Genre>;
   runtime: string;
   tracks: Array<Track>;
   discTitles?: Array<string>;

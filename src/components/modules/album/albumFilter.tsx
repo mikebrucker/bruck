@@ -37,9 +37,11 @@ const selectedValuesForField = (selected: Set<string>, field: ChipField): Array<
     .map((key) => key.slice(prefix.length));
 };
 
-const fieldMatches = (values: Array<string>, mode: ChipMode, albumValue: string): boolean =>
+const fieldMatches = (values: Array<string>, mode: ChipMode, albumValues: Array<string>): boolean =>
   values.length === 0 ||
-  (mode === ChipModes.and ? values.every((v) => v === albumValue) : values.includes(albumValue));
+  (mode === ChipModes.and
+    ? values.every((v) => albumValues.includes(v))
+    : values.some((v) => albumValues.includes(v)));
 
 export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
   const { t } = useTranslation();
@@ -83,8 +85,14 @@ export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
     [albums, showRank, rankRange, yearRange, runtimeRange],
   );
 
-  const genreOptions = useMemo(() => distinctSorted(albums.map((album) => album.genre)), [albums]);
-  const labelOptions = useMemo(() => distinctSorted(albums.map((album) => album.label)), [albums]);
+  const genreOptions = useMemo(
+    () => distinctSorted(albums.flatMap((album) => album.genre)),
+    [albums],
+  );
+  const labelOptions = useMemo(
+    () => distinctSorted(albums.flatMap((album) => album.label)),
+    [albums],
+  );
 
   const genreValues = useMemo(() => selectedValuesForField(selected, ChipFields.genre), [selected]);
   const labelValues = useMemo(() => selectedValuesForField(selected, ChipFields.label), [selected]);
@@ -94,7 +102,7 @@ export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
       chipMode === ChipModes.and
         ? rangeFilteredAlbums.filter((album) => fieldMatches(labelValues, chipMode, album.label))
         : rangeFilteredAlbums;
-    return new Set(pool.map((album) => album.genre));
+    return new Set(pool.flatMap((album) => album.genre));
   }, [rangeFilteredAlbums, labelValues, chipMode]);
 
   const labelInRange = useMemo(() => {
@@ -102,7 +110,7 @@ export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
       chipMode === ChipModes.and
         ? rangeFilteredAlbums.filter((album) => fieldMatches(genreValues, chipMode, album.genre))
         : rangeFilteredAlbums;
-    return new Set(pool.map((album) => album.label));
+    return new Set(pool.flatMap((album) => album.label));
   }, [rangeFilteredAlbums, genreValues, chipMode]);
 
   useEffect(() => {

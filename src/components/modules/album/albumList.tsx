@@ -31,9 +31,11 @@ const selectedValuesForField = (selected: Set<string>, field: ChipField): Array<
     .map((key) => key.slice(prefix.length));
 };
 
-const fieldMatches = (values: Array<string>, mode: ChipMode, albumValue: string): boolean =>
+const fieldMatches = (values: Array<string>, mode: ChipMode, albumValues: Array<string>): boolean =>
   values.length === 0 ||
-  (mode === ChipModes.and ? values.every((v) => v === albumValue) : values.includes(albumValue));
+  (mode === ChipModes.and
+    ? values.every((v) => albumValues.includes(v))
+    : values.some((v) => albumValues.includes(v)));
 
 export function AlbumList({ albums, title, subtitle, showRank, filterKey }: AlbumListProps) {
   const { t } = useTranslation();
@@ -70,17 +72,17 @@ export function AlbumList({ albums, title, subtitle, showRank, filterKey }: Albu
 
   const filteredAlbums = useMemo(() => {
     return rankedAlbums.filter(({ album, rank }) => {
-      const fieldsList: Array<{ values: Array<string>; albumValue: string }> = [
-        { values: genreValues, albumValue: album.genre },
-        { values: labelValues, albumValue: album.label },
+      const fieldsList: Array<{ values: Array<string>; albumValues: Array<string> }> = [
+        { values: genreValues, albumValues: album.genre },
+        { values: labelValues, albumValues: album.label },
       ];
 
       let andOk = true;
       let orPoolActive = false;
       let orPoolMatch = false;
-      for (const { values, albumValue } of fieldsList) {
+      for (const { values, albumValues } of fieldsList) {
         if (values.length === 0) continue;
-        const matches = fieldMatches(values, chipMode, albumValue);
+        const matches = fieldMatches(values, chipMode, albumValues);
         if (chipMode === ChipModes.and) {
           andOk = andOk && matches;
         } else {

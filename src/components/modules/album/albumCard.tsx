@@ -119,9 +119,13 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
 
           <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5 justify-center sm:justify-start">
             <Chip text={String(album.year)} />
-            <Chip text={album.genre} />
+            {album.genre.map((genre) => (
+              <Chip key={genre} text={genre} />
+            ))}
             <Chip text={album.runtime} />
-            <Chip text={album.label} />
+            {album.label.map((label) => (
+              <Chip key={label} text={label} />
+            ))}
           </div>
 
           <div className="col-span-2 sm:hidden flex gap-1 flex-wrap justify-center">{art}</div>

@@ -22,6 +22,13 @@
       "when": 1785062594191,
       "tag": "0002_generated_album_id",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1785228262844,
+      "tag": "0003_common_junta",
+      "breakpoints": true
     }
   ]
 }
