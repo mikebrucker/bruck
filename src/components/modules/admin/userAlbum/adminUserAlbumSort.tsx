@@ -328,13 +328,23 @@ export function AdminUserAlbumSort() {
                         className="relative flex flex-col gap-16 p-3 rounded-lg border border-border bg-card overflow-hidden"
                       >
                         {cover ? (
-                          <Image
-                            src={`/albums/${cover}`}
-                            alt={t(($) => $.albums.cover_art, { album: item.album.album })}
-                            fill
-                            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                            className="object-contain"
-                          />
+                          <>
+                            <Image
+                              src={`/albums/${cover}`}
+                              alt=""
+                              aria-hidden
+                              fill
+                              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                              className="object-cover blur pointer-events-none select-none"
+                            />
+                            <Image
+                              src={`/albums/${cover}`}
+                              alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                              fill
+                              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                              className="object-contain"
+                            />
+                          </>
                         ) : null}
 
                         <div className="relative flex items-start justify-between gap-2">
