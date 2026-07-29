@@ -286,10 +286,10 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
         <Modal
           open={selectedMention !== null}
           onClose={closeMention}
-          className="max-w-3xl max-h-[90dvh] w-full h-full rounded-lg"
+          className="max-w-3xl h-[90dvh] w-full rounded-lg overflow-y-auto"
         >
           {selectedMention ? (
-            <div className="overflow-y-auto px-2 py-1">
+            <div className="px-2 py-1">
               <div className="flex justify-end pt-1 pb-2">
                 <Button
                   variant="outline"
