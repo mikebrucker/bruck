@@ -283,16 +283,19 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
             </div>
           ) : null}
         </Modal>
-        <Modal open={selectedMention !== null} onClose={closeMention} className="rounded-lg">
+        <Modal
+          open={selectedMention !== null}
+          onClose={closeMention}
+          className="max-w-3xl max-h-[90dvh] w-full h-full rounded-lg"
+        >
           {selectedMention ? (
-            <div className="max-w-3xl max-h-[90dvh] overflow-y-auto px-2 py-1">
-              <div className="flex justify-end py-1">
+            <div className="overflow-y-auto px-2 py-1">
+              <div className="flex justify-end pt-1 pb-2">
                 <Button
-                  variant="ghost"
+                  variant="outline"
                   size="icon-sm"
                   onClick={closeMention}
                   aria-label={t(($) => $.ariaLabels.close)}
-                  className="rounded-full"
                 >
                   <HugeiconsIcon icon={Cancel01Icon} />
                 </Button>
