@@ -41,6 +41,7 @@ export function Collapsible({
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen);
   const [contentHeight, setContentHeight] = React.useState<number | null>(null);
   const innerRef = React.useRef<HTMLDivElement>(null);
+  const contentRef = React.useRef<HTMLDivElement>(null);
 
   const isOpen = open ?? uncontrolledOpen;
   const hasPeek = collapsedHeight !== undefined;
@@ -69,6 +70,18 @@ export function Collapsible({
     observer.observe(node);
     return () => observer.disconnect();
   }, [hasPeek]);
+
+  /*
+    The collapsed peek scrolls, so opening can land with a stale `scrollTop`. The
+    open state is `overflow-hidden`, which keeps that offset with no way to scroll
+    back, leaving the content permanently shifted up. Only the open direction
+    needs this -- closing always starts from a non-scrollable open state.
+  */
+  React.useLayoutEffect(() => {
+    if (!hasPeek || !isOpen) return;
+    const node = contentRef.current;
+    if (node) node.scrollTop = 0;
+  }, [hasPeek, isOpen]);
 
   const contentStyle: React.CSSProperties & Record<`--${string}`, string> = {
     animationDuration: `${duration}ms`,
@@ -123,6 +136,7 @@ export function Collapsible({
       </CollapsiblePrimitive.Trigger>
 
       <CollapsiblePrimitive.Content
+        ref={contentRef}
         forceMount={hasPeek || undefined}
         className={cn(
           "overflow-hidden data-[state=closed]:animate-collapsible-collapse data-[state=open]:animate-collapsible-expand",
@@ -131,7 +145,13 @@ export function Collapsible({
           // the collapsible is toggled mid-animation. Only safe when peeking: for
           // a plain collapsible this would clamp the height Radix measures on
           // close to `0`, wiping out its own close animation.
-          hasPeek ? "data-[state=closed]:h-(--collapsible-collapsed-height)" : null,
+          //
+          // The peek is also scrollable while collapsed, so the clipped overflow
+          // is reachable. `overflow-x` stays hidden and `overscroll-contain` keeps
+          // the scroll from chaining to the page once the peek bottoms out.
+          hasPeek
+            ? "data-[state=closed]:h-(--collapsible-collapsed-height) data-[state=closed]:overflow-y-auto data-[state=closed]:overscroll-contain"
+            : null,
         )}
         style={contentStyle}
       >

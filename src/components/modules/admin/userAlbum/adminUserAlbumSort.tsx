@@ -46,7 +46,7 @@ export function AdminUserAlbumSort() {
   const [allMode, setAllMode] = useState(true);
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
-  const [saving, setSaving] = useState(false);
+  const [_saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState<FormTab>(FormTabs.order);
 
   const pendingRef = useRef<Map<string, OrderPatch>>(new Map());
@@ -268,8 +268,8 @@ export function AdminUserAlbumSort() {
                 duration={500}
                 defaultOpen
                 className="max-w-xl w-full mx-auto"
-                triggerClassName="text-muted-foreground bg-card rounded-lg mb-4"
-                contentClassName="gap-6"
+                triggerClassName="text-muted-foreground font-medium bg-card rounded-lg mb-4"
+                contentClassName="gap-6 pr-3"
               >
                 <SortableList
                   items={orderRows}
@@ -322,7 +322,7 @@ export function AdminUserAlbumSort() {
               </Collapsible>
 
               <div className="max-w-5xl w-full mx-auto flex flex-col gap-2">
-                <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
+                <div className="flex items-center p-2 font-medium text-muted-foreground bg-card rounded-lg">
                   <span>{t(($) => $.albums.unranked_albums)}</span>
                 </div>
 
