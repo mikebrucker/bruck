@@ -15,12 +15,16 @@ const setLang = (setLang?: string): Language => {
   return isLocale(language) ? (language as Language) : defaultLocale;
 };
 
-export const useLanguageStore = createHmrStore<LanguageState>("language", ["language", "ready"], (set) => ({
-  language: setLang(),
-  ready: false,
-  setLanguage: (lang) => {
-    const language = setLang(lang);
-    i18n.changeLanguage(language);
-    set({ language });
-  },
-}));
+export const useLanguageStore = createHmrStore<LanguageState>(
+  "language",
+  ["language", "ready"],
+  (set) => ({
+    language: setLang(),
+    ready: false,
+    setLanguage: (lang) => {
+      const language = setLang(lang);
+      i18n.changeLanguage(language);
+      set({ language });
+    },
+  }),
+);

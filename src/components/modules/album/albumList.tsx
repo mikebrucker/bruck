@@ -4,8 +4,15 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCard from "@/components/modules/album/albumCard";
 import { AlbumFilter } from "@/components/modules/album/albumFilter";
-import { parseRuntimeSeconds } from "@/lib/album";
-import { type ChipMode, ChipModes, useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
+import {
+  albumBounds,
+  ChipFields,
+  ChipModes,
+  fieldMatches,
+  matchesRanges,
+  selectedValuesForField,
+} from "@/lib/albumFilter";
+import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
 
 type AlbumListProps = {
@@ -15,26 +22,7 @@ type AlbumListProps = {
   filterKey: string;
 };
 
-const ChipFields = {
-  genre: "genre",
-  label: "label",
-} as const;
-type ChipField = keyof typeof ChipFields;
-
 const EMPTY_SET = new Set<string>();
-
-const selectedValuesForField = (selected: Set<string>, field: ChipField): Array<string> => {
-  const prefix = `${field}:`;
-  return Array.from(selected)
-    .filter((key) => key.startsWith(prefix))
-    .map((key) => key.slice(prefix.length));
-};
-
-const fieldMatches = (values: Array<string>, mode: ChipMode, albumValues: Array<string>): boolean =>
-  values.length === 0 ||
-  (mode === ChipModes.and
-    ? values.every((v) => albumValues.includes(v))
-    : values.some((v) => albumValues.includes(v)));
 
 export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {
   const { t } = useTranslation();
@@ -43,57 +31,30 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
   const storedRankRange = useAlbumFilterStore((s) => s.rankRangeByList[filterKey]);
   const storedYearRange = useAlbumFilterStore((s) => s.yearRangeByList[filterKey]);
   const storedRuntimeRange = useAlbumFilterStore((s) => s.runtimeRangeByList[filterKey]);
-  const chipMode = useAlbumFilterStore((s) => s.chipModeByList[filterKey]) ?? ChipModes.or;
+  const genreMode =
+    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.genre]) ?? ChipModes.or;
+  const labelMode =
+    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.label]) ?? ChipModes.or;
 
-  const rankBounds = useMemo((): [number, number] => [1, Math.max(1, albums.length)], [albums]);
+  const bounds = useMemo(() => albumBounds(albums), [albums]);
 
-  const yearBounds = useMemo((): [number, number] => {
-    const years = albums.map((album) => album.year);
-    return [Math.min(...years), Math.max(...years)];
-  }, [albums]);
-
-  const runtimeBounds = useMemo((): [number, number] => {
-    const seconds = albums.map((album) => parseRuntimeSeconds(album.runtime));
-    return [Math.min(...seconds), Math.max(...seconds)];
-  }, [albums]);
-
-  const rankRange = storedRankRange ?? rankBounds;
-  const yearRange = storedYearRange ?? yearBounds;
-  const runtimeRange = storedRuntimeRange ?? runtimeBounds;
+  const rankRange = storedRankRange ?? bounds.rankRange;
+  const yearRange = storedYearRange ?? bounds.yearRange;
+  const runtimeRange = storedRuntimeRange ?? bounds.runtimeRange;
 
   const genreValues = useMemo(() => selectedValuesForField(selected, ChipFields.genre), [selected]);
   const labelValues = useMemo(() => selectedValuesForField(selected, ChipFields.label), [selected]);
 
-  const filteredAlbums = useMemo(() => {
-    return albums.filter((album) => {
-      const fieldsList: Array<{ values: Array<string>; albumValues: Array<string> }> = [
-        { values: genreValues, albumValues: album.genre },
-        { values: labelValues, albumValues: album.label },
-      ];
-
-      let andOk = true;
-      let orPoolActive = false;
-      let orPoolMatch = false;
-      for (const { values, albumValues } of fieldsList) {
-        if (values.length === 0) continue;
-        const matches = fieldMatches(values, chipMode, albumValues);
-        if (chipMode === ChipModes.and) {
-          andOk = andOk && matches;
-        } else {
-          orPoolActive = true;
-          orPoolMatch = orPoolMatch || matches;
-        }
-      }
-      const chipsOk = andOk && (!orPoolActive || orPoolMatch);
-      const rank = album.userAlbum?.rank ?? -1;
-      const rankOk =
-        album.userAlbum?.rank === undefined || (rank >= rankRange[0] && rank <= rankRange[1]);
-      const yearOk = album.year >= yearRange[0] && album.year <= yearRange[1];
-      const runtimeSeconds = parseRuntimeSeconds(album.runtime);
-      const runtimeOk = runtimeSeconds >= runtimeRange[0] && runtimeSeconds <= runtimeRange[1];
-      return chipsOk && rankOk && yearOk && runtimeOk;
-    });
-  }, [albums, genreValues, labelValues, chipMode, rankRange, yearRange, runtimeRange]);
+  const filteredAlbums = useMemo(
+    () =>
+      albums.filter(
+        (album) =>
+          fieldMatches(genreValues, genreMode, album.genre) &&
+          fieldMatches(labelValues, labelMode, album.label) &&
+          matchesRanges(album, { rankRange, yearRange, runtimeRange }),
+      ),
+    [albums, genreValues, genreMode, labelValues, labelMode, rankRange, yearRange, runtimeRange],
+  );
 
   return (
     <div className="w-full px-1">

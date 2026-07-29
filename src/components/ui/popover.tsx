@@ -31,7 +31,7 @@ function Popover({ trigger, children, className, useCloseButton }: PopoverProps)
           {useCloseButton ? (
             <div className="flex justify-end w-full">
               <PopoverPrimitive.Close
-                className="cursor-pointer rounded-md p-1 hover:bg-accent"
+                className="cursor-pointer rounded-md p-2 hover:bg-accent"
                 aria-label={t(($) => $.ariaLabels.close)}
               >
                 <HugeiconsIcon icon={Close} className="size-5" />

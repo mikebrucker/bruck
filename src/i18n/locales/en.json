@@ -29,7 +29,8 @@
     "filter_no_labels": "No Labels",
     "filter_button": "Filter",
     "filter_mode_or": "OR - matches any selected",
-    "filter_mode_and": "AND - must match all selected"
+    "filter_mode_and": "AND - must match all selected",
+    "filter_clear": "Clear selection"
   },
   "about": {
     "frontend": "Frontend",

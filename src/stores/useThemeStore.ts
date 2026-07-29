@@ -19,16 +19,20 @@ const applyTheme = (theme: Theme) => {
   localStorage.setItem("theme", theme);
 };
 
-export const useThemeStore = createHmrStore<ThemeState>("theme", ["theme", "ready"], (set, get) => ({
-  theme: Themes.light,
-  ready: false,
-  setTheme: (theme) => {
-    applyTheme(theme);
-    set({ theme });
-  },
-  toggle: () => {
-    const next = get().theme === Themes.dark ? Themes.light : Themes.dark;
-    applyTheme(next);
-    set({ theme: next });
-  },
-}));
+export const useThemeStore = createHmrStore<ThemeState>(
+  "theme",
+  ["theme", "ready"],
+  (set, get) => ({
+    theme: Themes.light,
+    ready: false,
+    setTheme: (theme) => {
+      applyTheme(theme);
+      set({ theme });
+    },
+    toggle: () => {
+      const next = get().theme === Themes.dark ? Themes.light : Themes.dark;
+      applyTheme(next);
+      set({ theme: next });
+    },
+  }),
+);

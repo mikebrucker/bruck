@@ -1,6 +1,11 @@
 "use client";
 
-import { Bone01Icon, BrokenBoneIcon, FilterHorizontalIcon } from "@hugeicons/core-free-icons";
+import {
+  Bone01Icon,
+  BrokenBoneIcon,
+  FilterHorizontalIcon,
+  FilterResetIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -9,8 +14,19 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Popover } from "@/components/ui/popover";
 import { Slider } from "@/components/ui/slider";
-import { formatRuntimeSeconds, parseRuntimeSeconds } from "@/lib/album";
-import { type ChipMode, ChipModes, useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
+import { formatRuntimeSeconds } from "@/lib/album";
+import {
+  albumBounds,
+  type ChipField,
+  ChipFields,
+  type ChipMode,
+  ChipModes,
+  chipKey,
+  fieldMatches,
+  matchesRanges,
+  selectedValuesForField,
+} from "@/lib/albumFilter";
+import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
 
 type AlbumFilterProps = {
@@ -18,29 +34,10 @@ type AlbumFilterProps = {
   filterKey: string;
 };
 
-const ChipFields = {
-  genre: "genre",
-  label: "label",
-} as const;
-type ChipField = keyof typeof ChipFields;
-
 const EMPTY_SET = new Set<string>();
 
 const distinctSorted = (values: Array<string>): Array<string> =>
   Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));
-
-const selectedValuesForField = (selected: Set<string>, field: ChipField): Array<string> => {
-  const prefix = `${field}:`;
-  return Array.from(selected)
-    .filter((key) => key.startsWith(prefix))
-    .map((key) => key.slice(prefix.length));
-};
-
-const fieldMatches = (values: Array<string>, mode: ChipMode, albumValues: Array<string>): boolean =>
-  values.length === 0 ||
-  (mode === ChipModes.and
-    ? values.every((v) => albumValues.includes(v))
-    : values.some((v) => albumValues.includes(v)));
 
 export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const { t } = useTranslation();
@@ -53,34 +50,21 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const setYearRange = useAlbumFilterStore((s) => s.setYearRange);
   const storedRuntimeRange = useAlbumFilterStore((s) => s.runtimeRangeByList[filterKey]);
   const setRuntimeRange = useAlbumFilterStore((s) => s.setRuntimeRange);
-  const chipMode = useAlbumFilterStore((s) => s.chipModeByList[filterKey]) ?? ChipModes.or;
+  const genreMode =
+    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.genre]) ?? ChipModes.or;
+  const labelMode =
+    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.label]) ?? ChipModes.or;
   const toggleChipMode = useAlbumFilterStore((s) => s.toggleChipMode);
+  const clearChipField = useAlbumFilterStore((s) => s.clearChipField);
 
-  const rankBounds = useMemo((): [number, number] => [1, Math.max(1, albums.length)], [albums]);
+  const bounds = useMemo(() => albumBounds(albums), [albums]);
 
-  const yearBounds = useMemo((): [number, number] => {
-    const years = albums.map((album) => album.year);
-    return [Math.min(...years), Math.max(...years)];
-  }, [albums]);
-
-  const runtimeBounds = useMemo((): [number, number] => {
-    const seconds = albums.map((album) => parseRuntimeSeconds(album.runtime));
-    return [Math.min(...seconds), Math.max(...seconds)];
-  }, [albums]);
-
-  const rankRange = storedRankRange ?? rankBounds;
-  const yearRange = storedYearRange ?? yearBounds;
-  const runtimeRange = storedRuntimeRange ?? runtimeBounds;
+  const rankRange = storedRankRange ?? bounds.rankRange;
+  const yearRange = storedYearRange ?? bounds.yearRange;
+  const runtimeRange = storedRuntimeRange ?? bounds.runtimeRange;
 
   const rangeFilteredAlbums = useMemo(
-    () =>
-      albums.filter((album, i) => {
-        const rankOk = i + 1 >= rankRange[0] && i + 1 <= rankRange[1];
-        const yearOk = album.year >= yearRange[0] && album.year <= yearRange[1];
-        const runtimeSeconds = parseRuntimeSeconds(album.runtime);
-        const runtimeOk = runtimeSeconds >= runtimeRange[0] && runtimeSeconds <= runtimeRange[1];
-        return rankOk && yearOk && runtimeOk;
-      }),
+    () => albums.filter((album) => matchesRanges(album, { rankRange, yearRange, runtimeRange })),
     [albums, rankRange, yearRange, runtimeRange],
   );
 
@@ -96,28 +80,36 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const genreValues = useMemo(() => selectedValuesForField(selected, ChipFields.genre), [selected]);
   const labelValues = useMemo(() => selectedValuesForField(selected, ChipFields.label), [selected]);
 
+  /**
+   * Chips stay enabled only while they can still yield a result: the other category always
+   * constrains the pool (categories are AND), and in AND mode the field constrains itself too,
+   * so a chip is offered only when it co-occurs with everything already selected in that field.
+   * In OR mode a field must not constrain itself or every unselected chip would go dark.
+   */
   const genreInRange = useMemo(() => {
-    const pool =
-      chipMode === ChipModes.and
-        ? rangeFilteredAlbums.filter((album) => fieldMatches(labelValues, chipMode, album.label))
-        : rangeFilteredAlbums;
+    const pool = rangeFilteredAlbums.filter(
+      (album) =>
+        fieldMatches(labelValues, labelMode, album.label) &&
+        (genreMode === ChipModes.or || fieldMatches(genreValues, genreMode, album.genre)),
+    );
     return new Set(pool.flatMap((album) => album.genre));
-  }, [rangeFilteredAlbums, labelValues, chipMode]);
+  }, [rangeFilteredAlbums, labelValues, labelMode, genreValues, genreMode]);
 
   const labelInRange = useMemo(() => {
-    const pool =
-      chipMode === ChipModes.and
-        ? rangeFilteredAlbums.filter((album) => fieldMatches(genreValues, chipMode, album.genre))
-        : rangeFilteredAlbums;
+    const pool = rangeFilteredAlbums.filter(
+      (album) =>
+        fieldMatches(genreValues, genreMode, album.genre) &&
+        (labelMode === ChipModes.or || fieldMatches(labelValues, labelMode, album.label)),
+    );
     return new Set(pool.flatMap((album) => album.label));
-  }, [rangeFilteredAlbums, genreValues, chipMode]);
+  }, [rangeFilteredAlbums, genreValues, genreMode, labelValues, labelMode]);
 
   useEffect(() => {
     for (const value of genreValues) {
-      if (!genreInRange.has(value)) toggleFilter(filterKey, `${ChipFields.genre}:${value}`);
+      if (!genreInRange.has(value)) toggleFilter(filterKey, chipKey(ChipFields.genre, value));
     }
     for (const value of labelValues) {
-      if (!labelInRange.has(value)) toggleFilter(filterKey, `${ChipFields.label}:${value}`);
+      if (!labelInRange.has(value)) toggleFilter(filterKey, chipKey(ChipFields.label, value));
     }
   }, [genreValues, labelValues, genreInRange, labelInRange, filterKey, toggleFilter]);
 
@@ -135,70 +127,89 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
     label: string,
     options: Array<string>,
     inRangeValues: Set<string>,
-  ) => (
-    <Accordion
-      key={field}
-      title={label}
-      size="sm"
-      defaultOpen={false}
-      classNames="bg-card rounded-lg"
-      actionButton={
-        <button
-          type="button"
-          aria-label={
-            chipMode === ChipModes.and
-              ? t(($) => $.albums.filter_mode_and)
-              : t(($) => $.albums.filter_mode_or)
-          }
-          title={
-            chipMode === ChipModes.and
-              ? t(($) => $.albums.filter_mode_and)
-              : t(($) => $.albums.filter_mode_or)
-          }
-          onClick={() => toggleChipMode(filterKey)}
-          className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
-        >
-          <HugeiconsIcon
-            icon={chipMode === ChipModes.and ? Bone01Icon : BrokenBoneIcon}
-            className={`size-5 ${chipMode === ChipModes.and ? "text-theme-500" : ""}`}
-            aria-hidden="true"
-          />
-        </button>
-      }
-    >
-      <div className="flex flex-wrap gap-1.5">
-        {options.length === 0 ? (
-          <Chip text={noOptionsText(field)} className="opacity-50 pointer-events-none" />
-        ) : (
-          options.map((value) => {
-            const key = `${field}:${value}`;
-            const active = selected.has(key);
-            const disabled = !inRangeValues.has(value);
-            return (
+    mode: ChipMode,
+    selectedValues: Array<string>,
+  ) => {
+    const modeText =
+      mode === ChipModes.and
+        ? t(($) => $.albums.filter_mode_and)
+        : t(($) => $.albums.filter_mode_or);
+    const clearText = t(($) => $.albums.filter_clear);
+    return (
+      <Accordion
+        key={field}
+        title={label}
+        size="sm"
+        defaultOpen={false}
+        classNames="bg-card rounded-lg"
+        actionButton={
+          <>
+            {selectedValues.length ? (
               <button
-                key={key}
                 type="button"
-                disabled={disabled}
-                className={disabled ? "cursor-not-allowed" : "cursor-pointer"}
-                onClick={() => toggleFilter(filterKey, key)}
+                disabled={selectedValues.length === 0}
+                aria-label={`${label}: ${clearText}`}
+                title={clearText}
+                onClick={() => clearChipField(filterKey, field)}
+                className="border border-border p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
               >
-                <Chip
-                  text={value}
-                  className={
-                    disabled
-                      ? "opacity-50 pointer-events-none"
-                      : active
-                        ? "bg-theme-500 text-white"
-                        : undefined
-                  }
+                <HugeiconsIcon
+                  icon={FilterResetIcon}
+                  className="size-5 text-orange-600"
+                  aria-hidden="true"
                 />
               </button>
-            );
-          })
-        )}
-      </div>
-    </Accordion>
-  );
+            ) : null}
+            <button
+              type="button"
+              aria-label={`${label}: ${modeText}`}
+              title={modeText}
+              onClick={() => toggleChipMode(filterKey, field)}
+              className={`border border-border ${mode === ChipModes.and ? "border-theme-500" : ""} p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer`}
+            >
+              <HugeiconsIcon
+                icon={mode === ChipModes.and ? Bone01Icon : BrokenBoneIcon}
+                className={`size-5 ${mode === ChipModes.and ? "text-theme-500" : ""}`}
+                aria-hidden="true"
+              />
+            </button>
+          </>
+        }
+      >
+        <div className="flex flex-wrap gap-1.5 px-2">
+          {options.length === 0 ? (
+            <Chip text={noOptionsText(field)} className="opacity-50 pointer-events-none" />
+          ) : (
+            options.map((value) => {
+              const key = chipKey(field, value);
+              const active = selected.has(key);
+              const disabled = !inRangeValues.has(value);
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  disabled={disabled}
+                  className={disabled ? "cursor-not-allowed" : "cursor-pointer"}
+                  onClick={() => toggleFilter(filterKey, key)}
+                >
+                  <Chip
+                    text={value}
+                    className={
+                      disabled
+                        ? "opacity-50 pointer-events-none"
+                        : active
+                          ? "bg-theme-500 text-white"
+                          : undefined
+                    }
+                  />
+                </button>
+              );
+            })
+          )}
+        </div>
+      </Accordion>
+    );
+  };
 
   return (
     <Popover
@@ -220,15 +231,19 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         t(($) => $.albums.filter_genre),
         genreOptions,
         genreInRange,
+        genreMode,
+        genreValues,
       )}
       {filterRow(
         ChipFields.label,
         t(($) => $.albums.filter_label),
         labelOptions,
         labelInRange,
+        labelMode,
+        labelValues,
       )}
 
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-2">
         <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
           <span className="text-xs font-medium tabular-nums text-muted-foreground">
             {rankRange[0]}
@@ -242,8 +257,8 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
-          min={rankBounds[0]}
-          max={rankBounds[1]}
+          min={bounds.rankRange[0]}
+          max={bounds.rankRange[1]}
           value={rankRange}
           onValueChange={(range) => {
             if (range.length === 2) setRankRange(filterKey, range);
@@ -251,7 +266,7 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         />
       </div>
 
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-2">
         <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
           <span className="text-xs font-medium tabular-nums text-muted-foreground">
             {yearRange[0]}
@@ -265,8 +280,8 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
-          min={yearBounds[0]}
-          max={yearBounds[1]}
+          min={bounds.yearRange[0]}
+          max={bounds.yearRange[1]}
           value={yearRange}
           onValueChange={(range) => {
             if (range.length === 2) setYearRange(filterKey, range);
@@ -274,7 +289,7 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         />
       </div>
 
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-2">
         <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
           <span className="text-xs font-medium tabular-nums text-muted-foreground">
             {formatRuntimeSeconds(runtimeRange[0])}
@@ -288,8 +303,8 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
-          min={runtimeBounds[0]}
-          max={runtimeBounds[1]}
+          min={bounds.runtimeRange[0]}
+          max={bounds.runtimeRange[1]}
           value={runtimeRange}
           onValueChange={(range) => {
             if (range.length === 2) setRuntimeRange(filterKey, range);

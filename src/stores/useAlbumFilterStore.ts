@@ -1,22 +1,18 @@
+import { type ChipField, type ChipMode, ChipModes, chipPrefix } from "@/lib/albumFilter";
 import { createHmrStore } from "@/stores/createHmrStore";
-
-export const ChipModes = {
-  or: "or",
-  and: "and",
-} as const;
-export type ChipMode = keyof typeof ChipModes;
 
 type AlbumFilterState = {
   selectedByList: Record<string, Set<string>>;
   rankRangeByList: Record<string, [number, number]>;
   yearRangeByList: Record<string, [number, number]>;
   runtimeRangeByList: Record<string, [number, number]>;
-  chipModeByList: Record<string, ChipMode>;
+  chipModeByList: Record<string, Partial<Record<ChipField, ChipMode>>>;
   toggleFilter: (listKey: string, filterKey: string) => void;
+  clearChipField: (listKey: string, field: ChipField) => void;
   setRankRange: (listKey: string, range: [number, number]) => void;
   setYearRange: (listKey: string, range: [number, number]) => void;
   setRuntimeRange: (listKey: string, range: [number, number]) => void;
-  toggleChipMode: (listKey: string) => void;
+  toggleChipMode: (listKey: string, field: ChipField) => void;
 };
 
 export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
@@ -38,6 +34,13 @@ export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
       }
       set({ selectedByList: { ...get().selectedByList, [listKey]: next } });
     },
+    clearChipField: (listKey, field) => {
+      const current = get().selectedByList[listKey];
+      if (!current) return;
+      const prefix = chipPrefix(field);
+      const next = new Set(Array.from(current).filter((key) => !key.startsWith(prefix)));
+      set({ selectedByList: { ...get().selectedByList, [listKey]: next } });
+    },
     setRankRange: (listKey, range) => {
       set({ rankRangeByList: { ...get().rankRangeByList, [listKey]: range } });
     },
@@ -47,12 +50,13 @@ export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
     setRuntimeRange: (listKey, range) => {
       set({ runtimeRangeByList: { ...get().runtimeRangeByList, [listKey]: range } });
     },
-    toggleChipMode: (listKey) => {
+    toggleChipMode: (listKey, field) => {
+      const listModes = get().chipModeByList[listKey] ?? {};
       const nextMode: ChipMode =
-        (get().chipModeByList[listKey] ?? ChipModes.or) === ChipModes.or
-          ? ChipModes.and
-          : ChipModes.or;
-      set({ chipModeByList: { ...get().chipModeByList, [listKey]: nextMode } });
+        (listModes[field] ?? ChipModes.or) === ChipModes.or ? ChipModes.and : ChipModes.or;
+      set({
+        chipModeByList: { ...get().chipModeByList, [listKey]: { ...listModes, [field]: nextMode } },
+      });
     },
   }),
 );

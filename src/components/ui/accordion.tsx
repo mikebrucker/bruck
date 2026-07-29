@@ -105,7 +105,9 @@ export function Accordion({
               </div>
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
-          {actionButton ? <div className="shrink-0 pr-2">{actionButton}</div> : null}
+          {actionButton ? (
+            <div className="shrink-0 pr-2 flex items-center gap-1">{actionButton}</div>
+          ) : null}
         </div>
         <AccordionPrimitive.Content
           className="overflow-hidden ease-in-out data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
