@@ -468,6 +468,7 @@ html.light {
      ships keyframes under those names that always collapse to 0. */
   --animate-collapsible-expand: collapsible-expand 0.3s ease-in-out;
   --animate-collapsible-collapse: collapsible-collapse 0.3s ease-in-out;
+  --animate-flap: flap 1s ease-in-out infinite;
 }
 
 @keyframes drawer-fade-in {
@@ -534,6 +535,15 @@ html.light {
   }
   to {
     height: var(--collapsible-collapsed-height, 0px);
+  }
+}
+@keyframes flap {
+  0%,
+  100% {
+    rotate: -25deg;
+  }
+  50% {
+    rotate: -15deg;
   }
 }
 
