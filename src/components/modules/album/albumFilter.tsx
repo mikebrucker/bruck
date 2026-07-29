@@ -24,8 +24,6 @@ const ChipFields = {
 } as const;
 type ChipField = keyof typeof ChipFields;
 
-const EMPTY_SET = new Set<string>();
-
 const distinctSorted = (values: Array<string>): Array<string> =>
   Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));
 
@@ -45,7 +43,7 @@ const fieldMatches = (values: Array<string>, mode: ChipMode, albumValues: Array<
 export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const { t } = useTranslation();
 
-  const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
+  const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? new Set<string>());
   const toggleFilter = useAlbumFilterStore((s) => s.toggleFilter);
   const storedRankRange = useAlbumFilterStore((s) => s.rankRangeByList[filterKey]);
   const setRankRange = useAlbumFilterStore((s) => s.setRankRange);

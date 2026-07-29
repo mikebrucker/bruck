@@ -16,7 +16,6 @@ export function AlbumsClient({ rankedAlbums }: AlbumsClientProps) {
       albums={rankedAlbums}
       title={t(($) => $.albums.ranked)}
       subtitle={t(($) => $.albums.ranked_info)}
-      showRank
       filterKey="ranked"
     />
   );
