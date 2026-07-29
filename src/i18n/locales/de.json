@@ -118,7 +118,8 @@
       "uploading": "Lädt hoch...",
       "upload": "Hochladen",
       "save": "Speichern",
-      "rank": "Rang"
+      "rank": "Rang",
+      "unrank": "Rang entfernen"
     },
     "placeholder": {
       "loading": "Lädt...",

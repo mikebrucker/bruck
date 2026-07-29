@@ -1,6 +1,6 @@
 "use client";
 
-import { ChampionIcon, Layers02Icon } from "@hugeicons/core-free-icons";
+import { ChampionIcon, Layers02Icon, SoftwareUninstallIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -204,6 +204,18 @@ export function AdminUserAlbumSort() {
     queueUpdates([{ albumId, rank: nextAvailableRank, honorable: false }]);
   };
 
+  const handleUnrank = (albumId: string) => {
+    const rank = rankOf(albumId);
+    if (rank === null) return;
+    const updates: Array<OrderUpdate> = [{ albumId, rank: null }];
+    for (const ua of userAlbums) {
+      if (ua.rank !== null && ua.rank > rank) {
+        updates.push({ albumId: ua.albumId, rank: ua.rank - 1 });
+      }
+    }
+    queueUpdates(updates);
+  };
+
   const selectedAlbum = sortedAlbums.find((album) => album.id === selectedId);
 
   const isFormTab = (value: string): value is FormTab => value in FormTabs;
@@ -252,28 +264,18 @@ export function AdminUserAlbumSort() {
             <>
               <Collapsible
                 title={t(($) => $.admin.label.reorder)}
-                collapsedHeight={128}
+                collapsedHeight={96}
                 duration={500}
                 defaultOpen
                 className="max-w-xl w-full mx-auto"
+                triggerClassName="text-muted-foreground bg-card rounded-lg mb-4"
                 contentClassName="gap-6"
               >
-                <div className="flex items-center p-2 text-sm font-medium text-muted-foreground bg-card rounded-lg">
-                  <span className="w-27 shrink-0 text-left">
-                    {saving ? t(($) => $.admin.status.saving) : t(($) => $.admin.label.reorder)}
-                  </span>
-                  <div className="min-w-0 flex-1 flex items-center justify-between">
-                    <span>{t(($) => $.admin.label.album)}</span>
-                    <span>{t(($) => $.albums.honorable_mention)}</span>
-                  </div>
-                </div>
                 <SortableList
                   items={orderRows}
                   onChange={handleReorder}
                   renderItem={(item, index) => {
                     const cover = item.album.art?.[0];
-                    const honorable =
-                      userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
                     return (
                       <div className="flex items-center gap-3">
                         {cover ? (
@@ -297,11 +299,22 @@ export function AdminUserAlbumSort() {
                         <span className="text-lg font-bold text-theme-600 tabular-nums shrink-0">
                           {index + 1}
                         </span>
-                        <Switch
-                          checked={honorable}
-                          onCheckedChange={(checked) => handleHonorableChange(item.id, checked)}
-                          aria-label={t(($) => $.albums.honorable_mention)}
-                        />
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="lg"
+                          aria-label={t(($) => $.admin.button.unrank)}
+                          className="shrink-0 px-2"
+                          onClick={() => handleUnrank(item.id)}
+                        >
+                          <HugeiconsIcon
+                            icon={SoftwareUninstallIcon}
+                            className="size-6 text-red-700"
+                          />
+                          <span className="hidden sm:inline-block">
+                            {t(($) => $.admin.button.unrank)}
+                          </span>
+                        </Button>
                       </div>
                     );
                   }}
@@ -358,7 +371,7 @@ export function AdminUserAlbumSort() {
                                     size="icon-lg"
                                     disabled
                                     aria-label={t(($) => $.admin.button.rank)}
-                                    className="pointer-events-none bg-background/70 backdrop-blur-sm px-2"
+                                    className="pointer-events-none bg-background/50 backdrop-blur-sm px-2"
                                   >
                                     <HugeiconsIcon icon={ChampionIcon} className="size-6" />
                                   </Button>
@@ -373,7 +386,7 @@ export function AdminUserAlbumSort() {
                               variant="ghost"
                               size="lg"
                               aria-label={t(($) => $.admin.button.rank)}
-                              className="shrink-0 bg-background/70 backdrop-blur-sm px-2"
+                              className="shrink-0 bg-background/50 backdrop-blur-sm px-2"
                               onClick={() => handleRank(item.id)}
                             >
                               <HugeiconsIcon
@@ -383,10 +396,10 @@ export function AdminUserAlbumSort() {
                               <span className="text-xl">+{nextAvailableRank}</span>
                             </Button>
                           )}
-                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/70 backdrop-blur-sm text-foreground rounded-sm p-2">
+                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm text-foreground rounded-sm p-2">
                             <label
                               htmlFor={switchId}
-                              className="text-2xs text-foreground cursor-pointer"
+                              className="text-2xs text-foreground cursor-pointer "
                             >
                               {t(($) => $.albums.honorable)}
                             </label>

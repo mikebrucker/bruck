@@ -118,7 +118,8 @@
       "uploading": "Uploading...",
       "upload": "Upload",
       "save": "Save",
-      "rank": "Rank"
+      "rank": "Rank",
+      "unrank": "Unrank"
     },
     "placeholder": {
       "loading": "Loading...",
