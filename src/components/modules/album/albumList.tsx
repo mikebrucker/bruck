@@ -82,7 +82,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
       <div ref={sentinelRef} aria-hidden className="h-px w-full" />
       <div
         className={cn(
-          "flex items-center w-full bg-card border border-border rounded-lg p-2 sm:p-4 sticky -top-3 sm:-top-5 z-50 shadow-[0_6px_18px_4px_rgb(0_0_0/0.25),0_2px_8px_2px_rgb(0_0_0/0.15)] dark:shadow-[0_6px_18px_4px_rgb(0_0_0/0.35),0_2px_8px_2px_rgb(0_0_0/0.22)]",
+          "flex items-center w-full bg-card border border-border rounded-lg p-2 sm:p-4 sticky -top-3 sm:-top-5 z-9 shadow-[0_6px_18px_4px_rgb(0_0_0/0.25),0_2px_8px_2px_rgb(0_0_0/0.15)] dark:shadow-[0_6px_18px_4px_rgb(0_0_0/0.35),0_2px_8px_2px_rgb(0_0_0/0.22)]",
           scrolled ? "pb-0!" : "",
         )}
       >
