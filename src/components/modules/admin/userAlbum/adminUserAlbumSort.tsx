@@ -38,6 +38,9 @@ type OrderRow = {
 
 const SAVE_DELAY_MS = 300;
 
+/** Sort key for artist names: leading "The " is ignored. */
+const artistSortKey = (artist: string) => artist.replace(/^the\s+/i, "");
+
 export function AdminUserAlbumSort() {
   const { t } = useTranslation();
   const [albums, setAlbums] = useState<Array<Album>>([]);
@@ -117,7 +120,9 @@ export function AdminUserAlbumSort() {
         const rankedDiff =
           Number(rankedArtists.has(a.album.artist)) - Number(rankedArtists.has(b.album.artist));
         if (rankedDiff !== 0) return rankedDiff;
-        const artistDiff = a.album.artist.localeCompare(b.album.artist);
+        const artistDiff = artistSortKey(a.album.artist).localeCompare(
+          artistSortKey(b.album.artist),
+        );
         if (artistDiff !== 0) return artistDiff;
         return a.album.album.localeCompare(b.album.album);
       });

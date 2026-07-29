@@ -80,6 +80,15 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const genreValues = useMemo(() => selectedValuesForField(selected, ChipFields.genre), [selected]);
   const labelValues = useMemo(() => selectedValuesForField(selected, ChipFields.label), [selected]);
 
+  const hasActiveFilter =
+    selected.size > 0 ||
+    rankRange[0] !== bounds.rankRange[0] ||
+    rankRange[1] !== bounds.rankRange[1] ||
+    yearRange[0] !== bounds.yearRange[0] ||
+    yearRange[1] !== bounds.yearRange[1] ||
+    runtimeRange[0] !== bounds.runtimeRange[0] ||
+    runtimeRange[1] !== bounds.runtimeRange[1];
+
   /**
    * Chips stay enabled only while they can still yield a result: the other category always
    * constrains the pool (categories are AND), and in AND mode the field constrains itself too,
@@ -220,9 +229,13 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
           size="icon-lg"
           variant="outline"
           aria-label={t(($) => $.albums.filter_button)}
-          className="hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
+          className={`hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer ${hasActiveFilter ? "border-theme-600 text-theme-600 hover:text-theme-600" : ""}`}
         >
-          <HugeiconsIcon icon={FilterHorizontalIcon} className="size-6" aria-hidden="true" />
+          <HugeiconsIcon
+            icon={FilterHorizontalIcon}
+            className={`size-6 ${hasActiveFilter ? "text-theme-600" : ""}`}
+            aria-hidden="true"
+          />
         </Button>
       }
     >

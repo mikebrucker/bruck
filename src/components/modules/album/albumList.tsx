@@ -58,7 +58,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
 
   return (
     <div className="w-full px-1">
-      <div className="flex items-center w-full">
+      <div className="flex items-center w-full bg-card border border-border rounded-lg p-2 sm:p-4">
         <div className="flex flex-1 min-w-0 flex-col gap-2 p-2">
           <span className="font-metal-mania text-2xl font-semibold tracking-widest text-foreground">
             {title}
