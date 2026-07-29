@@ -35,11 +35,13 @@ function Toggle({
   variant = "default",
   size = "default",
   icon,
+  iconClassName = "",
   children,
   ...props
 }: React.ComponentProps<typeof TogglePrimitive.Root> &
   VariantProps<typeof toggleVariants> & {
     icon: IconSvgElement;
+    iconClassName?: string;
   }) {
   return (
     <TogglePrimitive.Root
@@ -49,7 +51,7 @@ function Toggle({
       className={cn(toggleVariants({ variant, size, className }))}
       {...props}
     >
-      <HugeiconsIcon icon={icon} />
+      <HugeiconsIcon icon={icon} className={iconClassName} />
       {children}
     </TogglePrimitive.Root>
   );

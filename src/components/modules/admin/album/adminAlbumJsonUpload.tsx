@@ -45,7 +45,10 @@ function AdminAlbumJsonUpload({
   const loadAlbumJson = (id: string) => {
     const album = albums.find((a) => a.id === id);
     if (!album) return;
-    setJsonText(JSON.stringify(album, null, 2));
+    const partialAlbum: Partial<Album> = album;
+    delete partialAlbum.createdAt;
+    delete partialAlbum.updatedAt;
+    setJsonText(JSON.stringify(partialAlbum, null, 2));
     setLoadedId(id);
     setStatus(null);
   };
@@ -193,6 +196,7 @@ function AdminAlbumJsonUpload({
         <div className="flex items-center gap-2">
           <Toggle
             icon={SecondBracketSquareIcon}
+            iconClassName="size-5"
             variant="outline"
             pressed={useArray}
             onPressedChange={setUseArray}
