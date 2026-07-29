@@ -12,7 +12,6 @@ type AlbumListProps = {
   albums: Array<Album>;
   title: string;
   subtitle?: string;
-  showRank?: boolean;
   filterKey: string;
 };
 
@@ -37,7 +36,7 @@ const fieldMatches = (values: Array<string>, mode: ChipMode, albumValues: Array<
     ? values.every((v) => albumValues.includes(v))
     : values.some((v) => albumValues.includes(v)));
 
-export function AlbumList({ albums, title, subtitle, showRank, filterKey }: AlbumListProps) {
+export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {
   const { t } = useTranslation();
 
   const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
@@ -65,13 +64,8 @@ export function AlbumList({ albums, title, subtitle, showRank, filterKey }: Albu
   const genreValues = useMemo(() => selectedValuesForField(selected, ChipFields.genre), [selected]);
   const labelValues = useMemo(() => selectedValuesForField(selected, ChipFields.label), [selected]);
 
-  const rankedAlbums = useMemo(
-    () => albums.map((album, i) => ({ album, rank: showRank ? i + 1 : undefined })),
-    [albums, showRank],
-  );
-
   const filteredAlbums = useMemo(() => {
-    return rankedAlbums.filter(({ album, rank }) => {
+    return albums.filter((album) => {
       const fieldsList: Array<{ values: Array<string>; albumValues: Array<string> }> = [
         { values: genreValues, albumValues: album.genre },
         { values: labelValues, albumValues: album.label },
@@ -91,14 +85,15 @@ export function AlbumList({ albums, title, subtitle, showRank, filterKey }: Albu
         }
       }
       const chipsOk = andOk && (!orPoolActive || orPoolMatch);
-
-      const rankOk = rank === undefined || (rank >= rankRange[0] && rank <= rankRange[1]);
+      const rank = album.userAlbum?.rank ?? -1;
+      const rankOk =
+        album.userAlbum?.rank === undefined || (rank >= rankRange[0] && rank <= rankRange[1]);
       const yearOk = album.year >= yearRange[0] && album.year <= yearRange[1];
       const runtimeSeconds = parseRuntimeSeconds(album.runtime);
       const runtimeOk = runtimeSeconds >= runtimeRange[0] && runtimeSeconds <= runtimeRange[1];
       return chipsOk && rankOk && yearOk && runtimeOk;
     });
-  }, [rankedAlbums, genreValues, labelValues, chipMode, rankRange, yearRange, runtimeRange]);
+  }, [albums, genreValues, labelValues, chipMode, rankRange, yearRange, runtimeRange]);
 
   return (
     <div className="w-full px-1">
@@ -114,7 +109,7 @@ export function AlbumList({ albums, title, subtitle, showRank, filterKey }: Albu
           ) : null}
         </div>
         <div className="shrink-0 pr-2">
-          <AlbumFilter albums={albums} filterKey={filterKey} showRank={showRank} />
+          <AlbumFilter albums={albums} filterKey={filterKey} />
         </div>
       </div>
 
@@ -123,8 +118,8 @@ export function AlbumList({ albums, title, subtitle, showRank, filterKey }: Albu
           <p className="text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
         ) : null}
 
-        {filteredAlbums.map(({ album, rank }) => (
-          <AlbumCard key={album.id} rank={rank} album={album} userAlbum={album.userAlbum} />
+        {filteredAlbums.map((album) => (
+          <AlbumCard key={album.id} album={album} />
         ))}
       </div>
     </div>

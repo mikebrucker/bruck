@@ -12,15 +12,12 @@ import { Chip } from "@/components/ui/chip";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
 import type { Album, Credit } from "@/types/album";
-import type { UserAlbum } from "@/types/userAlbum";
 
 type AlbumCardProps = {
   album: Album;
-  rank?: number;
-  userAlbum?: UserAlbum;
 };
 
-export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
+export default function AlbumCard({ album }: AlbumCardProps) {
   const { t } = useTranslation();
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
@@ -93,10 +90,10 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
     <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-lg p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
-          {rank ? (
+          {album.userAlbum?.rank ? (
             <div className="row-span-1 sm:row-span-5 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono">
-              {rank < 10 ? <>&nbsp;</> : ""}
-              {rank}
+              {album.userAlbum.rank < 10 ? <>&nbsp;</> : ""}
+              {album.userAlbum.rank}
             </div>
           ) : (
             <div className="row-span-1 sm:row-span-5 text-theme-600 pt-1 flex justify-end">
@@ -133,8 +130,8 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
             </div>
           ) : null}
 
-          {userAlbum?.review ? (
-            <Note className="col-span-2 sm:col-span-1" text={userAlbum.review} />
+          {album.userAlbum?.review ? (
+            <Note className="col-span-2 sm:col-span-1" text={album.userAlbum.review} />
           ) : null}
         </div>
 
@@ -300,7 +297,7 @@ export default function AlbumCard({ album, rank, userAlbum }: AlbumCardProps) {
                   <HugeiconsIcon icon={Cancel01Icon} />
                 </Button>
               </div>
-              <AlbumCard album={selectedMention} userAlbum={selectedMention.userAlbum} />
+              <AlbumCard album={selectedMention} />
             </div>
           ) : null}
         </Modal>

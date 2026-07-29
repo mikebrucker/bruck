@@ -16,7 +16,6 @@ import type { Album } from "@/types/album";
 type AlbumFilterProps = {
   albums: Array<Album>;
   filterKey: string;
-  showRank?: boolean;
 };
 
 const ChipFields = {
@@ -43,7 +42,7 @@ const fieldMatches = (values: Array<string>, mode: ChipMode, albumValues: Array<
     ? values.every((v) => albumValues.includes(v))
     : values.some((v) => albumValues.includes(v)));
 
-export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
+export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const { t } = useTranslation();
 
   const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
@@ -76,13 +75,13 @@ export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
   const rangeFilteredAlbums = useMemo(
     () =>
       albums.filter((album, i) => {
-        const rankOk = !showRank || (i + 1 >= rankRange[0] && i + 1 <= rankRange[1]);
+        const rankOk = i + 1 >= rankRange[0] && i + 1 <= rankRange[1];
         const yearOk = album.year >= yearRange[0] && album.year <= yearRange[1];
         const runtimeSeconds = parseRuntimeSeconds(album.runtime);
         const runtimeOk = runtimeSeconds >= runtimeRange[0] && runtimeSeconds <= runtimeRange[1];
         return rankOk && yearOk && runtimeOk;
       }),
-    [albums, showRank, rankRange, yearRange, runtimeRange],
+    [albums, rankRange, yearRange, runtimeRange],
   );
 
   const genreOptions = useMemo(
@@ -229,30 +228,28 @@ export function AlbumFilter({ albums, filterKey, showRank }: AlbumFilterProps) {
         labelInRange,
       )}
 
-      {showRank ? (
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
-          <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
-            <span className="text-xs font-medium tabular-nums text-muted-foreground">
-              {rankRange[0]}
-            </span>
-            <span className="text-center text-xs font-medium text-muted-foreground">
-              {t(($) => $.albums.filter_rank)}
-            </span>
-            <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
-              {rankRange[1]}
-            </span>
-          </div>
-          <Slider
-            className="w-full"
-            min={rankBounds[0]}
-            max={rankBounds[1]}
-            value={rankRange}
-            onValueChange={(range) => {
-              if (range.length === 2) setRankRange(filterKey, range);
-            }}
-          />
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
+        <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
+          <span className="text-xs font-medium tabular-nums text-muted-foreground">
+            {rankRange[0]}
+          </span>
+          <span className="text-center text-xs font-medium text-muted-foreground">
+            {t(($) => $.albums.filter_rank)}
+          </span>
+          <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
+            {rankRange[1]}
+          </span>
         </div>
-      ) : null}
+        <Slider
+          className="w-full"
+          min={rankBounds[0]}
+          max={rankBounds[1]}
+          value={rankRange}
+          onValueChange={(range) => {
+            if (range.length === 2) setRankRange(filterKey, range);
+          }}
+        />
+      </div>
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-1">
         <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
