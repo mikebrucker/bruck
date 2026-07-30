@@ -4,7 +4,7 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const fabVariants = cva(
-  "group/fab fixed z-50 inline-flex shrink-0 items-center justify-center rounded-lg shadow-lg outline-none select-none cursor-pointer transition-all duration-300 ease-out focus-visible:ring-[3px] focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "group/fab fixed z-50 inline-flex shrink-0 items-center justify-center rounded-lg shadow-[0_6px_16px_-2px_rgb(0_0_0/0.30),0_3px_6px_-2px_rgb(0_0_0/0.20)] dark:shadow-[0_6px_16px_-2px_rgb(0_0_0/0.45),0_3px_6px_-2px_rgb(0_0_0/0.30)] outline-none select-none cursor-pointer transition-all duration-300 ease-out focus-visible:ring-[3px] focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -18,14 +18,14 @@ const fabVariants = cva(
         lg: "size-14 [&_svg:not([class*='size-'])]:size-7",
       },
       position: {
-        default: "bottom-20 right-4 sm:bottom-24 sm:right-6",
-        "bottom-left": "bottom-20 left-4 sm:bottom-24 sm:left-6",
+        "bottom-right": "bottom-12 right-4 sm:bottom-14 lg:bottom-16 sm:right-5 lg:right-6",
+        "bottom-left": "bottom-12 left-4 sm:bottom-14 lg:bottom-16 sm:left-5 lg:left-6",
       },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
-      position: "default",
+      position: "bottom-right",
     },
   },
 );
@@ -34,7 +34,7 @@ function Fab({
   className,
   variant = "default",
   size = "default",
-  position = "default",
+  position = "bottom-right",
   visible = true,
   asChild = false,
   ...props

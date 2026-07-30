@@ -116,7 +116,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
         </div>
       </div>
 
-      <div className="mt-1 flex flex-col gap-3">
+      <div className="mt-1 flex flex-col gap-3 pb-11.5 sm:pb-13.5 lg:pb-15.5">
         {filteredAlbums.length === 0 ? (
           <p className="text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
         ) : null}
