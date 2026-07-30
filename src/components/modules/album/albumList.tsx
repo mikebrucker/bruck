@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import AlbumCard from "@/components/modules/album/albumCard";
 import { AlbumFilter } from "@/components/modules/album/albumFilter";
 import { ScrollToTopFab } from "@/components/modules/scrollToTopFab";
+import { useScrollAncestor } from "@/hooks/useScrollAncestor";
 import {
   albumBounds,
   ChipFields,
@@ -26,27 +27,27 @@ type AlbumListProps = {
 
 const EMPTY_SET = new Set<string>();
 
+const SCROLL_THRESHOLD_PX = 256;
+
 export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {
   const { t } = useTranslation();
 
-  const sentinelRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const scrollAncestor = useScrollAncestor(rootRef);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
+    if (!scrollAncestor) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (entry) setScrolled(!entry.isIntersecting);
-      },
-      { threshold: 1 },
-    );
-    observer.observe(sentinel);
+    const onScroll = () => {
+      setScrolled(scrollAncestor.scrollTop > SCROLL_THRESHOLD_PX);
+    };
 
-    return () => observer.disconnect();
-  }, []);
+    onScroll();
+    scrollAncestor.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => scrollAncestor.removeEventListener("scroll", onScroll);
+  }, [scrollAncestor]);
 
   const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
   const storedRankRange = useAlbumFilterStore((s) => s.rankRangeByList[filterKey]);
@@ -78,8 +79,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
   );
 
   return (
-    <div className="w-full px-1 relative top-0">
-      <div ref={sentinelRef} aria-hidden className="h-px w-full" />
+    <div ref={rootRef} className="w-full px-1 relative top-0">
       <div
         className={cn(
           "flex items-center w-full bg-card border border-border rounded-lg p-2 sm:p-4 sticky -top-3 sm:-top-5 z-9 shadow-[0_6px_18px_4px_rgb(0_0_0/0.25),0_2px_8px_2px_rgb(0_0_0/0.15)] dark:shadow-[0_6px_18px_4px_rgb(0_0_0/0.35),0_2px_8px_2px_rgb(0_0_0/0.22)]",
@@ -116,7 +116,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
         </div>
       </div>
 
-      <div className="mt-1 flex flex-col gap-3 pb-11.5 sm:pb-13.5 lg:pb-15.5">
+      <div className="mt-3 flex flex-col gap-3 pb-11.5 sm:pb-13.5 lg:pb-15.5">
         {filteredAlbums.length === 0 ? (
           <p className="text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
         ) : null}
