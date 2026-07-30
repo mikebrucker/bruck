@@ -4,6 +4,8 @@ import { Cancel01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Toast as ToastPrimitive } from "radix-ui";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
@@ -32,8 +34,15 @@ type ToastProps = VariantProps<typeof toastVariants> & {
 
 function Toast({ open, onOpenChange, text, variant, duration = 5000, className }: ToastProps) {
   const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return createPortal(
     <ToastPrimitive.Provider swipeDirection="right" duration={duration}>
       <ToastPrimitive.Root
         open={open}
@@ -53,7 +62,8 @@ function Toast({ open, onOpenChange, text, variant, duration = 5000, className }
         </ToastPrimitive.Close>
       </ToastPrimitive.Root>
       <ToastPrimitive.Viewport className="pointer-events-none fixed bottom-0 right-0 z-9999 flex max-w-[calc(100vw-2rem)] w-96 flex-col gap-2 p-4 outline-none" />
-    </ToastPrimitive.Provider>
+    </ToastPrimitive.Provider>,
+    document.body,
   );
 }
 
