@@ -1,6 +1,12 @@
 "use client";
 
-import { StarAward02Icon, Vynil02Icon } from "@hugeicons/core-free-icons";
+import {
+  Medal06Icon,
+  MedalFirstPlaceIcon,
+  MedalSecondPlaceIcon,
+  MedalThirdPlaceIcon,
+  Vynil02Icon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -25,6 +31,18 @@ type AlbumListProps = {
   title: string;
   subtitle?: string;
   filterKey: string;
+};
+
+/**
+ * The header readout mid-swap. `previous` is absent only on first render, when there is nothing to
+ * animate out; `index` is the active card at the last swap, which gives the next swap its direction.
+ */
+type RankSlide = {
+  album: Album | null;
+  previous?: Album | null;
+  direction: 1 | -1;
+  index: number;
+  seq: number;
 };
 
 const EMPTY_SET = new Set<string>();
@@ -56,6 +74,57 @@ function indexUnderLine(cards: Array<HTMLDivElement | undefined>, line: number) 
   }
 
   return found;
+}
+
+/**
+ * The active album's rank, title and artist as one unit, so the slide animation can move all of it
+ * together. `null` means no card sits under the header line — an empty list.
+ */
+function RankBadge({ album }: { album: Album | null }) {
+  const rank = album?.userAlbum?.rank ?? null;
+
+  return (
+    <div className="flex items-center gap-2 min-w-0">
+      {rank ? (
+        <div className="flex shrink-0 items-center">
+          <HugeiconsIcon
+            icon={medalForRank(rank)}
+            className="w-7 h-7 sm:w-8 sm:h-8 transition-[width,height] duration-500"
+          />
+          <span className="font-mono font-bold tabular-nums leading-none text-2xl sm:text-3xl transition-[font-size] duration-500">
+            {rank}
+          </span>
+        </div>
+      ) : (
+        <HugeiconsIcon icon={Vynil02Icon} className="shrink-0 w-7 h-7 sm:w-8 sm:h-8" />
+      )}
+
+      {album ? (
+        <div className="flex min-w-0 flex-col">
+          <span className="truncate leading-tight font-semibold text-xs sm:text-sm text-foreground transition-[font-size] duration-500">
+            {album.album}
+          </span>
+          <span className="truncate leading-tight normal-case tracking-normal font-normal text-xs sm:text-sm text-muted-foreground transition-[font-size] duration-500">
+            {album.artist}
+          </span>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+/** Podium medals for the top three ranks, generic medal for everything below. */
+function medalForRank(rank: number) {
+  switch (rank) {
+    case 1:
+      return MedalFirstPlaceIcon;
+    case 2:
+      return MedalSecondPlaceIcon;
+    case 3:
+      return MedalThirdPlaceIcon;
+    default:
+      return Medal06Icon;
+  }
 }
 
 export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {
@@ -126,13 +195,31 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
     };
   }, [scrollAncestor, filteredAlbums]);
 
-  const activeRank = filteredAlbums[activeIndex]?.userAlbum?.rank;
+  const activeAlbum = filteredAlbums[activeIndex] ?? null;
+
+  const [slide, setSlide] = useState<RankSlide>({
+    album: activeAlbum,
+    direction: 1,
+    index: activeIndex,
+    seq: 0,
+  });
+
+  // Swap during render so the outgoing and incoming badges start their animations on the same frame.
+  if (slide.album?.id !== activeAlbum?.id) {
+    setSlide({
+      album: activeAlbum,
+      previous: slide.album,
+      direction: activeIndex >= slide.index ? 1 : -1,
+      index: activeIndex,
+      seq: slide.seq + 1,
+    });
+  }
 
   return (
     <div ref={rootRef} className="w-full px-1 relative top-0">
       <div
         ref={headerRef}
-        className="flex items-center w-full bg-card border border-border rounded-lg p-2 sm:p-4 sticky -top-3 sm:-top-5 z-9 shadow-[0_6px_18px_4px_rgb(0_0_0/0.25),0_2px_8px_2px_rgb(0_0_0/0.15)] dark:shadow-[0_6px_18px_4px_rgb(0_0_0/0.35),0_2px_8px_2px_rgb(0_0_0/0.22)]"
+        className="flex items-center w-full bg-card border border-border rounded-lg px-2 sm:px-4 pb-1 sm:pb-2 pt-2 sm:pt-4 sticky -top-2 sm:-top-3 z-9 shadow-[0_6px_18px_4px_rgb(0_0_0/0.25),0_2px_8px_2px_rgb(0_0_0/0.15)] dark:shadow-[0_6px_18px_4px_rgb(0_0_0/0.35),0_2px_8px_2px_rgb(0_0_0/0.22)] transition-all"
       >
         <div className="flex flex-1 min-w-0 flex-col p-2">
           <div
@@ -142,7 +229,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
             )}
           >
             <div className="min-h-0 overflow-hidden flex flex-col gap-2">
-              <span className="font-metal-mania font-semibold tracking-widest text-foreground sm:text-2xl transition-[font-size] duration-500">
+              <span className="font-metal-mania font-semibold tracking-widest text-foreground text-xs sm:text-2xl transition-[font-size] duration-500">
                 {title}
               </span>
               {subtitle ? (
@@ -161,16 +248,29 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
             )}
           >
             <div className="min-h-0 overflow-hidden text-theme-600">
-              {activeRank ? (
-                <div className="flex items-center">
-                  <HugeiconsIcon icon={StarAward02Icon} className="w-7 h-7 sm:w-8 sm:h-8" />
-                  <span className="font-mono font-bold tabular-nums leading-none text-2xl sm:text-3xl">
-                    {activeRank}
-                  </span>
+              <div className="relative">
+                <div
+                  key={slide.seq}
+                  className={cn(
+                    "animate-in fade-in duration-300 ease-out",
+                    slide.direction === 1 ? "slide-in-from-bottom-4" : "slide-in-from-top-4",
+                  )}
+                >
+                  <RankBadge album={slide.album} />
                 </div>
-              ) : (
-                <HugeiconsIcon icon={Vynil02Icon} className="w-7 h-7 sm:w-8 sm:h-8" />
-              )}
+
+                {slide.previous !== undefined ? (
+                  <div
+                    key={`out-${slide.seq}`}
+                    className={cn(
+                      "absolute inset-0 animate-out fade-out fill-mode-forwards duration-300 ease-out",
+                      slide.direction === 1 ? "slide-out-to-top-4" : "slide-out-to-bottom-4",
+                    )}
+                  >
+                    <RankBadge album={slide.previous} />
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         </div>
