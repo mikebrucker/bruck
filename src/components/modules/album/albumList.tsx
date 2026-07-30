@@ -27,7 +27,7 @@ type AlbumListProps = {
 
 const EMPTY_SET = new Set<string>();
 
-const SCROLL_THRESHOLD_PX = 256;
+const SCROLL_THRESHOLD_PX = 96;
 
 export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {
   const { t } = useTranslation();
