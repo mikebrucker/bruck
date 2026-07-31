@@ -26,6 +26,7 @@ import {
   matchesRanges,
   selectedValuesForField,
 } from "@/lib/albumFilter";
+import { distinctSorted } from "@/lib/utils";
 import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
 
@@ -35,9 +36,6 @@ type AlbumFilterProps = {
 };
 
 const EMPTY_SET = new Set<string>();
-
-const distinctSorted = (values: Array<string>): Array<string> =>
-  Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));
 
 export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
   const { t } = useTranslation();

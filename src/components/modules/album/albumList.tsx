@@ -15,6 +15,7 @@ import {
   matchesRanges,
   selectedValuesForField,
 } from "@/lib/albumFilter";
+import { indexUnderLine } from "@/lib/dom";
 import { cn } from "@/lib/utils";
 import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
@@ -41,33 +42,6 @@ type RankSlide = {
 const EMPTY_SET = new Set<string>();
 
 const SCROLL_THRESHOLD_PX = 96;
-
-/**
- * Index of the first card whose bottom edge sits below `line` — the card the line runs through.
- * Cards are in DOM order, so the predicate is monotonic and a binary search holds. Measures live
- * rects rather than cached offsets because cards contain accordions that resize at any time.
- */
-function indexUnderLine(cards: Array<HTMLDivElement | undefined>, line: number) {
-  let low = 0;
-  let high = cards.length - 1;
-  let found = high;
-
-  while (low <= high) {
-    const mid = Math.floor((low + high) / 2);
-    const card = cards[mid];
-
-    if (!card) break;
-
-    if (card.getBoundingClientRect().bottom > line) {
-      found = mid;
-      high = mid - 1;
-    } else {
-      low = mid + 1;
-    }
-  }
-
-  return found;
-}
 
 export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {
   const { t } = useTranslation();

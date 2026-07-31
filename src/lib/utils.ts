@@ -5,6 +5,9 @@ export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs));
 }
 
+export const distinctSorted = (values: Array<string>): Array<string> =>
+  Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));
+
 export type Debounced<TArgs extends Array<unknown>> = {
   (...args: TArgs): void;
   cancel: () => void;
