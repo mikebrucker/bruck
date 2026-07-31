@@ -283,7 +283,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         <Modal
           open={selectedMention !== null}
           onClose={closeMention}
-          className="max-w-3xl h-[90dvh] w-full rounded-lg overflow-y-auto"
+          className="max-w-3xl h-[80dvh] w-full rounded-lg overflow-y-auto"
         >
           {selectedMention ? (
             <div className="px-2 py-1">
