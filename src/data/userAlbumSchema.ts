@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const userAlbumFields = z.object({
   trackId: z.string().nullable().optional(),
-  review: z.string().optional(),
+  review: z.string().nullable().optional(),
   honorable: z.boolean().optional(),
   rank: z.number().int().positive().nullable().optional(),
 });

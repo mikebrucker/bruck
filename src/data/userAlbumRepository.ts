@@ -5,8 +5,6 @@ import { userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { UserAlbum } from "@/types/userAlbum";
 
-const conflictTarget = [userAlbums.userId, userAlbums.albumId];
-
 export class RankedHonorableError extends Error {
   constructor(albumId: string) {
     super(`Album "${albumId}" is ranked and cannot be marked honorable`);
@@ -29,6 +27,8 @@ export class DuplicateAlbumUpdateError extends Error {
 }
 
 export class UserAlbumRepository {
+  private static readonly conflictTarget = [userAlbums.userId, userAlbums.albumId];
+
   constructor(private readonly db: typeof defaultDb = defaultDb) {}
 
   async getAll(): Promise<Array<UserAlbum>> {
@@ -41,20 +41,21 @@ export class UserAlbumRepository {
       .insert(userAlbums)
       .values({ userId: "me", albumId, trackId })
       .onConflictDoUpdate({
-        target: conflictTarget,
+        target: UserAlbumRepository.conflictTarget,
         set: { trackId, updatedAt: sql`now()` },
       })
       .returning();
     return mapUserAlbum(row);
   }
 
-  async setReview(albumId: string, review: string): Promise<UserAlbum> {
+  async setReview(albumId: string, review: string | null): Promise<UserAlbum> {
+    const value = review || null;
     const [row] = await this.db
       .insert(userAlbums)
-      .values({ userId: "me", albumId, review })
+      .values({ userId: "me", albumId, review: value })
       .onConflictDoUpdate({
-        target: conflictTarget,
-        set: { review, updatedAt: sql`now()` },
+        target: UserAlbumRepository.conflictTarget,
+        set: { review: value, updatedAt: sql`now()` },
       })
       .returning();
     return mapUserAlbum(row);
@@ -75,7 +76,7 @@ export class UserAlbumRepository {
       .insert(userAlbums)
       .values({ userId: "me", albumId, honorable })
       .onConflictDoUpdate({
-        target: conflictTarget,
+        target: UserAlbumRepository.conflictTarget,
         set: { honorable, updatedAt: sql`now()` },
       })
       .returning();
@@ -97,7 +98,7 @@ export class UserAlbumRepository {
       .insert(userAlbums)
       .values({ userId: "me", albumId, rank })
       .onConflictDoUpdate({
-        target: conflictTarget,
+        target: UserAlbumRepository.conflictTarget,
         set: { rank, updatedAt: sql`now()` },
       })
       .returning();
@@ -126,7 +127,7 @@ export class UserAlbumRepository {
         userId: "me",
         albumId,
         trackId: patch.trackId !== undefined ? patch.trackId : (current?.trackId ?? null),
-        review: patch.review !== undefined ? patch.review : (current?.review ?? ""),
+        review: (patch.review !== undefined ? patch.review : current?.review) || null,
         honorable: patch.honorable !== undefined ? patch.honorable : (current?.honorable ?? false),
         rank: patch.rank !== undefined ? patch.rank : (current?.rank ?? null),
       };
@@ -138,7 +139,7 @@ export class UserAlbumRepository {
       .insert(userAlbums)
       .values(values)
       .onConflictDoUpdate({
-        target: conflictTarget,
+        target: UserAlbumRepository.conflictTarget,
         set: {
           trackId: sql`excluded.track_id`,
           review: sql`excluded.review`,

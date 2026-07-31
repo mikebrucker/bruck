@@ -71,7 +71,7 @@ export const userAlbums = pgTable(
     userId: text("user_id").default("me").notNull(),
     albumId: text("album_id").notNull(),
     trackId: text("track_id"),
-    review: text().default("").notNull(),
+    review: text(),
     honorable: boolean().default(false).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
       .defaultNow()

@@ -3,7 +3,7 @@ import type { OrderUpdate, UserAlbum, UserAlbumForm } from "@/types/userAlbum";
 
 export const formFromUserAlbum = (userAlbum: UserAlbum | undefined): UserAlbumForm => ({
   trackId: userAlbum?.trackId ?? null,
-  review: userAlbum?.review ?? "",
+  review: userAlbum?.review ?? null,
 });
 
 export const buildPayload = (
@@ -29,7 +29,7 @@ export const applyPatches = (userAlbums: Array<UserAlbum>, updates: Array<OrderU
       id: "",
       albumId,
       trackId: null,
-      review: "",
+      review: null,
       honorable: false,
       rank: null,
       createdAt: new Date(),

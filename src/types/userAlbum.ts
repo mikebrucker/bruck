@@ -2,7 +2,7 @@ export interface UserAlbum {
   id: string;
   albumId: string;
   trackId: string | null;
-  review: string;
+  review: string | null;
   honorable: boolean;
   rank: number | null;
   createdAt: Date;
@@ -14,5 +14,5 @@ export type OrderUpdate = { albumId: string } & OrderPatch;
 
 export type UserAlbumForm = {
   trackId: string | null;
-  review: string;
+  review: string | null;
 };
