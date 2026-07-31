@@ -3,14 +3,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AdminAlbumFormFields } from "@/components/modules/admin/album/adminAlbumFormFields";
-import {
-  albumToForm,
-  buildPayload,
-  buildUpdatePayload,
-  emptyForm,
-  emptyTrack,
-  parseNumber,
-} from "@/components/modules/admin/album/adminAlbumFormMapping";
 import { AdminAlbumJsonUpload } from "@/components/modules/admin/album/adminAlbumJsonUpload";
 import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
@@ -18,7 +10,15 @@ import { Select } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
-import { toSlug } from "@/lib/album";
+import {
+  albumToForm,
+  buildPayload,
+  buildUpdatePayload,
+  emptyForm,
+  emptyTrack,
+  parseNumber,
+  toSlug,
+} from "@/lib/albumForm";
 import type { Album, AlbumForm, TrackForm } from "@/types/album";
 import type { UserAlbum } from "@/types/userAlbum";
 

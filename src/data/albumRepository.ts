@@ -10,15 +10,15 @@ import type { Album, Track } from "@/types/album";
 export type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumSchema";
 export { albumCreateSchema, albumUpdateSchema } from "@/data/albumSchema";
 
-function assertNonEmptyBatch<T>(items: Array<T>): asserts items is [T, ...Array<T>] {
-  if (items.length === 0) {
-    throw new Error("Batch must contain at least one query");
-  }
-}
-
-const trackOrder = [rawSql`${tracks.disc} asc nulls first`, asc(tracks.number)];
-
 export class AlbumRepository {
+  private static readonly trackOrder = [rawSql`${tracks.disc} asc nulls first`, asc(tracks.number)];
+
+  private static assertNonEmptyBatch<T>(items: Array<T>): asserts items is [T, ...Array<T>] {
+    if (items.length === 0) {
+      throw new Error("Batch must contain at least one query");
+    }
+  }
+
   constructor(private readonly db: typeof defaultDb = defaultDb) {}
 
   async getAll(): Promise<Array<Album>> {
@@ -27,7 +27,7 @@ export class AlbumRepository {
       this.db
         .select()
         .from(tracks)
-        .orderBy(...trackOrder),
+        .orderBy(...AlbumRepository.trackOrder),
     ]);
 
     const tracksByAlbum = new Map<string, Array<Track>>();
@@ -59,7 +59,7 @@ export class AlbumRepository {
         .select()
         .from(tracks)
         .where(inArray(tracks.albumId, albumIds))
-        .orderBy(...trackOrder),
+        .orderBy(...AlbumRepository.trackOrder),
     ]);
 
     const tracksByAlbum = new Map<string, Array<Track>>();
@@ -110,7 +110,7 @@ export class AlbumRepository {
         .select()
         .from(tracks)
         .where(eq(tracks.albumId, id))
-        .orderBy(...trackOrder),
+        .orderBy(...AlbumRepository.trackOrder),
     ]);
 
     const row = albumRows[0];
@@ -154,7 +154,7 @@ export class AlbumRepository {
           }),
         ),
       ];
-      assertNonEmptyBatch(batch);
+      AlbumRepository.assertNonEmptyBatch(batch);
       await this.db.batch(batch);
     }
 
@@ -190,7 +190,7 @@ export class AlbumRepository {
       }),
     );
 
-    assertNonEmptyBatch(batch);
+    AlbumRepository.assertNonEmptyBatch(batch);
     await this.db.batch(batch);
 
     const created = await this.getById(inserted.id);

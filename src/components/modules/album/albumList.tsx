@@ -1,17 +1,10 @@
 "use client";
 
-import {
-  Medal06Icon,
-  MedalFirstPlaceIcon,
-  MedalSecondPlaceIcon,
-  MedalThirdPlaceIcon,
-  Vynil02Icon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCard from "@/components/modules/album/albumCard";
 import { AlbumFilter } from "@/components/modules/album/albumFilter";
+import { RankBadge } from "@/components/modules/album/rankBadge";
 import { ScrollToTopFab } from "@/components/modules/scrollToTopFab";
 import { useScrollAncestor } from "@/hooks/useScrollAncestor";
 import {
@@ -74,57 +67,6 @@ function indexUnderLine(cards: Array<HTMLDivElement | undefined>, line: number) 
   }
 
   return found;
-}
-
-/**
- * The active album's rank, title and artist as one unit, so the slide animation can move all of it
- * together. `null` means no card sits under the header line — an empty list.
- */
-function RankBadge({ album }: { album: Album | null }) {
-  const rank = album?.userAlbum?.rank ?? null;
-
-  return (
-    <div className="flex items-center gap-2 min-w-0">
-      {rank ? (
-        <div className="flex shrink-0 items-center">
-          <HugeiconsIcon
-            icon={medalForRank(rank)}
-            className="w-7 h-7 sm:w-8 sm:h-8 transition-[width,height] duration-500"
-          />
-          <span className="font-mono font-bold tabular-nums leading-none text-2xl sm:text-3xl transition-[font-size] duration-500">
-            {rank}
-          </span>
-        </div>
-      ) : (
-        <HugeiconsIcon icon={Vynil02Icon} className="shrink-0 w-7 h-7 sm:w-8 sm:h-8" />
-      )}
-
-      {album ? (
-        <div className="flex min-w-0 flex-col">
-          <span className="truncate leading-tight font-semibold text-xs sm:text-sm text-foreground transition-[font-size] duration-500">
-            {album.album}
-          </span>
-          <span className="truncate leading-tight normal-case tracking-normal font-normal text-xs sm:text-sm text-muted-foreground transition-[font-size] duration-500">
-            {album.artist}
-          </span>
-        </div>
-      ) : null}
-    </div>
-  );
-}
-
-/** Podium medals for the top three ranks, generic medal for everything below. */
-function medalForRank(rank: number) {
-  switch (rank) {
-    case 1:
-      return MedalFirstPlaceIcon;
-    case 2:
-      return MedalSecondPlaceIcon;
-    case 3:
-      return MedalThirdPlaceIcon;
-    default:
-      return Medal06Icon;
-  }
 }
 
 export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {

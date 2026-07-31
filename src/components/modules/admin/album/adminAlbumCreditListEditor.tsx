@@ -3,9 +3,9 @@
 import { Add01Icon, Delete02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslation } from "react-i18next";
-import { emptyCredit } from "@/components/modules/admin/album/adminAlbumFormMapping";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { emptyCredit } from "@/lib/albumForm";
 import type { CreditForm } from "@/types/album";
 
 function AdminAlbumCreditListEditor({

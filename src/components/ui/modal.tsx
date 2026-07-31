@@ -3,6 +3,7 @@
 import { type ReactNode, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
+import { useModalStore } from "@/stores/useModalStore";
 
 interface ModalProps {
   open: boolean;
@@ -11,18 +12,18 @@ interface ModalProps {
   className?: string;
 }
 
-let openModalCount = 0;
-
 function Modal({ open, onClose, children, className }: ModalProps) {
   const { t } = useTranslation();
 
   useEffect(() => {
     if (!open) return;
-    openModalCount += 1;
+    // Read through getState rather than the hook: subscribing would re-render every open modal
+    // whenever any other one opens or closes.
+    useModalStore.getState().open();
     document.body.style.overflow = "hidden";
     return () => {
-      openModalCount -= 1;
-      if (openModalCount === 0) document.body.style.overflow = "";
+      useModalStore.getState().close();
+      if (useModalStore.getState().openCount === 0) document.body.style.overflow = "";
     };
   }, [open]);
 

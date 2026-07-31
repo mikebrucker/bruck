@@ -41,6 +41,7 @@ import {
 } from "ionicons/icons";
 import Image from "next/image";
 import Link from "next/link";
+import { CvEntryCard, type CvEntryCardProps } from "@/components/modules/cv/cvEntryCard";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
@@ -55,14 +56,6 @@ type LinkItem = {
 type SkillGroup = {
   label: string;
   items: Array<{ label: string; icon?: IconSvgElement | string }>;
-};
-
-type CvEntry = {
-  title: string;
-  role?: string;
-  location: string;
-  dateRanges: Array<string>;
-  bullets: Array<string>;
 };
 
 type Hobby = {
@@ -175,7 +168,7 @@ const skills: Array<SkillGroup> = [
   },
 ];
 
-const experience: Array<CvEntry> = [
+const experience: Array<CvEntryCardProps> = [
   {
     title: "Swarovski",
     role: "Full-stack Developer",
@@ -214,7 +207,7 @@ const experience: Array<CvEntry> = [
   },
 ];
 
-const education: Array<CvEntry> = [
+const education: Array<CvEntryCardProps> = [
   {
     title: "New York Code + Design Academy",
     location: "Philadelphia, Pennsylvania",
@@ -235,7 +228,7 @@ const education: Array<CvEntry> = [
   },
 ];
 
-const otherExperience: Array<CvEntry> = [
+const otherExperience: Array<CvEntryCardProps> = [
   {
     title: "1&1 Internet",
     role: "MyWebsite Technical Support",
@@ -272,30 +265,6 @@ const hobbies: Array<Hobby> = [
   { icon: TriangleRightIcon, label: "Skateboarding" },
   { icon: AircraftGameIcon, label: "Console Gaming & Modding" },
 ];
-
-function EntryCard({ title, role, location, dateRanges, bullets }: CvEntry) {
-  return (
-    <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-lg p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full">
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
-        <div>
-          <h3 className="text-lg font-bold leading-tight">{title}</h3>
-          {role ? <h4 className="text-muted-foreground font-medium">{role}</h4> : null}
-          <small className="text-muted-foreground">{location}</small>
-        </div>
-        <div className="text-sm text-muted-foreground sm:text-right shrink-0">
-          {dateRanges.map((range) => (
-            <div key={range}>{range}</div>
-          ))}
-        </div>
-      </div>
-      <ul className="list-disc pl-5 space-y-1 text-sm">
-        {bullets.map((bullet) => (
-          <li key={bullet}>{bullet}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export default function CvPage() {
   return (
@@ -371,7 +340,7 @@ export default function CvPage() {
       >
         <div className="flex flex-col gap-3">
           {experience.map((entry) => (
-            <EntryCard key={entry.title} {...entry} />
+            <CvEntryCard key={entry.title} {...entry} />
           ))}
         </div>
       </Accordion>
@@ -383,7 +352,7 @@ export default function CvPage() {
       >
         <div className="flex flex-col gap-3">
           {education.map((entry) => (
-            <EntryCard key={entry.title} {...entry} />
+            <CvEntryCard key={entry.title} {...entry} />
           ))}
         </div>
       </Accordion>
@@ -395,7 +364,7 @@ export default function CvPage() {
       >
         <div className="flex flex-col gap-3">
           {otherExperience.map((entry) => (
-            <EntryCard key={entry.title} {...entry} />
+            <CvEntryCard key={entry.title} {...entry} />
           ))}
         </div>
       </Accordion>
