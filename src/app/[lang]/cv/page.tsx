@@ -40,18 +40,11 @@ import {
   logoVercel,
 } from "ionicons/icons";
 import Image from "next/image";
-import Link from "next/link";
-import { CvEntryCard, type CvEntryCardProps } from "@/components/modules/cv/cvEntryCard";
+import type { CvEntryCardProps } from "@/components/modules/cv/cvEntryCard";
+import { CvExperienceAccordion } from "@/components/modules/cv/cvExperienceAccordion";
+import { CvLinkButton, type LinkItem } from "@/components/modules/cv/cvLinkButton";
 import { Accordion } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
-import { AppIcon } from "@/components/ui/icon";
-
-type LinkItem = {
-  icon: IconSvgElement | string;
-  label: string;
-  href: string;
-};
 
 type SkillGroup = {
   label: string;
@@ -267,6 +260,9 @@ const hobbies: Array<Hobby> = [
 ];
 
 export default function CvPage() {
+  const accordionClassNames =
+    "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1";
+
   return (
     <div className="w-full flex flex-col gap-4">
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 px-1">
@@ -284,41 +280,19 @@ export default function CvPage() {
           <div className="flex flex-col gap-0.5 mt-3">
             <div className="flex flex-wrap gap-0.5">
               {contactLinks.map((item) => (
-                <Button key={item.href} asChild variant="keyboard" size="sm" className="flex-auto">
-                  <Link
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  >
-                    <AppIcon icon={item.icon} className="size-5" />
-                    {item.label}
-                  </Link>
-                </Button>
+                <CvLinkButton key={item.href} item={item} />
               ))}
             </div>
             <div className="flex flex-wrap gap-0.5">
               {socialLinks.map((item) => (
-                <Button key={item.href} asChild variant="keyboard" size="sm" className="flex-auto">
-                  <Link
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  >
-                    <AppIcon icon={item.icon} className="size-5" />
-                    {item.label}
-                  </Link>
-                </Button>
+                <CvLinkButton key={item.href} item={item} />
               ))}
             </div>
           </div>
         </div>
       </div>
 
-      <Accordion
-        size="xl"
-        title="Skills"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
-      >
+      <Accordion size="xl" title="Skills" classNames={accordionClassNames}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 pb-2">
           {skills.map((group) => (
             <div key={group.label}>
@@ -333,47 +307,25 @@ export default function CvPage() {
         </div>
       </Accordion>
 
-      <Accordion
-        size="xl"
+      <CvExperienceAccordion
         title="Work Experience"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
-      >
-        <div className="flex flex-col gap-3">
-          {experience.map((entry) => (
-            <CvEntryCard key={entry.title} {...entry} />
-          ))}
-        </div>
-      </Accordion>
+        entries={experience}
+        classNames={accordionClassNames}
+      />
 
-      <Accordion
-        size="xl"
+      <CvExperienceAccordion
         title="Education"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
-      >
-        <div className="flex flex-col gap-3">
-          {education.map((entry) => (
-            <CvEntryCard key={entry.title} {...entry} />
-          ))}
-        </div>
-      </Accordion>
+        entries={education}
+        classNames={accordionClassNames}
+      />
 
-      <Accordion
-        size="xl"
+      <CvExperienceAccordion
         title="Other Experience"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
-      >
-        <div className="flex flex-col gap-3">
-          {otherExperience.map((entry) => (
-            <CvEntryCard key={entry.title} {...entry} />
-          ))}
-        </div>
-      </Accordion>
+        entries={otherExperience}
+        classNames={accordionClassNames}
+      />
 
-      <Accordion
-        size="xl"
-        title="Hobbies"
-        classNames="hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1"
-      >
+      <Accordion size="xl" title="Hobbies" classNames={accordionClassNames}>
         <div className="flex flex-wrap gap-1.5 pb-2">
           {hobbies.map((hobby) => (
             <Chip key={hobby.label} text={hobby.label} icon={hobby.icon} useIconThemeColor />
