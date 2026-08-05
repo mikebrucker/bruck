@@ -31,6 +31,13 @@ export const Accents = {
   olive: "olive",
   mist: "mist",
   taupe: "taupe",
+  eagle: "eagle",
+  kelly: "kelly",
+  flyer: "flyer",
+  phantom: "phantom",
+  phillie: "phillie",
+  maroon: "maroon",
+  sixer: "sixer",
 } as const;
 export type Accent = keyof typeof Accents;
 export const accents: Array<Accent> = Object.values(Accents);

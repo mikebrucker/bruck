@@ -4,15 +4,111 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Custom palettes: not shipped by Tailwind, so they are declared here rather
+   than aliased. Not `inline`, so `--color-*` land in `:root` as real vars;
+   `static` because the only references are `var(--color-*)` in the
+   `data-accent` blocks below and the runtime-built `var(--color-${a}-500)` in
+   the settings swatch, neither of which marks the vars as used. */
+@theme static {
+  --color-eagle-50: oklch(0.958 0.06 174.08);
+  --color-eagle-100: oklch(0.915 0.129 178.09);
+  --color-eagle-200: oklch(0.843 0.152 181.48);
+  --color-eagle-300: oklch(0.777 0.137 185.17);
+  --color-eagle-400: oklch(0.709 0.123 189.29);
+  --color-eagle-500: oklch(0.641 0.11 193.19);
+  --color-eagle-600: oklch(0.574 0.098 196.56);
+  --color-eagle-700: oklch(0.508 0.086 200.04);
+  --color-eagle-800: oklch(0.433 0.074 203.81);
+  --color-eagle-900: oklch(0.368 0.063 208.96);
+  --color-eagle-950: oklch(0.253 0.043 204.89);
+
+  --color-kelly-50: oklch(0.958 0.067 154.12);
+  --color-kelly-100: oklch(0.904 0.165 153.85);
+  --color-kelly-200: oklch(0.831 0.209 153.49);
+  --color-kelly-300: oklch(0.753 0.189 153.7);
+  --color-kelly-400: oklch(0.679 0.17 153.63);
+  --color-kelly-500: oklch(0.603 0.151 153.57);
+  --color-kelly-600: oklch(0.536 0.134 153.74);
+  --color-kelly-700: oklch(0.461 0.116 153.58);
+  --color-kelly-800: oklch(0.353 0.089 153.45);
+  --color-kelly-900: oklch(0.243 0.061 152.91);
+  --color-kelly-950: oklch(0.183 0.047 153.45);
+
+  --color-flyer-50: oklch(0.959 0.019 21.66);
+  --color-flyer-100: oklch(0.919 0.038 23.89);
+  --color-flyer-200: oklch(0.837 0.083 25.41);
+  --color-flyer-300: oklch(0.749 0.139 28.78);
+  --color-flyer-400: oklch(0.669 0.204 34.85);
+  --color-flyer-500: oklch(0.581 0.181 35.34);
+  --color-flyer-600: oklch(0.49 0.153 35.32);
+  --color-flyer-700: oklch(0.401 0.125 35.22);
+  --color-flyer-800: oklch(0.321 0.099 35.7);
+  --color-flyer-900: oklch(0.231 0.072 35.09);
+  --color-flyer-950: oklch(0.182 0.057 36.44);
+
+  --color-phantom-50: oklch(0.958 0.019 292.69);
+  --color-phantom-100: oklch(0.915 0.038 292.22);
+  --color-phantom-200: oklch(0.841 0.074 290.79);
+  --color-phantom-300: oklch(0.759 0.114 290.3);
+  --color-phantom-400: oklch(0.677 0.156 289.21);
+  --color-phantom-500: oklch(0.604 0.194 288.12);
+  --color-phantom-600: oklch(0.524 0.231 286.58);
+  --color-phantom-700: oklch(0.439 0.221 285.4);
+  --color-phantom-800: oklch(0.356 0.179 285.31);
+  --color-phantom-900: oklch(0.267 0.134 285.45);
+  --color-phantom-950: oklch(0.21 0.105 285.68);
+
+  --color-phillie-50: oklch(0.967 0.016 12.89);
+  --color-phillie-100: oklch(0.927 0.036 15.71);
+  --color-phillie-200: oklch(0.862 0.072 14.38);
+  --color-phillie-300: oklch(0.79 0.119 15.58);
+  --color-phillie-400: oklch(0.719 0.17 17.14);
+  --color-phillie-500: oklch(0.657 0.223 19.38);
+  --color-phillie-600: oklch(0.579 0.227 20.59);
+  --color-phillie-700: oklch(0.502 0.197 20.62);
+  --color-phillie-800: oklch(0.38 0.149 20.58);
+  --color-phillie-900: oklch(0.263 0.103 20.83);
+  --color-phillie-950: oklch(0.207 0.081 20.18);
+
+  --color-maroon-50: oklch(0.959 0.013 11.69);
+  --color-maroon-100: oklch(0.925 0.024 8.26);
+  --color-maroon-200: oklch(0.852 0.052 9.26);
+  --color-maroon-300: oklch(0.778 0.086 8.14);
+  --color-maroon-400: oklch(0.707 0.124 7.81);
+  --color-maroon-500: oklch(0.625 0.172 7.35);
+  --color-maroon-600: oklch(0.545 0.15 5.73);
+  --color-maroon-700: oklch(0.466 0.128 4.92);
+  --color-maroon-800: oklch(0.385 0.105 4);
+  --color-maroon-900: oklch(0.268 0.074 5.18);
+  --color-maroon-950: oklch(0.205 0.055 6.59);
+
+  --color-sixer-50: oklch(0.964 0.014 254.61);
+  --color-sixer-100: oklch(0.922 0.032 253.99);
+  --color-sixer-200: oklch(0.844 0.067 256.82);
+  --color-sixer-300: oklch(0.767 0.104 255.51);
+  --color-sixer-400: oklch(0.698 0.139 254.77);
+  --color-sixer-500: oklch(0.623 0.156 254.39);
+  --color-sixer-600: oklch(0.546 0.147 257.16);
+  --color-sixer-700: oklch(0.47 0.137 259.43);
+  --color-sixer-800: oklch(0.395 0.126 261.79);
+  --color-sixer-900: oklch(0.27 0.079 259.16);
+  --color-sixer-950: oklch(0.197 0.053 257.58);
+}
+
+/* `initial-value` must be computationally independent, so `var()` is illegal
+   here: these are the literal oklch values Tailwind ships for the same shades
+   the `:root` blocks below reference by name. */
 @property --background {
   syntax: "<color>";
   inherits: true;
-  initial-value: #e4e4e7;
+  /* zinc 200 */
+  initial-value: oklch(92% 0.004 286.32);
 }
 @property --foreground {
   syntax: "<color>";
   inherits: true;
-  initial-value: #27272a;
+  /* zinc 800 */
+  initial-value: oklch(27.4% 0.006 286.033);
 }
 @property --card {
   syntax: "<color>";
@@ -22,7 +118,8 @@
 @property --card-foreground {
   syntax: "<color>";
   inherits: true;
-  initial-value: #09090b;
+  /* zinc 950 */
+  initial-value: oklch(14.1% 0.005 285.823);
 }
 @property --popover {
   syntax: "<color>";
@@ -32,137 +129,154 @@
 @property --popover-foreground {
   syntax: "<color>";
   inherits: true;
-  initial-value: #09090b;
+  /* zinc 950 */
+  initial-value: oklch(14.1% 0.005 285.823);
 }
 @property --primary {
   syntax: "<color>";
   inherits: true;
-  initial-value: #18181b;
+  /* zinc 900 */
+  initial-value: oklch(21% 0.006 285.885);
 }
 @property --primary-foreground {
   syntax: "<color>";
   inherits: true;
-  initial-value: #fafafa;
+  /* zinc 50 */
+  initial-value: oklch(98.5% 0 0);
 }
 @property --secondary {
   syntax: "<color>";
   inherits: true;
-  initial-value: #f4f4f5;
+  /* zinc 100 */
+  initial-value: oklch(96.7% 0.001 286.375);
 }
 @property --secondary-foreground {
   syntax: "<color>";
   inherits: true;
-  initial-value: #18181b;
+  /* zinc 900 */
+  initial-value: oklch(21% 0.006 285.885);
 }
 @property --muted {
   syntax: "<color>";
   inherits: true;
-  initial-value: #f4f4f5;
+  /* zinc 100 */
+  initial-value: oklch(96.7% 0.001 286.375);
 }
 @property --muted-foreground {
   syntax: "<color>";
   inherits: true;
-  initial-value: #71717a;
+  /* zinc 500 */
+  initial-value: oklch(55.2% 0.016 285.938);
 }
 @property --accent {
   syntax: "<color>";
   inherits: true;
-  initial-value: #f4f4f5;
+  /* zinc 100 */
+  initial-value: oklch(96.7% 0.001 286.375);
 }
 @property --accent-foreground {
   syntax: "<color>";
   inherits: true;
-  initial-value: #18181b;
+  /* zinc 900 */
+  initial-value: oklch(21% 0.006 285.885);
 }
 @property --destructive {
   syntax: "<color>";
   inherits: true;
-  initial-value: #dc2626;
+  /* red 600 */
+  initial-value: oklch(57.7% 0.245 27.325);
 }
 @property --border {
   syntax: "<color>";
   inherits: true;
-  initial-value: #a1a1aa;
+  /* zinc 400 */
+  initial-value: oklch(70.5% 0.015 286.067);
 }
 @property --input {
   syntax: "<color>";
   inherits: true;
-  initial-value: #e4e4e7;
+  /* zinc 200 */
+  initial-value: oklch(92% 0.004 286.32);
 }
 @property --ring {
   syntax: "<color>";
   inherits: true;
-  initial-value: #a1a1aa;
+  /* zinc 400 */
+  initial-value: oklch(70.5% 0.015 286.067);
 }
 @property --keycap-edge {
   syntax: "<color>";
   inherits: true;
-  initial-value: #e7e5e4;
+  /* stone 200 */
+  initial-value: oklch(92.3% 0.003 48.717);
 }
 @property --keycap-face {
   syntax: "<color>";
   inherits: true;
-  initial-value: #f5f5f4;
+  /* stone 100 */
+  initial-value: oklch(97% 0.001 106.424);
 }
 @property --keycap-text {
   syntax: "<color>";
   inherits: true;
-  initial-value: #44403c;
+  /* stone 700 */
+  initial-value: oklch(37.4% 0.01 67.558);
 }
+/* Emerald, the default accent. */
 @property --theme-50 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #ecfdf5;
+  initial-value: oklch(97.9% 0.021 166.113);
 }
 @property --theme-100 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #d1fae5;
+  initial-value: oklch(95% 0.052 163.051);
 }
 @property --theme-200 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #a7f3d0;
+  initial-value: oklch(90.5% 0.093 164.15);
 }
 @property --theme-300 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #6ee7b7;
+  initial-value: oklch(84.5% 0.143 164.978);
 }
 @property --theme-400 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #34d399;
+  initial-value: oklch(76.5% 0.177 163.223);
 }
 @property --theme-500 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #10b981;
+  initial-value: oklch(69.6% 0.17 162.48);
 }
 @property --theme-600 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #059669;
+  initial-value: oklch(59.6% 0.145 163.225);
 }
 @property --theme-700 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #047857;
+  initial-value: oklch(50.8% 0.118 165.612);
 }
 @property --theme-800 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #065f46;
+  initial-value: oklch(43.2% 0.095 166.913);
 }
 @property --theme-900 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #064e3b;
+  initial-value: oklch(37.8% 0.077 168.94);
 }
 @property --theme-950 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #022c22;
+  initial-value: oklch(26.2% 0.051 172.552);
 }
 /* `--ramp-*` is the accent's own ramp, always in forward order. The light/dark
    blocks below alias `--theme-*` onto it, reversing the order in dark. Switching
@@ -170,93 +284,78 @@
 @property --ramp-50 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #ecfdf5;
+  initial-value: oklch(97.9% 0.021 166.113);
 }
 @property --ramp-100 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #d1fae5;
+  initial-value: oklch(95% 0.052 163.051);
 }
 @property --ramp-200 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #a7f3d0;
+  initial-value: oklch(90.5% 0.093 164.15);
 }
 @property --ramp-300 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #6ee7b7;
+  initial-value: oklch(84.5% 0.143 164.978);
 }
 @property --ramp-400 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #34d399;
+  initial-value: oklch(76.5% 0.177 163.223);
 }
 @property --ramp-500 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #10b981;
+  initial-value: oklch(69.6% 0.17 162.48);
 }
 @property --ramp-600 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #059669;
+  initial-value: oklch(59.6% 0.145 163.225);
 }
 @property --ramp-700 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #047857;
+  initial-value: oklch(50.8% 0.118 165.612);
 }
 @property --ramp-800 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #065f46;
+  initial-value: oklch(43.2% 0.095 166.913);
 }
 @property --ramp-900 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #064e3b;
+  initial-value: oklch(37.8% 0.077 168.94);
 }
 @property --ramp-950 {
   syntax: "<color>";
   inherits: true;
-  initial-value: #022c22;
+  initial-value: oklch(26.2% 0.051 172.552);
 }
 
 :root {
-  /* zinc 200 */
-  --background: #e4e4e7;
-  /* zinc 800 */
-  --foreground: #27272a;
+  --background: var(--color-zinc-200);
+  --foreground: var(--color-zinc-800);
   --card: white;
-  /* zinc 950 */
-  --card-foreground: #09090b;
+  --card-foreground: var(--color-zinc-950);
   --popover: white;
-  /* zinc 950 */
-  --popover-foreground: #09090b;
-  /* zinc 900 */
-  --primary: #18181b;
-  /* zinc 50 */
-  --primary-foreground: #fafafa;
-  /* zinc 100 */
-  --secondary: #f4f4f5;
-  /* zinc 900 */
-  --secondary-foreground: #18181b;
-  /* zinc 100 */
-  --muted: #f4f4f5;
-  /* zinc 500 */
-  --muted-foreground: #71717a;
-  /* zinc 100 */
-  --accent: #f4f4f5;
-  /* zinc 800 */
-  --accent-foreground: #27272a;
-  --destructive: #dc2626;
-  /* zinc 400 */
-  --border: #a1a1aa;
-  /* zinc 200 */
-  --input: #e4e4e7;
-  /* zinc 400 */
-  --ring: #a1a1aa;
+  --popover-foreground: var(--color-zinc-950);
+  --primary: var(--color-zinc-900);
+  --primary-foreground: var(--color-zinc-50);
+  --secondary: var(--color-zinc-100);
+  --secondary-foreground: var(--color-zinc-900);
+  --muted: var(--color-zinc-100);
+  --muted-foreground: var(--color-zinc-500);
+  --accent: var(--color-zinc-100);
+  --accent-foreground: var(--color-zinc-800);
+  --destructive: var(--color-red-600);
+  --border: var(--color-zinc-400);
+  --input: var(--color-zinc-200);
+  --ring: var(--color-zinc-400);
   --radius: 0.625rem;
   /* accent */
   --theme-50: var(--ramp-50);
@@ -270,12 +369,9 @@
   --theme-800: var(--ramp-800);
   --theme-900: var(--ramp-900);
   --theme-950: var(--ramp-950);
-  /* stone 200 */
-  --keycap-edge: #e7e5e4;
-  /* stone 100 */
-  --keycap-face: #f5f5f4;
-  /* stone 700 */
-  --keycap-text: #44403c;
+  --keycap-edge: var(--color-stone-200);
+  --keycap-face: var(--color-stone-100);
+  --keycap-text: var(--color-stone-700);
   transition:
     --background 300ms,
     --foreground 300ms,
@@ -313,41 +409,24 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    /* zinc 800 */
-    --background: #27272a;
-    /* zinc 200 */
-    --foreground: #e4e4e7;
-    /* zinc 900 */
-    --card: #18181b;
-    /* zinc 50 */
-    --card-foreground: #fafafa;
-    /* zinc 900 */
-    --popover: #18181b;
-    /* zinc 50 */
-    --popover-foreground: #fafafa;
-    /* zinc 200 */
-    --primary: #e4e4e7;
-    /* zinc 900 */
-    --primary-foreground: #18181b;
-    /* zinc 800 */
-    --secondary: #27272a;
-    /* zinc 50 */
-    --secondary-foreground: #fafafa;
-    /* zinc 700 */
-    --muted: #3f3f46;
-    /* zinc 400 */
-    --muted-foreground: #a1a1aa;
-    /* zinc 800 */
-    --accent: #27272a;
-    /* zinc 200 */
-    --accent-foreground: #e4e4e7;
-    --destructive: #ef4444;
-    /* zinc 600 */
-    --border: #52525b;
-    /* zinc 800 */
-    --input: #27272a;
-    /* zinc 500 */
-    --ring: #71717a;
+    --background: var(--color-zinc-800);
+    --foreground: var(--color-zinc-200);
+    --card: var(--color-zinc-900);
+    --card-foreground: var(--color-zinc-50);
+    --popover: var(--color-zinc-900);
+    --popover-foreground: var(--color-zinc-50);
+    --primary: var(--color-zinc-200);
+    --primary-foreground: var(--color-zinc-900);
+    --secondary: var(--color-zinc-800);
+    --secondary-foreground: var(--color-zinc-50);
+    --muted: var(--color-zinc-700);
+    --muted-foreground: var(--color-zinc-400);
+    --accent: var(--color-zinc-800);
+    --accent-foreground: var(--color-zinc-200);
+    --destructive: var(--color-red-500);
+    --border: var(--color-zinc-600);
+    --input: var(--color-zinc-800);
+    --ring: var(--color-zinc-500);
     /* accent reversed */
     --theme-50: var(--ramp-950);
     --theme-100: var(--ramp-900);
@@ -360,51 +439,31 @@
     --theme-800: var(--ramp-200);
     --theme-900: var(--ramp-100);
     --theme-950: var(--ramp-50);
-    /* stone 700 */
-    --keycap-edge: #44403c;
-    /* stone 800 */
-    --keycap-face: #292524;
-    /* stone 300 */
-    --keycap-text: #d6d3d1;
+    --keycap-edge: var(--color-stone-700);
+    --keycap-face: var(--color-stone-800);
+    --keycap-text: var(--color-stone-300);
   }
 }
 
 html.dark {
-  /* zinc 800 */
-  --background: #27272a;
-  /* zinc 200 */
-  --foreground: #e4e4e7;
-  /* zinc 900 */
-  --card: #18181b;
-  /* zinc 50 */
-  --card-foreground: #fafafa;
-  /* zinc 900 */
-  --popover: #18181b;
-  /* zinc 50 */
-  --popover-foreground: #fafafa;
-  /* zinc 200 */
-  --primary: #e4e4e7;
-  /* zinc 900 */
-  --primary-foreground: #18181b;
-  /* zinc 800 */
-  --secondary: #27272a;
-  /* zinc 50 */
-  --secondary-foreground: #fafafa;
-  /* zinc 700 */
-  --muted: #3f3f46;
-  /* zinc 400 */
-  --muted-foreground: #a1a1aa;
-  /* zinc 800 */
-  --accent: #27272a;
-  /* zinc 200 */
-  --accent-foreground: #e4e4e7;
-  --destructive: #ef4444;
-  /* zinc 600 */
-  --border: #52525b;
-  /* zinc 800 */
-  --input: #27272a;
-  /* zinc 500 */
-  --ring: #71717a;
+  --background: var(--color-zinc-800);
+  --foreground: var(--color-zinc-200);
+  --card: var(--color-zinc-900);
+  --card-foreground: var(--color-zinc-50);
+  --popover: var(--color-zinc-900);
+  --popover-foreground: var(--color-zinc-50);
+  --primary: var(--color-zinc-200);
+  --primary-foreground: var(--color-zinc-900);
+  --secondary: var(--color-zinc-800);
+  --secondary-foreground: var(--color-zinc-50);
+  --muted: var(--color-zinc-700);
+  --muted-foreground: var(--color-zinc-400);
+  --accent: var(--color-zinc-800);
+  --accent-foreground: var(--color-zinc-200);
+  --destructive: var(--color-red-500);
+  --border: var(--color-zinc-600);
+  --input: var(--color-zinc-800);
+  --ring: var(--color-zinc-500);
   /* accent reversed */
   --theme-50: var(--ramp-950);
   --theme-100: var(--ramp-900);
@@ -417,48 +476,30 @@ html.dark {
   --theme-800: var(--ramp-200);
   --theme-900: var(--ramp-100);
   --theme-950: var(--ramp-50);
-  /* stone 700 */
-  --keycap-edge: #44403c;
-  /* stone 800 */
-  --keycap-face: #292524;
-  /* stone 300 */
-  --keycap-text: #d6d3d1;
+  --keycap-edge: var(--color-stone-700);
+  --keycap-face: var(--color-stone-800);
+  --keycap-text: var(--color-stone-300);
 }
 
 html.light {
-  /* zinc 200 */
-  --background: #e4e4e7;
-  /* zinc 800 */
-  --foreground: #27272a;
+  --background: var(--color-zinc-200);
+  --foreground: var(--color-zinc-800);
   --card: white;
-  /* zinc 950 */
-  --card-foreground: #09090b;
+  --card-foreground: var(--color-zinc-950);
   --popover: white;
-  /* zinc 950 */
-  --popover-foreground: #09090b;
-  /* zinc 900 */
-  --primary: #18181b;
-  /* zinc 50 */
-  --primary-foreground: #fafafa;
-  /* zinc 100 */
-  --secondary: #f4f4f5;
-  /* zinc 900 */
-  --secondary-foreground: #18181b;
-  /* zinc 100 */
-  --muted: #f4f4f5;
-  /* zinc 500 */
-  --muted-foreground: #71717a;
-  /* zinc 100 */
-  --accent: #f4f4f5;
-  /* zinc 800 */
-  --accent-foreground: #27272a;
-  --destructive: #dc2626;
-  /* zinc 400 */
-  --border: #a1a1aa;
-  /* zinc 200 */
-  --input: #e4e4e7;
-  /* zinc 400 */
-  --ring: #a1a1aa;
+  --popover-foreground: var(--color-zinc-950);
+  --primary: var(--color-zinc-900);
+  --primary-foreground: var(--color-zinc-50);
+  --secondary: var(--color-zinc-100);
+  --secondary-foreground: var(--color-zinc-900);
+  --muted: var(--color-zinc-100);
+  --muted-foreground: var(--color-zinc-500);
+  --accent: var(--color-zinc-100);
+  --accent-foreground: var(--color-zinc-800);
+  --destructive: var(--color-red-600);
+  --border: var(--color-zinc-400);
+  --input: var(--color-zinc-200);
+  --ring: var(--color-zinc-400);
   /* accent */
   --theme-50: var(--ramp-50);
   --theme-100: var(--ramp-100);
@@ -827,6 +868,97 @@ html[data-accent="taupe"] {
   --ramp-800: var(--color-taupe-800);
   --ramp-900: var(--color-taupe-900);
   --ramp-950: var(--color-taupe-950);
+}
+html[data-accent="eagle"] {
+  --ramp-50: var(--color-eagle-50);
+  --ramp-100: var(--color-eagle-100);
+  --ramp-200: var(--color-eagle-200);
+  --ramp-300: var(--color-eagle-300);
+  --ramp-400: var(--color-eagle-400);
+  --ramp-500: var(--color-eagle-500);
+  --ramp-600: var(--color-eagle-600);
+  --ramp-700: var(--color-eagle-700);
+  --ramp-800: var(--color-eagle-800);
+  --ramp-900: var(--color-eagle-900);
+  --ramp-950: var(--color-eagle-950);
+}
+html[data-accent="kelly"] {
+  --ramp-50: var(--color-kelly-50);
+  --ramp-100: var(--color-kelly-100);
+  --ramp-200: var(--color-kelly-200);
+  --ramp-300: var(--color-kelly-300);
+  --ramp-400: var(--color-kelly-400);
+  --ramp-500: var(--color-kelly-500);
+  --ramp-600: var(--color-kelly-600);
+  --ramp-700: var(--color-kelly-700);
+  --ramp-800: var(--color-kelly-800);
+  --ramp-900: var(--color-kelly-900);
+  --ramp-950: var(--color-kelly-950);
+}
+html[data-accent="flyer"] {
+  --ramp-50: var(--color-flyer-50);
+  --ramp-100: var(--color-flyer-100);
+  --ramp-200: var(--color-flyer-200);
+  --ramp-300: var(--color-flyer-300);
+  --ramp-400: var(--color-flyer-400);
+  --ramp-500: var(--color-flyer-500);
+  --ramp-600: var(--color-flyer-600);
+  --ramp-700: var(--color-flyer-700);
+  --ramp-800: var(--color-flyer-800);
+  --ramp-900: var(--color-flyer-900);
+  --ramp-950: var(--color-flyer-950);
+}
+html[data-accent="phantom"] {
+  --ramp-50: var(--color-phantom-50);
+  --ramp-100: var(--color-phantom-100);
+  --ramp-200: var(--color-phantom-200);
+  --ramp-300: var(--color-phantom-300);
+  --ramp-400: var(--color-phantom-400);
+  --ramp-500: var(--color-phantom-500);
+  --ramp-600: var(--color-phantom-600);
+  --ramp-700: var(--color-phantom-700);
+  --ramp-800: var(--color-phantom-800);
+  --ramp-900: var(--color-phantom-900);
+  --ramp-950: var(--color-phantom-950);
+}
+html[data-accent="phillie"] {
+  --ramp-50: var(--color-phillie-50);
+  --ramp-100: var(--color-phillie-100);
+  --ramp-200: var(--color-phillie-200);
+  --ramp-300: var(--color-phillie-300);
+  --ramp-400: var(--color-phillie-400);
+  --ramp-500: var(--color-phillie-500);
+  --ramp-600: var(--color-phillie-600);
+  --ramp-700: var(--color-phillie-700);
+  --ramp-800: var(--color-phillie-800);
+  --ramp-900: var(--color-phillie-900);
+  --ramp-950: var(--color-phillie-950);
+}
+html[data-accent="maroon"] {
+  --ramp-50: var(--color-maroon-50);
+  --ramp-100: var(--color-maroon-100);
+  --ramp-200: var(--color-maroon-200);
+  --ramp-300: var(--color-maroon-300);
+  --ramp-400: var(--color-maroon-400);
+  --ramp-500: var(--color-maroon-500);
+  --ramp-600: var(--color-maroon-600);
+  --ramp-700: var(--color-maroon-700);
+  --ramp-800: var(--color-maroon-800);
+  --ramp-900: var(--color-maroon-900);
+  --ramp-950: var(--color-maroon-950);
+}
+html[data-accent="sixer"] {
+  --ramp-50: var(--color-sixer-50);
+  --ramp-100: var(--color-sixer-100);
+  --ramp-200: var(--color-sixer-200);
+  --ramp-300: var(--color-sixer-300);
+  --ramp-400: var(--color-sixer-400);
+  --ramp-500: var(--color-sixer-500);
+  --ramp-600: var(--color-sixer-600);
+  --ramp-700: var(--color-sixer-700);
+  --ramp-800: var(--color-sixer-800);
+  --ramp-900: var(--color-sixer-900);
+  --ramp-950: var(--color-sixer-950);
 }
 
 @theme inline {
