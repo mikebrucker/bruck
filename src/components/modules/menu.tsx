@@ -10,6 +10,7 @@ import {
   Moon02Icon,
   Pdf02Icon,
   Playlist01Icon,
+  Settings01Icon,
   Sun02Icon,
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
@@ -20,10 +21,11 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Drawer } from "@/components/ui/drawer";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
-import { type Language, locales } from "@/i18n/config";
+import { flagMap, locales } from "@/i18n/config";
 import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 import { useLanguageStore } from "@/stores/useLanguageStore";
-import { Themes, useThemeStore } from "@/stores/useThemeStore";
+import { useStyleStore } from "@/stores/useStyleStore";
+import { Themes } from "@/types/settings";
 
 interface MenuProps {
   open: boolean;
@@ -31,11 +33,6 @@ interface MenuProps {
   useTheme?: boolean;
   side?: "left" | "right";
 }
-
-const flagMap: Record<Language, string> = {
-  de: "at",
-  en: "us",
-};
 
 function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const { t } = useTranslation();
@@ -49,7 +46,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const isCvSelected = pathname.startsWith(`/${language}/cv`);
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
   const selectedClassName = "bg-theme-400 border-theme-300";
-  const { theme, toggle } = useThemeStore();
+  const { theme, toggleTheme } = useStyleStore();
 
   return (
     <Drawer
@@ -169,9 +166,21 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
       </nav>
       <div className="mt-auto py-3 px-2.5 sm:px-3 gap-0.5 flex flex-wrap-reverse justify-end">
         <Button
+          asChild
           variant="keyboard"
           size="icon"
-          onClick={toggle}
+          className="h-13 w-13"
+          onClick={onClose}
+          aria-label={t(($) => $.ariaLabels.open_admin_page)} // make open Settings page
+        >
+          <Link href={`/${language}/settings`}>
+            <HugeiconsIcon icon={Settings01Icon} className="size-6" />
+          </Link>
+        </Button>
+        <Button
+          variant="keyboard"
+          size="icon"
+          onClick={toggleTheme}
           className={`h-13 w-13 ${theme === Themes.light ? "bg-amber-200 border-yellow-200" : "bg-indigo-800 border-indigo-900"}`}
           aria-label={
             theme === Themes.light

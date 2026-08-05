@@ -194,3 +194,15 @@ export const defaultLocale = Languages.en;
 export const defaultRoute = "music";
 export const locales = [Languages.en, Languages.de] as const;
 export const isLocale = (lang: string) => locales.includes(lang as Language);
+export const flagMap: Record<Language, string> = {
+  de: "at",
+  en: "us",
+};
+export const flagColorMap: Record<Language, { bg: string; block: string; inline: string }> = {
+  de: { bg: "var(--color-red-100)", block: "var(--color-red-700)", inline: "var(--color-red-700)" },
+  en: {
+    bg: "var(--color-blue-100)",
+    block: "var(--color-blue-900)",
+    inline: "var(--color-red-700)",
+  },
+};

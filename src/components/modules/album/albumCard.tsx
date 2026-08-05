@@ -1,13 +1,12 @@
 "use client";
 
-import { Cancel01Icon, Vynil02Icon } from "@hugeicons/core-free-icons";
+import { Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Loader from "@/components/modules/loader";
 import { Accordion } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
@@ -67,7 +66,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         height={256}
         style={{ height: "auto" }}
         priority={i === 0}
-        className="w-64 h-auto rounded-sm cursor-pointer"
+        className="w-64 h-auto rounded-md cursor-pointer"
       />
     </div>
   ));
@@ -235,10 +234,10 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                           width={160}
                           height={160}
                           style={{ height: "auto" }}
-                          className="w-40 h-40 rounded-sm object-cover"
+                          className="w-40 h-40 rounded-md object-cover"
                         />
                       ) : (
-                        <div className="w-40 h-40 rounded-sm bg-card" />
+                        <div className="w-40 h-40 rounded-md bg-card" />
                       )}
                       <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
                         <Chip
@@ -283,20 +282,11 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         <Modal
           open={selectedMention !== null}
           onClose={closeMention}
+          showClose
           className="max-w-3xl h-[80dvh] w-full rounded-lg overflow-y-auto"
         >
           {selectedMention ? (
-            <div className="px-2 py-1">
-              <div className="flex justify-end pt-1 pb-2">
-                <Button
-                  variant="outline"
-                  size="icon-sm"
-                  onClick={closeMention}
-                  aria-label={t(($) => $.ariaLabels.close)}
-                >
-                  <HugeiconsIcon icon={Cancel01Icon} />
-                </Button>
-              </div>
+            <div className="px-2 pb-1">
               <AlbumCard album={selectedMention} />
             </div>
           ) : null}

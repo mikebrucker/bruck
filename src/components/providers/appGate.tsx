@@ -2,10 +2,10 @@
 
 import Loader from "@/components/modules/loader";
 import { useLanguageStore } from "@/stores/useLanguageStore";
-import { useThemeStore } from "@/stores/useThemeStore";
+import { useStyleStore } from "@/stores/useStyleStore";
 
 export function AppGate({ children }: { children: React.ReactNode }) {
-  const themeReady = useThemeStore((s) => s.ready);
+  const themeReady = useStyleStore((s) => s.ready);
   const languageReady = useLanguageStore((s) => s.ready);
   const ready = themeReady && languageReady;
 

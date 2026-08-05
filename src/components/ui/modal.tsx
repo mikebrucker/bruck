@@ -1,7 +1,10 @@
 "use client";
 
+import { Cancel01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { type ReactNode, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useModalStore } from "@/stores/useModalStore";
 
@@ -10,9 +13,10 @@ interface ModalProps {
   onClose: () => void;
   children: ReactNode;
   className?: string;
+  showClose?: boolean;
 }
 
-function Modal({ open, onClose, children, className }: ModalProps) {
+function Modal({ open, onClose, children, className, showClose }: ModalProps) {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -38,7 +42,22 @@ function Modal({ open, onClose, children, className }: ModalProps) {
         onClick={onClose}
         aria-label={t(($) => $.ariaLabels.close)}
       />
-      <div className={cn("relative bg-background overflow-hidden", className)}>{children}</div>
+      <div className={cn("relative bg-background overflow-hidden", className)}>
+        {showClose ? (
+          <div className="flex justify-end px-4 pt-2 pb-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="icon-sm"
+              onClick={onClose}
+              aria-label={t(($) => $.ariaLabels.close)}
+            >
+              <HugeiconsIcon icon={Cancel01Icon} />
+            </Button>
+          </div>
+        ) : null}
+        {children}
+      </div>
     </div>
   );
 }

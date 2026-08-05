@@ -290,10 +290,10 @@ export function AdminUserAlbumSort() {
                             width={64}
                             height={64}
                             style={{ height: "auto" }}
-                            className="w-16 h-16 rounded-sm object-contain shrink-0"
+                            className="w-16 h-16 rounded-md object-contain shrink-0"
                           />
                         ) : (
-                          <div className="w-16 h-16 rounded-sm bg-card shrink-0" />
+                          <div className="w-16 h-16 rounded-md bg-card shrink-0" />
                         )}
                         <div className="min-w-0 flex-1">
                           <p className="font-medium truncate">{item.album.album}</p>
@@ -401,7 +401,7 @@ export function AdminUserAlbumSort() {
                               <span className="text-xl">+{nextAvailableRank}</span>
                             </Button>
                           )}
-                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm text-foreground rounded-sm p-2">
+                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm text-foreground rounded-md p-2">
                             <label
                               htmlFor={switchId}
                               className="text-2xs text-foreground cursor-pointer "

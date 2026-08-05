@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -164,6 +164,64 @@
   inherits: true;
   initial-value: #022c22;
 }
+/* `--ramp-*` is the accent's own ramp, always in forward order. The light/dark
+   blocks below alias `--theme-*` onto it, reversing the order in dark. Switching
+   accents swaps `--ramp-*` instantly; `--theme-*` transitions off it. */
+@property --ramp-50 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ecfdf5;
+}
+@property --ramp-100 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d1fae5;
+}
+@property --ramp-200 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a7f3d0;
+}
+@property --ramp-300 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6ee7b7;
+}
+@property --ramp-400 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #34d399;
+}
+@property --ramp-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #10b981;
+}
+@property --ramp-600 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #059669;
+}
+@property --ramp-700 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #047857;
+}
+@property --ramp-800 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #065f46;
+}
+@property --ramp-900 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #064e3b;
+}
+@property --ramp-950 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #022c22;
+}
 
 :root {
   /* zinc 200 */
@@ -200,18 +258,18 @@
   /* zinc 400 */
   --ring: #a1a1aa;
   --radius: 0.625rem;
-  /* emerald */
-  --theme-50: #ecfdf5;
-  --theme-100: #d1fae5;
-  --theme-200: #a7f3d0;
-  --theme-300: #6ee7b7;
-  --theme-400: #34d399;
-  --theme-500: #10b981;
-  --theme-600: #059669;
-  --theme-700: #047857;
-  --theme-800: #065f46;
-  --theme-900: #064e3b;
-  --theme-950: #022c22;
+  /* accent */
+  --theme-50: var(--ramp-50);
+  --theme-100: var(--ramp-100);
+  --theme-200: var(--ramp-200);
+  --theme-300: var(--ramp-300);
+  --theme-400: var(--ramp-400);
+  --theme-500: var(--ramp-500);
+  --theme-600: var(--ramp-600);
+  --theme-700: var(--ramp-700);
+  --theme-800: var(--ramp-800);
+  --theme-900: var(--ramp-900);
+  --theme-950: var(--ramp-950);
   /* stone 200 */
   --keycap-edge: #e7e5e4;
   /* stone 100 */
@@ -290,18 +348,18 @@
     --input: #27272a;
     /* zinc 500 */
     --ring: #71717a;
-    /* emerald reversed */
-    --theme-50: #022c22;
-    --theme-100: #064e3b;
-    --theme-200: #065f46;
-    --theme-300: #047857;
-    --theme-400: #059669;
-    --theme-500: #10b981;
-    --theme-600: #34d399;
-    --theme-700: #6ee7b7;
-    --theme-800: #a7f3d0;
-    --theme-900: #d1fae5;
-    --theme-950: #ecfdf5;
+    /* accent reversed */
+    --theme-50: var(--ramp-950);
+    --theme-100: var(--ramp-900);
+    --theme-200: var(--ramp-800);
+    --theme-300: var(--ramp-700);
+    --theme-400: var(--ramp-600);
+    --theme-500: var(--ramp-500);
+    --theme-600: var(--ramp-400);
+    --theme-700: var(--ramp-300);
+    --theme-800: var(--ramp-200);
+    --theme-900: var(--ramp-100);
+    --theme-950: var(--ramp-50);
     /* stone 700 */
     --keycap-edge: #44403c;
     /* stone 800 */
@@ -347,18 +405,18 @@ html.dark {
   --input: #27272a;
   /* zinc 500 */
   --ring: #71717a;
-  /* emerald reversed */
-  --theme-50: #022c22;
-  --theme-100: #064e3b;
-  --theme-200: #065f46;
-  --theme-300: #047857;
-  --theme-400: #059669;
-  --theme-500: #10b981;
-  --theme-600: #34d399;
-  --theme-700: #6ee7b7;
-  --theme-800: #a7f3d0;
-  --theme-900: #d1fae5;
-  --theme-950: #ecfdf5;
+  /* accent reversed */
+  --theme-50: var(--ramp-950);
+  --theme-100: var(--ramp-900);
+  --theme-200: var(--ramp-800);
+  --theme-300: var(--ramp-700);
+  --theme-400: var(--ramp-600);
+  --theme-500: var(--ramp-500);
+  --theme-600: var(--ramp-400);
+  --theme-700: var(--ramp-300);
+  --theme-800: var(--ramp-200);
+  --theme-900: var(--ramp-100);
+  --theme-950: var(--ramp-50);
   /* stone 700 */
   --keycap-edge: #44403c;
   /* stone 800 */
@@ -401,18 +459,374 @@ html.light {
   --input: #e4e4e7;
   /* zinc 400 */
   --ring: #a1a1aa;
-  /* emerald */
-  --theme-50: #ecfdf5;
-  --theme-100: #d1fae5;
-  --theme-200: #a7f3d0;
-  --theme-300: #6ee7b7;
-  --theme-400: #34d399;
-  --theme-500: #10b981;
-  --theme-600: #059669;
-  --theme-700: #047857;
-  --theme-800: #065f46;
-  --theme-900: #064e3b;
-  --theme-950: #022c22;
+  /* accent */
+  --theme-50: var(--ramp-50);
+  --theme-100: var(--ramp-100);
+  --theme-200: var(--ramp-200);
+  --theme-300: var(--ramp-300);
+  --theme-400: var(--ramp-400);
+  --theme-500: var(--ramp-500);
+  --theme-600: var(--ramp-600);
+  --theme-700: var(--ramp-700);
+  --theme-800: var(--ramp-800);
+  --theme-900: var(--ramp-900);
+  --theme-950: var(--ramp-950);
+}
+
+/* `data-accent` is written to <html> by `applyAccent` in `useStyleStore`.
+   Every palette below ships with Tailwind and is emitted into :root by
+   `theme(static)` on the import above, so these are pure aliases. */
+:root {
+  --ramp-50: var(--color-emerald-50);
+  --ramp-100: var(--color-emerald-100);
+  --ramp-200: var(--color-emerald-200);
+  --ramp-300: var(--color-emerald-300);
+  --ramp-400: var(--color-emerald-400);
+  --ramp-500: var(--color-emerald-500);
+  --ramp-600: var(--color-emerald-600);
+  --ramp-700: var(--color-emerald-700);
+  --ramp-800: var(--color-emerald-800);
+  --ramp-900: var(--color-emerald-900);
+  --ramp-950: var(--color-emerald-950);
+}
+
+html[data-accent="red"] {
+  --ramp-50: var(--color-red-50);
+  --ramp-100: var(--color-red-100);
+  --ramp-200: var(--color-red-200);
+  --ramp-300: var(--color-red-300);
+  --ramp-400: var(--color-red-400);
+  --ramp-500: var(--color-red-500);
+  --ramp-600: var(--color-red-600);
+  --ramp-700: var(--color-red-700);
+  --ramp-800: var(--color-red-800);
+  --ramp-900: var(--color-red-900);
+  --ramp-950: var(--color-red-950);
+}
+html[data-accent="orange"] {
+  --ramp-50: var(--color-orange-50);
+  --ramp-100: var(--color-orange-100);
+  --ramp-200: var(--color-orange-200);
+  --ramp-300: var(--color-orange-300);
+  --ramp-400: var(--color-orange-400);
+  --ramp-500: var(--color-orange-500);
+  --ramp-600: var(--color-orange-600);
+  --ramp-700: var(--color-orange-700);
+  --ramp-800: var(--color-orange-800);
+  --ramp-900: var(--color-orange-900);
+  --ramp-950: var(--color-orange-950);
+}
+html[data-accent="amber"] {
+  --ramp-50: var(--color-amber-50);
+  --ramp-100: var(--color-amber-100);
+  --ramp-200: var(--color-amber-200);
+  --ramp-300: var(--color-amber-300);
+  --ramp-400: var(--color-amber-400);
+  --ramp-500: var(--color-amber-500);
+  --ramp-600: var(--color-amber-600);
+  --ramp-700: var(--color-amber-700);
+  --ramp-800: var(--color-amber-800);
+  --ramp-900: var(--color-amber-900);
+  --ramp-950: var(--color-amber-950);
+}
+html[data-accent="yellow"] {
+  --ramp-50: var(--color-yellow-50);
+  --ramp-100: var(--color-yellow-100);
+  --ramp-200: var(--color-yellow-200);
+  --ramp-300: var(--color-yellow-300);
+  --ramp-400: var(--color-yellow-400);
+  --ramp-500: var(--color-yellow-500);
+  --ramp-600: var(--color-yellow-600);
+  --ramp-700: var(--color-yellow-700);
+  --ramp-800: var(--color-yellow-800);
+  --ramp-900: var(--color-yellow-900);
+  --ramp-950: var(--color-yellow-950);
+}
+html[data-accent="lime"] {
+  --ramp-50: var(--color-lime-50);
+  --ramp-100: var(--color-lime-100);
+  --ramp-200: var(--color-lime-200);
+  --ramp-300: var(--color-lime-300);
+  --ramp-400: var(--color-lime-400);
+  --ramp-500: var(--color-lime-500);
+  --ramp-600: var(--color-lime-600);
+  --ramp-700: var(--color-lime-700);
+  --ramp-800: var(--color-lime-800);
+  --ramp-900: var(--color-lime-900);
+  --ramp-950: var(--color-lime-950);
+}
+html[data-accent="green"] {
+  --ramp-50: var(--color-green-50);
+  --ramp-100: var(--color-green-100);
+  --ramp-200: var(--color-green-200);
+  --ramp-300: var(--color-green-300);
+  --ramp-400: var(--color-green-400);
+  --ramp-500: var(--color-green-500);
+  --ramp-600: var(--color-green-600);
+  --ramp-700: var(--color-green-700);
+  --ramp-800: var(--color-green-800);
+  --ramp-900: var(--color-green-900);
+  --ramp-950: var(--color-green-950);
+}
+html[data-accent="emerald"] {
+  --ramp-50: var(--color-emerald-50);
+  --ramp-100: var(--color-emerald-100);
+  --ramp-200: var(--color-emerald-200);
+  --ramp-300: var(--color-emerald-300);
+  --ramp-400: var(--color-emerald-400);
+  --ramp-500: var(--color-emerald-500);
+  --ramp-600: var(--color-emerald-600);
+  --ramp-700: var(--color-emerald-700);
+  --ramp-800: var(--color-emerald-800);
+  --ramp-900: var(--color-emerald-900);
+  --ramp-950: var(--color-emerald-950);
+}
+html[data-accent="teal"] {
+  --ramp-50: var(--color-teal-50);
+  --ramp-100: var(--color-teal-100);
+  --ramp-200: var(--color-teal-200);
+  --ramp-300: var(--color-teal-300);
+  --ramp-400: var(--color-teal-400);
+  --ramp-500: var(--color-teal-500);
+  --ramp-600: var(--color-teal-600);
+  --ramp-700: var(--color-teal-700);
+  --ramp-800: var(--color-teal-800);
+  --ramp-900: var(--color-teal-900);
+  --ramp-950: var(--color-teal-950);
+}
+html[data-accent="cyan"] {
+  --ramp-50: var(--color-cyan-50);
+  --ramp-100: var(--color-cyan-100);
+  --ramp-200: var(--color-cyan-200);
+  --ramp-300: var(--color-cyan-300);
+  --ramp-400: var(--color-cyan-400);
+  --ramp-500: var(--color-cyan-500);
+  --ramp-600: var(--color-cyan-600);
+  --ramp-700: var(--color-cyan-700);
+  --ramp-800: var(--color-cyan-800);
+  --ramp-900: var(--color-cyan-900);
+  --ramp-950: var(--color-cyan-950);
+}
+html[data-accent="sky"] {
+  --ramp-50: var(--color-sky-50);
+  --ramp-100: var(--color-sky-100);
+  --ramp-200: var(--color-sky-200);
+  --ramp-300: var(--color-sky-300);
+  --ramp-400: var(--color-sky-400);
+  --ramp-500: var(--color-sky-500);
+  --ramp-600: var(--color-sky-600);
+  --ramp-700: var(--color-sky-700);
+  --ramp-800: var(--color-sky-800);
+  --ramp-900: var(--color-sky-900);
+  --ramp-950: var(--color-sky-950);
+}
+html[data-accent="blue"] {
+  --ramp-50: var(--color-blue-50);
+  --ramp-100: var(--color-blue-100);
+  --ramp-200: var(--color-blue-200);
+  --ramp-300: var(--color-blue-300);
+  --ramp-400: var(--color-blue-400);
+  --ramp-500: var(--color-blue-500);
+  --ramp-600: var(--color-blue-600);
+  --ramp-700: var(--color-blue-700);
+  --ramp-800: var(--color-blue-800);
+  --ramp-900: var(--color-blue-900);
+  --ramp-950: var(--color-blue-950);
+}
+html[data-accent="indigo"] {
+  --ramp-50: var(--color-indigo-50);
+  --ramp-100: var(--color-indigo-100);
+  --ramp-200: var(--color-indigo-200);
+  --ramp-300: var(--color-indigo-300);
+  --ramp-400: var(--color-indigo-400);
+  --ramp-500: var(--color-indigo-500);
+  --ramp-600: var(--color-indigo-600);
+  --ramp-700: var(--color-indigo-700);
+  --ramp-800: var(--color-indigo-800);
+  --ramp-900: var(--color-indigo-900);
+  --ramp-950: var(--color-indigo-950);
+}
+html[data-accent="violet"] {
+  --ramp-50: var(--color-violet-50);
+  --ramp-100: var(--color-violet-100);
+  --ramp-200: var(--color-violet-200);
+  --ramp-300: var(--color-violet-300);
+  --ramp-400: var(--color-violet-400);
+  --ramp-500: var(--color-violet-500);
+  --ramp-600: var(--color-violet-600);
+  --ramp-700: var(--color-violet-700);
+  --ramp-800: var(--color-violet-800);
+  --ramp-900: var(--color-violet-900);
+  --ramp-950: var(--color-violet-950);
+}
+html[data-accent="purple"] {
+  --ramp-50: var(--color-purple-50);
+  --ramp-100: var(--color-purple-100);
+  --ramp-200: var(--color-purple-200);
+  --ramp-300: var(--color-purple-300);
+  --ramp-400: var(--color-purple-400);
+  --ramp-500: var(--color-purple-500);
+  --ramp-600: var(--color-purple-600);
+  --ramp-700: var(--color-purple-700);
+  --ramp-800: var(--color-purple-800);
+  --ramp-900: var(--color-purple-900);
+  --ramp-950: var(--color-purple-950);
+}
+html[data-accent="fuchsia"] {
+  --ramp-50: var(--color-fuchsia-50);
+  --ramp-100: var(--color-fuchsia-100);
+  --ramp-200: var(--color-fuchsia-200);
+  --ramp-300: var(--color-fuchsia-300);
+  --ramp-400: var(--color-fuchsia-400);
+  --ramp-500: var(--color-fuchsia-500);
+  --ramp-600: var(--color-fuchsia-600);
+  --ramp-700: var(--color-fuchsia-700);
+  --ramp-800: var(--color-fuchsia-800);
+  --ramp-900: var(--color-fuchsia-900);
+  --ramp-950: var(--color-fuchsia-950);
+}
+html[data-accent="pink"] {
+  --ramp-50: var(--color-pink-50);
+  --ramp-100: var(--color-pink-100);
+  --ramp-200: var(--color-pink-200);
+  --ramp-300: var(--color-pink-300);
+  --ramp-400: var(--color-pink-400);
+  --ramp-500: var(--color-pink-500);
+  --ramp-600: var(--color-pink-600);
+  --ramp-700: var(--color-pink-700);
+  --ramp-800: var(--color-pink-800);
+  --ramp-900: var(--color-pink-900);
+  --ramp-950: var(--color-pink-950);
+}
+html[data-accent="rose"] {
+  --ramp-50: var(--color-rose-50);
+  --ramp-100: var(--color-rose-100);
+  --ramp-200: var(--color-rose-200);
+  --ramp-300: var(--color-rose-300);
+  --ramp-400: var(--color-rose-400);
+  --ramp-500: var(--color-rose-500);
+  --ramp-600: var(--color-rose-600);
+  --ramp-700: var(--color-rose-700);
+  --ramp-800: var(--color-rose-800);
+  --ramp-900: var(--color-rose-900);
+  --ramp-950: var(--color-rose-950);
+}
+html[data-accent="slate"] {
+  --ramp-50: var(--color-slate-50);
+  --ramp-100: var(--color-slate-100);
+  --ramp-200: var(--color-slate-200);
+  --ramp-300: var(--color-slate-300);
+  --ramp-400: var(--color-slate-400);
+  --ramp-500: var(--color-slate-500);
+  --ramp-600: var(--color-slate-600);
+  --ramp-700: var(--color-slate-700);
+  --ramp-800: var(--color-slate-800);
+  --ramp-900: var(--color-slate-900);
+  --ramp-950: var(--color-slate-950);
+}
+html[data-accent="gray"] {
+  --ramp-50: var(--color-gray-50);
+  --ramp-100: var(--color-gray-100);
+  --ramp-200: var(--color-gray-200);
+  --ramp-300: var(--color-gray-300);
+  --ramp-400: var(--color-gray-400);
+  --ramp-500: var(--color-gray-500);
+  --ramp-600: var(--color-gray-600);
+  --ramp-700: var(--color-gray-700);
+  --ramp-800: var(--color-gray-800);
+  --ramp-900: var(--color-gray-900);
+  --ramp-950: var(--color-gray-950);
+}
+html[data-accent="zinc"] {
+  --ramp-50: var(--color-zinc-50);
+  --ramp-100: var(--color-zinc-100);
+  --ramp-200: var(--color-zinc-200);
+  --ramp-300: var(--color-zinc-300);
+  --ramp-400: var(--color-zinc-400);
+  --ramp-500: var(--color-zinc-500);
+  --ramp-600: var(--color-zinc-600);
+  --ramp-700: var(--color-zinc-700);
+  --ramp-800: var(--color-zinc-800);
+  --ramp-900: var(--color-zinc-900);
+  --ramp-950: var(--color-zinc-950);
+}
+html[data-accent="neutral"] {
+  --ramp-50: var(--color-neutral-50);
+  --ramp-100: var(--color-neutral-100);
+  --ramp-200: var(--color-neutral-200);
+  --ramp-300: var(--color-neutral-300);
+  --ramp-400: var(--color-neutral-400);
+  --ramp-500: var(--color-neutral-500);
+  --ramp-600: var(--color-neutral-600);
+  --ramp-700: var(--color-neutral-700);
+  --ramp-800: var(--color-neutral-800);
+  --ramp-900: var(--color-neutral-900);
+  --ramp-950: var(--color-neutral-950);
+}
+html[data-accent="stone"] {
+  --ramp-50: var(--color-stone-50);
+  --ramp-100: var(--color-stone-100);
+  --ramp-200: var(--color-stone-200);
+  --ramp-300: var(--color-stone-300);
+  --ramp-400: var(--color-stone-400);
+  --ramp-500: var(--color-stone-500);
+  --ramp-600: var(--color-stone-600);
+  --ramp-700: var(--color-stone-700);
+  --ramp-800: var(--color-stone-800);
+  --ramp-900: var(--color-stone-900);
+  --ramp-950: var(--color-stone-950);
+}
+html[data-accent="mauve"] {
+  --ramp-50: var(--color-mauve-50);
+  --ramp-100: var(--color-mauve-100);
+  --ramp-200: var(--color-mauve-200);
+  --ramp-300: var(--color-mauve-300);
+  --ramp-400: var(--color-mauve-400);
+  --ramp-500: var(--color-mauve-500);
+  --ramp-600: var(--color-mauve-600);
+  --ramp-700: var(--color-mauve-700);
+  --ramp-800: var(--color-mauve-800);
+  --ramp-900: var(--color-mauve-900);
+  --ramp-950: var(--color-mauve-950);
+}
+html[data-accent="olive"] {
+  --ramp-50: var(--color-olive-50);
+  --ramp-100: var(--color-olive-100);
+  --ramp-200: var(--color-olive-200);
+  --ramp-300: var(--color-olive-300);
+  --ramp-400: var(--color-olive-400);
+  --ramp-500: var(--color-olive-500);
+  --ramp-600: var(--color-olive-600);
+  --ramp-700: var(--color-olive-700);
+  --ramp-800: var(--color-olive-800);
+  --ramp-900: var(--color-olive-900);
+  --ramp-950: var(--color-olive-950);
+}
+html[data-accent="mist"] {
+  --ramp-50: var(--color-mist-50);
+  --ramp-100: var(--color-mist-100);
+  --ramp-200: var(--color-mist-200);
+  --ramp-300: var(--color-mist-300);
+  --ramp-400: var(--color-mist-400);
+  --ramp-500: var(--color-mist-500);
+  --ramp-600: var(--color-mist-600);
+  --ramp-700: var(--color-mist-700);
+  --ramp-800: var(--color-mist-800);
+  --ramp-900: var(--color-mist-900);
+  --ramp-950: var(--color-mist-950);
+}
+html[data-accent="taupe"] {
+  --ramp-50: var(--color-taupe-50);
+  --ramp-100: var(--color-taupe-100);
+  --ramp-200: var(--color-taupe-200);
+  --ramp-300: var(--color-taupe-300);
+  --ramp-400: var(--color-taupe-400);
+  --ramp-500: var(--color-taupe-500);
+  --ramp-600: var(--color-taupe-600);
+  --ramp-700: var(--color-taupe-700);
+  --ramp-800: var(--color-taupe-800);
+  --ramp-900: var(--color-taupe-900);
+  --ramp-950: var(--color-taupe-950);
 }
 
 @theme inline {
@@ -424,6 +838,7 @@ html.light {
   --font-metal-mania: "Metal Mania", "serif";
   --text-2xs: 0.625rem;
   --text-2xs--line-height: 0.875rem;
+  --breakpoint-xs: 30rem;
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);

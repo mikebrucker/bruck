@@ -56,7 +56,7 @@ function Toast({ open, onOpenChange, text, variant, duration = 5000, className }
         </ToastPrimitive.Description>
         <ToastPrimitive.Close
           aria-label={t(($) => $.ariaLabels.close)}
-          className="shrink-0 cursor-pointer rounded-sm text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          className="shrink-0 cursor-pointer rounded-md text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
         >
           <HugeiconsIcon icon={Cancel01Icon} className="size-4" aria-hidden="true" />
         </ToastPrimitive.Close>
