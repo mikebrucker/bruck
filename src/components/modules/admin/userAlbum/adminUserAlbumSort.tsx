@@ -1,6 +1,12 @@
 "use client";
 
-import { ChampionIcon, Layers02Icon, SoftwareUninstallIcon } from "@hugeicons/core-free-icons";
+import {
+  ChampionIcon,
+  CommentRemove01Icon,
+  Layers02Icon,
+  MusicNote01Icon,
+  SoftwareUninstallIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -47,6 +53,8 @@ export function AdminUserAlbumSort() {
   const [userAlbums, setUserAlbums] = useState<Array<UserAlbum>>([]);
   const [selectedId, setSelectedId] = useState("");
   const [allMode, setAllMode] = useState(true);
+  const [noReviewOnly, setNoReviewOnly] = useState(false);
+  const [noTrackOnly, setNoTrackOnly] = useState(false);
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
   const [_saving, setSaving] = useState(false);
@@ -74,6 +82,17 @@ export function AdminUserAlbumSort() {
       return a.id.localeCompare(b.id);
     });
   }, [albums, userAlbums]);
+
+  /** Albums shown on the review tab, narrowed by the "no review" / "no track" toggles. */
+  const reviewAlbums = useMemo(() => {
+    if (!noReviewOnly && !noTrackOnly) return sortedAlbums;
+    return sortedAlbums.filter((album) => {
+      const ua = userAlbums.find((u) => u.albumId === album.id);
+      if (noReviewOnly && ua?.review) return false;
+      if (noTrackOnly && ua?.trackId) return false;
+      return true;
+    });
+  }, [sortedAlbums, userAlbums, noReviewOnly, noTrackOnly]);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -237,6 +256,9 @@ export function AdminUserAlbumSort() {
       return prev.map((ua, i) => (i === index ? updated : ua));
     });
   };
+
+  const toggleClassName =
+    "border border-border data-[state=on]:border data-[state=on]:border-theme-900 data-[state=on]:bg-theme-900 data-[state=on]:shadow-[0_0_5px_var(--color-theme-800)] transition-colors duration-300";
 
   const toggleAllMode = (pressed: boolean) => {
     setAllMode(pressed);
@@ -450,19 +472,37 @@ export function AdminUserAlbumSort() {
               value={selectedId}
               disabled={loading || allMode}
               onValueChange={setSelectedId}
-              options={sortedAlbums.map((album) => ({
+              options={reviewAlbums.map((album) => ({
                 value: album.id,
                 label: `${album.artist} - ${album.album}`,
               }))}
             />
             <Toggle
-              className="border border-border data-[state=on]:border data-[state=on]:border-theme-900 data-[state=on]:bg-theme-900 data-[state=on]:shadow-[0_0_5px_var(--color-theme-800)] transition-colors duration-300"
+              className={toggleClassName}
               icon={Layers02Icon}
               pressed={allMode}
               disabled={loading}
               onPressedChange={toggleAllMode}
             >
               {t(($) => $.admin.toggle.all)}
+            </Toggle>
+            <Toggle
+              className={toggleClassName}
+              icon={CommentRemove01Icon}
+              pressed={noReviewOnly}
+              disabled={loading}
+              onPressedChange={setNoReviewOnly}
+            >
+              {t(($) => $.admin.toggle.no_review)}
+            </Toggle>
+            <Toggle
+              className={toggleClassName}
+              icon={MusicNote01Icon}
+              pressed={noTrackOnly}
+              disabled={loading}
+              onPressedChange={setNoTrackOnly}
+            >
+              {t(($) => $.admin.toggle.no_track)}
             </Toggle>
           </div>
 
@@ -472,7 +512,7 @@ export function AdminUserAlbumSort() {
             </div>
           ) : allMode ? (
             <div className="flex flex-col">
-              {sortedAlbums.map((album, index) => {
+              {reviewAlbums.map((album, index) => {
                 const striped = index % 2 === 0;
                 return (
                   <div key={album.id} className={`rounded-lg p-3 ${striped ? "bg-card" : ""}`}>

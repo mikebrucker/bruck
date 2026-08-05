@@ -88,7 +88,9 @@
       "artist_already_ranked": "Künstler ist bereits gerankt"
     },
     "toggle": {
-      "all": "Alle"
+      "all": "Alle",
+      "no_review": "Keine Kritik",
+      "no_track": "Kein Track"
     },
     "status": {
       "no_changes": "Keine Änderungen zum Aktualisieren",

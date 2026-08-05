@@ -88,7 +88,9 @@
       "artist_already_ranked": "Artist is already Ranked"
     },
     "toggle": {
-      "all": "All"
+      "all": "All",
+      "no_review": "No Review",
+      "no_track": "No Track"
     },
     "status": {
       "no_changes": "No changes to update",
