@@ -4,7 +4,7 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const fabVariants = cva(
-  "group/fab fixed z-50 inline-flex shrink-0 items-center justify-center rounded-lg shadow-[0_6px_16px_-2px_rgb(0_0_0/0.30),0_3px_6px_-2px_rgb(0_0_0/0.20)] dark:shadow-[0_6px_16px_-2px_rgb(0_0_0/0.45),0_3px_6px_-2px_rgb(0_0_0/0.30)] outline-none select-none cursor-pointer transition-all duration-300 ease-out focus-visible:ring-[3px] focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "group/fab fixed z-50 inline-flex shrink-0 items-center justify-center rounded-primary shadow-[0_6px_16px_-2px_rgb(0_0_0/0.30),0_3px_6px_-2px_rgb(0_0_0/0.20)] dark:shadow-[0_6px_16px_-2px_rgb(0_0_0/0.45),0_3px_6px_-2px_rgb(0_0_0/0.30)] outline-none select-none cursor-pointer transition-all duration-300 ease-out focus-visible:ring-[3px] focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {

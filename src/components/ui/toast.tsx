@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
 const toastVariants = cva(
-  "pointer-events-auto flex items-start gap-3 rounded-lg border border-border border-l-4 bg-accent p-3 text-sm leading-relaxed shadow-lg outline-none data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[swipe=move]:translate-x-(--radix-toast-swipe-move-x) data-[swipe=move]:transition-none data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-transform data-[swipe=end]:animate-out data-[swipe=end]:fade-out",
+  "pointer-events-auto flex items-start gap-3 rounded-primary border border-border border-l-4 bg-accent p-3 text-sm leading-relaxed shadow-lg outline-none data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[swipe=move]:translate-x-(--radix-toast-swipe-move-x) data-[swipe=move]:transition-none data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-transform data-[swipe=end]:animate-out data-[swipe=end]:fade-out",
   {
     variants: {
       variant: {
@@ -56,7 +56,7 @@ function Toast({ open, onOpenChange, text, variant, duration = 5000, className }
         </ToastPrimitive.Description>
         <ToastPrimitive.Close
           aria-label={t(($) => $.ariaLabels.close)}
-          className="shrink-0 cursor-pointer rounded-md text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+          className="shrink-0 cursor-pointer rounded-secondary text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
         >
           <HugeiconsIcon icon={Cancel01Icon} className="size-4" aria-hidden="true" />
         </ToastPrimitive.Close>

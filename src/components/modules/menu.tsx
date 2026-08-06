@@ -45,12 +45,13 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const isAboutSelected = pathname.startsWith(`/${language}/about`);
   const isCvSelected = pathname.startsWith(`/${language}/cv`);
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
+  const isSettingsSelected = pathname.startsWith(`/${language}/settings`);
   const selectedClassName = "bg-theme-400 border-theme-300";
   const { theme, toggleTheme } = useStyleStore();
 
   return (
     <Drawer
-      classNames={`flex flex-col ${side === "right" ? "border-l border-r-2" : "border-r border-l-2"} rounded-l-lg`}
+      classNames={`flex flex-col ${side === "right" ? "border-l border-r-2" : "border-r border-l-2"} rounded-l-primary`}
       open={open}
       onClose={onClose}
       side={side}
@@ -169,7 +170,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           asChild
           variant="keyboard"
           size="icon"
-          className="h-13 w-13"
+          className={`h-13 w-13 ${isSettingsSelected ? selectedClassName : ""}`}
           onClick={onClose}
           aria-label={t(($) => $.ariaLabels.open_admin_page)} // make open Settings page
         >

@@ -64,7 +64,11 @@
     "close": "Close",
     "action": "Action",
     "menu": "Menu",
-    "scroll_to_top": "Scroll back to top"
+    "scroll_to_top": "Scroll back to top",
+    "rounded_primary": "Primary corners {{rounded}}",
+    "rounded_secondary": "Secondary corners {{rounded}}",
+    "reset_rounded_primary": "Reset primary corners",
+    "reset_rounded_secondary": "Reset secondary corners"
   },
   "language": {
     "en": "English",
@@ -218,6 +222,19 @@
     "phillie": "Phillie",
     "maroon": "Maroon",
     "sixer": "Sixer",
-    "language": "Language"
+    "language": "Language",
+    "roundedPrimary": "Primary Corners",
+    "roundedSecondary": "Secondary Corners",
+    "rounded": {
+      "none": "None",
+      "xs": "Extra Small",
+      "sm": "Small",
+      "md": "Medium",
+      "lg": "Large",
+      "xl": "Extra Large",
+      "2xl": "2X Large",
+      "3xl": "3X Large",
+      "4xl": "4X Large"
+    }
   }
 }

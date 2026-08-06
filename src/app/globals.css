@@ -357,6 +357,9 @@
   --input: var(--color-zinc-200);
   --ring: var(--color-zinc-400);
   --radius: 0.625rem;
+  /* rounded corners, overwritten on <html> by `applyRounded` in `useStyleStore` */
+  --rounded-primary: var(--radius-lg);
+  --rounded-secondary: var(--radius-md);
   /* accent */
   --theme-50: var(--ramp-50);
   --theme-100: var(--ramp-100);
@@ -987,6 +990,8 @@ html[data-accent="sixer"] {
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --radius-primary: var(--rounded-primary);
+  --radius-secondary: var(--rounded-secondary);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);

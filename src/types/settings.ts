@@ -41,3 +41,23 @@ export const Accents = {
 } as const;
 export type Accent = keyof typeof Accents;
 export const accents: Array<Accent> = Object.values(Accents);
+
+export const RoundedTargets = {
+  primary: "primary",
+  secondary: "secondary",
+} as const;
+export type RoundedTarget = keyof typeof RoundedTargets;
+
+export const RoundedCorners = {
+  none: "none",
+  xs: "xs",
+  sm: "sm",
+  md: "md",
+  lg: "lg",
+  xl: "xl",
+  "2xl": "2xl",
+  "3xl": "3xl",
+  "4xl": "4xl",
+} as const;
+export type RoundedCorner = keyof typeof RoundedCorners;
+export const roundedCorners: Array<RoundedCorner> = Object.values(RoundedCorners);

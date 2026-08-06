@@ -1,3 +1,21 @@
+import type { RoundedCorner } from "@/types/settings";
+
+/**
+ * Maps a `RoundedCorner` token to the Tailwind radius theme variable it resolves
+ * to. `none` has no theme variable: `rounded-none` is a hardcoded zero radius.
+ */
+export const roundedCornerVars: Record<RoundedCorner, string> = {
+  none: "0",
+  xs: "var(--radius-xs)",
+  sm: "var(--radius-sm)",
+  md: "var(--radius-md)",
+  lg: "var(--radius-lg)",
+  xl: "var(--radius-xl)",
+  "2xl": "var(--radius-2xl)",
+  "3xl": "var(--radius-3xl)",
+  "4xl": "var(--radius-4xl)",
+};
+
 export const convexButtonGradient8 =
   "bg-[linear-gradient(to_bottom,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%),linear-gradient(to_right,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%)] shadow-sm active:shadow-inner dark:bg-[linear-gradient(to_bottom,rgb(192_192_192/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(192_192_192/0.1)_100%),linear-gradient(to_right,rgb(192_192_192/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(192_192_192/0.1)_100%)]";
 export const convexButtonGradient12 =

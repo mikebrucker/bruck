@@ -24,14 +24,14 @@ function Popover({ trigger, children, className, useCloseButton }: PopoverProps)
           sideOffset={8}
           align="end"
           className={cn(
-            "relative z-9999 rounded-lg border border-border bg-popover text-popover-foreground shadow-[0_0_8px_2px_rgba(0,0,0,0.4),0_4px_6px_-2px_rgba(0,0,0,0.4)] dark:shadow-[0_0_8px_2px_rgba(0,0,0,0.75),0_4px_6px_-2px_rgba(0,0,0,0.75)] outline-none",
+            "relative z-9999 rounded-primary border border-border bg-popover text-popover-foreground shadow-[0_0_8px_2px_rgba(0,0,0,0.4),0_4px_6px_-2px_rgba(0,0,0,0.4)] dark:shadow-[0_0_8px_2px_rgba(0,0,0,0.75),0_4px_6px_-2px_rgba(0,0,0,0.75)] outline-none",
             className,
           )}
         >
           {useCloseButton ? (
             <div className="flex justify-end w-full">
               <PopoverPrimitive.Close
-                className="cursor-pointer rounded-md p-2 hover:bg-accent"
+                className="cursor-pointer rounded-secondary p-2 hover:bg-accent"
                 aria-label={t(($) => $.ariaLabels.close)}
               >
                 <HugeiconsIcon icon={Close} className="size-5" />

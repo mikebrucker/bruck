@@ -66,13 +66,16 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         height={256}
         style={{ height: "auto" }}
         priority={i === 0}
-        className="w-64 h-auto rounded-md cursor-pointer"
+        className="w-64 h-auto rounded-secondary cursor-pointer"
       />
     </div>
   ));
 
   const personnelInfo = (credit: Credit) => (
-    <div key={credit.name} className="odd:bg-card rounded px-2 py-1 flex items-center gap-2">
+    <div
+      key={credit.name}
+      className="odd:bg-card rounded-secondary px-2 py-1 flex items-center gap-2"
+    >
       <div className="flex-1">
         <span className="font-medium">{credit.name}</span>
         {credit.notes ? (
@@ -86,7 +89,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
   );
 
   return (
-    <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-lg p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
+    <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-primary p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
           {album.userAlbum?.rank ? (
@@ -145,13 +148,13 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           <Accordion
             key={group.discIndex}
             title={group.title}
-            classNames="p-2 rounded-lg bg-secondary"
+            classNames="p-2 rounded-primary bg-secondary"
           >
             <div>
               {group.tracks.map((track) => (
                 <div
                   key={track.number}
-                  className="flex flex-col gap-0 px-2 py-1 odd:bg-card rounded transition-colors"
+                  className="flex flex-col gap-0 px-2 py-1 odd:bg-card rounded-secondary transition-colors"
                 >
                   <div className="flex gap-2 text-sm">
                     <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
@@ -173,7 +176,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           <div>
             <Accordion
               title={t(($) => $.albums.personnel)}
-              classNames="p-2 rounded-md bg-secondary"
+              classNames="p-2 rounded-secondary bg-secondary"
               defaultOpen={false}
             >
               <div className="space-y-6 text-sm">
@@ -200,7 +203,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.studios)}</p>
                     <div>
                       {album.personnel.studios.map((studio) => (
-                        <div key={studio} className="odd:bg-card rounded px-2 py-1">
+                        <div key={studio} className="odd:bg-card rounded-secondary px-2 py-1">
                           {studio}
                         </div>
                       ))}
@@ -211,7 +214,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                   <div>
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.notes)}</p>
                     <div>
-                      <div className="rounded px-2 py-1 whitespace-pre-line">
+                      <div className="rounded-secondary px-2 py-1 whitespace-pre-line">
                         {album.personnel.notes}
                       </div>
                     </div>
@@ -223,7 +226,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         ) : null}
         {album.honorableMentions?.length ? (
           <div className="pt-1">
-            <div className="flex flex-col bg-background p-2 rounded-lg">
+            <div className="flex flex-col bg-background p-2 rounded-primary">
               <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1.5">
                 {album.honorableMentions.length === 1
                   ? t(($) => $.albums.honorable_mention)
@@ -246,10 +249,10 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                           width={160}
                           height={160}
                           style={{ height: "auto" }}
-                          className="w-40 h-40 rounded-md object-cover"
+                          className="w-40 h-40 rounded-secondary object-cover"
                         />
                       ) : (
-                        <div className="w-40 h-40 rounded-md bg-card" />
+                        <div className="w-40 h-40 rounded-secondary bg-card" />
                       )}
                       <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
                         <Chip
@@ -295,7 +298,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           open={selectedMention !== null}
           onClose={closeMention}
           showClose
-          className="max-w-3xl h-[80dvh] w-full rounded-lg overflow-y-auto"
+          className="max-w-3xl h-[80dvh] w-full rounded-primary overflow-y-auto"
         >
           {selectedMention ? (
             <div className="px-2 pb-1">

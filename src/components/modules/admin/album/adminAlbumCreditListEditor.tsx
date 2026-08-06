@@ -29,8 +29,11 @@ function AdminAlbumCreditListEditor({
   return (
     <div className="flex flex-col gap-2">
       {credits.map((credit, index) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: list has no stable id, reordering not supported
-        <div key={index} className="flex flex-col gap-2 rounded-lg border border-border p-2">
+        <div
+          // biome-ignore lint/suspicious/noArrayIndexKey: list has no stable id, reordering not supported
+          key={index}
+          className="flex flex-col gap-2 rounded-primary border border-border p-2"
+        >
           <div className="flex gap-2">
             <Input
               placeholder={t(($) => $.admin.placeholder.name)}

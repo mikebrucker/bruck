@@ -64,7 +64,11 @@
     "close": "Schließen",
     "action": "Aktion",
     "menu": "Menü",
-    "scroll_to_top": "Zurück nach oben scrollen"
+    "scroll_to_top": "Zurück nach oben scrollen",
+    "rounded_primary": "Primäre Ecken {{rounded}}",
+    "rounded_secondary": "Sekundäre Ecken {{rounded}}",
+    "reset_rounded_primary": "Primäre Ecken zurücksetzen",
+    "reset_rounded_secondary": "Sekundäre Ecken zurücksetzen"
   },
   "language": {
     "en": "Englisch",
@@ -218,6 +222,19 @@
     "phillie": "Phillie",
     "maroon": "Bordeaux",
     "sixer": "Sixer",
-    "language": "Sprache"
+    "language": "Sprache",
+    "roundedPrimary": "Primäre Ecken",
+    "roundedSecondary": "Sekundäre Ecken",
+    "rounded": {
+      "none": "Keine",
+      "xs": "Sehr Klein",
+      "sm": "Klein",
+      "md": "Mittel",
+      "lg": "Groß",
+      "xl": "Sehr Groß",
+      "2xl": "2X Groß",
+      "3xl": "3X Groß",
+      "4xl": "4X Groß"
+    }
   }
 }

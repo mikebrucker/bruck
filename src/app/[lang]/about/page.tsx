@@ -53,7 +53,7 @@ export default function AboutPage() {
   const { t } = useTranslation();
   return (
     <div className="w-full flex flex-col gap-4">
-      <code className="text-2xl px-1 py-0.5 w-fit rounded-md bg-card font-semibold font-mono">
+      <code className="text-2xl px-1 py-0.5 w-fit rounded-secondary bg-card font-semibold font-mono">
         <span className="text-[#0431FA] dark:text-[#569CD6]">this</span>.
         <span className="text-[#795E26] dark:text-[#DCDCAA]">website</span>
         <span className="text-[#B8860B] dark:text-[#FFD700]">()</span>
@@ -65,7 +65,7 @@ export default function AboutPage() {
             {group.items.map((item) => (
               <div
                 key={item.label}
-                className="bg-muted rounded-lg border border-border p-3 flex items-center gap-2.5"
+                className="bg-muted rounded-primary border border-border p-3 flex items-center gap-2.5"
               >
                 {item.icon ? (
                   <AppIcon

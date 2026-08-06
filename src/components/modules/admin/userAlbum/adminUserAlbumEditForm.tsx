@@ -107,12 +107,12 @@ export function AdminUserAlbumEditForm({
               width={64}
               height={64}
               style={{ height: "auto" }}
-              className="w-16 h-16 rounded-md object-contain shrink-0"
+              className="w-16 h-16 rounded-secondary object-contain shrink-0"
             />
           ))}
         </div>
         {!album.art || album.art.length === 0 ? (
-          <div className="w-16 h-16 rounded-md bg-card shrink-0" />
+          <div className="w-16 h-16 rounded-secondary bg-card shrink-0" />
         ) : null}
         <div className="min-w-0 flex-1">
           <p className="font-medium truncate">{album.album}</p>

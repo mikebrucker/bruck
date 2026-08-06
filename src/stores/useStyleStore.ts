@@ -1,13 +1,27 @@
+import { roundedCornerVars } from "@/lib/styles";
 import { createHmrStore } from "@/stores/createHmrStore";
-import { type Accent, Accents, type Theme, Themes } from "@/types/settings";
+import {
+  type Accent,
+  Accents,
+  type RoundedCorner,
+  RoundedCorners,
+  type RoundedTarget,
+  RoundedTargets,
+  type Theme,
+  Themes,
+} from "@/types/settings";
 
 type StyleState = {
   ready: boolean;
   theme: Theme;
   accent: Accent;
+  roundedPrimary: RoundedCorner;
+  roundedSecondary: RoundedCorner;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   setAccent: (accent: Accent) => void;
+  setRoundedPrimary: (roundedPrimary: RoundedCorner) => void;
+  setRoundedSecondary: (roundedSecondary: RoundedCorner) => void;
 };
 
 const applyTheme = (theme: Theme) => {
@@ -21,12 +35,19 @@ const applyAccent = (accent: Accent) => {
   localStorage.setItem("accent", accent);
 };
 
+const applyRounded = (target: RoundedTarget, corner: RoundedCorner) => {
+  document.documentElement.style.setProperty(`--rounded-${target}`, roundedCornerVars[corner]);
+  localStorage.setItem(`rounded-${target}`, corner);
+};
+
 export const useStyleStore = createHmrStore<StyleState>(
   "style",
-  ["theme", "accent", "ready"],
+  ["theme", "accent", "roundedPrimary", "roundedSecondary", "ready"],
   (set, get) => ({
     theme: Themes.light,
     accent: Accents.emerald,
+    roundedPrimary: RoundedCorners.lg,
+    roundedSecondary: RoundedCorners.md,
     ready: false,
     setTheme: (theme) => {
       applyTheme(theme);
@@ -40,6 +61,14 @@ export const useStyleStore = createHmrStore<StyleState>(
     setAccent: (accent) => {
       applyAccent(accent);
       set({ accent });
+    },
+    setRoundedPrimary: (roundedPrimary) => {
+      applyRounded(RoundedTargets.primary, roundedPrimary);
+      set({ roundedPrimary });
+    },
+    setRoundedSecondary: (roundedSecondary) => {
+      applyRounded(RoundedTargets.secondary, roundedSecondary);
+      set({ roundedSecondary });
     },
   }),
 );

@@ -149,7 +149,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
         title={label}
         size="sm"
         defaultOpen={false}
-        classNames="bg-card rounded-lg"
+        classNames="bg-card rounded-primary"
         actionButton={
           <>
             {selectedValues.length ? (
@@ -159,11 +159,11 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
                 aria-label={`${label}: ${clearText}`}
                 title={clearText}
                 onClick={() => clearChipField(filterKey, field)}
-                className="border border-border p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
+                className="border border-border p-1.5 rounded-secondary text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
               >
                 <HugeiconsIcon
                   icon={DeletePutBackIcon}
-                  className="size-5 text-red-600"
+                  className="size-5 text-destructive"
                   aria-hidden="true"
                 />
               </button>
@@ -173,7 +173,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
               aria-label={`${label}: ${modeText}`}
               title={modeText}
               onClick={() => toggleChipMode(filterKey, field)}
-              className={`border border-border ${mode === ChipModes.and ? "border-theme-500" : ""} p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer`}
+              className={`border border-border ${mode === ChipModes.and ? "border-theme-500" : ""} p-1.5 rounded-secondary text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer`}
             >
               <HugeiconsIcon
                 icon={mode === ChipModes.and ? Bone01Icon : BrokenBoneIcon}

@@ -1,5 +1,14 @@
 import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+/**
+ * `rounded-primary` / `rounded-secondary` come from custom `--radius-*` theme
+ * entries, so they are not t-shirt sizes and tailwind-merge would not otherwise
+ * recognize them as border-radius utilities.
+ */
+const twMerge = extendTailwindMerge({
+  extend: { theme: { radius: ["primary", "secondary"] } },
+});
 
 export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs));

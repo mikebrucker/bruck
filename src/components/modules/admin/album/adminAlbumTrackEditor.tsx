@@ -28,7 +28,7 @@ function AdminAlbumTrackEditor({
       title={track.title || t(($) => $.admin.accordion.track_fallback, { number: index + 1 })}
       size="sm"
       defaultOpen={false}
-      classNames="bg-card rounded-lg"
+      classNames="bg-card rounded-primary"
     >
       <div className="flex flex-col gap-2 px-2 pb-2">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">

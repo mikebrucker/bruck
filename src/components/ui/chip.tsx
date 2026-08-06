@@ -24,7 +24,7 @@ export function Chip({
   return (
     <span
       className={cn(
-        "bg-muted rounded px-1.5 py-0.5 text-sm font-medium inline-flex items-center gap-1.5",
+        "bg-muted rounded-secondary px-1.5 py-0.5 text-sm font-medium inline-flex items-center gap-1.5",
         className,
       )}
     >

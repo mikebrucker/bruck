@@ -295,7 +295,7 @@ export function AdminUserAlbumSortClient() {
                 duration={500}
                 defaultOpen
                 className="max-w-xl w-full mx-auto"
-                triggerClassName="text-muted-foreground font-medium bg-card rounded-lg mb-4"
+                triggerClassName="text-muted-foreground font-medium bg-card rounded-primary mb-4"
                 contentClassName="gap-6 pr-3"
               >
                 <SortableList
@@ -312,10 +312,10 @@ export function AdminUserAlbumSortClient() {
                             width={64}
                             height={64}
                             style={{ height: "auto" }}
-                            className="w-16 h-16 rounded-md object-contain shrink-0"
+                            className="w-16 h-16 rounded-secondary object-contain shrink-0"
                           />
                         ) : (
-                          <div className="w-16 h-16 rounded-md bg-card shrink-0" />
+                          <div className="w-16 h-16 rounded-secondary bg-card shrink-0" />
                         )}
                         <div className="min-w-0 flex-1">
                           <p className="font-medium truncate">{item.album.album}</p>
@@ -349,7 +349,7 @@ export function AdminUserAlbumSortClient() {
               </Collapsible>
 
               <div className="max-w-5xl w-full mx-auto flex flex-col gap-2">
-                <div className="flex items-center p-2 font-medium text-muted-foreground bg-card rounded-lg">
+                <div className="flex items-center p-2 font-medium text-muted-foreground bg-card rounded-primary">
                   <span>{t(($) => $.albums.unranked_albums)}</span>
                 </div>
 
@@ -365,7 +365,7 @@ export function AdminUserAlbumSortClient() {
                     return (
                       <div
                         key={item.id}
-                        className="relative flex flex-col gap-16 p-3 rounded-lg border border-border bg-card overflow-hidden"
+                        className="relative flex flex-col gap-16 p-3 rounded-primary border border-border bg-card overflow-hidden"
                       >
                         {cover ? (
                           <>
@@ -423,7 +423,7 @@ export function AdminUserAlbumSortClient() {
                               <span className="text-xl">+{nextAvailableRank}</span>
                             </Button>
                           )}
-                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm text-foreground rounded-md p-2">
+                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm text-foreground rounded-secondary p-2">
                             <label
                               htmlFor={switchId}
                               className="text-2xs text-foreground cursor-pointer "
@@ -515,7 +515,7 @@ export function AdminUserAlbumSortClient() {
               {reviewAlbums.map((album, index) => {
                 const striped = index % 2 === 0;
                 return (
-                  <div key={album.id} className={`rounded-lg p-3 ${striped ? "bg-card" : ""}`}>
+                  <div key={album.id} className={`rounded-primary p-3 ${striped ? "bg-card" : ""}`}>
                     <AdminUserAlbumEditForm
                       variant={striped ? "outline" : "default"}
                       album={album}

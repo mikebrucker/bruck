@@ -1,6 +1,12 @@
 "use client";
 
-import { ColorPickerIcon, Moon02Icon, Sun02Icon } from "@hugeicons/core-free-icons";
+import {
+  ColorPickerIcon,
+  DeletePutBackIcon,
+  Moon02Icon,
+  SquareRoundCornerIcon,
+  Sun02Icon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Separator } from "radix-ui";
 import { useState } from "react";
@@ -12,26 +18,59 @@ import { Modal } from "@/components/ui/modal";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { flagColorMap, flagMap, type Language, locales } from "@/i18n/config";
+import { roundedCornerVars } from "@/lib/styles";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useStyleStore } from "@/stores/useStyleStore";
-import { type Accent, accents, Themes } from "@/types/settings";
+import {
+  type Accent,
+  accents,
+  type RoundedCorner,
+  RoundedCorners,
+  roundedCorners,
+  Themes,
+} from "@/types/settings";
 
 export default function SettingsPage() {
   const { t } = useTranslation();
-  const { theme, accent, setTheme, setAccent } = useStyleStore();
+  const {
+    theme,
+    accent,
+    roundedPrimary,
+    roundedSecondary,
+    setTheme,
+    setAccent,
+    setRoundedPrimary,
+    setRoundedSecondary,
+  } = useStyleStore();
   const { language, setLanguage } = useLanguageStore();
   const changeLanguageUrl = useChangeLanguageUrl();
   const [accentModalIsOpen, setAccentModalIsOpen] = useState(false);
   const [languageModalIsOpen, setLanguageModalIsOpen] = useState(false);
+  const [roundedPrimaryModalIsOpen, setRoundedPrimaryModalIsOpen] = useState(false);
+  const [roundedSecondaryModalIsOpen, setRoundedSecondaryModalIsOpen] = useState(false);
 
   const openAccentModal = () => setAccentModalIsOpen(true);
   const closeAccentModal = () => setAccentModalIsOpen(false);
   const openLanguageModal = () => setLanguageModalIsOpen(true);
   const closeLanguageModal = () => setLanguageModalIsOpen(false);
+  const openRoundedPrimaryModal = () => setRoundedPrimaryModalIsOpen(true);
+  const closeRoundedPrimaryModal = () => setRoundedPrimaryModalIsOpen(false);
+  const openRoundedSecondaryModal = () => setRoundedSecondaryModalIsOpen(true);
+  const closeRoundedSecondaryModal = () => setRoundedSecondaryModalIsOpen(false);
 
   const selectAccent = (value: Accent) => {
     setAccent(value);
     closeAccentModal();
+  };
+
+  const selectRoundedPrimary = (value: RoundedCorner) => {
+    setRoundedPrimary(value);
+    closeRoundedPrimaryModal();
+  };
+
+  const selectRoundedSecondary = (value: RoundedCorner) => {
+    setRoundedSecondary(value);
+    closeRoundedSecondaryModal();
   };
 
   const selectLanguage = (value: Language) => {
@@ -54,6 +93,7 @@ export default function SettingsPage() {
             type="single"
             variant="outline"
             size="icon-lg"
+            className="bg-background"
             value={theme}
             onValueChange={(value) => {
               if (value === Themes.light || value === Themes.dark) setTheme(value);
@@ -97,7 +137,7 @@ export default function SettingsPage() {
             open={accentModalIsOpen}
             onClose={closeAccentModal}
             showClose
-            className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-lg overflow-y-auto"
+            className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-primary overflow-y-auto"
           >
             <div className="px-4 pb-4">
               <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-6 gap-2">
@@ -115,11 +155,149 @@ export default function SettingsPage() {
                           ? `8px ridge var(--color-${a}-${theme === Themes.dark ? 300 : 600})`
                           : undefined,
                       }}
-                      className="relative isolate w-full h-auto aspect-4/3 rounded-lg after:content-[''] after:absolute after:inset-0 after:-z-10 after:transition-colors hover:after:bg-black/25 overflow-hidden"
+                      className="relative isolate w-full h-auto aspect-4/3 rounded-primary after:content-[''] after:absolute after:inset-0 after:-z-10 after:transition-colors hover:after:bg-black/25 overflow-hidden"
                       onClick={() => selectAccent(a)}
                     >
                       <span className="font-asimovian xs:text-lg sm:text-xl">
                         {t(($) => $.settings[a])}
+                      </span>
+                    </Button>
+                  );
+                })}
+              </div>
+            </div>
+          </Modal>
+        </SettingsRow>
+        <Separator.Root decorative className="h-px w-full shrink-0 bg-border" />
+        <SettingsRow
+          label={t(($) => $.settings.roundedPrimary)}
+          value={t(($) => $.settings.rounded[roundedPrimary])}
+        >
+          <div className="flex items-center gap-2">
+            {roundedPrimary !== RoundedCorners.lg ? (
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="size-10 bg-background"
+                aria-label={t(($) => $.ariaLabels.reset_rounded_primary)}
+                onClick={() => setRoundedPrimary(RoundedCorners.lg)}
+              >
+                <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
+              </Button>
+            ) : null}
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              className="size-10 bg-background"
+              aria-label={t(($) => $.ariaLabels.rounded_primary, {
+                rounded: roundedPrimary.toUpperCase(),
+              })}
+              onClick={openRoundedPrimaryModal}
+            >
+              <HugeiconsIcon icon={SquareRoundCornerIcon} className="size-6" />
+            </Button>
+          </div>
+          <Modal
+            open={roundedPrimaryModalIsOpen}
+            onClose={closeRoundedPrimaryModal}
+            showClose
+            className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-primary overflow-y-auto"
+          >
+            <div className="px-4 pb-4">
+              <div className="grid grid-cols-3 gap-2">
+                {roundedCorners.map((corner) => {
+                  const isSelected = corner === roundedPrimary;
+                  return (
+                    <Button
+                      key={corner}
+                      type="button"
+                      variant="ghost"
+                      aria-pressed={isSelected}
+                      style={{
+                        backgroundColor: "var(--color-theme-500)",
+                        borderRadius: roundedCornerVars[corner],
+                        border: isSelected
+                          ? `8px ridge var(--theme-${theme === Themes.dark ? 300 : 600})`
+                          : undefined,
+                      }}
+                      className="relative isolate w-full h-auto aspect-4/3 after:content-[''] after:absolute after:inset-0 after:-z-10 after:transition-colors hover:after:bg-black/25 overflow-hidden"
+                      onClick={() => selectRoundedPrimary(corner)}
+                    >
+                      <span className="font-asimovian xs:text-lg sm:text-xl">
+                        {corner === RoundedCorners.none
+                          ? t(($) => $.settings.rounded.none)
+                          : corner.toUpperCase()}
+                      </span>
+                    </Button>
+                  );
+                })}
+              </div>
+            </div>
+          </Modal>
+        </SettingsRow>
+        <Separator.Root decorative className="h-px w-full shrink-0 bg-border" />
+        <SettingsRow
+          label={t(($) => $.settings.roundedSecondary)}
+          value={t(($) => $.settings.rounded[roundedSecondary])}
+        >
+          <div className="flex items-center gap-2">
+            {roundedSecondary !== RoundedCorners.md ? (
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="size-10 bg-background"
+                aria-label={t(($) => $.ariaLabels.reset_rounded_secondary)}
+                onClick={() => setRoundedSecondary(RoundedCorners.md)}
+              >
+                <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
+              </Button>
+            ) : null}
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              className="size-10 bg-background"
+              aria-label={t(($) => $.ariaLabels.rounded_secondary, {
+                rounded: roundedSecondary.toUpperCase(),
+              })}
+              onClick={openRoundedSecondaryModal}
+            >
+              <HugeiconsIcon icon={SquareRoundCornerIcon} className="size-6" />
+            </Button>
+          </div>
+          <Modal
+            open={roundedSecondaryModalIsOpen}
+            onClose={closeRoundedSecondaryModal}
+            showClose
+            className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-primary overflow-y-auto"
+          >
+            <div className="px-4 pb-4">
+              <div className="grid grid-cols-3 gap-2">
+                {roundedCorners.map((corner) => {
+                  const isSelected = corner === roundedSecondary;
+                  return (
+                    <Button
+                      key={corner}
+                      type="button"
+                      variant="ghost"
+                      aria-pressed={isSelected}
+                      style={{
+                        backgroundColor: "var(--color-theme-500)",
+                        borderRadius: roundedCornerVars[corner],
+                        border: isSelected
+                          ? `8px ridge var(--theme-${theme === Themes.dark ? 300 : 600})`
+                          : undefined,
+                      }}
+                      className="relative isolate w-full h-auto aspect-4/3 after:content-[''] after:absolute after:inset-0 after:-z-10 after:transition-colors hover:after:bg-black/25 overflow-hidden"
+                      onClick={() => selectRoundedSecondary(corner)}
+                    >
+                      <span className="font-asimovian xs:text-lg sm:text-xl">
+                        {corner === RoundedCorners.none
+                          ? t(($) => $.settings.rounded.none)
+                          : corner.toUpperCase()}
                       </span>
                     </Button>
                   );
@@ -151,7 +329,7 @@ export default function SettingsPage() {
             open={languageModalIsOpen}
             onClose={closeLanguageModal}
             showClose
-            className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-lg overflow-y-auto"
+            className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-primary overflow-y-auto"
           >
             <div className="px-4 pb-4">
               <div className="grid grid-cols-2 gap-2">
@@ -172,7 +350,7 @@ export default function SettingsPage() {
                           ? `8px ridge ${flagColorMap[locale].inline}`
                           : undefined,
                       }}
-                      className="relative isolate w-full h-auto aspect-4/3 flex flex-col gap-1 text-zinc-900 rounded-lg after:content-[''] after:absolute after:inset-0 after:-z-10 after:transition-colors hover:after:bg-black/25 overflow-hidden"
+                      className="relative isolate w-full h-auto aspect-4/3 flex flex-col gap-1 text-zinc-900 rounded-primary after:content-[''] after:absolute after:inset-0 after:-z-10 after:transition-colors hover:after:bg-black/25 overflow-hidden"
                       onClick={() => selectLanguage(locale)}
                     >
                       <span

@@ -261,7 +261,7 @@ const hobbies: Array<Hobby> = [
 
 export default function CvPage() {
   const accordionClassNames =
-    "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-lg px-1";
+    "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/5 dark:active:bg-white/5 transition-colors duration-300 rounded-primary px-1";
 
   return (
     <div className="w-full flex flex-col gap-4">
