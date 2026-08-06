@@ -9,7 +9,6 @@ import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AlbumController from "@/controllers/album";
-import UserAlbumController from "@/controllers/userAlbum";
 import {
   albumToForm,
   buildPayload,
@@ -20,7 +19,6 @@ import {
   toSlug,
 } from "@/lib/albumForm";
 import type { Album, AlbumForm, TrackForm } from "@/types/album";
-import type { UserAlbum } from "@/types/userAlbum";
 
 const FormTabs = {
   new: "new",
@@ -29,13 +27,12 @@ const FormTabs = {
 } as const;
 type FormTab = keyof typeof FormTabs;
 
-export function AdminAlbumForm() {
+export function AdminAlbumFormClient() {
   const { t } = useTranslation();
   const [form, setForm] = useState<AlbumForm>(emptyForm());
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [albums, setAlbums] = useState<Array<Album>>([]);
-  const [userAlbums, setUserAlbums] = useState<Array<UserAlbum>>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [originalForm, setOriginalForm] = useState<AlbumForm | null>(null);
   const [loading, setLoading] = useState(false);
@@ -54,35 +51,17 @@ export function AdminAlbumForm() {
     }
   }, [t]);
 
-  const refreshUserAlbums = useCallback(async () => {
-    try {
-      const data = await UserAlbumController.getUserAlbums();
-      setUserAlbums(data);
-    } catch (error) {
-      setStatus({
-        kind: "error",
-        text:
-          error instanceof Error ? error.message : t(($) => $.admin.error.refresh_favorites_failed),
-      });
-    }
-  }, [t]);
-
   useEffect(() => {
     refreshAlbums();
-    refreshUserAlbums();
-  }, [refreshAlbums, refreshUserAlbums]);
+  }, [refreshAlbums]);
 
   const sortedAlbums = useMemo(() => {
-    const userAlbumByAlbumId = new Map(userAlbums.map((ua) => [ua.albumId, ua]));
     return [...albums].sort((a, b) => {
-      const rankA = userAlbumByAlbumId.get(a.id)?.rank;
-      const rankB = userAlbumByAlbumId.get(b.id)?.rank;
-      if (rankA != null && rankB != null) return rankA - rankB;
-      if (rankA != null) return -1;
-      if (rankB != null) return 1;
-      return `${a.artist} ${a.album}`.localeCompare(`${b.artist} ${b.album}`);
+      const artistDiff = a.artist.localeCompare(b.artist);
+      if (artistDiff !== 0) return artistDiff;
+      return a.album.localeCompare(b.album);
     });
-  }, [albums, userAlbums]);
+  }, [albums]);
 
   useEffect(() => {
     if (editingId) return;

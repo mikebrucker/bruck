@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { emptyCredit } from "@/lib/albumForm";
 import type { CreditForm } from "@/types/album";
 
@@ -54,7 +55,7 @@ function AdminAlbumCreditListEditor({
               <HugeiconsIcon icon={Delete02Icon} className="size-5" />
             </Button>
           </div>
-          <Input
+          <Textarea
             placeholder={t(($) => $.admin.placeholder.notes)}
             disabled={disabled}
             value={credit.notes}

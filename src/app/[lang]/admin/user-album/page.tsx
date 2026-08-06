@@ -1,5 +1,5 @@
-import { AdminUserAlbumSort } from "@/components/modules/admin/userAlbum/adminUserAlbumSort";
+import { AdminUserAlbumSortClient } from "@/app/[lang]/admin/user-album/adminUserAlbumSortClient";
 
 export default function AdminUserAlbumPage() {
-  return <AdminUserAlbumSort />;
+  return <AdminUserAlbumSortClient />;
 }

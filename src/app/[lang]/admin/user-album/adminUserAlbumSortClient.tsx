@@ -47,7 +47,7 @@ const SAVE_DELAY_MS = 300;
 /** Sort key for artist names: leading "The " is ignored. */
 const artistSortKey = (artist: string) => artist.replace(/^the\s+/i, "");
 
-export function AdminUserAlbumSort() {
+export function AdminUserAlbumSortClient() {
   const { t } = useTranslation();
   const [albums, setAlbums] = useState<Array<Album>>([]);
   const [userAlbums, setUserAlbums] = useState<Array<UserAlbum>>([]);

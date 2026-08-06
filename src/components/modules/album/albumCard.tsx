@@ -76,7 +76,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
       <div className="flex-1">
         <span className="font-medium">{credit.name}</span>
         {credit.notes ? (
-          <p className="text-muted-foreground italic text-xs">
+          <p className="text-muted-foreground italic text-xs whitespace-pre-line">
             {t(($) => $.albums.notes)}: {credit.notes}
           </p>
         ) : null}
@@ -130,7 +130,10 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           ) : null}
 
           {album.userAlbum?.review ? (
-            <Note className="col-span-2 sm:col-span-1" text={album.userAlbum.review} />
+            <Note
+              className="col-span-2 sm:col-span-1 whitespace-pre-line"
+              text={album.userAlbum.review}
+            />
           ) : null}
         </div>
 
@@ -148,11 +151,18 @@ export default function AlbumCard({ album }: AlbumCardProps) {
               {group.tracks.map((track) => (
                 <div
                   key={track.number}
-                  className="flex gap-2 text-sm odd:bg-card rounded px-2 py-1 transition-colors"
+                  className="flex flex-col gap-0 px-2 py-1 odd:bg-card rounded transition-colors"
                 >
-                  <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
-                  <span className="flex-1">{track.title}</span>
-                  <span className="shrink-0 tabular-nums">{track.duration}</span>
+                  <div className="flex gap-2 text-sm">
+                    <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
+                    <span className="flex-1">{track.title}</span>
+                    <span className="shrink-0 tabular-nums">{track.duration}</span>
+                  </div>
+                  {track.notes ? (
+                    <p className="text-muted-foreground italic text-xs pl-7 pr-12 whitespace-pre-line">
+                      {track.notes}
+                    </p>
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -201,7 +211,9 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                   <div>
                     <p className="font-semibold text-lg mb-1">{t(($) => $.albums.notes)}</p>
                     <div>
-                      <div className="rounded px-2 py-1">{album.personnel.notes}</div>
+                      <div className="rounded px-2 py-1 whitespace-pre-line">
+                        {album.personnel.notes}
+                      </div>
                     </div>
                   </div>
                 ) : null}

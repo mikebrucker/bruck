@@ -8,6 +8,7 @@ import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import type { TrackForm } from "@/types/album";
 
 function AdminAlbumTrackEditor({
@@ -72,7 +73,7 @@ function AdminAlbumTrackEditor({
             {t(($) => $.admin.label.instrumental)}
           </label>
         </div>
-        <Input
+        <Textarea
           variant="secondary"
           placeholder={t(($) => $.admin.placeholder.notes)}
           value={track.notes}

@@ -1,5 +1,5 @@
-import { AdminAlbumForm } from "@/components/modules/admin/album/adminAlbumForm";
+import { AdminAlbumFormClient } from "@/app/[lang]/admin/album/adminAlbumFormClient";
 
 export default function AdminAlbumPage() {
-  return <AdminAlbumForm />;
+  return <AdminAlbumFormClient />;
 }
