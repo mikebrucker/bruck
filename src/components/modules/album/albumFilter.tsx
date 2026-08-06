@@ -3,8 +3,8 @@
 import {
   Bone01Icon,
   BrokenBoneIcon,
+  DeletePutBackIcon,
   FilterHorizontalIcon,
-  FilterResetIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useMemo } from "react";
@@ -33,11 +33,12 @@ import type { Album } from "@/types/album";
 type AlbumFilterProps = {
   albums: Array<Album>;
   filterKey: string;
+  scrolled: boolean;
 };
 
 const EMPTY_SET = new Set<string>();
 
-export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
+export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
   const { t } = useTranslation();
 
   const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
@@ -161,8 +162,8 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
                 className="border border-border p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
               >
                 <HugeiconsIcon
-                  icon={FilterResetIcon}
-                  className="size-5 text-orange-600"
+                  icon={DeletePutBackIcon}
+                  className="size-5 text-red-600"
                   aria-hidden="true"
                 />
               </button>
@@ -224,14 +225,14 @@ export function AlbumFilter({ albums, filterKey }: AlbumFilterProps) {
       className="w-[90vw] max-w-120 max-h-[70dvh] overflow-y-auto flex flex-col gap-3 p-3 pb-4"
       trigger={
         <Button
-          size="icon-lg"
+          size={scrolled ? "icon" : "icon-lg"}
           variant="outline"
           aria-label={t(($) => $.albums.filter_button)}
-          className={`hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer ${hasActiveFilter ? "border-theme-600 text-theme-600 hover:text-theme-600" : ""}`}
+          className={`hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-500 ease-out cursor-pointer ${hasActiveFilter ? "border-theme-600 text-theme-600 hover:text-theme-600" : ""}`}
         >
           <HugeiconsIcon
             icon={FilterHorizontalIcon}
-            className={`size-6 ${hasActiveFilter ? "text-theme-600" : ""}`}
+            className={`${scrolled ? "size-5" : "size-6"} transition-all duration-500 ease-out ${hasActiveFilter ? "text-theme-600" : ""}`}
             aria-hidden="true"
           />
         </Button>

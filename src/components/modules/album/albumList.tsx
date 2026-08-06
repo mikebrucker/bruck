@@ -137,7 +137,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
         ref={headerRef}
         className="flex items-center w-full bg-card border border-border rounded-lg px-2 sm:px-4 pb-1 sm:pb-2 pt-2 sm:pt-4 sticky -top-2 sm:-top-3 z-9 shadow-[0_6px_18px_4px_rgb(0_0_0/0.25),0_2px_8px_2px_rgb(0_0_0/0.15)] dark:shadow-[0_6px_18px_4px_rgb(0_0_0/0.35),0_2px_8px_2px_rgb(0_0_0/0.22)] transition-all"
       >
-        <div className="flex flex-1 min-w-0 flex-col p-2">
+        <div className="flex flex-1 min-w-0 flex-col py-2 pl-2 pr-1">
           <div
             className={cn(
               "grid transition-[grid-template-rows,opacity] duration-500 ease-out",
@@ -145,11 +145,11 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
             )}
           >
             <div className="min-h-0 overflow-hidden flex flex-col gap-2">
-              <span className="font-metal-mania font-semibold tracking-widest text-foreground text-xs sm:text-2xl transition-[font-size] duration-500">
+              <span className="font-metal-mania font-semibold tracking-widest text-foreground text-base sm:text-2xl transition-[font-size] duration-500">
                 {title}
               </span>
               {subtitle ? (
-                <span className="normal-case tracking-normal font-normal text-xs sm:text-base text-muted-foreground transition-[font-size] duration-500">
+                <span className="normal-case tracking-normal font-normal text-sm sm:text-base text-muted-foreground transition-[font-size] duration-500">
                   {subtitle}
                 </span>
               ) : null}
@@ -191,7 +191,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
           </div>
         </div>
         <div className="shrink-0 pr-2">
-          <AlbumFilter albums={albums} filterKey={filterKey} />
+          <AlbumFilter albums={albums} filterKey={filterKey} scrolled={scrolled} />
         </div>
       </div>
 
