@@ -186,6 +186,7 @@ export default function SettingsPage() {
                 <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
               </Button>
             ) : null}
+            <div className="size-8 border-t-2 border-r-2 border-dashed border-foreground rounded-tr-primary" />
             <Button
               type="button"
               variant="outline"
@@ -255,6 +256,7 @@ export default function SettingsPage() {
                 <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
               </Button>
             ) : null}
+            <div className="size-8 border-t-2 border-r-2 border-dashed border-foreground rounded-tr-secondary" />
             <Button
               type="button"
               variant="outline"
