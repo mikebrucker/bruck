@@ -46,8 +46,8 @@ type Option = { value: string; label: string; icon?: React.ReactNode };
 function Select({
   className,
   contentClassName,
-  variant,
-  size,
+  variant = "default",
+  size = "default",
   options,
   value,
   defaultValue,

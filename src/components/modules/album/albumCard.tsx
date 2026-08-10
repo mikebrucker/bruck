@@ -5,9 +5,9 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Loader from "@/components/modules/loader";
 import { Accordion } from "@/components/ui/accordion";
 import { Chip } from "@/components/ui/chip";
+import Loader from "@/components/ui/loader";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
 import type { Album, Credit } from "@/types/album";
@@ -133,10 +133,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           ) : null}
 
           {album.userAlbum?.review ? (
-            <Note
-              className="col-span-2 sm:col-span-1 whitespace-pre-line"
-              text={album.userAlbum.review}
-            />
+            <Note className="col-span-2 sm:col-span-1" text={album.userAlbum.review} />
           ) : null}
         </div>
 

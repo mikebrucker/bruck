@@ -29,8 +29,8 @@ const textareaVariants = cva(
 
 function Textarea({
   className,
-  variant,
-  size,
+  variant = "default",
+  size = "default",
   ...props
 }: React.ComponentProps<"textarea"> & VariantProps<typeof textareaVariants>) {
   return (

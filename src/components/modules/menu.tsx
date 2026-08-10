@@ -4,6 +4,7 @@ import {
   AudioBook02Icon,
   Castle02Icon,
   Close,
+  CodesandboxIcon,
   FileBadgeIcon,
   HtmlFile02Icon,
   LaptopProgrammingIcon,
@@ -22,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Drawer } from "@/components/ui/drawer";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { flagMap, locales } from "@/i18n/config";
+import { cn } from "@/lib/utils";
 import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useStyleStore } from "@/stores/useStyleStore";
@@ -42,6 +44,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const isAdmin = Boolean(token);
   const changeLanguageUrl = useChangeLanguageUrl();
   const isAlbumsSelected = pathname.startsWith(`/${language}/music`);
+  const isPlaygroundSelected = pathname.startsWith(`/${language}/playground`);
   const isAboutSelected = pathname.startsWith(`/${language}/about`);
   const isCvSelected = pathname.startsWith(`/${language}/cv`);
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
@@ -51,7 +54,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
 
   return (
     <Drawer
-      classNames={`flex flex-col ${side === "right" ? "border-l border-r-2" : "border-r border-l-2"} rounded-l-primary`}
+      classNames={cn(
+        "flex flex-col rounded-l-primary",
+        side === "right" ? "border-l border-r-2" : "border-r border-l-2",
+      )}
       open={open}
       onClose={onClose}
       side={side}
@@ -71,7 +77,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         <Button
           asChild
           variant="keyboard"
-          className={`justify-start h-13 ${isAlbumsSelected ? selectedClassName : ""}`}
+          className={cn("justify-start h-13", isAlbumsSelected ? selectedClassName : null)}
           onClick={onClose}
           aria-label={t(($) => $.ariaLabels.open_music_page)}
         >
@@ -83,7 +89,19 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         <Button
           asChild
           variant="keyboard"
-          className={`justify-start h-13 ${isAboutSelected ? selectedClassName : ""}`}
+          className={cn("justify-start h-13", isPlaygroundSelected ? selectedClassName : null)}
+          onClick={onClose}
+          aria-label={t(($) => $.ariaLabels.open_playground_page)}
+        >
+          <Link href={`/${language}/playground/`}>
+            <HugeiconsIcon icon={CodesandboxIcon} className="size-6" />
+            {t(($) => $.menu.playground)}
+          </Link>
+        </Button>
+        <Button
+          asChild
+          variant="keyboard"
+          className={cn("justify-start h-13", isAboutSelected ? selectedClassName : null)}
           onClick={onClose}
           aria-label={t(($) => $.ariaLabels.open_about_page)}
         >
@@ -96,7 +114,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           <Button
             asChild
             variant="keyboard"
-            className={`justify-start h-13 grow ${isCvSelected ? selectedClassName : ""}`}
+            className={cn("justify-start h-13 grow", isCvSelected ? selectedClassName : null)}
             onClick={onClose}
             aria-label={t(($) => $.ariaLabels.open_cv_page)}
           >
@@ -140,7 +158,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
               <Button
                 asChild
                 variant="keyboard"
-                className={`justify-start h-13 grow ${isAdminSelected ? selectedClassName : ""}`}
+                className={cn(
+                  "justify-start h-13 grow",
+                  isAdminSelected ? selectedClassName : null,
+                )}
                 onClick={onClose}
                 aria-label={t(($) => $.ariaLabels.open_admin_page)}
               >
@@ -152,7 +173,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
               <Button
                 asChild
                 variant="keyboard"
-                className={`justify-start h-13 grow ${isAdminSelected ? selectedClassName : ""}`}
+                className={cn(
+                  "justify-start h-13 grow",
+                  isAdminSelected ? selectedClassName : null,
+                )}
                 onClick={onClose}
                 aria-label={t(($) => $.ariaLabels.open_admin_page)}
               >
@@ -170,7 +194,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           asChild
           variant="keyboard"
           size="icon"
-          className={`h-13 w-13 ${isSettingsSelected ? selectedClassName : ""}`}
+          className={cn("h-13 w-13", isSettingsSelected ? selectedClassName : null)}
           onClick={onClose}
           aria-label={t(($) => $.ariaLabels.open_admin_page)} // make open Settings page
         >
@@ -182,7 +206,12 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           variant="keyboard"
           size="icon"
           onClick={toggleTheme}
-          className={`h-13 w-13 ${theme === Themes.light ? "bg-amber-200 border-yellow-200" : "bg-indigo-800 border-indigo-900"}`}
+          className={cn(
+            "h-13 w-13",
+            theme === Themes.light
+              ? "bg-amber-200 border-yellow-200"
+              : "bg-indigo-800 border-indigo-900",
+          )}
           aria-label={
             theme === Themes.light
               ? t(($) => $.ariaLabels.switch_to_dark_mode)
@@ -196,7 +225,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
             key={locale}
             variant="keyboard"
             size="icon"
-            className={`h-13 w-13 ${locale === language ? selectedClassName : ""}`}
+            className={cn("h-13 w-13", locale === language ? selectedClassName : null)}
             aria-label={t(($) => $.ariaLabels.language, { language: t(($) => $.language[locale]) })}
             onClick={() => {
               setLanguage(locale);

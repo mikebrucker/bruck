@@ -14,6 +14,18 @@ export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * Narrows an arbitrary string to a key of an option map. Radix `onValueChange`
+ * handlers hand back a plain `string`, so this is what turns that back into the
+ * component's own literal union without a type assertion.
+ */
+export function isKeyOf<TValue extends string>(
+  options: Record<TValue, TValue>,
+  value: string,
+): value is TValue {
+  return Object.keys(options).includes(value);
+}
+
 export const distinctSorted = (values: Array<string>): Array<string> =>
   Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));
 

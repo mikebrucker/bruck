@@ -27,12 +27,16 @@ const inputVariants = cva(
   },
 );
 
+/**
+ * The native `size` attribute is a number, and intersecting it with the cva size
+ * scale leaves a prop nothing can satisfy, so it is omitted: the variant wins.
+ */
 function Input({
   className,
-  variant,
-  size,
+  variant = "default",
+  size = "default",
   ...props
-}: React.ComponentProps<"input"> & VariantProps<typeof inputVariants>) {
+}: Omit<React.ComponentProps<"input">, "size"> & VariantProps<typeof inputVariants>) {
   return (
     <input
       data-slot="input"

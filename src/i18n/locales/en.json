@@ -38,8 +38,138 @@
     "data": "Data",
     "i18n": "I18N"
   },
+  "playground": {
+    "title": "Component Playground",
+    "description": "Every component in the UI library with adjustable props. Changes apply live and use your current style settings.",
+    "preview": "Preview",
+    "props": "Props",
+    "close": "Close",
+    "aria": {
+      "demo_button": "Demo button",
+      "demo_input": "Demo input",
+      "demo_textarea": "Demo textarea",
+      "demo_toggle": "Demo toggle",
+      "demo_toggle_item": "Demo toggle {{number}}"
+    },
+    "demos": {
+      "accordion": {
+        "description": "Closed API over the Radix accordion: the root is fixed to a single collapsible item, so it always renders exactly one section.",
+        "title": "Accordion title",
+        "subtitle": "Optional second line",
+        "children": "Anything passed as children renders inside the collapsible content.",
+        "item": "Item {{number}}"
+      },
+      "button": {
+        "description": "Plain button element with cva variants. `asChild` swaps the element for a Radix Slot, which is how the menu renders buttons as links.",
+        "children": "Click me"
+      },
+      "checkbox": {
+        "description": "Radix checkbox with the tick indicator baked in. Passes every Radix prop straight through, including the indeterminate state.",
+        "label": "Accept the terms"
+      },
+      "chip": {
+        "description": "Inline label span. The optional icon goes through AppIcon, so it takes the same Hugeicons element or mask url."
+      },
+      "drawer": {
+        "description": "Radix dialog in a slide-in panel. Controlled only: it takes open plus onClose and has no trigger of its own.",
+        "trigger": "Open drawer",
+        "title": "Drawer content",
+        "body": "The title is rendered screen reader only, so anything visible is up to the children."
+      },
+      "fab": {
+        "description": "Fixed position action button. The preview box below is a containing block for it, so it pins to the box corner instead of the viewport corner."
+      },
+      "form": {
+        "description": "Radix form parts. FormControl is used with asChild so the native validity state drives FormMessage without any validation library.",
+        "label": "Email",
+        "required": "This field is required",
+        "type_mismatch": "Enter a valid email address",
+        "taken": "That address is already taken",
+        "submit": "Submit"
+      },
+      "input": {
+        "description": "Plain input element with cva variants. Its size prop is the variant scale, not the native size attribute, which it shadows.",
+        "placeholder": "Type something"
+      },
+      "loader": {
+        "description": "Animated bars from a plain stylesheet. Returns null while closed, and passing onClick swaps the wrapper for a button. The preview box below is a containing block, so a fullScreen loader covers the box instead of the page."
+      },
+      "modal": {
+        "description": "The one overlay that is not Radix. It counts open modals in a store so nested modals restore the body scroll only once the last one closes.",
+        "trigger": "Open modal",
+        "title": "Modal content",
+        "body": "The backdrop is a real button, so clicking anywhere outside closes it."
+      },
+      "note": {
+        "description": "Accent panel with a themed left border. Text only by design, so it cannot hold markup.",
+        "text": "Notes take a text prop, not children."
+      },
+      "popover": {
+        "description": "The trigger is a prop, not a child, and is rendered with asChild. Uncontrolled only, portalled, pinned to sideOffset 8 with align end.",
+        "trigger": "Open popover",
+        "body": "Anything can go in here. The close button slot sits above the children."
+      },
+      "radio_group": {
+        "description": "Radix radio group with the dot indicator baked into the item. Composed: the root only supplies layout and roving focus.",
+        "vinyl": "Vinyl",
+        "cassette": "Cassette",
+        "cd": "CD"
+      },
+      "select": {
+        "description": "Closed API over the Radix select: items come from an options array rather than children. The keyboard variant turns the dropdown into a keycap list.",
+        "placeholder": "Pick a genre"
+      },
+      "separator": {
+        "description": "Radix separator, always decorative, so it never lands in the accessibility tree. A vertical one needs a parent with a resolved height.",
+        "before": "before",
+        "after": "after"
+      },
+      "slider": {
+        "description": "Controlled only. The thumb count comes from the length of the value tuple, and minStepsBetweenThumbs is pinned to 1 so a range cannot cross itself."
+      },
+      "sortable_list": {
+        "description": "Drag and drop list on dnd-kit, generic over anything with an id. Items are a render prop, and onChange receives the already reordered array."
+      },
+      "switch": {
+        "description": "Radix switch with the thumb baked in. Fixed size, no variants, and the checked track picks up the current accent.",
+        "label": "Shuffle"
+      },
+      "tabs": {
+        "description": "Radix tabs, composed from list, triggers and content. Manual activation means arrow keys move focus without switching panel until Enter or Space.",
+        "bands": "Bands",
+        "stages": "Stages",
+        "vendors": "Vendors",
+        "panel": "Panel for {{name}}"
+      },
+      "textarea": {
+        "description": "Plain textarea with the same variant and size vocabulary as Input. The size scale sets a min height, so the box still grows with rows.",
+        "placeholder": "Write a review"
+      },
+      "toast": {
+        "description": "Controlled Radix toast that ships its own provider and viewport per instance and portals to the body. Swipe it right to dismiss.",
+        "trigger": "Show toast",
+        "text": "Saved your changes"
+      },
+      "toggle": {
+        "description": "Radix toggle. The icon prop is required, so it always renders one, and children become an optional label after it.",
+        "children": "Power"
+      },
+      "toggle_group": {
+        "description": "Shares the toggle variants and pushes them to its items through context. The type prop changes the shape of value, so single and multiple are separate branches.",
+        "football": "Football",
+        "hockey": "Hockey",
+        "baseball": "Baseball"
+      },
+      "tooltip": {
+        "description": "Ships its own provider per instance at a 200ms delay. The trigger focuses itself on click so the tooltip is reachable on touch.",
+        "trigger": "Hover me",
+        "content": "Tooltips take children as their content"
+      }
+    }
+  },
   "menu": {
     "music": "Music",
+    "playground": "Playground",
     "about": "About",
     "cv": "CV",
     "resume": "Résumé",
@@ -50,6 +180,7 @@
   "ariaLabels": {
     "close_menu": "Close menu",
     "open_music_page": "Open music page",
+    "open_playground_page": "Open playground page",
     "open_about_page": "Open about page",
     "open_cv_page": "Open CV page",
     "open_html_cv": "Open HTML CV",

@@ -32,7 +32,14 @@ type ToastProps = VariantProps<typeof toastVariants> & {
   className?: string;
 };
 
-function Toast({ open, onOpenChange, text, variant, duration = 5000, className }: ToastProps) {
+function Toast({
+  open,
+  onOpenChange,
+  text,
+  variant = "default",
+  duration = 5000,
+  className,
+}: ToastProps) {
   const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
 
