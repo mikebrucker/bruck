@@ -186,6 +186,8 @@
     "open_html_cv": "Open HTML CV",
     "open_pdf_cv": "Open PDF CV",
     "open_admin_page": "Open admin page",
+    "open_admin_album_page": "Open Admin Album page",
+    "open_admin_user_album_page": "Open Admin UserAlbum page",
     "open_settings_page": "Open settings page",
     "switch_to_dark_mode": "Switch to dark mode",
     "switch_to_light_mode": "Switch to light mode",
