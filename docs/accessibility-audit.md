@@ -113,9 +113,12 @@ aria-label={t(($) => $.ariaLabels.open_admin_page)} // make open Settings page
 The comment is the original author's. A screen-reader user navigating the menu hears "Open admin
 page" twice from the admin section and then a third time from the Settings button.
 
-`ariaLabels.open_settings_page` — *"Open settings page"* / *"Einstellungsseite öffnen"* — already
-exists in both `src/i18n/locales/en.json` and `de.json` and is currently unused. This is a
-one-identifier fix with the translation already written.
+`ariaLabels.open_settings_page` — *"Open settings page"* / *"Einstellungen-Seite öffnen"* — already
+exists in both `src/i18n/locales/en.json` and `de.json` and has zero usages anywhere in `src/`. This
+is a one-identifier fix with both translations already written.
+
+Note it compounds: `open_admin_page` is used on lines 166, 181 **and** 199, so three buttons leading
+to three different destinations all announce the same name.
 
 **WCAG:** 4.1.2 Name, Role, Value (A)
 
