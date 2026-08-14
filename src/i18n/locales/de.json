@@ -186,6 +186,8 @@
     "open_html_cv": "HTML-Lebenslauf öffnen",
     "open_pdf_cv": "PDF-Lebenslauf öffnen",
     "open_admin_page": "Admin-Seite öffnen",
+    "open_admin_album_page": "Admin-Alben-Seite öffnen",
+    "open_admin_user_album_page": "Admin-UserAlben-Seite öffnen",
     "open_settings_page": "Einstellungen-Seite öffnen",
     "switch_to_dark_mode": "In den Dunkelmodus wechseln",
     "switch_to_light_mode": "In den Hellmodus wechseln",

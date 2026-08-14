@@ -163,7 +163,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
-                aria-label={t(($) => $.ariaLabels.open_admin_page)}
+                aria-label={t(($) => $.ariaLabels.open_admin_album_page)}
               >
                 <Link href={`/${language}/admin/album`}>
                   <HugeiconsIcon icon={Playlist01Icon} className="size-6" />
@@ -178,7 +178,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
-                aria-label={t(($) => $.ariaLabels.open_admin_page)}
+                aria-label={t(($) => $.ariaLabels.open_admin_user_album_page)}
               >
                 <Link href={`/${language}/admin/user-album`}>
                   <HugeiconsIcon icon={AudioBook02Icon} className="size-6" />
@@ -196,7 +196,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           size="icon"
           className={cn("h-13 w-13", isSettingsSelected ? selectedClassName : null)}
           onClick={onClose}
-          aria-label={t(($) => $.ariaLabels.open_admin_page)} // make open Settings page
+          aria-label={t(($) => $.ariaLabels.open_settings_page)}
         >
           <Link href={`/${language}/settings`}>
             <HugeiconsIcon icon={Settings01Icon} className="size-6" />
