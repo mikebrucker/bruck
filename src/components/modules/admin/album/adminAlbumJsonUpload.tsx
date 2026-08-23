@@ -78,14 +78,12 @@ function AdminAlbumJsonUpload({
       }
       onUploaded();
     } catch (error) {
+      const fallbackMessage = isUpdate
+        ? t(($) => $.admin.error.update_album_failed)
+        : t(($) => $.admin.error.create_album_failed);
       setStatus({
         kind: "error",
-        text:
-          error instanceof Error
-            ? error.message
-            : isUpdate
-              ? t(($) => $.admin.error.update_album_failed)
-              : t(($) => $.admin.error.create_album_failed),
+        text: error instanceof Error ? error.message : fallbackMessage,
       });
     } finally {
       setSubmitting(false);
@@ -187,6 +185,7 @@ function AdminAlbumJsonUpload({
           contentClassName="border border-border"
           placeholder={t(($) => $.admin.placeholder.select_album_json)}
           value={loadedId ?? ""}
+          disabled={submitting}
           onValueChange={loadAlbumJson}
           options={albums.map((album) => ({
             value: album.id,
@@ -199,11 +198,12 @@ function AdminAlbumJsonUpload({
             iconClassName="size-5"
             variant="outline"
             pressed={useArray}
+            disabled={submitting}
             onPressedChange={setUseArray}
           >
             {t(($) => $.admin.button.useArray)}
           </Toggle>
-          <Button type="button" variant="outline" onClick={clear}>
+          <Button type="button" variant="outline" disabled={submitting} onClick={clear}>
             {t(($) => $.admin.button.clear)}
           </Button>
         </div>
@@ -219,6 +219,7 @@ function AdminAlbumJsonUpload({
           placeholder={t(($) => $.admin.placeholder.paste_json)}
           className="min-h-96 font-mono text-xs"
           value={jsonText}
+          disabled={submitting}
           onChange={(e) => setJsonText(e.target.value)}
         />
         {status ? (
@@ -228,11 +229,7 @@ function AdminAlbumJsonUpload({
           />
         ) : null}
         <Button type="submit" disabled={submitting} className="self-start">
-          {submitting
-            ? t(($) => $.admin.button.uploading)
-            : loadedId
-              ? t(($) => $.admin.button.update_album)
-              : t(($) => $.admin.button.upload)}
+          {loadedId ? t(($) => $.admin.button.update_album) : t(($) => $.admin.button.upload)}
         </Button>
       </form>
     </div>

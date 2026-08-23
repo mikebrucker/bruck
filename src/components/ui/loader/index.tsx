@@ -1,4 +1,5 @@
 import "@/components/ui/loader/style.css";
+import { cn } from "@/lib/utils";
 
 type LoaderProps = {
   isOpen: boolean;
@@ -21,8 +22,9 @@ export default function Loader({
 }: LoaderProps) {
   if (!isOpen) return null;
 
+  const backdropClassName = transparentBg ? null : "bg-black/50";
   const wrapperClassName = fullScreen
-    ? `fixed inset-0 z-1000 flex items-center justify-center ${transparentBg ? "" : "bg-black/50"}`.trim()
+    ? cn("fixed inset-0 z-1000 flex items-center justify-center", backdropClassName)
     : undefined;
 
   const bars = <span className={`loader ${className ?? ""}`.trim()} />;

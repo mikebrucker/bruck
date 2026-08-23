@@ -202,15 +202,14 @@ export default function SettingsPage() {
           >
             {accents.map((a) => {
               const isSelected = a === accent;
+              const ridgeShade = theme === Themes.dark ? 300 : 600;
               return (
                 <SettingsSwatchButton
                   key={a}
                   selected={isSelected}
                   style={{
                     backgroundColor: `var(--color-${a}-500)`,
-                    border: isSelected
-                      ? `8px ridge var(--color-${a}-${theme === Themes.dark ? 300 : 600})`
-                      : undefined,
+                    border: isSelected ? `8px ridge var(--color-${a}-${ridgeShade})` : undefined,
                   }}
                   className="rounded-primary"
                   onClick={() => selectAccent(a)}

@@ -47,7 +47,8 @@
           }
         },
         "useImportType": "error",
-        "noUnusedTemplateLiteral": "error"
+        "noUnusedTemplateLiteral": "error",
+        "noNestedTernary": "error"
       },
       "correctness": {
         "useExhaustiveDependencies": "warn"

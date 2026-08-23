@@ -126,67 +126,72 @@ export function AdminUserAlbumEditForm({
         </div>
       </div>
 
-      <Form onSubmit={handleSubmit} className="w-full flex flex-col gap-2">
-        <FormField name="trackId">
-          <FormLabel>{t(($) => $.albums.favorite_track)}</FormLabel>
-          <div className="flex items-center gap-2">
-            <Select
-              variant={variant}
-              contentClassName={cn("border border-border", variant === "outline" ? "bg-input" : "")}
-              placeholder={t(($) => $.admin.placeholder.no_favorite_track)}
-              value={form.trackId ?? ""}
-              onValueChange={(trackId) => setForm((prev) => ({ ...prev, trackId }))}
-              options={trackOptions}
+      <Form onSubmit={handleSubmit} className="w-full">
+        <fieldset disabled={submitting} className="flex min-w-0 flex-col gap-2">
+          <FormField name="trackId">
+            <FormLabel>{t(($) => $.albums.favorite_track)}</FormLabel>
+            <div className="flex items-center gap-2">
+              <Select
+                variant={variant}
+                contentClassName={cn(
+                  "border border-border",
+                  variant === "outline" ? "bg-input" : null,
+                )}
+                placeholder={t(($) => $.admin.placeholder.no_favorite_track)}
+                value={form.trackId ?? ""}
+                onValueChange={(trackId) => setForm((prev) => ({ ...prev, trackId }))}
+                options={trackOptions}
+              />
+              <Button
+                type="button"
+                variant="outline"
+                disabled={!form.trackId}
+                onClick={() => setForm((prev) => ({ ...prev, trackId: null }))}
+              >
+                {t(($) => $.admin.button.clear)}
+              </Button>
+            </div>
+          </FormField>
+          <FormField name="review">
+            <FormLabel>{t(($) => $.admin.label.review)}</FormLabel>
+            <FormControl asChild>
+              <Textarea
+                className="min-h-20"
+                variant={variant}
+                value={form.review ?? ""}
+                onChange={(e) => setForm((prev) => ({ ...prev, review: e.target.value }))}
+              />
+            </FormControl>
+          </FormField>
+
+          {status ? (
+            <Toast
+              key={toastId.current}
+              open={toastOpen}
+              onOpenChange={setToastOpen}
+              text={status.text}
+              variant={status.kind === "error" ? "error" : "default"}
             />
+          ) : null}
+
+          <div className="flex items-center gap-2">
             <Button
-              type="button"
-              variant="outline"
-              disabled={!form.trackId}
-              onClick={() => setForm((prev) => ({ ...prev, trackId: null }))}
+              type="submit"
+              variant={hasChanges ? "outline" : variant}
+              className={
+                hasChanges
+                  ? "text-primary-foreground border border-theme-900 bg-theme-900 shadow-[0_0_5px_var(--color-theme-800)] transition-colors duration-300"
+                  : ""
+              }
+              disabled={!hasChanges}
             >
-              {t(($) => $.admin.button.clear)}
+              {t(($) => $.admin.button.save)}
+            </Button>
+            <Button type="button" variant="outline" disabled={!hasChanges} onClick={resetForm}>
+              {t(($) => $.admin.button.reset)}
             </Button>
           </div>
-        </FormField>
-        <FormField name="review">
-          <FormLabel>{t(($) => $.admin.label.review)}</FormLabel>
-          <FormControl asChild>
-            <Textarea
-              className="min-h-20"
-              variant={variant}
-              value={form.review ?? ""}
-              onChange={(e) => setForm((prev) => ({ ...prev, review: e.target.value }))}
-            />
-          </FormControl>
-        </FormField>
-
-        {status ? (
-          <Toast
-            key={toastId.current}
-            open={toastOpen}
-            onOpenChange={setToastOpen}
-            text={status.text}
-            variant={status.kind === "error" ? "error" : "default"}
-          />
-        ) : null}
-
-        <div className="flex items-center gap-2">
-          <Button
-            type="submit"
-            variant={hasChanges ? "outline" : variant}
-            className={
-              hasChanges
-                ? "text-primary-foreground border border-theme-900 bg-theme-900 shadow-[0_0_5px_var(--color-theme-800)] transition-colors duration-300"
-                : ""
-            }
-            disabled={submitting || !hasChanges}
-          >
-            {submitting ? t(($) => $.admin.button.saving) : t(($) => $.admin.button.save)}
-          </Button>
-          <Button type="button" variant="outline" disabled={!hasChanges} onClick={resetForm}>
-            {t(($) => $.admin.button.reset)}
-          </Button>
-        </div>
+        </fieldset>
       </Form>
     </div>
   );
