@@ -130,6 +130,11 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
     }
   };
 
+  const rangeThumbLabels = (field: string): Array<string> => [
+    t(($) => $.albums.filter_minimum, { field }),
+    t(($) => $.albums.filter_maximum, { field }),
+  ];
+
   const chipStateClassName = (disabled: boolean, active: boolean) => {
     if (disabled) return "opacity-50 pointer-events-none";
     if (active) return "bg-theme-500 text-white";
@@ -205,9 +210,12 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
                 <button
                   key={key}
                   type="button"
-                  disabled={disabled}
+                  aria-pressed={active}
+                  aria-disabled={disabled}
                   className={disabled ? "cursor-not-allowed" : "cursor-pointer"}
-                  onClick={() => toggleFilter(filterKey, key)}
+                  onClick={() => {
+                    if (!disabled) toggleFilter(filterKey, key);
+                  }}
                 >
                   <Chip text={value} className={chipStateClassName(disabled, active)} />
                 </button>
@@ -276,6 +284,8 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
+          label={t(($) => $.albums.filter_rank)}
+          thumbLabels={rangeThumbLabels(t(($) => $.albums.filter_rank))}
           min={bounds.rankRange[0]}
           max={bounds.rankRange[1]}
           value={rankRange}
@@ -299,6 +309,8 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
+          label={t(($) => $.albums.filter_year)}
+          thumbLabels={rangeThumbLabels(t(($) => $.albums.filter_year))}
           min={bounds.yearRange[0]}
           max={bounds.yearRange[1]}
           value={yearRange}
@@ -322,6 +334,8 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
+          label={t(($) => $.albums.filter_runtime)}
+          thumbLabels={rangeThumbLabels(t(($) => $.albums.filter_runtime))}
           min={bounds.runtimeRange[0]}
           max={bounds.runtimeRange[1]}
           value={runtimeRange}

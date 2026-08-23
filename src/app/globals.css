@@ -1112,3 +1112,16 @@ html[data-accent="sixer"] {
     @apply font-sans h-dvh overflow-hidden;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* biome-ignore-start lint/complexity/noImportantStyles: a motion reset has to beat every animation and transition declared anywhere */
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    /* biome-ignore-end lint/complexity/noImportantStyles: a motion reset has to beat every animation and transition declared anywhere */
+  }
+}

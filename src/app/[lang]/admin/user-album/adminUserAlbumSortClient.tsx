@@ -343,6 +343,7 @@ export function AdminUserAlbumSortClient() {
                 <SortableList
                   items={orderRows}
                   onChange={handleReorder}
+                  itemLabel={(item) => item.album.album}
                   renderItem={(item, index) => {
                     const cover = item.album.art?.[0];
                     return (

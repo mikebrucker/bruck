@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { DemoControl } from "@/components/modules/playground/demoControl";
 import { Select } from "@/components/ui/select";
 import { isKeyOf } from "@/lib/utils";
@@ -19,9 +20,11 @@ function DemoSelect<TValue extends string>({
   stacked,
   onChange,
 }: DemoSelectProps<TValue>) {
+  const id = useId();
   return (
-    <DemoControl label={label} stacked={stacked}>
+    <DemoControl label={label} htmlFor={id} stacked={stacked}>
       <Select
+        id={id}
         size="sm"
         className={stacked ? "w-full" : "min-w-36"}
         options={Object.keys(options).map((option) => ({ value: option, label: option }))}

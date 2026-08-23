@@ -6,13 +6,19 @@ type AppIconProps = {
   icon: IconSvgElement | string;
   className?: string;
   useThemeColor?: boolean;
+  decorative?: boolean;
 };
 
-export function AppIcon({ icon, className, useThemeColor = false }: AppIconProps) {
+export function AppIcon({
+  icon,
+  className,
+  useThemeColor = false,
+  decorative = true,
+}: AppIconProps) {
   if (typeof icon === "string") {
     return (
       <span
-        aria-hidden
+        aria-hidden={decorative || undefined}
         className={cn("inline-block", useThemeColor ? "bg-theme-600" : "bg-foreground", className)}
         style={{
           maskImage: `url("${icon}")`,
@@ -31,6 +37,7 @@ export function AppIcon({ icon, className, useThemeColor = false }: AppIconProps
   return (
     <HugeiconsIcon
       icon={icon}
+      aria-hidden={decorative || undefined}
       className={cn(useThemeColor ? "text-theme-600" : undefined, className)}
     />
   );

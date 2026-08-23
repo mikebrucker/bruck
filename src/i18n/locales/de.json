@@ -30,7 +30,9 @@
     "filter_button": "Filtern",
     "filter_mode_or": "ODER - trifft auf jede Auswahl zu",
     "filter_mode_and": "UND - muss auf alle Auswahl zutreffen",
-    "filter_clear": "Auswahl löschen"
+    "filter_clear": "Auswahl löschen",
+    "filter_minimum": "Minimum {{field}}",
+    "filter_maximum": "Maximum {{field}}"
   },
   "about": {
     "frontend": "Frontend",
@@ -95,10 +97,10 @@
         "description": "Animierte Balken aus einem einfachen Stylesheet. Gibt null zurück solange geschlossen, und ein übergebenes onClick tauscht den Wrapper gegen einen Button. Die Vorschaubox unten ist ein Containing Block, deshalb deckt ein fullScreen Loader die Box statt der Seite ab."
       },
       "modal": {
-        "description": "Das einzige Overlay ohne Radix. Es zählt offene Modals in einem Store, damit verschachtelte Modals das Scrollen des Body erst freigeben, wenn das letzte geschlossen ist.",
+        "description": "Radix-Dialog, zentriert in einem abgedunkelten Overlay. Nur kontrolliert: nimmt open und onClose, hält den Fokus fest und gibt ihn beim Schließen zurück.",
         "trigger": "Modal öffnen",
         "title": "Modal Inhalt",
-        "body": "Der Hintergrund ist ein echter Button, ein Klick irgendwo außerhalb schließt es also."
+        "body": "Ein Klick auf das Overlay außerhalb des Panels schließt es, Escape ebenso."
       },
       "note": {
         "description": "Akzentpanel mit eingefärbtem linken Rand. Bewusst nur Text, es kann also kein Markup aufnehmen.",
@@ -170,7 +172,7 @@
   "menu": {
     "music": "Musik",
     "playground": "Spielwiese",
-    "about": "Über mich",
+    "about": "Über",
     "cv": "CV",
     "resume": "Lebenslauf",
     "admin": "Admin",
@@ -179,15 +181,8 @@
   },
   "ariaLabels": {
     "close_menu": "Menü schließen",
-    "open_music_page": "Musik-Seite öffnen",
-    "open_playground_page": "Spielwiese-Seite öffnen",
-    "open_about_page": "Über-mich-Seite öffnen",
-    "open_cv_page": "Lebenslauf-Seite öffnen",
     "open_html_cv": "HTML-Lebenslauf öffnen",
     "open_pdf_cv": "PDF-Lebenslauf öffnen",
-    "open_admin_page": "Admin-Seite öffnen",
-    "open_admin_album_page": "Admin-Alben-Seite öffnen",
-    "open_admin_user_album_page": "Admin-UserAlben-Seite öffnen",
     "open_settings_page": "Einstellungen-Seite öffnen",
     "switch_to_dark_mode": "In den Dunkelmodus wechseln",
     "switch_to_light_mode": "In den Hellmodus wechseln",
@@ -197,6 +192,10 @@
     "close": "Schließen",
     "action": "Aktion",
     "menu": "Menü",
+    "dialog": "Dialog",
+    "skip_to_content": "Zum Inhalt springen",
+    "drag_to_reorder": "Zum Umsortieren ziehen",
+    "reorder_announcement": "{{item}} auf Position {{position}} von {{total}} verschoben",
     "scroll_to_top": "Zurück nach oben scrollen",
     "rounded_primary": "Primäre Ecken {{rounded}}",
     "rounded_secondary": "Sekundäre Ecken {{rounded}}",

@@ -2,18 +2,21 @@
 
 import { Add01Icon, Delete02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import type { VariantProps } from "class-variance-authority";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Input, type inputVariants } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { emptyCredit } from "@/lib/albumForm";
 import type { CreditForm } from "@/types/album";
 
 function AdminAlbumCreditListEditor({
+  variant = "default",
   credits,
   onChange,
   disabled,
 }: {
+  variant?: VariantProps<typeof inputVariants>["variant"];
   credits: Array<CreditForm>;
   onChange: (next: Array<CreditForm>) => void;
   disabled?: boolean;
@@ -36,20 +39,24 @@ function AdminAlbumCreditListEditor({
         >
           <div className="flex gap-2">
             <Input
+              variant={variant}
               placeholder={t(($) => $.admin.placeholder.name)}
+              aria-label={t(($) => $.admin.placeholder.name)}
               disabled={disabled}
               value={credit.name}
               onChange={(e) => update(index, { name: e.target.value })}
             />
             <Input
+              variant={variant}
               placeholder={t(($) => $.admin.placeholder.roles)}
+              aria-label={t(($) => $.admin.placeholder.roles)}
               disabled={disabled}
               value={credit.roles}
               onChange={(e) => update(index, { roles: e.target.value })}
             />
             <Button
               type="button"
-              variant="ghost"
+              variant="destructive"
               size="icon"
               disabled={disabled}
               aria-label={t(($) => $.ariaLabels.remove_credit)}
@@ -59,7 +66,9 @@ function AdminAlbumCreditListEditor({
             </Button>
           </div>
           <Textarea
+            variant={variant}
             placeholder={t(($) => $.admin.placeholder.notes)}
+            aria-label={t(($) => $.admin.placeholder.notes)}
             disabled={disabled}
             value={credit.notes}
             onChange={(e) => update(index, { notes: e.target.value })}

@@ -79,7 +79,6 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           variant="keyboard"
           className={cn("justify-start h-13", isAlbumsSelected ? selectedClassName : null)}
           onClick={onClose}
-          aria-label={t(($) => $.ariaLabels.open_music_page)}
         >
           <Link href={`/${language}/music/`}>
             <HugeiconsIcon icon={Vynil02Icon} className="size-6" />
@@ -91,7 +90,6 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           variant="keyboard"
           className={cn("justify-start h-13", isPlaygroundSelected ? selectedClassName : null)}
           onClick={onClose}
-          aria-label={t(($) => $.ariaLabels.open_playground_page)}
         >
           <Link href={`/${language}/playground/`}>
             <HugeiconsIcon icon={CodesandboxIcon} className="size-6" />
@@ -103,7 +101,6 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           variant="keyboard"
           className={cn("justify-start h-13", isAboutSelected ? selectedClassName : null)}
           onClick={onClose}
-          aria-label={t(($) => $.ariaLabels.open_about_page)}
         >
           <Link href={`/${language}/about/`}>
             <HugeiconsIcon icon={LaptopProgrammingIcon} className="size-6" />
@@ -116,7 +113,6 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
             variant="keyboard"
             className={cn("justify-start h-13 grow", isCvSelected ? selectedClassName : null)}
             onClick={onClose}
-            aria-label={t(($) => $.ariaLabels.open_cv_page)}
           >
             <Link href={`/${language}/cv/`}>
               <HugeiconsIcon icon={FileBadgeIcon} className="size-6" />
@@ -163,7 +159,6 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
-                aria-label={t(($) => $.ariaLabels.open_admin_album_page)}
               >
                 <Link href={`/${language}/admin/album`}>
                   <HugeiconsIcon icon={Playlist01Icon} className="size-6" />
@@ -178,7 +173,6 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
-                aria-label={t(($) => $.ariaLabels.open_admin_user_album_page)}
               >
                 <Link href={`/${language}/admin/user-album`}>
                   <HugeiconsIcon icon={AudioBook02Icon} className="size-6" />

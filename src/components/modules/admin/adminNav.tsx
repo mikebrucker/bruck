@@ -16,12 +16,41 @@ export function AdminNav({ lang }: AdminNavProps) {
 
   return (
     <Tabs value={active} onValueChange={() => {}} className="self-center">
-      <TabsList>
-        <TabsTrigger asChild value="album">
-          <Link href={`/${lang}/admin/album/`}>{t(($) => $.admin.nav.album)}</Link>
+      {/* biome-ignore lint/a11y/useValidAriaRole: role={undefined} overrides role="tab" for links */}
+      <TabsList role={undefined} tabIndex={-1}>
+        {/* biome-ignore lint/a11y/useValidAriaRole: role={undefined} overrides role="tab" for links */}
+        <TabsTrigger
+          asChild
+          value="album"
+          role={undefined}
+          type={undefined}
+          tabIndex={0}
+          aria-selected={undefined}
+          aria-controls={undefined}
+        >
+          <Link
+            href={`/${lang}/admin/album/`}
+            aria-current={active === "album" ? "page" : undefined}
+          >
+            {t(($) => $.admin.nav.album)}
+          </Link>
         </TabsTrigger>
-        <TabsTrigger asChild value="user-album">
-          <Link href={`/${lang}/admin/user-album/`}>{t(($) => $.admin.nav.user_album)}</Link>
+        {/* biome-ignore lint/a11y/useValidAriaRole: role={undefined} overrides role="tab" for links */}
+        <TabsTrigger
+          asChild
+          value="user-album"
+          role={undefined}
+          type={undefined}
+          tabIndex={0}
+          aria-selected={undefined}
+          aria-controls={undefined}
+        >
+          <Link
+            href={`/${lang}/admin/user-album/`}
+            aria-current={active === "user-album" ? "page" : undefined}
+          >
+            {t(($) => $.admin.nav.user_album)}
+          </Link>
         </TabsTrigger>
       </TabsList>
     </Tabs>

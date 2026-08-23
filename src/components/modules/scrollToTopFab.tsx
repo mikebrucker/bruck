@@ -38,7 +38,14 @@ export function ScrollToTopFab({ screensBeforeVisible = 2.5 }: ScrollToTopFabPro
       type="button"
       visible={visible}
       aria-label={t(($) => $.ariaLabels.scroll_to_top)}
-      onClick={() => scrollAncestor?.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() =>
+        scrollAncestor?.scrollTo({
+          top: 0,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth",
+        })
+      }
     >
       <AppIcon icon={FlyingHumanIcon} className="animate-flap -rotate-25" />
     </Fab>
