@@ -53,14 +53,16 @@ export default function AboutPage() {
   const { t } = useTranslation();
   return (
     <div className="w-full flex flex-col gap-4">
-      <code className="text-2xl px-1 py-0.5 w-fit rounded-secondary bg-card font-semibold font-mono">
-        <span className="text-[#0431FA] dark:text-[#569CD6]">this</span>.
-        <span className="text-[#795E26] dark:text-[#DCDCAA]">website</span>
-        <span className="text-[#B8860B] dark:text-[#FFD700]">()</span>
-      </code>
+      <h1 className="w-fit">
+        <code className="text-2xl px-1 py-0.5 rounded-secondary bg-card font-semibold font-mono">
+          <span className="text-[#0431FA] dark:text-[#569CD6]">this</span>.
+          <span className="text-[#795E26] dark:text-[#DCDCAA]">website</span>
+          <span className="text-[#B8860B] dark:text-[#FFD700]">()</span>
+        </code>
+      </h1>
       {groups.map((group) => (
         <div key={group.label} className="px-1">
-          <p className="font-semibold font-mono">{t(($) => $.about[group.label])}</p>
+          <h2 className="font-semibold font-mono">{t(($) => $.about[group.label])}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
             {group.items.map((item) => (
               <div

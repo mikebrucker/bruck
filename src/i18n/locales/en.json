@@ -30,7 +30,9 @@
     "filter_button": "Filter",
     "filter_mode_or": "OR - matches any selected",
     "filter_mode_and": "AND - must match all selected",
-    "filter_clear": "Clear selection"
+    "filter_clear": "Clear selection",
+    "filter_minimum": "Minimum {{field}}",
+    "filter_maximum": "Maximum {{field}}"
   },
   "about": {
     "frontend": "Frontend",
@@ -95,10 +97,10 @@
         "description": "Animated bars from a plain stylesheet. Returns null while closed, and passing onClick swaps the wrapper for a button. The preview box below is a containing block, so a fullScreen loader covers the box instead of the page."
       },
       "modal": {
-        "description": "The one overlay that is not Radix. It counts open modals in a store so nested modals restore the body scroll only once the last one closes.",
+        "description": "Radix dialog centred in a dimmed overlay. Controlled only: it takes open plus onClose, traps focus while it is up, and restores focus on close.",
         "trigger": "Open modal",
         "title": "Modal content",
-        "body": "The backdrop is a real button, so clicking anywhere outside closes it."
+        "body": "Clicking the overlay outside the panel closes it, and so does Escape."
       },
       "note": {
         "description": "Accent panel with a themed left border. Text only by design, so it cannot hold markup.",
@@ -179,15 +181,8 @@
   },
   "ariaLabels": {
     "close_menu": "Close menu",
-    "open_music_page": "Open music page",
-    "open_playground_page": "Open playground page",
-    "open_about_page": "Open about page",
-    "open_cv_page": "Open CV page",
     "open_html_cv": "Open HTML CV",
     "open_pdf_cv": "Open PDF CV",
-    "open_admin_page": "Open admin page",
-    "open_admin_album_page": "Open Admin Album page",
-    "open_admin_user_album_page": "Open Admin UserAlbum page",
     "open_settings_page": "Open settings page",
     "switch_to_dark_mode": "Switch to dark mode",
     "switch_to_light_mode": "Switch to light mode",
@@ -197,6 +192,10 @@
     "close": "Close",
     "action": "Action",
     "menu": "Menu",
+    "dialog": "Dialog",
+    "skip_to_content": "Skip to content",
+    "drag_to_reorder": "Drag to reorder",
+    "reorder_announcement": "{{item}} moved to position {{position}} of {{total}}",
     "scroll_to_top": "Scroll back to top",
     "rounded_primary": "Primary corners {{rounded}}",
     "rounded_secondary": "Secondary corners {{rounded}}",

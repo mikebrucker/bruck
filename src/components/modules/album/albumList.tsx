@@ -145,9 +145,9 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
             )}
           >
             <div className="min-h-0 overflow-hidden flex flex-col gap-2">
-              <span className="font-metal-mania font-semibold tracking-widest text-foreground text-base sm:text-2xl transition-[font-size] duration-500">
+              <h1 className="font-metal-mania font-semibold tracking-widest text-foreground text-base sm:text-2xl transition-[font-size] duration-500">
                 {title}
-              </span>
+              </h1>
               {subtitle ? (
                 <span className="normal-case tracking-normal font-normal text-sm sm:text-base text-muted-foreground transition-[font-size] duration-500">
                   {subtitle}

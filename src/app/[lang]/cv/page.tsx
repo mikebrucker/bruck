@@ -292,11 +292,11 @@ export default function CvPage() {
         </div>
       </div>
 
-      <Accordion size="xl" title="Skills" classNames={accordionClassNames}>
+      <Accordion size="xl" title="Skills" headingLevel={2} classNames={accordionClassNames}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 pb-2">
           {skills.map((group) => (
             <div key={group.label}>
-              <p className="font-semibold">{group.label}</p>
+              <h3 className="font-semibold">{group.label}</h3>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {group.items.map((item) => (
                   <Chip key={item.label} text={item.label} icon={item.icon} useIconThemeColor />
@@ -310,22 +310,25 @@ export default function CvPage() {
       <CvExperienceAccordion
         title="Work Experience"
         entries={experience}
+        headingLevel={2}
         classNames={accordionClassNames}
       />
 
       <CvExperienceAccordion
         title="Education"
         entries={education}
+        headingLevel={2}
         classNames={accordionClassNames}
       />
 
       <CvExperienceAccordion
         title="Other Experience"
         entries={otherExperience}
+        headingLevel={2}
         classNames={accordionClassNames}
       />
 
-      <Accordion size="xl" title="Hobbies" classNames={accordionClassNames}>
+      <Accordion size="xl" title="Hobbies" headingLevel={2} classNames={accordionClassNames}>
         <div className="flex flex-wrap gap-1.5 pb-2">
           {hobbies.map((hobby) => (
             <Chip key={hobby.label} text={hobby.label} icon={hobby.icon} useIconThemeColor />

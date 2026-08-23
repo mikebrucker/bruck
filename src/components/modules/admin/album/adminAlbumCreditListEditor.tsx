@@ -41,6 +41,7 @@ function AdminAlbumCreditListEditor({
             <Input
               variant={variant}
               placeholder={t(($) => $.admin.placeholder.name)}
+              aria-label={t(($) => $.admin.placeholder.name)}
               disabled={disabled}
               value={credit.name}
               onChange={(e) => update(index, { name: e.target.value })}
@@ -48,6 +49,7 @@ function AdminAlbumCreditListEditor({
             <Input
               variant={variant}
               placeholder={t(($) => $.admin.placeholder.roles)}
+              aria-label={t(($) => $.admin.placeholder.roles)}
               disabled={disabled}
               value={credit.roles}
               onChange={(e) => update(index, { roles: e.target.value })}
@@ -66,6 +68,7 @@ function AdminAlbumCreditListEditor({
           <Textarea
             variant={variant}
             placeholder={t(($) => $.admin.placeholder.notes)}
+            aria-label={t(($) => $.admin.placeholder.notes)}
             disabled={disabled}
             value={credit.notes}
             onChange={(e) => update(index, { notes: e.target.value })}

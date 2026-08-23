@@ -37,6 +37,7 @@ function SortableListDemo() {
         items={items}
         onChange={setItems}
         className={classNames}
+        itemLabel={(item) => item.label}
         renderItem={(track, index) => (
           <div className="flex items-center gap-2 rounded-secondary bg-card px-3 py-2 text-sm">
             <span className="font-mono text-muted-foreground">{index + 1}</span>

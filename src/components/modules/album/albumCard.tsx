@@ -58,16 +58,17 @@ export default function AlbumCard({ album }: AlbumCardProps) {
 
   const art = album.art?.map((aa, i) => (
     <div key={aa}>
-      <Image
-        onClick={() => openModal(aa)}
-        src={`/albums/${aa}`}
-        alt={t(($) => $.albums.cover_art, { album: album.album })}
-        width={256}
-        height={256}
-        style={{ height: "auto" }}
-        priority={i === 0}
-        className="w-64 h-auto rounded-secondary cursor-pointer"
-      />
+      <button type="button" onClick={() => openModal(aa)} className="cursor-pointer">
+        <Image
+          src={`/albums/${aa}`}
+          alt={t(($) => $.albums.cover_art, { album: album.album })}
+          width={256}
+          height={256}
+          style={{ height: "auto" }}
+          priority={i === 0}
+          className="w-64 h-auto rounded-secondary"
+        />
+      </button>
     </div>
   ));
 
@@ -268,7 +269,11 @@ export default function AlbumCard({ album }: AlbumCardProps) {
             </div>
           </div>
         ) : null}
-        <Modal open={imageModalOpen} onClose={closeModal}>
+        <Modal
+          open={imageModalOpen}
+          onClose={closeModal}
+          title={t(($) => $.albums.cover_art, { album: album.album })}
+        >
           {selectedImage ? (
             <div className="relative">
               <Loader
@@ -278,16 +283,22 @@ export default function AlbumCard({ album }: AlbumCardProps) {
                 transparentBg
                 onClick={closeModal}
               />
-              <Image
+              <button
+                type="button"
                 onClick={closeModal}
-                onLoad={() => setImageLoading(false)}
-                src={`/albums/${selectedImage}`}
-                alt={t(($) => $.albums.cover_art, { album: album.album })}
-                width={1024}
-                height={1024}
-                style={{ height: "auto" }}
-                className="w-full max-h-screen object-contain cursor-pointer"
-              />
+                aria-label={t(($) => $.ariaLabels.close)}
+                className="cursor-pointer"
+              >
+                <Image
+                  onLoad={() => setImageLoading(false)}
+                  src={`/albums/${selectedImage}`}
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  style={{ height: "auto" }}
+                  className="w-full max-h-screen object-contain"
+                />
+              </button>
             </div>
           ) : null}
         </Modal>
@@ -295,6 +306,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           open={selectedMention !== null}
           onClose={closeMention}
           showClose
+          title={selectedMention?.album}
           className="max-w-3xl h-[80dvh] w-full rounded-primary overflow-y-auto"
         >
           {selectedMention ? (

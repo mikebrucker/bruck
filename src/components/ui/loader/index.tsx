@@ -29,11 +29,21 @@ export default function Loader({
 
   const bars = <span className={`loader ${className ?? ""}`.trim()} />;
 
+  const label = (
+    <span role="status" aria-live="polite" className="sr-only" lang="en">
+      Loading
+    </span>
+  );
+
   return onClick ? (
-    <button type="button" aria-label="Loading" onClick={onClick} className={wrapperClassName}>
+    <button type="button" onClick={onClick} className={wrapperClassName}>
       {bars}
+      {label}
     </button>
   ) : (
-    <div className={wrapperClassName}>{bars}</div>
+    <div className={wrapperClassName}>
+      {bars}
+      {label}
+    </div>
   );
 }

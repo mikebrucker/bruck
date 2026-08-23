@@ -35,6 +35,7 @@ function AdminAlbumTrackEditor({
           <Input
             variant="secondary"
             placeholder={t(($) => $.admin.placeholder.number)}
+            aria-label={t(($) => $.admin.placeholder.number)}
             type="number"
             value={track.number}
             onChange={(e) => onChange({ number: e.target.value })}
@@ -42,6 +43,7 @@ function AdminAlbumTrackEditor({
           <Input
             variant="secondary"
             placeholder={t(($) => $.admin.placeholder.title)}
+            aria-label={t(($) => $.admin.placeholder.title)}
             className="col-span-2"
             value={track.title}
             onChange={(e) => onChange({ title: e.target.value })}
@@ -49,6 +51,7 @@ function AdminAlbumTrackEditor({
           <Input
             variant="secondary"
             placeholder={t(($) => $.admin.placeholder.duration)}
+            aria-label={t(($) => $.admin.placeholder.duration)}
             value={track.duration}
             onChange={(e) => onChange({ duration: e.target.value })}
           />
@@ -57,6 +60,7 @@ function AdminAlbumTrackEditor({
           <Input
             variant="secondary"
             placeholder={t(($) => $.admin.placeholder.disc)}
+            aria-label={t(($) => $.admin.placeholder.disc)}
             type="number"
             value={track.disc}
             onChange={(e) => onChange({ disc: e.target.value })}
@@ -76,6 +80,7 @@ function AdminAlbumTrackEditor({
         <Textarea
           variant="secondary"
           placeholder={t(($) => $.admin.placeholder.notes)}
+          aria-label={t(($) => $.admin.placeholder.notes)}
           value={track.notes}
           onChange={(e) => onChange({ notes: e.target.value })}
         />

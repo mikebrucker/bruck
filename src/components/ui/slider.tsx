@@ -13,9 +13,21 @@ type SliderProps = {
   step?: number;
   disabled?: boolean;
   className?: string;
+  label?: string;
+  thumbLabels?: Array<string>;
 };
 
-function Slider({ value, onValueChange, min, max, step = 1, disabled, className }: SliderProps) {
+function Slider({
+  value,
+  onValueChange,
+  min,
+  max,
+  step = 1,
+  disabled,
+  className,
+  label,
+  thumbLabels,
+}: SliderProps) {
   return (
     <SliderPrimitive.Root
       value={value}
@@ -37,6 +49,7 @@ function Slider({ value, onValueChange, min, max, step = 1, disabled, className 
         <SliderPrimitive.Thumb
           // biome-ignore lint/suspicious/noArrayIndexKey: thumb count is fixed by the value tuple length (1 or 2), order never changes
           key={i}
+          aria-label={thumbLabels?.[i] ?? label}
           className="block size-4 shrink-0 rounded-full bg-theme-500 border-2 border-background shadow transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 data-disabled:pointer-events-none data-disabled:opacity-50"
         />
       ))}
