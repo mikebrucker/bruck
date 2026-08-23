@@ -83,6 +83,7 @@ function AdminAlbumTrackEditor({
           {t(($) => $.admin.heading.track_personnel)}
         </p>
         <AdminAlbumCreditListEditor
+          variant="secondary"
           credits={track.personnel}
           onChange={(personnel) => onChange({ personnel })}
         />

@@ -2,7 +2,7 @@
 
 **Scope:** all component files under `src/components/` and all pages under `src/app/`.
 **Date:** 2026-08-14
-**Result:** 16 findings across 5 severity tiers. No source files were changed.
+**Result:** 14 findings across 5 severity tiers. No source files were changed.
 
 ---
 
@@ -24,9 +24,9 @@ Every issue below is one the linter structurally cannot catch. They fall into th
   click handler on a React component is invisible to them.
 - **Hand-rolled components that bypass Radix.** `Modal` re-implements a dialog from scratch and
   misses nearly everything Radix would have provided.
-- **Correctness of labelling.** No static rule can tell that an `aria-label` reading
-  "Open admin page" is attached to the Settings button, or that a label contradicts the visible text
-  next to it.
+- **Correctness of labelling.** No static rule can tell that an `aria-label` fails to contain the
+  visible text sitting right next to it, or that a translation means something different from the
+  string it was translated from.
 
 Two findings (#1 and #2) block keyboard and screen-reader users from functionality outright and are
 worth fixing regardless of what else is picked up.
@@ -102,59 +102,46 @@ Two notes for whoever implements it:
 
 ---
 
-### 🔴 3. Settings button announces itself as "Open admin page"
-
-`src/components/modules/menu.tsx:199`
-
-```tsx
-aria-label={t(($) => $.ariaLabels.open_admin_page)} // make open Settings page
-```
-
-The comment is the original author's. A screen-reader user navigating the menu hears "Open admin
-page" twice from the admin section and then a third time from the Settings button.
-
-`ariaLabels.open_settings_page` — *"Open settings page"* / *"Einstellungen-Seite öffnen"* — already
-exists in both `src/i18n/locales/en.json` and `de.json` and has zero usages anywhere in `src/`. This
-is a one-identifier fix with both translations already written.
-
-Note it compounds: `open_admin_page` is used on lines 166, 181 **and** 199, so three buttons leading
-to three different destinations all announce the same name.
-
-**WCAG:** 4.1.2 Name, Role, Value (A)
-
----
-
 ## Tier 2 — Wrong or missing semantics
 
-### 🟠 4. `aria-label` overrides visible text throughout the menu
+### 🟠 3. `aria-label` overrides visible text throughout the menu
 
 `src/components/modules/menu.tsx` — lines 82, 94, 106, 119, 166, 181
 
-Every navigation button carries both visible text and an `aria-label` that replaces it:
+Every navigation button carries both visible text and an `aria-label` that replaces it as the
+accessible name. Most of these labels happen to contain the visible string, so they satisfy WCAG
+2.5.3 — but one does not:
 
-| Line | Visible text | Announced as |
-|---|---|---|
-| 82 | Music | "Open music page" |
-| 94 | Playground | "Open playground page" |
-| 106 | About | "Open about page" |
-| 119 | CV/Resume | "Open CV page" |
-| 166 | Album | "Open admin page" |
-| 181 | User Album | "Open admin page" |
+| Line | Visible (en / de) | Announced (en / de) | Label in name? |
+|---|---|---|---|
+| 82 | Music / Musik | "Open music page" / "Musik-Seite öffnen" | ✅ |
+| 94 | Playground / Spielwiese | "Open playground page" / "Spielwiese-Seite öffnen" | ✅ |
+| 106 | About / Über | "Open about page" / "Über-Seite öffnen" | ✅ |
+| 119 | **CV/Résumé** / **CV/Lebenslauf** | **"Open CV page"** / **"Lebenslauf-Seite öffnen"** | ❌ both |
+| 166 | Album / Alben | "Open Admin Album page" / "Admin-Alben-Seite öffnen" | ✅ |
+| 181 | UserAlbum / UserAlben | "Open Admin UserAlbum page" / "Admin-UserAlben-Seite öffnen" | ✅ |
 
-Two consequences. First, voice-control users who say "click Music" get no match, because the
-accessible name doesn't contain the visible label — this is precisely what WCAG 2.5.3 prohibits.
-Second, the two admin buttons (`:166`, `:181`) collapse to the *same* announced name despite having
-distinct visible text, making them impossible to tell apart by ear.
+The CV button is a real 2.5.3 break in both locales: it renders two words joined by a slash
+(`{cv}/{resume}`) while the label names only one of them — "Résumé" is unspeakable in English, "CV"
+in German, so a voice-control user has no reliable phrase for the button.
 
-**WCAG:** 2.5.3 Label in Name (A), 4.1.2 Name, Role, Value (A)
+The remaining five are not violations, but the labels are still redundant: they restate the visible
+text in a longer form, so a screen-reader user hears "Open playground page, link" where "Playground,
+link" would do.
 
-**Fix:** delete `aria-label` from every button that already has visible text. Keep it only on the
-genuinely icon-only buttons — HTML CV (`:132`), PDF CV (`:144`), settings (`:199`), theme toggle
-(`:215`) and the language flags (`:229`), all of which are correct as-is apart from #3.
+**WCAG:** 2.5.3 Label in Name (A)
+
+**Fix:** delete `aria-label` from every button that already has visible text — that resolves the CV
+failure and the redundancy in one pass. Keep it only on the genuinely icon-only buttons — HTML CV
+(`:132`), PDF CV (`:144`), settings (`:199`), theme toggle (`:215`) and the language flags (`:229`),
+all of which are correct as-is.
+
+*Housekeeping:* `ariaLabels.open_admin_page` is now unreferenced anywhere in `src/` and can be
+dropped from both locale files.
 
 ---
 
-### 🟠 5. Filter chips convey pressed state by colour alone
+### 🟠 4. Filter chips convey pressed state by colour alone
 
 `src/components/modules/album/albumFilter.tsx:196-213`
 
@@ -186,7 +173,7 @@ accessibility tree entirely, so their existence is invisible rather than merely 
 
 ---
 
-### 🟠 6. Range sliders have no accessible name
+### 🟠 5. Range sliders have no accessible name
 
 `src/components/ui/slider.tsx`
 
@@ -221,7 +208,7 @@ an `id` prop (`select.tsx:78`) — the same approach would work here.
 
 ---
 
-### 🟠 7. Admin nav is a tablist that performs page navigation
+### 🟠 6. Admin nav is a tablist that performs page navigation
 
 `src/components/modules/admin/adminNav.tsx`
 
@@ -233,20 +220,92 @@ an `id` prop (`select.tsx:78`) — the same approach would work here.
     </TabsTrigger>
 ```
 
-Radix `Tabs` emits `role="tablist"` and `role="tab"` around `<Link>`s that perform full page
-navigations. `onValueChange` is a no-op, and there are no `TabsContent` panels anywhere in the tree.
-Screen readers announce "tab, 1 of 2" and expose tab semantics — arrow-key navigation between tabs,
-an associated tabpanel — none of which exist. The `aria-controls` relationship a tab promises points
-at nothing.
+Radix `Tabs` emits tab semantics around `<Link>`s that perform full page navigations.
+`onValueChange` is a no-op, and there are no `TabsContent` panels anywhere in the tree. The rendered
+DOM is:
 
-**WCAG:** 4.1.2 Name, Role, Value (A), 1.3.1 Info and Relationships (A)
+```html
+<div role="tablist" aria-orientation="horizontal" tabindex="0">
+  <a href="/en/admin/album/" role="tab" type="button"
+     aria-selected="true" aria-controls="radix-«r0»-content-album"
+     data-state="active" tabindex="0">Album</a>
+  <a href="/en/admin/user-album/" role="tab" type="button"
+     aria-selected="false" aria-controls="radix-«r0»-content-user-album"
+     data-state="inactive" tabindex="-1">User Album</a>
+</div>
+```
 
-**Fix:** this is site navigation, not a tab widget. Use `<nav aria-label="Admin">` with plain links
-and `aria-current="page"` on the active one. The visual treatment can be kept with the same classes.
+Three distinct defects, in order of impact:
+
+**a. The second link is not in the tab order.** `TabsList` wraps a `RovingFocusGroup`, whose items
+get `tabIndex: isCurrentTabStop ? 0 : -1`. Tab enters the tablist, focus forwards to the active
+trigger, and the next Tab leaves the group entirely — so a keyboard user never reaches the other
+admin page link unless they guess that arrow keys work here. That is correct behaviour for a tab
+widget and wrong for navigation. This defect alone is tier-1 severity; it is filed here because the
+fix is the same one-file diff as the rest of the entry.
+
+**b. `aria-controls` is a dangling IDREF.** It names a content id that no element has, because no
+`TabsContent` is rendered. Screen readers offer a "jump to tab panel" affordance that goes nowhere.
+
+**c. `role="tab"` suppresses the native link role.** These announce as "tab, selected, 1 of 2" with
+no signal that activating them loads a new page, and they drop out of the screen-reader links list —
+the usual way of finding navigation. `aria-selected="true"` stands where `aria-current="page"` is the
+truth. (`type="button"` on an `<a>` is also invalid, though harmless.)
+
+Note that arrow-key navigation *does* work — `RovingFocusGroup` wires it up. The problem is the
+inverse of what it looks like: the widget provides the tab-widget keyboard model faithfully, and that
+model is the wrong one for links.
+
+**WCAG:** 2.4.3 Focus Order (A) for (a), 4.1.2 Name, Role, Value (A) and 1.3.1 Info and
+Relationships (A) for (b) and (c)
+
+**Fix:** keep the `Tabs` primitives for their visual treatment and clear the tab semantics at the
+call site. Radix spreads consumer props *after* its own `role`/`aria-*`, and `Slot`'s `mergeProps`
+lets child props win over the roving-focus `tabIndex`, so overrides passed here take effect:
+
+```tsx
+<Tabs value={active} onValueChange={() => {}} className="self-center">
+  <TabsList role={undefined} tabIndex={-1}>
+    <TabsTrigger
+      asChild
+      value="album"
+      role={undefined}
+      type={undefined}
+      tabIndex={0}
+      aria-selected={undefined}
+      aria-controls={undefined}
+    >
+      <Link
+        href={`/${lang}/admin/album/`}
+        aria-current={active === "album" ? "page" : undefined}
+      >
+        {t(($) => $.admin.nav.album)}
+      </Link>
+    </TabsTrigger>
+```
+
+Once `role="tab"` is cleared the elements are plain links again: both reachable by Tab, both listed
+in the screen-reader links list, and the active one carrying `aria-current="page"`. No wrapper
+element, no landmark and no new locale key are involved — the existing markup structure is kept
+exactly as it is.
+
+`tabIndex={-1}` on `TabsList` is needed because clearing its `role` would otherwise leave a
+focusable `<div>` with no role — `RovingFocusGroup` sets `tabindex="0"` on it as a focus proxy.
+`data-state` is left in place; it is what drives the active styling in `tabs.tsx:24`.
+
+`tabs.tsx` itself is not at fault and should not change. The other three consumers —
+`adminAlbumFormClient.tsx:217`, `adminUserAlbumSortClient.tsx:321` and the playground demo — all
+render real `TabsContent` panels and are correct tab widgets.
+
+**Trade-off:** this fix depends on Radix's internal prop-spread order and on `Slot` merging child
+props over slot props. Both are verified against the installed version, but a `radix-ui` upgrade
+could undo it silently, with no test failing. The alternative — adding a non-Radix link variant to
+`tabs.tsx` that reuses the same class strings, leaving all four Radix exports untouched — costs a
+second file but does not depend on library internals.
 
 ---
 
-### 🟠 8. Broken heading outline across the site
+### 🟠 7. Broken heading outline across the site
 
 Several independent causes, worth listing separately since they need different fixes:
 
@@ -297,7 +356,7 @@ one `<h1>` describing that page; promote the About and CV group labels to `<h2>`
 
 ## Tier 3 — Missing announcements & untranslated a11y strings
 
-### 🟡 9. Loading states are silent and hardcoded to English
+### 🟡 8. Loading states are silent to assistive technology
 
 `src/components/ui/loader/index.tsx:31,35`
 
@@ -311,9 +370,9 @@ return onClick ? (
 );
 ```
 
-The button branch hardcodes the English string `"Loading"` in an otherwise fully translated app. The
-`<div>` branch — the one used almost everywhere — has no `role="status"`, no `aria-live`, and no
-text at all, so it is entirely invisible to assistive technology.
+The `<div>` branch — the one used almost everywhere — has no `role="status"`, no `aria-live`, and no
+text at all, so it is entirely invisible to assistive technology. The `<button>` branch at least
+carries a name, but neither branch announces anything when it appears.
 
 This matters more than a loading spinner normally would, because of where it sits:
 
@@ -323,14 +382,61 @@ This matters more than a loading spinner normally would, because of where it sit
   happening.
 - `src/app/[lang]/loading.tsx` uses it for every route transition, so navigation is silent too.
 
-**WCAG:** 4.1.3 Status Messages (AA), 3.1.2 Language of Parts (AA)
+**WCAG:** 4.1.3 Status Messages (AA)
 
-**Fix:** `role="status"` + `aria-live="polite"` on both branches, with `sr-only` translated text.
-Add a `loading` key to the `ariaLabels` block in both locale files.
+**Decision: the label stays hardcoded English.** `Loader` must remain a server component — it has no
+`"use client"` today, and `src/app/[lang]/loading.tsx`, itself a server component, imports it
+directly. The only translation entry point in this codebase is `useTranslation()` from
+`react-i18next`, a client hook, so calling `t` inside `Loader` would force `"use client"` onto it
+and pull the route-level loading fallback across the client boundary. Rather than route the string
+in from the call sites, `"Loading"` is accepted as-is. No `label` prop, no locale key, no client
+wrapper.
+
+**Fix:** add `role="status"` and `aria-live="polite"` to both branches, plus an `sr-only`
+`"Loading"` span so the region has text to announce. All literals — nothing about where the
+component runs changes:
+
+```tsx
+const label = <span className="sr-only">Loading</span>;
+
+return onClick ? (
+  <button
+    type="button"
+    role="status"
+    aria-live="polite"
+    onClick={onClick}
+    className={wrapperClassName}
+  >
+    {bars}
+    {label}
+  </button>
+) : (
+  <div role="status" aria-live="polite" className={wrapperClassName}>
+    {bars}
+    {label}
+  </div>
+);
+```
+
+Do **not** add a `loading` key to `ariaLabels`. (`admin.placeholder.loading` already exists but is a
+`Select` placeholder — unrelated, and not to be reused here either.)
+
+**Two notes for whoever implements it:**
+
+- **The hardcoded English is a deliberate deviation from 3.1.2 Language of Parts (AA)**, which was
+  the second WCAG criterion originally cited here. It costs one attribute to satisfy anyway:
+  `<span className="sr-only" lang="en">Loading</span>` tells a screen reader on a German page to
+  pronounce that one word with English rules rather than reading it as German. Worth doing, and it
+  keeps the string hardcoded.
+- **A live region that mounts with its text already inside is unreliably announced.** Screen readers
+  announce *changes* to a region already present in the accessibility tree; `AppGate` renders the
+  region and its content together in the first commit, which many SR/browser pairs miss entirely.
+  If the announcement has to be dependable, render the `role="status"` container persistently and
+  swap the text in and out of it.
 
 ---
 
-### 🟡 10. Drag handle label is hardcoded English, and reorders are unannounced
+### 🟡 9. Drag handle label is hardcoded English, and reorders are unannounced
 
 `src/components/ui/sortableListRow.tsx:22`
 
@@ -349,7 +455,7 @@ no feedback about where it landed or what position it now holds.
 
 ---
 
-### 🟡 11. Admin form inputs are labelled by placeholder only
+### 🟡 10. Admin form inputs are labelled by placeholder only
 
 `src/components/modules/admin/album/adminAlbumCreditListEditor.tsx:38-49`
 `src/components/modules/admin/album/adminAlbumTrackEditor.tsx:35-63`
@@ -378,7 +484,7 @@ entries needed.
 
 ---
 
-### 🟡 12. `AppIcon` hides only half its icons
+### 🟡 11. `AppIcon` hides only half its icons
 
 `src/components/ui/icon.tsx:15,32`
 
@@ -407,46 +513,7 @@ carries meaning on its own.
 
 ## Tier 4 — Global / architectural
 
-### 🟠 13. `<html lang>` is always `"en"`, including on German pages
-
-`src/app/layout.tsx:46`
-
-```tsx
-<html lang="en" className={figtree.variable}>
-```
-
-The value is corrected only after hydration, in a client effect —
-`src/components/providers/languageInit.tsx:19-21`:
-
-```tsx
-useEffect(() => {
-  document.documentElement.lang = language;
-}, [language]);
-```
-
-There is no `middleware.ts` in the project. Every German page is therefore served as `lang="en"`,
-and a screen reader announces German content in an English voice — wrong phoneme set, wrong
-pronunciation rules — until JavaScript loads and hydration completes. For users on slow connections
-or with JS disabled, it never corrects.
-
-**WCAG:** 3.1.1 Language of Page (A)
-
-**Fix — two routes, with a constraint:** the root layout owns the `<html>` element but does not
-receive the nested `[lang]` route param, so the locale has to be obtained another way.
-
-1. **Derive it in the root layout.** Make `RootLayout` async and read the locale from the incoming
-   request (via `headers()`), rendering the correct `lang` server-side. No new files; keeps
-   `LanguageInit` as a client-side fallback. Simplest change.
-2. **Add `src/middleware.ts`.** Detect the locale and set a request header the root layout reads.
-   More moving parts, but centralises locale negotiation and redirects for later use — currently
-   handled ad hoc by `src/app/page.tsx` and `src/app/[lang]/layout.tsx:8-10`.
-
-Either way, `LanguageInit`'s effect should stay as a client-side correction for in-session language
-switches, which don't trigger a document reload.
-
----
-
-### 🟡 14. No `prefers-reduced-motion` support anywhere
+### 🟡 12. No `prefers-reduced-motion` support anywhere
 
 `src/app/globals.css` contains no `prefers-reduced-motion` block, and neither does
 `src/components/ui/loader/style.css`.
@@ -474,7 +541,7 @@ transition durations, plus honouring the same query in the `scrollTo` call — `
 
 ---
 
-### 🟡 15. No skip link
+### 🟡 13. No skip link
 
 `src/components/layout/appLayout.tsx:23-31`
 
@@ -498,7 +565,7 @@ focusable element in the layout. Tailwind's `sr-only` / `focus:not-sr-only` hand
 
 ## Tier 5 — Playground
 
-### ⚪ 16. Playground is well-structured; one unlabelled control
+### ⚪ 14. Playground is well-structured; one unlabelled control
 
 Included at the user's request. This is the **best**-structured area of the app and needs almost
 nothing:
@@ -532,11 +599,11 @@ children must label themselves.
 
 | Priority | Findings | Rationale |
 |---|---|---|
-| 1 | #1, #2, #3 | Restore access to functionality that is currently unreachable. #3 is a one-line change with the translation already written. |
-| 2 | #4, #5, #7 | Wrong semantics actively mislead. All three are small, contained diffs. |
-| 3 | #13, #15, #14 | Global fixes with broad reach; #13 and #15 are each a handful of lines. |
-| 4 | #6, #8, #9 | Require adding props or locale keys — slightly larger, but mechanical. |
-| 5 | #10, #11, #12, #16 | Polish and consistency. |
+| 1 | #1, #2 | Restore access to functionality that is currently unreachable. |
+| 2 | #3, #4, #6 | Wrong semantics actively mislead. All three are small, contained diffs. |
+| 3 | #13, #12 | Global fixes with broad reach; #13 is a handful of lines. |
+| 4 | #5, #7 | Require adding props or locale keys — slightly larger, but mechanical. |
+| 5 | #8, #9, #10, #11, #14 | Polish and consistency. #8 is now four static attributes and a span. |
 
 ## What was checked and found correct
 
