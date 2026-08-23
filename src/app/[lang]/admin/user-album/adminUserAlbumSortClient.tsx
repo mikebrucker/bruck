@@ -27,7 +27,7 @@ import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
 import type { UserAlbumBulkUpdateItem } from "@/data/userAlbumSchema";
 import { applyPatches, mergeUserAlbums } from "@/lib/userAlbum";
-import { debounce } from "@/lib/utils";
+import { cn, debounce } from "@/lib/utils";
 import type { Album } from "@/types/album";
 import type { OrderPatch, OrderUpdate, UserAlbum } from "@/types/userAlbum";
 
@@ -263,6 +263,48 @@ export function AdminUserAlbumSortClient() {
   const toggleAllMode = (pressed: boolean) => {
     setAllMode(pressed);
     if (pressed) setSelectedId("");
+  };
+
+  const loadingView = (
+    <div className="flex grow w-full items-center justify-center">
+      <Loader className="text-theme-500" isOpen />
+    </div>
+  );
+
+  const allModeList = (
+    <div className="flex flex-col">
+      {reviewAlbums.map((album, index) => {
+        const striped = index % 2 === 0;
+        return (
+          <div key={album.id} className={cn("rounded-primary p-3", striped ? "bg-card" : null)}>
+            <AdminUserAlbumEditForm
+              variant={striped ? "outline" : "default"}
+              album={album}
+              userAlbum={userAlbums.find((ua) => ua.albumId === album.id)}
+              onSaved={applyUserAlbumUpdate}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+
+  const singleEditor = selectedAlbum ? (
+    <AdminUserAlbumEditForm
+      key={selectedId}
+      album={selectedAlbum}
+      userAlbum={userAlbums.find((ua) => ua.albumId === selectedId)}
+      onSaved={applyUserAlbumUpdate}
+    />
+  ) : null;
+
+  const emptyNote = <Note text={t(($) => $.admin.note.select_album_to_edit)} />;
+
+  const reviewPanel = () => {
+    if (loading) return loadingView;
+    if (allMode) return allModeList;
+    if (singleEditor) return singleEditor;
+    return emptyNote;
   };
 
   return (
@@ -506,36 +548,7 @@ export function AdminUserAlbumSortClient() {
             </Toggle>
           </div>
 
-          {loading ? (
-            <div className="flex grow w-full items-center justify-center">
-              <Loader className="text-theme-500" isOpen />
-            </div>
-          ) : allMode ? (
-            <div className="flex flex-col">
-              {reviewAlbums.map((album, index) => {
-                const striped = index % 2 === 0;
-                return (
-                  <div key={album.id} className={`rounded-primary p-3 ${striped ? "bg-card" : ""}`}>
-                    <AdminUserAlbumEditForm
-                      variant={striped ? "outline" : "default"}
-                      album={album}
-                      userAlbum={userAlbums.find((ua) => ua.albumId === album.id)}
-                      onSaved={applyUserAlbumUpdate}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          ) : selectedAlbum ? (
-            <AdminUserAlbumEditForm
-              key={selectedId}
-              album={selectedAlbum}
-              userAlbum={userAlbums.find((ua) => ua.albumId === selectedId)}
-              onSaved={applyUserAlbumUpdate}
-            />
-          ) : (
-            <Note text={t(($) => $.admin.note.select_album_to_edit)} />
-          )}
+          {reviewPanel()}
         </div>
       </TabsContent>
     </Tabs>

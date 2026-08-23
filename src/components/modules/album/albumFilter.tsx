@@ -26,7 +26,7 @@ import {
   matchesRanges,
   selectedValuesForField,
 } from "@/lib/albumFilter";
-import { distinctSorted } from "@/lib/utils";
+import { cn, distinctSorted } from "@/lib/utils";
 import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
 
@@ -130,6 +130,12 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
     }
   };
 
+  const chipStateClassName = (disabled: boolean, active: boolean) => {
+    if (disabled) return "opacity-50 pointer-events-none";
+    if (active) return "bg-theme-500 text-white";
+    return undefined;
+  };
+
   const filterRow = (
     field: ChipField,
     label: string,
@@ -173,11 +179,14 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
               aria-label={`${label}: ${modeText}`}
               title={modeText}
               onClick={() => toggleChipMode(filterKey, field)}
-              className={`border border-border ${mode === ChipModes.and ? "border-theme-500" : ""} p-1.5 rounded-secondary text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer`}
+              className={cn(
+                "border border-border p-1.5 rounded-secondary text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer",
+                mode === ChipModes.and ? "border-theme-500" : null,
+              )}
             >
               <HugeiconsIcon
                 icon={mode === ChipModes.and ? Bone01Icon : BrokenBoneIcon}
-                className={`size-5 ${mode === ChipModes.and ? "text-theme-500" : ""}`}
+                className={cn("size-5", mode === ChipModes.and ? "text-theme-500" : null)}
                 aria-hidden="true"
               />
             </button>
@@ -200,16 +209,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
                   className={disabled ? "cursor-not-allowed" : "cursor-pointer"}
                   onClick={() => toggleFilter(filterKey, key)}
                 >
-                  <Chip
-                    text={value}
-                    className={
-                      disabled
-                        ? "opacity-50 pointer-events-none"
-                        : active
-                          ? "bg-theme-500 text-white"
-                          : undefined
-                    }
-                  />
+                  <Chip text={value} className={chipStateClassName(disabled, active)} />
                 </button>
               );
             })
@@ -228,11 +228,18 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
           size={scrolled ? "icon" : "icon-lg"}
           variant="outline"
           aria-label={t(($) => $.albums.filter_button)}
-          className={`hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-500 ease-out cursor-pointer ${hasActiveFilter ? "border-theme-600 text-theme-600 hover:text-theme-600" : ""}`}
+          className={cn(
+            "hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-500 ease-out cursor-pointer",
+            hasActiveFilter ? "border-theme-600 text-theme-600 hover:text-theme-600" : null,
+          )}
         >
           <HugeiconsIcon
             icon={FilterHorizontalIcon}
-            className={`${scrolled ? "size-5" : "size-6"} transition-all duration-500 ease-out ${hasActiveFilter ? "text-theme-600" : ""}`}
+            className={cn(
+              scrolled ? "size-5" : "size-6",
+              "transition-all duration-500 ease-out",
+              hasActiveFilter ? "text-theme-600" : null,
+            )}
             aria-hidden="true"
           />
         </Button>
