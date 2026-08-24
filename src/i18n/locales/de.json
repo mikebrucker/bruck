@@ -143,6 +143,9 @@
         "vendors": "Stände",
         "panel": "Panel für {{name}}"
       },
+      "tech_int_range": {
+        "description": "Range Komponente aus einem technischen Interview"
+      },
       "textarea": {
         "description": "Einfaches textarea mit demselben Vokabular für variant und size wie Input. Die size Skala setzt eine Mindesthöhe, die Box wächst also weiter mit rows.",
         "placeholder": "Rezension schreiben"

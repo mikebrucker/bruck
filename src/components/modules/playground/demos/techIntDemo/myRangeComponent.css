@@ -1,0 +1,9 @@
+.tech-int-span {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.tech-int-highlight {
+  background-color: yellow;
+}

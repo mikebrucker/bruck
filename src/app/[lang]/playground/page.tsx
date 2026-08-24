@@ -20,6 +20,7 @@ import { SliderDemo } from "@/components/modules/playground/demos/sliderDemo";
 import { SortableListDemo } from "@/components/modules/playground/demos/sortableListDemo";
 import { SwitchDemo } from "@/components/modules/playground/demos/switchDemo";
 import { TabsDemo } from "@/components/modules/playground/demos/tabsDemo";
+import { TechIntDemoRange } from "@/components/modules/playground/demos/techIntDemo/techIntDemoRange";
 import { TextareaDemo } from "@/components/modules/playground/demos/textareaDemo";
 import { ToastDemo } from "@/components/modules/playground/demos/toastDemo";
 import { ToggleDemo } from "@/components/modules/playground/demos/toggleDemo";
@@ -36,6 +37,7 @@ export default function RadixUiPage() {
         {t(($) => $.playground.title)}
       </h1>
       <Note text={t(($) => $.playground.description)} />
+      <TechIntDemoRange />
       <AccordionDemo />
       <ButtonDemo />
       <CheckboxDemo />

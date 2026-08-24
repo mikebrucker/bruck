@@ -143,6 +143,9 @@
         "vendors": "Vendors",
         "panel": "Panel for {{name}}"
       },
+      "tech_int_range": {
+        "description": "Technical Interview Range Component"
+      },
       "textarea": {
         "description": "Plain textarea with the same variant and size vocabulary as Input. The size scale sets a min height, so the box still grows with rows.",
         "placeholder": "Write a review"
