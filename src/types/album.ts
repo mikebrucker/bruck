@@ -148,8 +148,8 @@ export type Genre =
   | "Thrash Metal"
   | "Underground Hip Hop";
 
-/** Reference only - Album.artist stays free text */
-export type Artist =
+/** Reference only - artists.artist stays free text */
+export type KnownArtist =
   | "After the Burial"
   | "Animals as Leaders"
   | "Archspire"
@@ -275,7 +275,9 @@ export interface Track {
 
 export interface Album {
   id: string;
-  artist: string | Artist;
+  artistId: string;
+  /** Artist name, joined from the artists table in AlbumRepository */
+  artist: string;
   album: string;
   year: number;
   label: Array<string | RecordLabel>;
@@ -316,7 +318,7 @@ export type PersonnelForm = {
 
 export type AlbumForm = {
   id: string;
-  artist: string;
+  artistId: string;
   album: string;
   year: string;
   label: string;

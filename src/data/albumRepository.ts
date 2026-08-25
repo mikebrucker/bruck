@@ -2,7 +2,7 @@ import { asc, eq, inArray, sql as rawSql } from "drizzle-orm";
 import type { BatchItem } from "drizzle-orm/batch";
 import type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumSchema";
 import { mapUserAlbum } from "@/data/userAlbumMapper";
-import { albums, tracks, userAlbums } from "@/db/schema";
+import { albums, artists, tracks, userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import { parseTrackId } from "@/lib/favoriteTrack";
 import type { Album, Track } from "@/types/album";
@@ -19,11 +19,20 @@ export class AlbumRepository {
     }
   }
 
+  /** Albums always join their artist, so the artist name travels with every row */
+  private static readonly albumWithArtist = {
+    album: albums,
+    artistName: artists.artist,
+  };
+
   constructor(private readonly db: typeof defaultDb = defaultDb) {}
 
   async getAll(): Promise<Array<Album>> {
     const [albumRows, trackRows] = await Promise.all([
-      this.db.select().from(albums),
+      this.db
+        .select(AlbumRepository.albumWithArtist)
+        .from(albums)
+        .innerJoin(artists, eq(albums.artistId, artists.id)),
       this.db
         .select()
         .from(tracks)
@@ -37,7 +46,9 @@ export class AlbumRepository {
       existing ? existing.push(track) : tracksByAlbum.set(row.albumId, [track]);
     }
 
-    return albumRows.map((row) => this.mapAlbum(row, tracksByAlbum.get(row.id) ?? []));
+    return albumRows.map((row) =>
+      this.mapAlbum(row.album, row.artistName, tracksByAlbum.get(row.album.id) ?? []),
+    );
   }
 
   async getRanked(userId = "me"): Promise<Array<Album>> {
@@ -54,7 +65,11 @@ export class AlbumRepository {
     if (albumIds.length === 0) return [];
 
     const [albumRows, trackRows] = await Promise.all([
-      this.db.select().from(albums).where(inArray(albums.id, albumIds)),
+      this.db
+        .select(AlbumRepository.albumWithArtist)
+        .from(albums)
+        .innerJoin(artists, eq(albums.artistId, artists.id))
+        .where(inArray(albums.id, albumIds)),
       this.db
         .select()
         .from(tracks)
@@ -73,13 +88,17 @@ export class AlbumRepository {
 
     const albumById = new Map(
       albumRows.map((row) => {
-        const album = this.mapAlbum(row, tracksByAlbum.get(row.id) ?? []);
-        album.userAlbum = userAlbumByAlbumId.get(row.id);
+        const album = this.mapAlbum(
+          row.album,
+          row.artistName,
+          tracksByAlbum.get(row.album.id) ?? [],
+        );
+        album.userAlbum = userAlbumByAlbumId.get(row.album.id);
         album.favoriteTrack = this.resolveFavoriteTrack(
           album.tracks,
           album.userAlbum?.trackId ?? null,
         );
-        return [row.id, album] as const;
+        return [row.album.id, album] as const;
       }),
     );
 
@@ -87,8 +106,8 @@ export class AlbumRepository {
     for (const id of honorableIds) {
       const album = albumById.get(id);
       if (!album) continue;
-      const existing = honorableByArtist.get(album.artist);
-      existing ? existing.push(album) : honorableByArtist.set(album.artist, [album]);
+      const existing = honorableByArtist.get(album.artistId);
+      existing ? existing.push(album) : honorableByArtist.set(album.artistId, [album]);
     }
     for (const list of honorableByArtist.values()) {
       list.sort((a, b) => a.year - b.year);
@@ -98,14 +117,18 @@ export class AlbumRepository {
       .map((row) => albumById.get(row.albumId))
       .filter((album): album is Album => album !== undefined)
       .map((album) => {
-        const mentions = honorableByArtist.get(album.artist);
+        const mentions = honorableByArtist.get(album.artistId);
         return mentions?.length ? { ...album, honorableMentions: mentions } : album;
       });
   }
 
   async getById(id: string): Promise<Album | null> {
     const [albumRows, trackRows] = await Promise.all([
-      this.db.select().from(albums).where(eq(albums.id, id)),
+      this.db
+        .select(AlbumRepository.albumWithArtist)
+        .from(albums)
+        .innerJoin(artists, eq(albums.artistId, artists.id))
+        .where(eq(albums.id, id)),
       this.db
         .select()
         .from(tracks)
@@ -117,7 +140,8 @@ export class AlbumRepository {
     if (!row) return null;
 
     return this.mapAlbum(
-      row,
+      row.album,
+      row.artistName,
       trackRows.map((trackRow) => this.mapTrack(trackRow)),
     );
   }
@@ -165,7 +189,7 @@ export class AlbumRepository {
     const [inserted] = await this.db
       .insert(albums)
       .values({
-        artist: input.artist,
+        artistId: input.artistId,
         album: input.album,
         year: input.year,
         label: input.label,
@@ -227,10 +251,15 @@ export class AlbumRepository {
     };
   }
 
-  private mapAlbum(row: typeof albums.$inferSelect, tracksList: Array<Track>): Album {
+  private mapAlbum(
+    row: typeof albums.$inferSelect,
+    artistName: string,
+    tracksList: Array<Track>,
+  ): Album {
     return {
       id: row.id,
-      artist: row.artist,
+      artistId: row.artistId,
+      artist: artistName,
       album: row.album,
       year: row.year,
       label: row.label,

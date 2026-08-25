@@ -3,17 +3,21 @@
 import { Add01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslation } from "react-i18next";
-import { AdminAlbumCreditListEditor } from "@/components/modules/admin/album/adminAlbumCreditListEditor";
+import { AdminCreditListEditor } from "@/components/modules/admin/adminCreditListEditor";
 import { AdminAlbumTrackEditor } from "@/components/modules/admin/album/adminAlbumTrackEditor";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Note } from "@/components/ui/note";
+import { Select } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import type { AlbumForm, TrackForm } from "@/types/album";
+import type { Artist } from "@/types/artist";
 
 function AdminAlbumFormFields({
   form,
+  artists,
   fieldChanged,
   set,
   updateTrack,
@@ -25,6 +29,7 @@ function AdminAlbumFormFields({
   onSubmit,
 }: {
   form: AlbumForm;
+  artists: Array<Artist>;
   fieldChanged: (key: keyof AlbumForm) => boolean;
   set: <K extends keyof AlbumForm>(key: K, value: AlbumForm[K]) => void;
   updateTrack: (index: number, patch: Partial<TrackForm>) => void;
@@ -47,19 +52,20 @@ function AdminAlbumFormFields({
             <FormField name="id">
               <FormLabel>{t(($) => $.admin.label.id)}</FormLabel>
               <FormControl asChild>
-                <Input disabled value={form.artist && form.album ? form.id : ""} />
+                <Input disabled value={form.artistId && form.album ? form.id : ""} />
               </FormControl>
             </FormField>
-            <FormField name="artist">
-              <FormLabel>{t(($) => $.admin.label.artist)}</FormLabel>
-              <FormControl asChild>
-                <Input
-                  required
-                  className={fieldChanged("artist") ? valueHasChangedClassName : undefined}
-                  value={form.artist}
-                  onChange={(e) => set("artist", e.target.value)}
-                />
-              </FormControl>
+            <FormField name="artistId">
+              <FormLabel htmlFor="artistId">{t(($) => $.admin.label.artist)}</FormLabel>
+              <Select
+                id="artistId"
+                variant="outline"
+                className={cn("w-full", fieldChanged("artistId") && valueHasChangedClassName)}
+                placeholder={t(($) => $.admin.placeholder.select_artist)}
+                options={artists.map((artist) => ({ value: artist.id, label: artist.artist }))}
+                value={form.artistId || undefined}
+                onValueChange={(value) => set("artistId", value)}
+              />
             </FormField>
             <FormField name="album">
               <FormLabel>{t(($) => $.admin.label.album)}</FormLabel>
@@ -175,7 +181,7 @@ function AdminAlbumFormFields({
               <p className="text-sm font-medium text-muted-foreground mb-2">
                 {t(($) => $.admin.heading.members)}
               </p>
-              <AdminAlbumCreditListEditor
+              <AdminCreditListEditor
                 credits={form.personnel.members}
                 onChange={(members) => set("personnel", { ...form.personnel, members })}
               />
@@ -184,7 +190,7 @@ function AdminAlbumFormFields({
               <p className="text-sm font-medium text-muted-foreground mb-2">
                 {t(($) => $.admin.heading.guests)}
               </p>
-              <AdminAlbumCreditListEditor
+              <AdminCreditListEditor
                 credits={form.personnel.guests}
                 onChange={(guests) => set("personnel", { ...form.personnel, guests })}
               />
@@ -193,7 +199,7 @@ function AdminAlbumFormFields({
               <p className="text-sm font-medium text-muted-foreground mb-2">
                 {t(($) => $.admin.heading.production)}
               </p>
-              <AdminAlbumCreditListEditor
+              <AdminCreditListEditor
                 credits={form.personnel.production}
                 onChange={(production) => set("personnel", { ...form.personnel, production })}
               />

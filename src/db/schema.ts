@@ -12,26 +12,58 @@ import {
 } from "drizzle-orm/pg-core";
 import type { Credit, Personnel } from "@/types/album";
 
-export const albums = pgTable("albums", {
+export const artists = pgTable("artists", {
   id: text()
     .generatedAlwaysAs(
       (): SQL =>
-        sql`(regexp_replace(replace(translate(lower(${albums.artist}), 'àáâãäåèéêëìíîïòóôõöùúûüñç', 'aaaaaaeeeeiiiiooooouuuunc'), ' ', '_'), '[^a-z0-9_]', '', 'g') || '-' || regexp_replace(replace(translate(lower(${albums.album}), 'àáâãäåèéêëìíîïòóôõöùúûüñç', 'aaaaaaeeeeiiiiooooouuuunc'), ' ', '_'), '[^a-z0-9_]', '', 'g'))`,
+        sql`regexp_replace(replace(translate(lower(${artists.artist}), 'àáâãäåèéêëìíîïòóôõöùúûüñç', 'aaaaaaeeeeiiiiooooouuuunc'), ' ', '_'), '[^a-z0-9_]', '', 'g')`,
     )
     .primaryKey()
     .notNull(),
   artist: text().notNull(),
-  album: text().notNull(),
-  year: integer().notNull(),
-  label: text().array().notNull(),
-  genre: text().array().notNull(),
-  runtime: text().notNull(),
-  discTitles: text("disc_titles").array(),
-  art: text().array(),
-  personnel: jsonb().$type<Personnel>(),
+  bio: text(),
+  location: text(),
+  media: text().array(),
+  members: jsonb().$type<Array<Credit>>(),
+  formerMembers: jsonb("former_members").$type<Array<Credit>>(),
   createdAt: timestamp("created_at", { withTimezone: true, mode: "string" }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" }),
 });
+
+export const albums = pgTable(
+  "albums",
+  {
+    id: text()
+      .generatedAlwaysAs(
+        (): SQL =>
+          sql`(${albums.artistId} || '-' || regexp_replace(replace(translate(lower(${albums.album}), 'àáâãäåèéêëìíîïòóôõöùúûüñç', 'aaaaaaeeeeiiiiooooouuuunc'), ' ', '_'), '[^a-z0-9_]', '', 'g'))`,
+      )
+      .primaryKey()
+      .notNull(),
+    artistId: text("artist_id").notNull(),
+    album: text().notNull(),
+    year: integer().notNull(),
+    label: text().array().notNull(),
+    genre: text().array().notNull(),
+    runtime: text().notNull(),
+    discTitles: text("disc_titles").array(),
+    art: text().array(),
+    personnel: jsonb().$type<Personnel>(),
+    createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
+      .defaultNow()
+      .notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" }),
+  },
+  (table) => [
+    foreignKey({
+      columns: [table.artistId],
+      foreignColumns: [artists.id],
+      name: "albums_artist_id_fkey",
+    })
+      .onDelete("restrict")
+      .onUpdate("cascade"),
+  ],
+);
 
 export const tracks = pgTable(
   "tracks",

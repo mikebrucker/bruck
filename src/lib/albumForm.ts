@@ -1,20 +1,6 @@
 import type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumRepository";
-import type { Album, AlbumForm, Credit, CreditForm, Track, TrackForm } from "@/types/album";
-
-export const toSlug = (str: string): string =>
-  str
-    .toLowerCase()
-    .replace(/[àáâãäå]/g, "a")
-    .replace(/[èéêë]/g, "e")
-    .replace(/[ìíîï]/g, "i")
-    .replace(/[òóôõö]/g, "o")
-    .replace(/[ùúûü]/g, "u")
-    .replace(/ñ/g, "n")
-    .replace(/ç/g, "c")
-    .replace(/ /g, "_")
-    .replace(/[^a-z0-9_]/g, "");
-
-export const emptyCredit = (): CreditForm => ({ name: "", roles: "", notes: "" });
+import { creditToForm, parseList, toCreditList } from "@/lib/credit";
+import type { Album, AlbumForm, Track, TrackForm } from "@/types/album";
 
 export const emptyTrack = (): TrackForm => ({
   number: "",
@@ -28,7 +14,7 @@ export const emptyTrack = (): TrackForm => ({
 
 export const emptyForm = (): AlbumForm => ({
   id: "",
-  artist: "",
+  artistId: "",
   album: "",
   year: "",
   label: "",
@@ -46,30 +32,10 @@ export function parseNumber(value: string): number | undefined {
   return Number.isNaN(parsed) ? undefined : parsed;
 }
 
-function parseList(value: string): Array<string> {
-  return value
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
-function toCredit(credit: CreditForm): Credit {
-  return {
-    name: credit.name.trim(),
-    roles: parseList(credit.roles),
-    notes: credit.notes.trim() || undefined,
-  };
-}
-
-function toCreditList(credits: Array<CreditForm>): Array<Credit> | undefined {
-  const named = credits.filter((credit) => credit.name.trim() !== "");
-  return named.length > 0 ? named.map(toCredit) : undefined;
-}
-
 type AlbumFieldValues = Omit<AlbumCreateInput, "id">;
 
 const ALBUM_FIELD_KEYS: Array<keyof AlbumFieldValues> = [
-  "artist",
+  "artistId",
   "album",
   "year",
   "label",
@@ -94,7 +60,7 @@ function buildAlbumFields(form: AlbumForm): AlbumFieldValues {
   const art = parseList(form.art);
 
   return {
-    artist: form.artist.trim(),
+    artistId: form.artistId,
     album: form.album.trim(),
     year: parseNumber(form.year) ?? 0,
     label: parseList(form.label),
@@ -140,10 +106,6 @@ export function buildUpdatePayload(original: AlbumForm, current: AlbumForm): Alb
   return patch;
 }
 
-function creditToForm(credit: Credit): CreditForm {
-  return { name: credit.name, roles: credit.roles.join(", "), notes: credit.notes ?? "" };
-}
-
 function trackToForm(track: Track): TrackForm {
   return {
     number: String(track.number),
@@ -159,7 +121,7 @@ function trackToForm(track: Track): TrackForm {
 export function albumToForm(album: Album): AlbumForm {
   return {
     id: album.id,
-    artist: album.artist,
+    artistId: album.artistId,
     album: album.album,
     year: String(album.year),
     label: album.label.join(", "),

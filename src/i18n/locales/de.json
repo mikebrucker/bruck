@@ -212,6 +212,11 @@
   "admin": {
     "error": {
       "refresh_albums_failed": "Alben konnten nicht aktualisiert werden",
+      "refresh_artists_failed": "Künstler konnten nicht aktualisiert werden",
+      "get_artist_failed": "Künstler mit ID {{id}} konnte nicht geladen werden",
+      "update_artist_failed": "Künstler konnte nicht aktualisiert werden",
+      "create_artist_failed": "Künstler konnte nicht erstellt werden",
+      "artist_required": "Wählen Sie zuerst einen Künstler aus",
       "refresh_favorites_failed": "Lieblingssongs konnten nicht aktualisiert werden",
       "get_album_failed": "Album mit ID {{id}} konnte nicht geladen werden",
       "update_album_failed": "Album konnte nicht aktualisiert werden",
@@ -235,6 +240,8 @@
       "no_changes": "Keine Änderungen zum Aktualisieren",
       "album_updated": "Album \"{{id}}\" aktualisiert",
       "album_created": "Album \"{{id}}\" erstellt",
+      "artist_updated": "Künstler \"{{id}}\" aktualisiert",
+      "artist_created": "Künstler \"{{id}}\" erstellt",
       "json_album_updated": "Album aktualisiert",
       "json_album_created": "Album erstellt",
       "json_albums_created": "{{created}} Alben erstellt",
@@ -245,6 +252,8 @@
       "new_album": "Neues Album",
       "edit_album": "Album bearbeiten",
       "json_album": "JSON-Album",
+      "new_artist": "Neuer Künstler",
+      "edit_artist": "Künstler bearbeiten",
       "review": "Bewertung",
       "order": "Reihenfolge"
     },
@@ -258,6 +267,8 @@
       "saving": "Speichert...",
       "update_album": "Album aktualisieren",
       "create_album": "Album erstellen",
+      "update_artist": "Künstler aktualisieren",
+      "create_artist": "Künstler erstellen",
       "uploading": "Lädt hoch...",
       "upload": "Hochladen",
       "save": "Speichern",
@@ -267,6 +278,8 @@
     "placeholder": {
       "loading": "Lädt...",
       "load_existing_album": "Vorhandenes Album laden",
+      "load_existing_artist": "Vorhandenen Künstler laden",
+      "select_artist": "Künstler auswählen",
       "select_album_json": "Album zum Laden des JSON auswählen (optional)",
       "paste_json": "Rohes Album-JSON hier einfügen",
       "number": "Nummer",
@@ -289,6 +302,9 @@
       "runtime": "Laufzeit",
       "disc_titles": "Scheibentitel (kommagetrennt, optional)",
       "art": "Cover-URLs (kommagetrennt, optional)",
+      "bio": "Biografie (optional)",
+      "location": "Ort (optional)",
+      "media": "Mediendateinamen (kommagetrennt, optional)",
       "studios": "Studios (kommagetrennt)",
       "personnel_notes": "Notizen zum Personal",
       "album_json": "Album-JSON",
@@ -300,6 +316,7 @@
     },
     "heading": {
       "members": "Mitglieder",
+      "former_members": "Ehemalige Mitglieder",
       "guests": "Gäste",
       "production": "Produktion",
       "track_personnel": "Personal für diesen Titel"
@@ -307,13 +324,17 @@
     "accordion": {
       "tracks": "Titel",
       "personnel": "Personal",
+      "lineup": "Besetzung",
       "track_fallback": "Titel {{number}}"
     },
     "note": {
-      "select_album_to_edit": "Wählen Sie oben ein Album zum Bearbeiten aus."
+      "select_album_to_edit": "Wählen Sie oben ein Album zum Bearbeiten aus.",
+      "select_artist_to_edit": "Wählen Sie oben einen Künstler zum Bearbeiten aus.",
+      "no_artists_yet": "Erstellen Sie zuerst einen Künstler - jedes Album braucht einen."
     },
     "nav": {
       "album": "Album",
+      "artist": "Künstler",
       "user_album": "Benutzeralbum"
     }
   },

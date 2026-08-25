@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { albumRepository, albumUpdateSchema } from "@/data/albumRepository";
 import { isAuthorized } from "@/lib/auth";
+import { isPgError, PgErrors } from "@/lib/pgError";
 
 export async function GET(_request: Request, { params }: RouteContext<"/api/albums/[id]">) {
   const { id } = await params;
@@ -39,6 +40,18 @@ export async function PATCH(request: Request, { params }: RouteContext<"/api/alb
     }
     return NextResponse.json(updated);
   } catch (error) {
+    if (isPgError(error, PgErrors.uniqueViolation)) {
+      return NextResponse.json(
+        { error: "An album with this artist/album already exists" },
+        { status: 409 },
+      );
+    }
+    if (isPgError(error, PgErrors.foreignKeyViolation)) {
+      return NextResponse.json(
+        { error: `Artist "${parsed.data.artistId}" does not exist` },
+        { status: 400 },
+      );
+    }
     console.error(`Failed to update album "${id}"`, error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }

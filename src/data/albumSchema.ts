@@ -32,7 +32,7 @@ export const trackSchema = z
 
 export const albumUpdateSchema = z
   .object({
-    artist: z.string().optional(),
+    artistId: z.string().min(1).optional(),
     album: z.string().optional(),
     year: z.number().optional(),
     label: z.array(z.string()).min(1).optional(),
@@ -52,7 +52,7 @@ export type AlbumUpdateInput = z.infer<typeof albumUpdateSchema>;
 
 export const albumCreateSchema = z
   .object({
-    artist: z.string(),
+    artistId: z.string().min(1),
     album: z.string(),
     year: z.number(),
     label: z.array(z.string()).min(1),

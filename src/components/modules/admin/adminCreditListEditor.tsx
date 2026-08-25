@@ -7,10 +7,10 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input, type inputVariants } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { emptyCredit } from "@/lib/albumForm";
+import { emptyCredit } from "@/lib/credit";
 import type { CreditForm } from "@/types/album";
 
-function AdminAlbumCreditListEditor({
+function AdminCreditListEditor({
   variant = "default",
   credits,
   onChange,
@@ -90,4 +90,4 @@ function AdminAlbumCreditListEditor({
   );
 }
 
-export { AdminAlbumCreditListEditor };
+export { AdminCreditListEditor };

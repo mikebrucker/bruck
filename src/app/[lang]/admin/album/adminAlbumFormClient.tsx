@@ -9,6 +9,7 @@ import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AlbumController from "@/controllers/album";
+import ArtistController from "@/controllers/artist";
 import {
   albumToForm,
   buildPayload,
@@ -16,9 +17,10 @@ import {
   emptyForm,
   emptyTrack,
   parseNumber,
-  toSlug,
 } from "@/lib/albumForm";
+import { toSlug } from "@/lib/slug";
 import type { Album, AlbumForm, TrackForm } from "@/types/album";
+import type { Artist } from "@/types/artist";
 
 const FormTabs = {
   new: "new",
@@ -33,6 +35,7 @@ export function AdminAlbumFormClient() {
   const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [albums, setAlbums] = useState<Array<Album>>([]);
+  const [artists, setArtists] = useState<Array<Artist>>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [originalForm, setOriginalForm] = useState<AlbumForm | null>(null);
   const [loading, setLoading] = useState(false);
@@ -51,9 +54,23 @@ export function AdminAlbumFormClient() {
     }
   }, [t]);
 
+  const refreshArtists = useCallback(async () => {
+    try {
+      const data = await ArtistController.getArtists();
+      setArtists(data);
+    } catch (error) {
+      setStatus({
+        kind: "error",
+        text:
+          error instanceof Error ? error.message : t(($) => $.admin.error.refresh_artists_failed),
+      });
+    }
+  }, [t]);
+
   useEffect(() => {
     refreshAlbums();
-  }, [refreshAlbums]);
+    refreshArtists();
+  }, [refreshAlbums, refreshArtists]);
 
   const sortedAlbums = useMemo(() => {
     return [...albums].sort((a, b) => {
@@ -65,9 +82,9 @@ export function AdminAlbumFormClient() {
 
   useEffect(() => {
     if (editingId) return;
-    const id = form.artist && form.album ? `${toSlug(form.artist)}-${toSlug(form.album)}` : "";
+    const id = form.artistId && form.album ? `${form.artistId}-${toSlug(form.album)}` : "";
     setForm((prev) => (prev.id === id ? prev : { ...prev, id }));
-  }, [form.artist, form.album, editingId]);
+  }, [form.artistId, form.album, editingId]);
 
   const isFormTab = (value: string): value is FormTab => value in FormTabs;
 
@@ -142,6 +159,11 @@ export function AdminAlbumFormClient() {
     e.preventDefault();
     setStatus(null);
 
+    if (!form.artistId) {
+      setStatus({ kind: "error", text: t(($) => $.admin.error.artist_required) });
+      return;
+    }
+
     if (editingId && originalForm) {
       const payload = buildUpdatePayload(originalForm, form);
       if (Object.keys(payload).length === 0) {
@@ -194,6 +216,7 @@ export function AdminAlbumFormClient() {
   const albumFormFields = (
     <AdminAlbumFormFields
       form={form}
+      artists={artists}
       fieldChanged={fieldChanged}
       set={set}
       updateTrack={updateTrack}
@@ -239,12 +262,18 @@ export function AdminAlbumFormClient() {
       </TabsContent>
 
       <TabsContent value={FormTabs.new}>
-        <div className="flex items-center justify-end gap-2">
-          <Button type="button" variant="outline" onClick={startNewAlbum}>
-            {t(($) => $.admin.button.reset)}
-          </Button>
-        </div>
-        {albumFormFields}
+        {artists.length === 0 ? (
+          <Note text={t(($) => $.admin.note.no_artists_yet)} />
+        ) : (
+          <>
+            <div className="flex items-center justify-end gap-2">
+              <Button type="button" variant="outline" onClick={startNewAlbum}>
+                {t(($) => $.admin.button.reset)}
+              </Button>
+            </div>
+            {albumFormFields}
+          </>
+        )}
       </TabsContent>
 
       <TabsContent value={FormTabs.json}>

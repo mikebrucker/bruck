@@ -15,6 +15,14 @@ const variantColors = {
   keyboard: "bg-transparent shadow-none",
 } as const;
 
+const contentColors = {
+  default: "bg-popover text-popover-foreground",
+  outline: "border border-border bg-popover text-popover-foreground",
+  secondary: "bg-secondary text-secondary-foreground",
+  ghost: "bg-popover text-popover-foreground",
+  keyboard: "bg-transparent shadow-none",
+} as const;
+
 const itemStyles = {
   keyboard:
     "rounded-[10px] [border-style:outset] border-(--keycap-edge,rgb(240,240,203)) [border-width:6px_8px_8px_6px] bg-(--keycap-face,beige) px-3 py-2 text-xs font-medium text-(--keycap-text,#3a382c) shadow-[0_4px_8px_2px_rgba(0,0,0,0.4)] transition-[box-shadow,transform,border-width] duration-100 ease-out data-highlighted:translate-y-0.5 data-highlighted:brightness-95 data-highlighted:[border-style:inset] data-highlighted:[border-width:6px_6px_4px_6px] data-highlighted:shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.3),0_1px_2px_1px_rgba(0,0,0,0.4)]",
@@ -100,7 +108,7 @@ function Select({
           className={cn(
             "relative z-9999 min-w-(--radix-select-trigger-width) max-h-(--radix-select-content-available-height) rounded-secondary shadow-md",
             isKeyboard ? "overflow-y-auto p-1" : "overflow-hidden",
-            variantColors[variant ?? "default"],
+            contentColors[variant ?? "default"],
             contentClassName,
           )}
         >

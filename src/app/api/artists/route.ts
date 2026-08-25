@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { albumCreateSchema, albumRepository } from "@/data/albumRepository";
+import { artistCreateSchema, artistRepository } from "@/data/artistRepository";
 import { isAuthorized } from "@/lib/auth";
 import { isPgError, PgErrors } from "@/lib/pgError";
 
 export async function GET() {
-  const albums = await albumRepository.getAll();
-  return NextResponse.json(albums);
+  const artists = await artistRepository.getAll();
+  return NextResponse.json(artists);
 }
 
 export async function POST(request: Request) {
@@ -21,28 +21,22 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const parsed = albumCreateSchema.safeParse(body);
+  const parsed = artistCreateSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json({ error: z.prettifyError(parsed.error) }, { status: 400 });
   }
 
   try {
-    const created = await albumRepository.create(parsed.data);
+    const created = await artistRepository.create(parsed.data);
     return NextResponse.json(created, { status: 201 });
   } catch (error) {
     if (isPgError(error, PgErrors.uniqueViolation)) {
       return NextResponse.json(
-        { error: "An album with this artist/album already exists" },
+        { error: "An artist with this name already exists" },
         { status: 409 },
       );
     }
-    if (isPgError(error, PgErrors.foreignKeyViolation)) {
-      return NextResponse.json(
-        { error: `Artist "${parsed.data.artistId}" does not exist` },
-        { status: 400 },
-      );
-    }
-    console.error("Failed to create album", error);
+    console.error("Failed to create artist", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

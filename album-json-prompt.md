@@ -10,7 +10,7 @@ Look up the real release on Wikipedia (or Discogs/RYM if Wikipedia lacks it): ye
 Output ONE JSON object matching this shape (matches albumCreateSchema in src/data/albumSchema.ts, strict — no extra keys):
 
 {
-  "artist": string,
+  "artistId": string,     // the artist's slug from the artists table, e.g. "the_faceless" — the artist must already exist, create it in the admin Artist tab first
   "album": string,
   "year": number,
   "label": [string, ...], // every label that released it, primary first, check RecordLabel type for normalization alert me if not present
@@ -42,7 +42,7 @@ Give me only the final JSON in a code block, ready to paste into the admin uploa
 
 ```json
 {
-  "artist": "The Faceless",
+  "artistId": "the_faceless",
   "album": "Autotheism",
   "year": 2012,
   "label": ["Sumerian Records"],

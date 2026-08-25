@@ -36,6 +36,20 @@
       "when": 1785499589559,
       "tag": "0004_fixed_harry_osborn",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1787676140306,
+      "tag": "0005_acoustic_nocturne",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1787676156329,
+      "tag": "0006_damp_infant_terrible",
+      "breakpoints": true
     }
   ]
 }

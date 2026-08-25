@@ -131,13 +131,13 @@ export function AdminUserAlbumSortClient() {
 
   const honorableRows = useMemo<Array<OrderRow>>(() => {
     const rankedIds = new Set(orderRows.map((row) => row.id));
-    const rankedArtists = new Set(orderRows.map((row) => row.album.artist));
+    const rankedArtists = new Set(orderRows.map((row) => row.album.artistId));
     return albums
       .filter((album) => !rankedIds.has(album.id))
       .map((album) => ({ id: album.id, album }))
       .sort((a, b) => {
         const rankedDiff =
-          Number(rankedArtists.has(a.album.artist)) - Number(rankedArtists.has(b.album.artist));
+          Number(rankedArtists.has(a.album.artistId)) - Number(rankedArtists.has(b.album.artistId));
         if (rankedDiff !== 0) return rankedDiff;
         const artistDiff = artistSortKey(a.album.artist).localeCompare(
           artistSortKey(b.album.artist),
@@ -402,7 +402,7 @@ export function AdminUserAlbumSortClient() {
                     const honorable =
                       userAlbums.find((ua) => ua.albumId === item.id)?.honorable ?? false;
                     const artistAlreadyRanked = orderRows.some(
-                      (row) => row.album.artist === item.album.artist,
+                      (row) => row.album.artistId === item.album.artistId,
                     );
                     const switchId = `honorable-${item.id}`;
                     return (
