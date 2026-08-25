@@ -57,7 +57,9 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
     <Drawer
       classNames={cn(
         "flex flex-col rounded-l-primary",
-        side === "right" ? "border-l border-r-2" : "border-r border-l-2",
+        side === "right"
+          ? "border-l-4 border-l-theme-500 border-r-2"
+          : "border-r-4 border-r-theme-500 border-l-2",
       )}
       open={open}
       onClose={onClose}
@@ -71,7 +73,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           onClick={onClose}
           aria-label={t(($) => $.ariaLabels.close_menu)}
         >
-          <HugeiconsIcon icon={Close} className="size-6" />
+          <HugeiconsIcon icon={Close} className="size-6 text-theme-500" />
         </Button>
       </div>
       <nav className="flex flex-col px-2.5 sm:px-3 gap-0.5">
@@ -82,7 +84,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           onClick={onClose}
         >
           <Link href={`/${language}/music/`}>
-            <HugeiconsIcon icon={Vynil02Icon} className="size-6" />
+            <HugeiconsIcon
+              icon={Vynil02Icon}
+              className={cn("size-6", isAlbumsSelected ? null : "text-theme-500")}
+            />
             <span>{t(($) => $.menu.music)}</span>
           </Link>
         </Button>
@@ -93,7 +98,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           onClick={onClose}
         >
           <Link href={`/${language}/playground/`}>
-            <HugeiconsIcon icon={CodesandboxIcon} className="size-6" />
+            <HugeiconsIcon
+              icon={CodesandboxIcon}
+              className={cn("size-6", isPlaygroundSelected ? null : "text-theme-500")}
+            />
             <span>{t(($) => $.menu.playground)}</span>
           </Link>
         </Button>
@@ -104,7 +112,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           onClick={onClose}
         >
           <Link href={`/${language}/about/`}>
-            <HugeiconsIcon icon={LaptopProgrammingIcon} className="size-6" />
+            <HugeiconsIcon
+              icon={LaptopProgrammingIcon}
+              className={cn("size-6", isAboutSelected ? null : "text-theme-500")}
+            />
             <span>{t(($) => $.menu.about)}</span>
           </Link>
         </Button>
@@ -116,7 +127,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
             onClick={onClose}
           >
             <Link href={`/${language}/cv/`}>
-              <HugeiconsIcon icon={FileBadgeIcon} className="size-6" />
+              <HugeiconsIcon
+                icon={FileBadgeIcon}
+                className={cn("size-6", isCvSelected ? null : "text-theme-500")}
+              />
               <span>
                 {t(($) => $.menu.cv)}/{t(($) => $.menu.resume)}
               </span>
@@ -131,7 +145,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
             aria-label={t(($) => $.ariaLabels.open_html_cv)}
           >
             <Link href="/mike-brucker-cv.html" target="_blank" rel="noopener noreferrer">
-              <HugeiconsIcon icon={HtmlFile02Icon} className="size-6" />
+              <HugeiconsIcon icon={HtmlFile02Icon} className="size-6 text-theme-500" />
             </Link>
           </Button>
           <Button
@@ -143,7 +157,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
             aria-label={t(($) => $.ariaLabels.open_pdf_cv)}
           >
             <Link href="/mike-brucker-cv.pdf" target="_blank" rel="noopener noreferrer">
-              <HugeiconsIcon icon={Pdf02Icon} className="size-6" />
+              <HugeiconsIcon icon={Pdf02Icon} className="size-6 text-theme-500" />
             </Link>
           </Button>
         </div>
@@ -153,18 +167,21 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
               <HugeiconsIcon icon={Castle02Icon} className="size-6 shrink-0" />
               {t(($) => $.menu.admin)}
             </h2>
-            <div className="mt-auto gap-0.5 flex">
+            <div className="mt-auto gap-0.5 flex flex-wrap">
               <Button
                 asChild
                 variant="keyboard"
                 className={cn(
-                  "justify-start h-13 grow pr-0",
+                  "justify-start h-13 grow",
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
               >
                 <Link href={`/${language}/admin/album`}>
-                  <HugeiconsIcon icon={Playlist01Icon} className="size-6" />
+                  <HugeiconsIcon
+                    icon={Playlist01Icon}
+                    className={cn("size-6", isAdminSelected ? null : "text-theme-500")}
+                  />
                   <span>{t(($) => $.menu.album)}</span>
                 </Link>
               </Button>
@@ -172,13 +189,16 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
                 asChild
                 variant="keyboard"
                 className={cn(
-                  "justify-start h-13 grow pr-0",
+                  "justify-start h-13 grow",
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
               >
                 <Link href={`/${language}/admin/artist`}>
-                  <HugeiconsIcon icon={UserGroup03Icon} className="size-6" />
+                  <HugeiconsIcon
+                    icon={UserGroup03Icon}
+                    className={cn("size-6", isAdminSelected ? null : "text-theme-500")}
+                  />
                   <span>{t(($) => $.menu.artist)}</span>
                 </Link>
               </Button>
@@ -186,13 +206,16 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
                 asChild
                 variant="keyboard"
                 className={cn(
-                  "justify-start h-13 grow pr-0",
+                  "justify-start h-13 grow",
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
               >
                 <Link href={`/${language}/admin/user-album`}>
-                  <HugeiconsIcon icon={AudioBook02Icon} className="size-6" />
+                  <HugeiconsIcon
+                    icon={AudioBook02Icon}
+                    className={cn("size-6", isAdminSelected ? null : "text-theme-500")}
+                  />
                   <span>{t(($) => $.menu.userAlbum)}</span>
                 </Link>
               </Button>
@@ -210,7 +233,10 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           aria-label={t(($) => $.ariaLabels.open_settings_page)}
         >
           <Link href={`/${language}/settings`}>
-            <HugeiconsIcon icon={Settings01Icon} className="size-6" />
+            <HugeiconsIcon
+              icon={Settings01Icon}
+              className={cn("size-6", isSettingsSelected ? null : "text-theme-500")}
+            />
           </Link>
         </Button>
         <Button

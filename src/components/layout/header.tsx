@@ -41,7 +41,7 @@ function Header({
       </Link>
       {onAction && actionIcon ? (
         <Button variant="keyboard" size="icon" onClick={onAction} aria-label={resolvedActionLabel}>
-          <HugeiconsIcon icon={actionIcon} className="size-6" />
+          <HugeiconsIcon icon={actionIcon} className="size-6 text-theme-500" />
         </Button>
       ) : null}
     </header>
