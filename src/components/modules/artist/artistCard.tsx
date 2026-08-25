@@ -75,7 +75,7 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
           {artist.members?.length ? (
             <Accordion
               title={t(($) => $.artists.members)}
-              classNames="p-2 rounded-primary bg-secondary"
+              classNames="p-2 rounded-secondary bg-secondary"
             >
               <div className="text-sm">{artist.members.map(creditInfo)}</div>
             </Accordion>
@@ -83,7 +83,7 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
           {artist.formerMembers?.length ? (
             <Accordion
               title={t(($) => $.artists.former_members)}
-              classNames="p-2 rounded-primary bg-secondary"
+              classNames="p-2 rounded-secondary bg-secondary"
               defaultOpen={false}
             >
               <div className="text-sm">{artist.formerMembers.map(creditInfo)}</div>
