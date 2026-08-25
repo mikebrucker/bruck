@@ -25,9 +25,7 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
       <div className="flex-1">
         <span className="font-medium">{credit.name}</span>
         {credit.notes ? (
-          <p className="text-muted-foreground italic text-xs whitespace-pre-line">
-            {t(($) => $.artists.notes)}: {credit.notes}
-          </p>
+          <p className="text-muted-foreground italic text-xs whitespace-pre-line">{credit.notes}</p>
         ) : null}
       </div>
       <span className="text-muted-foreground shrink-0">{credit.roles.join(", ")}</span>
