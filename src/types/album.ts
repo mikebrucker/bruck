@@ -58,6 +58,7 @@ export type Role =
   | "Turntables"
   | "Spoken Word"
   | "All Instruments"
+  | "Orchestration"
   | "Producer"
   | "Additional Producer"
   | "Assistant Producer"
@@ -142,6 +143,7 @@ export type Genre =
   | "Sludge Metal"
   | "Southern Hip Hop"
   | "Stoner Rock"
+  | "Symphonic Metal"
   | "Technical Death Metal"
   | "Thrash Metal"
   | "Underground Hip Hop";
@@ -150,6 +152,7 @@ export type Genre =
 export type Artist =
   | "After the Burial"
   | "Animals as Leaders"
+  | "Archspire"
   | "Baroness"
   | "Between the Buried and Me"
   | "Black Crown Initiate"
@@ -166,6 +169,7 @@ export type Artist =
   | "Intervals"
   | "Killswitch Engage"
   | "Lamb of God"
+  | "Lorna Shore"
   | "Meshuggah"
   | "Ne Obliviscaris"
   | "Opeth"
