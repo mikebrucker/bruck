@@ -6,6 +6,7 @@ import { albums, artists, tracks, userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import { parseTrackId } from "@/lib/favoriteTrack";
 import type { Album, Track } from "@/types/album";
+import type { Artist } from "@/types/artist";
 
 export type { AlbumCreateInput, AlbumUpdateInput } from "@/data/albumSchema";
 export { albumCreateSchema, albumUpdateSchema } from "@/data/albumSchema";
@@ -19,10 +20,10 @@ export class AlbumRepository {
     }
   }
 
-  /** Albums always join their artist, so the artist name travels with every row */
+  /** Albums always join their artist, so the artist travels with every row */
   private static readonly albumWithArtist = {
     album: albums,
-    artistName: artists.artist,
+    artist: artists,
   };
 
   constructor(private readonly db: typeof defaultDb = defaultDb) {}
@@ -47,7 +48,7 @@ export class AlbumRepository {
     }
 
     return albumRows.map((row) =>
-      this.mapAlbum(row.album, row.artistName, tracksByAlbum.get(row.album.id) ?? []),
+      this.mapAlbum(row.album, row.artist, tracksByAlbum.get(row.album.id) ?? []),
     );
   }
 
@@ -88,11 +89,7 @@ export class AlbumRepository {
 
     const albumById = new Map(
       albumRows.map((row) => {
-        const album = this.mapAlbum(
-          row.album,
-          row.artistName,
-          tracksByAlbum.get(row.album.id) ?? [],
-        );
+        const album = this.mapAlbum(row.album, row.artist, tracksByAlbum.get(row.album.id) ?? []);
         album.userAlbum = userAlbumByAlbumId.get(row.album.id);
         album.favoriteTrack = this.resolveFavoriteTrack(
           album.tracks,
@@ -141,7 +138,7 @@ export class AlbumRepository {
 
     return this.mapAlbum(
       row.album,
-      row.artistName,
+      row.artist,
       trackRows.map((trackRow) => this.mapTrack(trackRow)),
     );
   }
@@ -251,15 +248,29 @@ export class AlbumRepository {
     };
   }
 
+  private mapArtist(row: typeof artists.$inferSelect): Artist {
+    return {
+      id: row.id,
+      artist: row.artist,
+      bio: row.bio ?? undefined,
+      location: row.location ?? undefined,
+      media: row.media ?? undefined,
+      members: row.members ?? undefined,
+      formerMembers: row.formerMembers ?? undefined,
+      createdAt: new Date(row.createdAt),
+      updatedAt: row.updatedAt ? new Date(row.updatedAt) : undefined,
+    };
+  }
+
   private mapAlbum(
     row: typeof albums.$inferSelect,
-    artistName: string,
+    artistRow: typeof artists.$inferSelect,
     tracksList: Array<Track>,
   ): Album {
     return {
       id: row.id,
       artistId: row.artistId,
-      artist: artistName,
+      artist: this.mapArtist(artistRow),
       album: row.album,
       year: row.year,
       label: row.label,

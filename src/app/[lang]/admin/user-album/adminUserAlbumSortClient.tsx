@@ -139,8 +139,8 @@ export function AdminUserAlbumSortClient() {
         const rankedDiff =
           Number(rankedArtists.has(a.album.artistId)) - Number(rankedArtists.has(b.album.artistId));
         if (rankedDiff !== 0) return rankedDiff;
-        const artistDiff = artistSortKey(a.album.artist).localeCompare(
-          artistSortKey(b.album.artist),
+        const artistDiff = artistSortKey(a.album.artist.artist).localeCompare(
+          artistSortKey(b.album.artist.artist),
         );
         if (artistDiff !== 0) return artistDiff;
         return a.album.album.localeCompare(b.album.album);
@@ -363,7 +363,7 @@ export function AdminUserAlbumSortClient() {
                         <div className="min-w-0 flex-1">
                           <p className="font-medium truncate">{item.album.album}</p>
                           <p className="text-sm text-muted-foreground truncate">
-                            {item.album.artist}
+                            {item.album.artist.artist}
                           </p>
                         </div>
                         <span className="text-lg font-bold text-theme-600 tabular-nums shrink-0">
@@ -487,7 +487,7 @@ export function AdminUserAlbumSortClient() {
                             className="block max-w-full truncate bg-background/70 text-foreground backdrop-blur-sm"
                           />
                           <Chip
-                            text={item.album.artist}
+                            text={item.album.artist.artist}
                             className="block max-w-full truncate bg-background/70 text-foreground backdrop-blur-sm"
                           />
                         </div>
@@ -517,7 +517,7 @@ export function AdminUserAlbumSortClient() {
               onValueChange={setSelectedId}
               options={reviewAlbums.map((album) => ({
                 value: album.id,
-                label: `${album.artist} - ${album.album}`,
+                label: `${album.artist.artist} - ${album.album}`,
               }))}
             />
             <Toggle

@@ -34,6 +34,13 @@
     "filter_minimum": "Minimum {{field}}",
     "filter_maximum": "Maximum {{field}}"
   },
+  "artists": {
+    "members": "Mitglieder",
+    "former_members": "Ehemalige Mitglieder",
+    "notes": "Notizen",
+    "photo": "{{artist}} Foto",
+    "open_artist": "{{artist}} Details öffnen"
+  },
   "about": {
     "frontend": "Frontend",
     "styling": "Styling",
@@ -180,7 +187,8 @@
     "resume": "Lebenslauf",
     "admin": "Admin",
     "album": "Alben",
-    "userAlbum": "UserAlben"
+    "artist": "Künstler",
+    "userAlbum": "Rezension"
   },
   "ariaLabels": {
     "close_menu": "Menü schließen",
@@ -223,7 +231,9 @@
       "create_album_failed": "Album konnte nicht erstellt werden",
       "invalid_json": "Ungültiges JSON",
       "json_not_array": "JSON muss ein Array von Alben sein",
+      "json_not_artist_array": "JSON muss ein Array von Künstlern sein",
       "json_albums_failed": "{{created}} erstellt, {{failed}} fehlgeschlagen — {{errors}}",
+      "json_artists_failed": "{{created}} erstellt, {{failed}} fehlgeschlagen - {{errors}}",
       "unknown": "Unbekannter Fehler",
       "update_user_album_failed": "Albumdaten konnten nicht aktualisiert werden",
       "save_order_failed": "Reihenfolge konnte nicht gespeichert werden"
@@ -245,6 +255,10 @@
       "json_album_updated": "Album aktualisiert",
       "json_album_created": "Album erstellt",
       "json_albums_created": "{{created}} Alben erstellt",
+      "json_artist_updated": "Künstler aktualisiert",
+      "json_artist_created": "Künstler erstellt",
+      "json_artists_created": "{{created}} Künstler erstellt",
+      "json_artists_saved": "{{created}} Künstler erstellt, {{updated}} aktualisiert",
       "user_album_updated": "Albumdaten für {{album}} aktualisiert",
       "saving": "Wird gespeichert..."
     },
@@ -252,6 +266,7 @@
       "new_album": "Neues Album",
       "edit_album": "Album bearbeiten",
       "json_album": "JSON-Album",
+      "json_artist": "JSON-Künstler",
       "new_artist": "Neuer Künstler",
       "edit_artist": "Künstler bearbeiten",
       "review": "Bewertung",
@@ -281,7 +296,9 @@
       "load_existing_artist": "Vorhandenen Künstler laden",
       "select_artist": "Künstler auswählen",
       "select_album_json": "Album zum Laden des JSON auswählen (optional)",
+      "select_artist_json": "Künstler zum Laden des JSON auswählen (optional)",
       "paste_json": "Rohes Album-JSON hier einfügen",
+      "paste_artist_json": "Rohes Künstler-JSON hier einfügen",
       "number": "Nummer",
       "title": "Titel",
       "duration": "Dauer (mm:ss)",
@@ -308,6 +325,7 @@
       "studios": "Studios (kommagetrennt)",
       "personnel_notes": "Notizen zum Personal",
       "album_json": "Album-JSON",
+      "artist_json": "Künstler-JSON",
       "instrumental": "Instrumental",
       "review": "Rezension",
       "yes": "Ja",

@@ -1,3 +1,4 @@
+import type { Artist } from "@/types/artist";
 import type { UserAlbum } from "@/types/userAlbum";
 
 /** Reference only - Credit.roles stays free text */
@@ -276,8 +277,6 @@ export interface Track {
 export interface Album {
   id: string;
   artistId: string;
-  /** Artist name, joined from the artists table in AlbumRepository */
-  artist: string;
   album: string;
   year: number;
   label: Array<string | RecordLabel>;
@@ -290,6 +289,8 @@ export interface Album {
   createdAt: Date;
   updatedAt?: Date;
   honorableMentions?: Array<Album>;
+  /** Joined from the artists table in AlbumRepository */
+  artist: Artist;
   /** Per-user data joined in AlbumRepository.getRanked */
   userAlbum?: UserAlbum;
   /** Resolved from userAlbum.trackId in AlbumRepository.getRanked; undefined when unset or stale */

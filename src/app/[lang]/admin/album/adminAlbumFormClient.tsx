@@ -74,7 +74,7 @@ export function AdminAlbumFormClient() {
 
   const sortedAlbums = useMemo(() => {
     return [...albums].sort((a, b) => {
-      const artistDiff = a.artist.localeCompare(b.artist);
+      const artistDiff = a.artist.artist.localeCompare(b.artist.artist);
       if (artistDiff !== 0) return artistDiff;
       return a.album.localeCompare(b.album);
     });
@@ -251,7 +251,7 @@ export function AdminAlbumFormClient() {
             onValueChange={loadAlbum}
             options={sortedAlbums.map((album) => ({
               value: album.id,
-              label: `${album.artist} - ${album.album}`,
+              label: `${album.artist.artist} - ${album.album}`,
             }))}
           />
           <Button type="button" variant="outline" disabled={!editingId} onClick={resetEditAlbum}>

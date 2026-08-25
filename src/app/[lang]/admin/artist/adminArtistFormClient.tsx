@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AdminArtistFormFields } from "@/components/modules/admin/artist/adminArtistFormFields";
+import { AdminArtistJsonUpload } from "@/components/modules/admin/artist/adminArtistJsonUpload";
 import { Button } from "@/components/ui/button";
 import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
@@ -20,6 +21,7 @@ import type { Artist, ArtistForm } from "@/types/artist";
 const FormTabs = {
   new: "new",
   edit: "edit",
+  json: "json",
 } as const;
 type FormTab = keyof typeof FormTabs;
 
@@ -181,6 +183,7 @@ export function AdminArtistFormClient() {
       <TabsList className="self-center">
         <TabsTrigger value={FormTabs.edit}>{t(($) => $.admin.tab.edit_artist)}</TabsTrigger>
         <TabsTrigger value={FormTabs.new}>{t(($) => $.admin.tab.new_artist)}</TabsTrigger>
+        <TabsTrigger value={FormTabs.json}>{t(($) => $.admin.tab.json_artist)}</TabsTrigger>
       </TabsList>
 
       <TabsContent value={FormTabs.edit}>
@@ -215,6 +218,10 @@ export function AdminArtistFormClient() {
           </Button>
         </div>
         {artistFormFields}
+      </TabsContent>
+
+      <TabsContent value={FormTabs.json}>
+        <AdminArtistJsonUpload artists={artists} onUploaded={refreshArtists} />
       </TabsContent>
     </Tabs>
   );

@@ -53,7 +53,7 @@ export function RankBadge({ album }: { album: Album | null }) {
             {album.album}
           </span>
           <span className="truncate leading-tight normal-case tracking-normal font-normal text-xs sm:text-sm text-muted-foreground transition-[font-size] duration-500">
-            {album.artist}
+            {album.artist.artist}
           </span>
         </div>
       ) : null}

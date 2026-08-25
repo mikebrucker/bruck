@@ -9,15 +9,15 @@ import { Note } from "@/components/ui/note";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Toggle } from "@/components/ui/toggle";
-import AlbumController from "@/controllers/album";
-import { albumCreateSchema, albumUpdateSchema } from "@/data/albumSchema";
-import type { Album } from "@/types/album";
+import ArtistController from "@/controllers/artist";
+import { artistCreateSchema, artistUpdateSchema } from "@/data/artistSchema";
+import type { Artist } from "@/types/artist";
 
-function AdminAlbumJsonUpload({
-  albums,
+function AdminArtistJsonUpload({
+  artists,
   onUploaded,
 }: {
-  albums: Array<Album>;
+  artists: Array<Artist>;
   onUploaded: () => void;
 }) {
   const { t } = useTranslation();
@@ -30,25 +30,25 @@ function AdminAlbumJsonUpload({
 
   const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  const hasId = (value: unknown): value is { id: unknown } =>
+    typeof value === "object" && value !== null && "id" in value;
+
   const extractId = (value: unknown): string | undefined => {
-    if (typeof value !== "object" || value === null || !("id" in value)) return undefined;
-    const { id } = value as { id: unknown };
-    return typeof id === "string" ? id : undefined;
+    if (!hasId(value)) return undefined;
+    return typeof value.id === "string" ? value.id : undefined;
   };
 
   const stripId = (value: unknown): unknown => {
-    if (typeof value !== "object" || value === null || !("id" in value)) return value;
-    const { id: _id, ...rest } = value as { id: unknown } & Record<string, unknown>;
+    if (!hasId(value)) return value;
+    const { id: _id, ...rest } = value;
     return rest;
   };
 
-  const loadAlbumJson = (id: string) => {
-    const album = albums.find((a) => a.id === id);
-    if (!album) return;
-    const partialAlbum: Partial<Album> = album;
-    delete partialAlbum.createdAt;
-    delete partialAlbum.updatedAt;
-    setJsonText(JSON.stringify(partialAlbum, null, 2));
+  const loadArtistJson = (id: string) => {
+    const artist = artists.find((a) => a.id === id);
+    if (!artist) return;
+    const { createdAt: _createdAt, updatedAt: _updatedAt, ...payload } = artist;
+    setJsonText(JSON.stringify(payload, null, 2));
     setLoadedId(id);
     setStatus(null);
   };
@@ -60,15 +60,15 @@ function AdminAlbumJsonUpload({
     setSelectResetKey((key) => key + 1);
   };
 
-  const submitAlbum = async (performRequest: () => Promise<Album>, isUpdate: boolean) => {
+  const submitArtist = async (performRequest: () => Promise<Artist>, isUpdate: boolean) => {
     setSubmitting(true);
     try {
       const result = await performRequest();
       setStatus({
         kind: "success",
         text: isUpdate
-          ? t(($) => $.admin.status.json_album_updated)
-          : t(($) => $.admin.status.json_album_created),
+          ? t(($) => $.admin.status.json_artist_updated)
+          : t(($) => $.admin.status.json_artist_created),
       });
       if (!isUpdate) {
         setJsonText("");
@@ -79,8 +79,8 @@ function AdminAlbumJsonUpload({
       onUploaded();
     } catch (error) {
       const fallbackMessage = isUpdate
-        ? t(($) => $.admin.error.update_album_failed)
-        : t(($) => $.admin.error.create_album_failed);
+        ? t(($) => $.admin.error.update_artist_failed)
+        : t(($) => $.admin.error.create_artist_failed);
       setStatus({
         kind: "error",
         text: error instanceof Error ? error.message : fallbackMessage,
@@ -90,22 +90,36 @@ function AdminAlbumJsonUpload({
     }
   };
 
-  const createAlbum = async (payload: unknown) => {
-    const validated = albumCreateSchema.safeParse(stripId(payload));
+  /** Updates when the payload carries an id matching an existing artist, otherwise creates. */
+  const saveArtist = async (payload: unknown): Promise<"created" | "updated"> => {
+    const id = extractId(payload);
+    const body = stripId(payload);
+
+    if (id && artists.some((artist) => artist.id === id)) {
+      const validated = artistUpdateSchema.safeParse(body);
+      if (!validated.success) throw new Error(z.prettifyError(validated.error));
+      await ArtistController.updateArtist(id, validated.data);
+      return "updated";
+    }
+
+    const validated = artistCreateSchema.safeParse(body);
     if (!validated.success) throw new Error(z.prettifyError(validated.error));
-    await AlbumController.createAlbumRaw(validated.data);
+    await ArtistController.createArtist(validated.data);
+    return "created";
   };
 
-  const submitAlbums = async (payloads: Array<unknown>) => {
+  const submitArtists = async (payloads: Array<unknown>) => {
     setSubmitting(true);
     let created = 0;
+    let updated = 0;
     const errors: Array<string> = [];
 
     for (const [index, payload] of payloads.entries()) {
       if (index > 0) await wait(100);
       try {
-        await createAlbum(payload);
-        created += 1;
+        const outcome = await saveArtist(payload);
+        if (outcome === "updated") updated += 1;
+        else created += 1;
       } catch (error) {
         const message = error instanceof Error ? error.message : t(($) => $.admin.error.unknown);
         errors.push(`#${index + 1}: ${message}`);
@@ -117,7 +131,7 @@ function AdminAlbumJsonUpload({
     if (errors.length > 0) {
       setStatus({
         kind: "error",
-        text: t(($) => $.admin.error.json_albums_failed, {
+        text: t(($) => $.admin.error.json_artists_failed, {
           created,
           failed: errors.length,
           errors: errors.join(" | "),
@@ -126,13 +140,13 @@ function AdminAlbumJsonUpload({
     } else {
       setStatus({
         kind: "success",
-        text: t(($) => $.admin.status.json_albums_created, { created }),
+        text: t(($) => $.admin.status.json_artists_saved, { created, updated }),
       });
       setJsonText("");
       setLoadedId(null);
     }
 
-    if (created > 0) onUploaded();
+    if (created > 0 || updated > 0) onUploaded();
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -149,30 +163,30 @@ function AdminAlbumJsonUpload({
 
     if (useArray) {
       if (!Array.isArray(body)) {
-        setStatus({ kind: "error", text: t(($) => $.admin.error.json_not_array) });
+        setStatus({ kind: "error", text: t(($) => $.admin.error.json_not_artist_array) });
         return;
       }
-      await submitAlbums(body);
+      await submitArtists(body);
       return;
     }
 
     const parsedId = extractId(body);
-    const isUpdate = Boolean(loadedId && parsedId === loadedId);
+    const isUpdate = Boolean(parsedId && artists.some((artist) => artist.id === parsedId));
     const rawPayload = stripId(body);
 
-    if (isUpdate && loadedId) {
-      await submitAlbum(() => {
-        const validated = albumUpdateSchema.safeParse(rawPayload);
+    if (isUpdate && parsedId) {
+      await submitArtist(() => {
+        const validated = artistUpdateSchema.safeParse(rawPayload);
         if (!validated.success) throw new Error(z.prettifyError(validated.error));
-        return AlbumController.updateAlbumRaw(loadedId, validated.data);
+        return ArtistController.updateArtist(parsedId, validated.data);
       }, true);
       return;
     }
 
-    await submitAlbum(() => {
-      const validated = albumCreateSchema.safeParse(rawPayload);
+    await submitArtist(() => {
+      const validated = artistCreateSchema.safeParse(rawPayload);
       if (!validated.success) throw new Error(z.prettifyError(validated.error));
-      return AlbumController.createAlbumRaw(validated.data);
+      return ArtistController.createArtist(validated.data);
     }, false);
   };
 
@@ -181,16 +195,13 @@ function AdminAlbumJsonUpload({
       <div className="flex items-center justify-between gap-2">
         <Select
           key={selectResetKey}
-          id="json-album-load"
+          id="json-artist-load"
           contentClassName="border border-border"
-          placeholder={t(($) => $.admin.placeholder.select_album_json)}
+          placeholder={t(($) => $.admin.placeholder.select_artist_json)}
           value={loadedId ?? ""}
           disabled={submitting}
-          onValueChange={loadAlbumJson}
-          options={albums.map((album) => ({
-            value: album.id,
-            label: `${album.artist.artist} - ${album.album}`,
-          }))}
+          onValueChange={loadArtistJson}
+          options={artists.map((artist) => ({ value: artist.id, label: artist.artist }))}
         />
         <div className="flex items-center gap-2">
           <Toggle
@@ -209,14 +220,14 @@ function AdminAlbumJsonUpload({
         </div>
       </div>
       <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3">
-        <label htmlFor="json-album-input" className="text-sm font-medium text-muted-foreground">
-          {t(($) => $.admin.label.album_json)}
+        <label htmlFor="json-artist-input" className="text-sm font-medium text-muted-foreground">
+          {t(($) => $.admin.label.artist_json)}
         </label>
         <Textarea
-          id="json-album-input"
+          id="json-artist-input"
           required
           rows={20}
-          placeholder={t(($) => $.admin.placeholder.paste_json)}
+          placeholder={t(($) => $.admin.placeholder.paste_artist_json)}
           className="min-h-96 font-mono text-xs"
           value={jsonText}
           disabled={submitting}
@@ -229,11 +240,11 @@ function AdminAlbumJsonUpload({
           />
         ) : null}
         <Button type="submit" disabled={submitting} className="self-start">
-          {loadedId ? t(($) => $.admin.button.update_album) : t(($) => $.admin.button.upload)}
+          {loadedId ? t(($) => $.admin.button.update_artist) : t(($) => $.admin.button.upload)}
         </Button>
       </form>
     </div>
   );
 }
 
-export { AdminAlbumJsonUpload };
+export { AdminArtistJsonUpload };

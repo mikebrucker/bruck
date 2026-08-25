@@ -34,6 +34,13 @@
     "filter_minimum": "Minimum {{field}}",
     "filter_maximum": "Maximum {{field}}"
   },
+  "artists": {
+    "members": "Members",
+    "former_members": "Former Members",
+    "notes": "Notes",
+    "photo": "{{artist}} photo",
+    "open_artist": "Open {{artist}} details"
+  },
   "about": {
     "frontend": "Frontend",
     "styling": "Styling",
@@ -180,7 +187,8 @@
     "resume": "Résumé",
     "admin": "Admin",
     "album": "Album",
-    "userAlbum": "UserAlbum"
+    "artist": "Artist",
+    "userAlbum": "Review"
   },
   "ariaLabels": {
     "close_menu": "Close menu",
@@ -223,7 +231,9 @@
       "create_album_failed": "Could not create album",
       "invalid_json": "Invalid JSON",
       "json_not_array": "JSON must be an array of albums",
+      "json_not_artist_array": "JSON must be an array of artists",
       "json_albums_failed": "{{created}} created, {{failed}} failed — {{errors}}",
+      "json_artists_failed": "{{created}} created, {{failed}} failed - {{errors}}",
       "unknown": "Unknown error",
       "update_user_album_failed": "Could not update album data",
       "save_order_failed": "Could not save order"
@@ -245,6 +255,10 @@
       "json_album_updated": "Album updated",
       "json_album_created": "Album created",
       "json_albums_created": "{{created}} albums created",
+      "json_artist_updated": "Artist updated",
+      "json_artist_created": "Artist created",
+      "json_artists_created": "{{created}} artists created",
+      "json_artists_saved": "{{created}} artists created, {{updated}} updated",
       "user_album_updated": "Album data updated for {{album}}",
       "saving": "Saving..."
     },
@@ -252,6 +266,7 @@
       "new_album": "New Album",
       "edit_album": "Edit Album",
       "json_album": "JSON Album",
+      "json_artist": "JSON Artist",
       "new_artist": "New Artist",
       "edit_artist": "Edit Artist",
       "review": "Review",
@@ -281,7 +296,9 @@
       "load_existing_artist": "Load existing artist",
       "select_artist": "Select an artist",
       "select_album_json": "Select an album to load its JSON (optional)",
+      "select_artist_json": "Select an artist to load its JSON (optional)",
       "paste_json": "Paste raw album JSON here",
+      "paste_artist_json": "Paste raw artist JSON here",
       "number": "Number",
       "title": "Title",
       "duration": "Duration (mm:ss)",
@@ -308,6 +325,7 @@
       "studios": "Studios (comma separated)",
       "personnel_notes": "Personnel notes",
       "album_json": "Album JSON",
+      "artist_json": "Artist JSON",
       "instrumental": "Instrumental",
       "review": "Review",
       "yes": "Yes",

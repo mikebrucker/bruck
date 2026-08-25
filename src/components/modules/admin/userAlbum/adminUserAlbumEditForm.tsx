@@ -116,7 +116,7 @@ export function AdminUserAlbumEditForm({
         ) : null}
         <div className="min-w-0 flex-1">
           <p className="font-medium truncate">{album.album}</p>
-          <p className="text-sm text-muted-foreground truncate">{album.artist}</p>
+          <p className="text-sm text-muted-foreground truncate">{album.artist.artist}</p>
           <div className="flex items-center gap-2 mt-1 flex-wrap">
             {userAlbum?.rank ? (
               <Chip text={`${t(($) => $.albums.filter_rank)}: ${userAlbum.rank}`} />

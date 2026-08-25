@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import ArtistCard from "@/components/modules/artist/artistCard";
 import { Accordion } from "@/components/ui/accordion";
 import { Chip } from "@/components/ui/chip";
 import Loader from "@/components/ui/loader";
@@ -24,6 +25,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
   const [selectedMention, setSelectedMention] = useState<Album | null>(null);
+  const [artistModalOpen, setArtistModalOpen] = useState(false);
 
   const openModal = (url: string) => {
     setSelectedImage(url);
@@ -39,6 +41,9 @@ export default function AlbumCard({ album }: AlbumCardProps) {
 
   const openMention = (mention: Album) => setSelectedMention(mention);
   const closeMention = () => setSelectedMention(null);
+
+  const openArtist = () => setArtistModalOpen(true);
+  const closeArtist = () => setArtistModalOpen(false);
 
   const favoriteTrackTitle = album.favoriteTrack
     ? `${album.favoriteTrack.number}. ${album.favoriteTrack.title}`
@@ -107,7 +112,14 @@ export default function AlbumCard({ album }: AlbumCardProps) {
 
           <div>
             <h2 className="text-xl font-bold leading-tight">{album.album}</h2>
-            <p className="text-muted-foreground font-medium">{album.artist}</p>
+            <button
+              type="button"
+              onClick={openArtist}
+              aria-label={t(($) => $.artists.open_artist, { artist: album.artist.artist })}
+              className="text-muted-foreground font-medium hover:text-foreground underline underline-offset-4 transition-colors cursor-pointer text-left"
+            >
+              {album.artist.artist}
+            </button>
           </div>
 
           <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
@@ -315,6 +327,17 @@ export default function AlbumCard({ album }: AlbumCardProps) {
               <AlbumCard album={selectedMention} />
             </div>
           ) : null}
+        </Modal>
+        <Modal
+          open={artistModalOpen}
+          onClose={closeArtist}
+          showClose
+          title={album.artist.artist}
+          className="max-w-3xl max-h-[80dvh] w-full rounded-primary overflow-y-auto"
+        >
+          <div className="px-2 pb-1">
+            <ArtistCard artist={album.artist} />
+          </div>
         </Modal>
       </div>
     </div>

@@ -13,6 +13,7 @@ import {
   Playlist01Icon,
   Settings01Icon,
   Sun02Icon,
+  UserGroup03Icon,
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -82,7 +83,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         >
           <Link href={`/${language}/music/`}>
             <HugeiconsIcon icon={Vynil02Icon} className="size-6" />
-            {t(($) => $.menu.music)}
+            <span>{t(($) => $.menu.music)}</span>
           </Link>
         </Button>
         <Button
@@ -93,7 +94,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         >
           <Link href={`/${language}/playground/`}>
             <HugeiconsIcon icon={CodesandboxIcon} className="size-6" />
-            {t(($) => $.menu.playground)}
+            <span>{t(($) => $.menu.playground)}</span>
           </Link>
         </Button>
         <Button
@@ -104,7 +105,7 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
         >
           <Link href={`/${language}/about/`}>
             <HugeiconsIcon icon={LaptopProgrammingIcon} className="size-6" />
-            {t(($) => $.menu.about)}
+            <span>{t(($) => $.menu.about)}</span>
           </Link>
         </Button>
         <div className="mt-auto gap-0.5 flex">
@@ -116,7 +117,9 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
           >
             <Link href={`/${language}/cv/`}>
               <HugeiconsIcon icon={FileBadgeIcon} className="size-6" />
-              {t(($) => $.menu.cv)}/{t(($) => $.menu.resume)}
+              <span>
+                {t(($) => $.menu.cv)}/{t(($) => $.menu.resume)}
+              </span>
             </Link>
           </Button>
           <Button
@@ -155,28 +158,42 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
                 asChild
                 variant="keyboard"
                 className={cn(
-                  "justify-start h-13 grow",
+                  "justify-start h-13 grow pr-0",
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
               >
                 <Link href={`/${language}/admin/album`}>
                   <HugeiconsIcon icon={Playlist01Icon} className="size-6" />
-                  {t(($) => $.menu.album)}
+                  <span>{t(($) => $.menu.album)}</span>
                 </Link>
               </Button>
               <Button
                 asChild
                 variant="keyboard"
                 className={cn(
-                  "justify-start h-13 grow",
+                  "justify-start h-13 grow pr-0",
+                  isAdminSelected ? selectedClassName : null,
+                )}
+                onClick={onClose}
+              >
+                <Link href={`/${language}/admin/artist`}>
+                  <HugeiconsIcon icon={UserGroup03Icon} className="size-6" />
+                  <span>{t(($) => $.menu.artist)}</span>
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="keyboard"
+                className={cn(
+                  "justify-start h-13 grow pr-0",
                   isAdminSelected ? selectedClassName : null,
                 )}
                 onClick={onClose}
               >
                 <Link href={`/${language}/admin/user-album`}>
                   <HugeiconsIcon icon={AudioBook02Icon} className="size-6" />
-                  {t(($) => $.menu.userAlbum)}
+                  <span>{t(($) => $.menu.userAlbum)}</span>
                 </Link>
               </Button>
             </div>
