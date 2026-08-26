@@ -9,6 +9,9 @@ import {
   type RoundedCorner,
   RoundedCorners,
   roundedCorners,
+  type Side,
+  Sides,
+  sides,
   type Theme,
   Themes,
 } from "@/types/settings";
@@ -22,11 +25,14 @@ const isAccent = (value: string | null): value is Accent =>
 const isRoundedCorner = (value: string | null): value is RoundedCorner =>
   roundedCorners.some((corner) => corner === value);
 
+const isSide = (value: string | null): value is Side => sides.some((side) => side === value);
+
 export function ThemeInit() {
   const setTheme = useStyleStore((s) => s.setTheme);
   const setAccent = useStyleStore((s) => s.setAccent);
   const setRoundedPrimary = useStyleStore((s) => s.setRoundedPrimary);
   const setRoundedSecondary = useStyleStore((s) => s.setRoundedSecondary);
+  const setMenuSide = useStyleStore((s) => s.setMenuSide);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
@@ -44,8 +50,11 @@ export function ThemeInit() {
     const storedSecondary = localStorage.getItem("rounded-secondary");
     setRoundedSecondary(isRoundedCorner(storedSecondary) ? storedSecondary : RoundedCorners.md);
 
+    const storedMenuSide = localStorage.getItem("menu-side");
+    setMenuSide(isSide(storedMenuSide) ? storedMenuSide : Sides.right);
+
     useStyleStore.setState({ ready: true });
-  }, [setTheme, setAccent, setRoundedPrimary, setRoundedSecondary]);
+  }, [setTheme, setAccent, setRoundedPrimary, setRoundedSecondary, setMenuSide]);
 
   return null;
 }

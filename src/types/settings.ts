@@ -61,3 +61,16 @@ export const RoundedCorners = {
 } as const;
 export type RoundedCorner = keyof typeof RoundedCorners;
 export const roundedCorners: Array<RoundedCorner> = Object.values(RoundedCorners);
+
+export const Views = {
+  list: "list",
+  grid: "grid",
+} as const;
+export type View = keyof typeof Views;
+
+export const Sides = {
+  left: "left",
+  right: "right",
+} as const;
+export type Side = keyof typeof Sides;
+export const sides: Array<Side> = Object.values(Sides);

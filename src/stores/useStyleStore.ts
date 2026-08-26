@@ -7,6 +7,8 @@ import {
   RoundedCorners,
   type RoundedTarget,
   RoundedTargets,
+  type Side,
+  Sides,
   type Theme,
   Themes,
 } from "@/types/settings";
@@ -17,11 +19,13 @@ type StyleState = {
   accent: Accent;
   roundedPrimary: RoundedCorner;
   roundedSecondary: RoundedCorner;
+  menuSide: Side;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   setAccent: (accent: Accent) => void;
   setRoundedPrimary: (roundedPrimary: RoundedCorner) => void;
   setRoundedSecondary: (roundedSecondary: RoundedCorner) => void;
+  setMenuSide: (menuSide: Side) => void;
 };
 
 const applyTheme = (theme: Theme) => {
@@ -40,14 +44,19 @@ const applyRounded = (target: RoundedTarget, corner: RoundedCorner) => {
   localStorage.setItem(`rounded-${target}`, corner);
 };
 
+const applyMenuSide = (menuSide: Side) => {
+  localStorage.setItem("menu-side", menuSide);
+};
+
 export const useStyleStore = createHmrStore<StyleState>(
   "style",
-  ["theme", "accent", "roundedPrimary", "roundedSecondary", "ready"],
+  ["theme", "accent", "roundedPrimary", "roundedSecondary", "menuSide", "ready"],
   (set, get) => ({
     theme: Themes.light,
     accent: Accents.emerald,
     roundedPrimary: RoundedCorners.lg,
     roundedSecondary: RoundedCorners.md,
+    menuSide: Sides.right,
     ready: false,
     setTheme: (theme) => {
       applyTheme(theme);
@@ -69,6 +78,10 @@ export const useStyleStore = createHmrStore<StyleState>(
     setRoundedSecondary: (roundedSecondary) => {
       applyRounded(RoundedTargets.secondary, roundedSecondary);
       set({ roundedSecondary });
+    },
+    setMenuSide: (menuSide) => {
+      applyMenuSide(menuSide);
+      set({ menuSide });
     },
   }),
 );

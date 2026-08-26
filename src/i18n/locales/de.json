@@ -211,7 +211,9 @@
     "rounded_primary": "Primäre Ecken {{rounded}}",
     "rounded_secondary": "Sekundäre Ecken {{rounded}}",
     "reset_rounded_primary": "Primäre Ecken zurücksetzen",
-    "reset_rounded_secondary": "Sekundäre Ecken zurücksetzen"
+    "reset_rounded_secondary": "Sekundäre Ecken zurücksetzen",
+    "menu_side_left": "Menü von links öffnen",
+    "menu_side_right": "Menü von rechts öffnen"
   },
   "language": {
     "en": "Englisch",
@@ -399,6 +401,11 @@
     "language": "Sprache",
     "roundedPrimary": "Primäre Ecken",
     "roundedSecondary": "Sekundäre Ecken",
+    "menuSide": "Menüseite",
+    "side": {
+      "left": "Links",
+      "right": "Rechts"
+    },
     "rounded": {
       "none": "Keine",
       "xs": "Sehr Klein",

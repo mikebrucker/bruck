@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCard from "@/components/modules/album/albumCard";
 import { AlbumFilter } from "@/components/modules/album/albumFilter";
+import AlbumGridItem from "@/components/modules/album/albumGridItem";
+import { AlbumViewToggle } from "@/components/modules/album/albumViewToggle";
 import { RankBadge } from "@/components/modules/album/rankBadge";
 import { ScrollToTopFab } from "@/components/modules/scrollToTopFab";
 import { useScrollAncestor } from "@/hooks/useScrollAncestor";
@@ -19,6 +21,7 @@ import { indexUnderLine } from "@/lib/dom";
 import { cn } from "@/lib/utils";
 import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
 import type { Album } from "@/types/album";
+import { Views } from "@/types/settings";
 
 type AlbumListProps = {
   albums: Array<Album>;
@@ -54,6 +57,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
   const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const view = useAlbumFilterStore((s) => s.view);
   const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
   const storedRankRange = useAlbumFilterStore((s) => s.rankRangeByList[filterKey]);
   const storedYearRange = useAlbumFilterStore((s) => s.yearRangeByList[filterKey]);
@@ -90,8 +94,10 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
       frameRef.current = 0;
       setScrolled(scrollAncestor.scrollTop > SCROLL_THRESHOLD_PX);
 
+      // The badge is hidden in grid view, so skip measuring until a toggle back to list re-runs this
+      // effect against the taller cards.
       const header = headerRef.current;
-      if (!header || filteredAlbums.length === 0) return;
+      if (!header || view === Views.grid || filteredAlbums.length === 0) return;
 
       const cards = filteredAlbums.map((album) => cardRefs.current.get(album.id));
       setActiveIndex(indexUnderLine(cards, header.getBoundingClientRect().bottom));
@@ -109,7 +115,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
       scrollAncestor.removeEventListener("scroll", onScroll);
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
     };
-  }, [scrollAncestor, filteredAlbums]);
+  }, [scrollAncestor, filteredAlbums, view]);
 
   const activeAlbum = filteredAlbums[activeIndex] ?? null;
 
@@ -160,7 +166,9 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
             aria-hidden
             className={cn(
               "grid transition-[grid-template-rows,opacity] duration-500 ease-out",
-              scrolled ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+              scrolled && view !== Views.grid
+                ? "grid-rows-[1fr] opacity-100"
+                : "grid-rows-[0fr] opacity-0",
             )}
           >
             <div className="min-h-0 overflow-hidden text-theme-600">
@@ -191,15 +199,23 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
           </div>
         </div>
         <div className="shrink-0 pr-2">
+          <AlbumViewToggle scrolled={scrolled} />
+        </div>
+        <div className="shrink-0 pr-2">
           <AlbumFilter albums={albums} filterKey={filterKey} scrolled={scrolled} />
         </div>
       </div>
 
-      <div className="mt-3 flex flex-col gap-3 pb-11.5 sm:pb-13.5 lg:pb-15.5">
-        {filteredAlbums.length === 0 ? (
-          <p className="text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
-        ) : null}
+      {filteredAlbums.length === 0 ? (
+        <p className="mt-3 text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
+      ) : null}
 
+      <div
+        className={cn(
+          "mt-3 gap-3 pb-11.5 sm:pb-13.5 lg:pb-15.5",
+          view === Views.grid ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4" : "flex flex-col",
+        )}
+      >
         {filteredAlbums.map((album) => (
           <div
             key={album.id}
@@ -213,7 +229,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
               };
             }}
           >
-            <AlbumCard album={album} />
+            {view === Views.grid ? <AlbumGridItem album={album} /> : <AlbumCard album={album} />}
           </div>
         ))}
       </div>

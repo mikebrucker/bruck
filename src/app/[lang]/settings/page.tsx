@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  ArrowLeft05Icon,
+  ArrowRight05Icon,
   ColorPickerIcon,
   DeletePutBackIcon,
   Moon02Icon,
@@ -31,6 +33,7 @@ import {
   type RoundedTarget,
   RoundedTargets,
   roundedCorners,
+  Sides,
   Themes,
 } from "@/types/settings";
 
@@ -41,10 +44,12 @@ export default function SettingsPage() {
     accent,
     roundedPrimary,
     roundedSecondary,
+    menuSide,
     setTheme,
     setAccent,
     setRoundedPrimary,
     setRoundedSecondary,
+    setMenuSide,
   } = useStyleStore();
   const { language, setLanguage } = useLanguageStore();
   const changeLanguageUrl = useChangeLanguageUrl();
@@ -223,6 +228,35 @@ export default function SettingsPage() {
               );
             })}
           </SettingsPickerModal>
+        </SettingsRow>
+        <Separator />
+        <SettingsRow
+          label={t(($) => $.settings.menuSide)}
+          value={t(($) => $.settings.side[menuSide])}
+        >
+          <ToggleGroup
+            type="single"
+            variant="outline"
+            size="icon-lg"
+            className="bg-background"
+            value={menuSide}
+            onValueChange={(value) => {
+              if (value === Sides.left || value === Sides.right) setMenuSide(value);
+            }}
+          >
+            <ToggleGroupItem
+              value={Sides.left}
+              icon={ArrowLeft05Icon}
+              iconClassName="size-5"
+              aria-label={t(($) => $.ariaLabels.menu_side_left)}
+            />
+            <ToggleGroupItem
+              value={Sides.right}
+              icon={ArrowRight05Icon}
+              iconClassName="size-5"
+              aria-label={t(($) => $.ariaLabels.menu_side_right)}
+            />
+          </ToggleGroup>
         </SettingsRow>
         <Separator />
         {roundedSettingsRow(RoundedTargets.primary)}

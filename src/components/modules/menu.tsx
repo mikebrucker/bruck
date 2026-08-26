@@ -28,16 +28,15 @@ import { cn } from "@/lib/utils";
 import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useStyleStore } from "@/stores/useStyleStore";
-import { Themes } from "@/types/settings";
+import { Sides, Themes } from "@/types/settings";
 
 interface MenuProps {
   open: boolean;
   onClose: () => void;
   useTheme?: boolean;
-  side?: "left" | "right";
 }
 
-function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
+function Menu({ open, onClose, useTheme }: MenuProps) {
   const { t } = useTranslation();
   const pathname = usePathname();
   const { language, setLanguage } = useLanguageStore();
@@ -51,19 +50,19 @@ function Menu({ open, onClose, useTheme, side = "right" }: MenuProps) {
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
   const isSettingsSelected = pathname.startsWith(`/${language}/settings`);
   const selectedClassName = "bg-theme-400 border-theme-300";
-  const { theme, toggleTheme } = useStyleStore();
+  const { theme, toggleTheme, menuSide } = useStyleStore();
 
   return (
     <Drawer
       classNames={cn(
-        "flex flex-col rounded-l-primary",
-        side === "right"
-          ? "border-l-4 border-l-theme-500 border-r-2"
-          : "border-r-4 border-r-theme-500 border-l-2",
+        "flex flex-col",
+        menuSide === Sides.right
+          ? "rounded-l-primary border-l-4 border-l-theme-500 border-r-2"
+          : "rounded-r-primary border-r-4 border-r-theme-500 border-l-2",
       )}
       open={open}
       onClose={onClose}
-      side={side}
+      side={menuSide}
       useTheme={useTheme}
     >
       <div className="flex justify-end py-3 px-2.5 sm:px-3">

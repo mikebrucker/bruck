@@ -1,5 +1,6 @@
 import { type ChipField, type ChipMode, ChipModes, chipPrefix } from "@/lib/albumFilter";
 import { createHmrStore } from "@/stores/createHmrStore";
+import { type View, Views } from "@/types/settings";
 
 type AlbumFilterState = {
   selectedByList: Record<string, Set<string>>;
@@ -7,23 +8,33 @@ type AlbumFilterState = {
   yearRangeByList: Record<string, [number, number]>;
   runtimeRangeByList: Record<string, [number, number]>;
   chipModeByList: Record<string, Partial<Record<ChipField, ChipMode>>>;
+  view: View;
   toggleFilter: (listKey: string, filterKey: string) => void;
   clearChipField: (listKey: string, field: ChipField) => void;
   setRankRange: (listKey: string, range: [number, number]) => void;
   setYearRange: (listKey: string, range: [number, number]) => void;
   setRuntimeRange: (listKey: string, range: [number, number]) => void;
   toggleChipMode: (listKey: string, field: ChipField) => void;
+  setView: (view: View) => void;
 };
 
 export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
   "albumFilter",
-  ["selectedByList", "rankRangeByList", "yearRangeByList", "runtimeRangeByList", "chipModeByList"],
+  [
+    "selectedByList",
+    "rankRangeByList",
+    "yearRangeByList",
+    "runtimeRangeByList",
+    "chipModeByList",
+    "view",
+  ],
   (set, get) => ({
     selectedByList: {},
     rankRangeByList: {},
     yearRangeByList: {},
     runtimeRangeByList: {},
     chipModeByList: {},
+    view: Views.list,
     toggleFilter: (listKey, filterKey) => {
       const current = get().selectedByList[listKey] ?? new Set<string>();
       const next = new Set(current);
@@ -57,6 +68,9 @@ export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
       set({
         chipModeByList: { ...get().chipModeByList, [listKey]: { ...listModes, [field]: nextMode } },
       });
+    },
+    setView: (view) => {
+      set({ view });
     },
   }),
 );

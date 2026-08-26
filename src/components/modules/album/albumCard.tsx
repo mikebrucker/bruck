@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import AlbumCardModal from "@/components/modules/album/albumCardModal";
 import ArtistCard from "@/components/modules/artist/artistCard";
 import { Accordion } from "@/components/ui/accordion";
 import { Chip } from "@/components/ui/chip";
@@ -314,19 +315,7 @@ export default function AlbumCard({ album }: AlbumCardProps) {
             </div>
           ) : null}
         </Modal>
-        <Modal
-          open={selectedMention !== null}
-          onClose={closeMention}
-          showClose
-          title={selectedMention?.album}
-          className="max-w-3xl h-[80dvh] w-full rounded-primary overflow-y-auto"
-        >
-          {selectedMention ? (
-            <div className="px-2 pb-1">
-              <AlbumCard album={selectedMention} />
-            </div>
-          ) : null}
-        </Modal>
+        <AlbumCardModal album={selectedMention} onClose={closeMention} />
         <Modal
           open={artistModalOpen}
           onClose={closeArtist}

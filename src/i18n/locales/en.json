@@ -32,7 +32,10 @@
     "filter_mode_and": "AND - must match all selected",
     "filter_clear": "Clear selection",
     "filter_minimum": "Minimum {{field}}",
-    "filter_maximum": "Maximum {{field}}"
+    "filter_maximum": "Maximum {{field}}",
+    "view": "View",
+    "view_list": "List",
+    "view_grid": "Grid"
   },
   "artists": {
     "members": "Members",
@@ -211,7 +214,9 @@
     "rounded_primary": "Primary corners {{rounded}}",
     "rounded_secondary": "Secondary corners {{rounded}}",
     "reset_rounded_primary": "Reset primary corners",
-    "reset_rounded_secondary": "Reset secondary corners"
+    "reset_rounded_secondary": "Reset secondary corners",
+    "menu_side_left": "Open menu from the left",
+    "menu_side_right": "Open menu from the right"
   },
   "language": {
     "en": "English",
@@ -362,8 +367,6 @@
     "theme": "Theme",
     "dark": "Dark Mode",
     "light": "Light Mode",
-    "list": "List View",
-    "grid": "Grid View",
     "accent": "Accent",
     "red": "Red",
     "orange": "Orange",
@@ -401,6 +404,11 @@
     "language": "Language",
     "roundedPrimary": "Primary Corners",
     "roundedSecondary": "Secondary Corners",
+    "menuSide": "Menu Side",
+    "side": {
+      "left": "Left",
+      "right": "Right"
+    },
     "rounded": {
       "none": "None",
       "xs": "Extra Small",
