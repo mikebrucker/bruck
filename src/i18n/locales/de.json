@@ -27,7 +27,7 @@
     "no_results": "Keine Alben entsprechen den ausgewählten Filtern.",
     "filter_no_genres": "Keine Genres",
     "filter_no_labels": "Keine Labels",
-    "filter_button": "Filtern",
+    "filter": "Filtern",
     "filter_mode_or": "ODER - trifft auf jede Auswahl zu",
     "filter_mode_and": "UND - muss auf alle Auswahl zutreffen",
     "filter_clear": "Auswahl löschen",

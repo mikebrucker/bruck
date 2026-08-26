@@ -9,7 +9,7 @@ export function Note({ text, className }: NoteProps) {
   return (
     <p
       className={cn(
-        "bg-accent border border-border border-l-4 border-l-theme-500 rounded-secondary p-3 text-sm leading-relaxed italic whitespace-pre-line",
+        "bg-accent border border-border border-l-4 border-l-theme-500 rounded-secondary p-3 text-sm leading-relaxed italic whitespace-pre-line min-w-0 wrap-break-word",
         className,
       )}
     >

@@ -206,3 +206,4 @@ export const flagColorMap: Record<Language, { bg: string; block: string; inline:
     inline: "var(--color-red-700)",
   },
 };
+export const websiteTitle = "Mike Brucker";

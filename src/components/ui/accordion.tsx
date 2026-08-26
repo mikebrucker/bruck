@@ -33,6 +33,8 @@ type AccordionProps = {
   subtitle?: string;
   children: React.ReactNode;
   classNames?: string;
+  titleClassName?: string;
+  subtitleClassName?: string;
   defaultOpen?: boolean;
   size?: Size;
   duration?: number;
@@ -45,6 +47,8 @@ export function Accordion({
   subtitle,
   children,
   classNames,
+  titleClassName,
+  subtitleClassName,
   defaultOpen = true,
   size = "md",
   duration = 300,
@@ -105,12 +109,13 @@ export function Accordion({
                   />
                 </svg>
                 <div className="flex flex-col text-foreground min-w-0">
-                  <span>{title}</span>
+                  <span className={titleClassName}>{title}</span>
                   {subtitle ? (
                     <span
                       className={cn(
                         "normal-case tracking-normal font-normal text-muted-foreground",
                         s.subtitle,
+                        subtitleClassName,
                       )}
                     >
                       {subtitle}

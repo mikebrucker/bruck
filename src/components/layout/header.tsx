@@ -3,6 +3,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { websiteTitle } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 
@@ -36,7 +37,7 @@ function Header({
     >
       <Link href={`/${language}`}>
         <span className="block font-bold text-xl sm:text-3xl md:text-4xl tracking-widest font-metal-mania text-shadow-lg text-shadow-theme-600 dark:text-shadow-theme-400 transition-[font-size] duration-1000">
-          Mike Brucker
+          {websiteTitle}
         </span>
       </Link>
       {onAction && actionIcon ? (

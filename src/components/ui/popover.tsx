@@ -11,10 +11,11 @@ type PopoverProps = {
   trigger: React.ReactNode;
   children: React.ReactNode;
   className?: string;
+  title?: string;
   useCloseButton?: boolean;
 };
 
-function Popover({ trigger, children, className, useCloseButton }: PopoverProps) {
+function Popover({ trigger, children, className, title, useCloseButton }: PopoverProps) {
   const { t } = useTranslation();
   return (
     <PopoverPrimitive.Root>
@@ -28,8 +29,9 @@ function Popover({ trigger, children, className, useCloseButton }: PopoverProps)
             className,
           )}
         >
-          {useCloseButton ? (
-            <div className="flex justify-end w-full">
+          {useCloseButton || title ? (
+            <div className="flex justify-end w-full items-center">
+              <p className="font-metal-mania text-xl px-2 grow">{title}</p>
               <PopoverPrimitive.Close
                 className="cursor-pointer rounded-secondary p-2 hover:bg-accent"
                 aria-label={t(($) => $.ariaLabels.close)}

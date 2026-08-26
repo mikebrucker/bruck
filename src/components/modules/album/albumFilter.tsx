@@ -158,6 +158,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
       <Accordion
         key={field}
         title={label}
+        titleClassName="font-metal-mania text-lg font-normal"
         size="sm"
         defaultOpen={false}
         classNames="bg-card rounded-primary"
@@ -230,12 +231,13 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
   return (
     <Popover
       useCloseButton
-      className="w-[90vw] max-w-120 max-h-[70dvh] overflow-y-auto flex flex-col gap-3 p-3 pb-4"
+      className="w-[90vw] max-w-120 max-h-[70dvh] overflow-y-auto flex flex-col gap-3 p-3 pb-4 translate-x-4 sm:translate-x-6"
+      title={t(($) => $.albums.filter)}
       trigger={
         <Button
           size={scrolled ? "icon" : "icon-lg"}
           variant="outline"
-          aria-label={t(($) => $.albums.filter_button)}
+          aria-label={t(($) => $.albums.filter)}
           className={cn(
             "hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-500 ease-out cursor-pointer",
             hasActiveFilter ? "border-theme-600 text-theme-600 hover:text-theme-600" : null,
