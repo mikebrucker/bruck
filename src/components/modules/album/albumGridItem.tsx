@@ -46,6 +46,12 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
         ) : (
           <div className="w-full h-full rounded-secondary bg-card" />
         )}
+        {album.userAlbum?.rank ? (
+          <Chip
+            text={String(album.userAlbum.rank)}
+            className="font-mono absolute top-1 left-1 aspect-square min-w-8 sm:min-w-11 justify-center bg-background/70 backdrop-blur-sm text-lg sm:text-2xl font-bold text-theme-600 tabular-nums"
+          />
+        ) : null}
         <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
           <Chip
             text={String(album.year)}

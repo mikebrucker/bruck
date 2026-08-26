@@ -213,7 +213,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
       <div
         className={cn(
           "mt-3 gap-3 pb-11.5 sm:pb-13.5 lg:pb-15.5",
-          view === Views.grid ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4" : "flex flex-col",
+          view === Views.grid ? "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : "flex flex-col",
         )}
       >
         {filteredAlbums.map((album) => (
