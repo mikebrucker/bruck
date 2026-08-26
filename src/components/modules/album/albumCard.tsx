@@ -18,7 +18,6 @@ type AlbumCardProps = {
 };
 
 export default function AlbumCard({ album }: AlbumCardProps) {
-  console.log(album);
   const { t } = useTranslation();
 
   const [imageModalOpen, setImageModalOpen] = useState(false);

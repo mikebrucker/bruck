@@ -125,13 +125,15 @@ export default function SettingsPage() {
               <SettingsSwatchButton
                 key={corner}
                 selected={isSelected}
-                className={cn(
-                  "bg-theme-500",
+                className={
                   isSelected
                     ? "border-8 [border-style:ridge] border-theme-600 dark:border-theme-300"
-                    : null,
-                )}
-                style={{ borderRadius: roundedCornerVars[corner] }}
+                    : undefined
+                }
+                style={{
+                  backgroundColor: "var(--color-theme-500)",
+                  borderRadius: roundedCornerVars[corner],
+                }}
                 onClick={() => select(corner)}
               >
                 <span className="font-asimovian xs:text-lg sm:text-xl">
@@ -211,7 +213,7 @@ export default function SettingsPage() {
                     backgroundColor: `var(--color-${a}-500)`,
                     border: isSelected ? `8px ridge var(--color-${a}-${ridgeShade})` : undefined,
                   }}
-                  className="rounded-primary"
+                  className="rounded-secondary"
                   onClick={() => selectAccent(a)}
                 >
                   <span className="font-asimovian xs:text-lg sm:text-xl">
@@ -263,7 +265,7 @@ export default function SettingsPage() {
                       ? `8px ridge ${flagColorMap[locale].inline}`
                       : undefined,
                   }}
-                  className="flex flex-col gap-1 text-zinc-900 rounded-primary"
+                  className="flex flex-col gap-1 text-zinc-900 rounded-secondary"
                   onClick={() => selectLanguage(locale)}
                 >
                   <span
