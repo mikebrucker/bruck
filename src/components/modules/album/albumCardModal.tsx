@@ -20,7 +20,7 @@ export default function AlbumCardModal({ album, onClose }: AlbumCardModalProps) 
     >
       {album ? (
         <div className="px-2 pb-1">
-          <AlbumCard album={album} />
+          <AlbumCard album={album} isModal />
         </div>
       ) : null}
     </Modal>

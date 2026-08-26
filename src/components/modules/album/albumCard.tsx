@@ -12,13 +12,15 @@ import { Chip } from "@/components/ui/chip";
 import Loader from "@/components/ui/loader";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
+import { cn } from "@/lib/utils";
 import type { Album, Credit } from "@/types/album";
 
 type AlbumCardProps = {
   album: Album;
+  isModal?: boolean;
 };
 
-export default function AlbumCard({ album }: AlbumCardProps) {
+export default function AlbumCard({ album, isModal }: AlbumCardProps) {
   const { t } = useTranslation();
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
@@ -151,7 +153,9 @@ export default function AlbumCard({ album }: AlbumCardProps) {
           ) : null}
         </div>
 
-        <div className="hidden sm:flex shrink-0 sm:flex-col lg:flex-row gap-1">{art}</div>
+        <div className={cn("hidden sm:flex shrink-0 sm:flex-col gap-1", !isModal ? "lg:flex-row" : null)}>
+          {art}
+        </div>
       </div>
 
       <div className="space-y-2">

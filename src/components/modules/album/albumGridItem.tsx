@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCardModal from "@/components/modules/album/albumCardModal";
 import { Chip } from "@/components/ui/chip";
@@ -19,7 +19,13 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
   const openAlbum = () => setSelectedAlbum(album);
   const closeAlbum = () => setSelectedAlbum(null);
 
-  const cover = album.art?.[0];
+  const [cover, setCover] = useState(album.art?.[0]);
+
+  useEffect(() => {
+    const art = album.art;
+    if (!art || art.length < 2) return;
+    setCover(art[Math.floor(Math.random() * art.length)]);
+  }, [album.art]);
 
   return (
     <>
