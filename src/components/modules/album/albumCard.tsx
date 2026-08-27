@@ -153,7 +153,12 @@ export default function AlbumCard({ album, isModal }: AlbumCardProps) {
           ) : null}
         </div>
 
-        <div className={cn("hidden sm:flex shrink-0 sm:flex-col gap-1", !isModal ? "lg:flex-row" : null)}>
+        <div
+          className={cn(
+            "hidden sm:flex shrink-0 sm:flex-col gap-1",
+            !isModal ? "lg:flex-row" : null,
+          )}
+        >
           {art}
         </div>
       </div>
@@ -304,7 +309,7 @@ export default function AlbumCard({ album, isModal }: AlbumCardProps) {
                 type="button"
                 onClick={closeModal}
                 aria-label={t(($) => $.ariaLabels.close)}
-                className="cursor-pointer"
+                className="block cursor-pointer"
               >
                 <Image
                   onLoad={() => setImageLoading(false)}
