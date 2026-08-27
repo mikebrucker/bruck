@@ -27,7 +27,7 @@ const isRoundedCorner = (value: string | null): value is RoundedCorner =>
 
 const isSide = (value: string | null): value is Side => sides.some((side) => side === value);
 
-export function ThemeInit() {
+export function StyleInit() {
   const setTheme = useStyleStore((s) => s.setTheme);
   const setAccent = useStyleStore((s) => s.setAccent);
   const setRoundedPrimary = useStyleStore((s) => s.setRoundedPrimary);

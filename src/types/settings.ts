@@ -67,6 +67,7 @@ export const Views = {
   grid: "grid",
 } as const;
 export type View = keyof typeof Views;
+export const views: Array<View> = Object.values(Views);
 
 export const Sides = {
   left: "left",

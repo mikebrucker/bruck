@@ -18,6 +18,10 @@ type AlbumFilterState = {
   setView: (view: View) => void;
 };
 
+const applyView = (view: View) => {
+  localStorage.setItem("view", view);
+};
+
 export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
   "albumFilter",
   [
@@ -70,6 +74,7 @@ export const useAlbumFilterStore = createHmrStore<AlbumFilterState>(
       });
     },
     setView: (view) => {
+      applyView(view);
       set({ view });
     },
   }),

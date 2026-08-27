@@ -5,7 +5,8 @@ import { Asimovian, Figtree, Geist_Mono, Metal_Mania } from "next/font/google";
 import { AppGate } from "@/components/providers/appGate";
 import I18nProvider from "@/components/providers/i18n-provider";
 import { LanguageInit } from "@/components/providers/languageInit";
-import { ThemeInit } from "@/components/providers/themeInit";
+import { MusicInit } from "@/components/providers/musicInit";
+import { StyleInit } from "@/components/providers/styleInit";
 import { UserInit } from "@/components/providers/userInit";
 
 import "@/app/globals.css";
@@ -48,7 +49,8 @@ export default function RootLayout({
         className={`${geistMono.variable} ${asimovian.variable} ${metalMania.variable} antialiased`}
       >
         <LanguageInit />
-        <ThemeInit />
+        <StyleInit />
+        <MusicInit />
         <UserInit />
         <Analytics />
         <SpeedInsights />
