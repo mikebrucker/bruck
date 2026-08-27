@@ -28,6 +28,12 @@ Role/notes convention (matches existing DB data, see Role type in src/types/albu
 - Tenure goes in "notes" as a year range: 2004-2012, or 2010-2013, 2019-present - never baked into the role string.
 - Session/live-only players belong in "formerMembers" with notes "Live" or "Session", not in "members".
 - Order "members" with founding/longest-tenured first, "formerMembers" newest departure first.
+
+Reference types (src/types/album.ts) - update them, do not just report:
+- Any role you use that is missing from the Role union gets added to it; Role stays grouped by kind (vocals, guitar, bass, drums, keys, strings/other, production, art) - put the new value in its group.
+- Do not add a near-duplicate of an existing member ("Guitars" when "Guitar" exists) - normalize the JSON to the existing value instead.
+- Add the artist's display name to the KnownArtist union, alphabetically, if missing.
+- After editing, list what you added to which union.
 Give me only the final JSON in a code block, ready to paste into the admin upload form.
 ```
 

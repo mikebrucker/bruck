@@ -10,11 +10,11 @@ Look up the real release on Wikipedia (or Discogs/RYM if Wikipedia lacks it): ye
 Output ONE JSON object matching this shape (matches albumCreateSchema in src/data/albumSchema.ts, strict — no extra keys):
 
 {
-  "artistId": string,     // the artist's slug from the artists table, e.g. "the_faceless" — the artist must already exist, create it in the admin Artist tab first
+  "artistId": string,     // the artist's slug from the artists table, e.g. "the_faceless" — snake_case of the display name. If the artist is missing from the KnownArtist union in src/types/album.ts, it does not exist yet: also run artist-json-prompt.md for it and give me that artist JSON block first, to upload in the admin Artist tab before the album
   "album": string,
   "year": number,
-  "label": [string, ...], // every label that released it, primary first, check RecordLabel type for normalization alert me if not present
-  "genre": [string, ...], // every genre that applies, primary first, check Genre type for normalization alert me if not present. Never use "Art Rock"
+  "label": [string, ...], // every label that released it, primary first, check RecordLabel type for normalization
+  "genre": [string, ...], // every genre that applies, primary first, check Genre type for normalization. Never use "Art Rock"
   "runtime": string,      // "MM:SS" if over 99:59 then use format "H:MM:SS" total
   "art": [""],               // always empty string, placeholder
   "personnel": {
@@ -35,6 +35,13 @@ Role/notes convention (matches existing DB data, see Role type in src/types/albu
 - Track-specific context (which song someone guests on, what they played where) goes in "notes" as: Appears on "Song Title" — never baked into the role string.
 - A person can hold multiple roles if they did multiple jobs, e.g. ["Producer", "Engineer", "Mixer"].
 - Self-produced-by-the-band credits use the band name as the "name" with roles ["Producer"].
+
+Reference types (src/types/album.ts) - update them, do not just report:
+- Any label, genre or role you use that is missing from RecordLabel / Genre / Role gets added to that union in src/types/album.ts.
+- Insert alphabetically for RecordLabel and Genre; Role stays grouped by kind (vocals, guitar, bass, drums, keys, strings/other, production, art) - put the new value in its group.
+- Do not add a near-duplicate of an existing member ("Guitars" when "Guitar" exists, "Mixing" when "Mixer" exists) - normalize the JSON to the existing value instead.
+- Also add the artist to the KnownArtist union if it is missing.
+- After editing, list what you added to which union.
 Give me only the final JSON in a code block, ready to paste into the admin upload form.
 ```
 
