@@ -14,15 +14,10 @@ export default function AlbumCardModal({ album, onClose }: AlbumCardModalProps) 
     <Modal
       open={album !== null}
       onClose={onClose}
-      showClose
       title={album?.album}
       className="max-w-3xl h-[80dvh] w-full rounded-primary overflow-y-auto"
     >
-      {album ? (
-        <div className="px-2 pb-1">
-          <AlbumCard album={album} isModal />
-        </div>
-      ) : null}
+      {album ? <AlbumCard album={album} isModal onClose={onClose} /> : null}
     </Modal>
   );
 }

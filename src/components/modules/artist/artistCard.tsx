@@ -1,18 +1,22 @@
 "use client";
 
-import { UserGroupIcon } from "@hugeicons/core-free-icons";
+import { Cancel01Icon, UserGroupIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { Accordion } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import type { Credit } from "@/types/album";
 import type { Artist } from "@/types/artist";
 
 type ArtistCardProps = {
   artist: Artist;
+  isModal?: boolean;
+  onClose?: () => void;
 };
 
-export default function ArtistCard({ artist }: ArtistCardProps) {
+export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps) {
   const { t } = useTranslation();
 
   const media = artist.media?.filter(Boolean) ?? [];
@@ -34,6 +38,19 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
 
   return (
     <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-primary p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full">
+      {onClose ? (
+        <div className="sticky top-0 z-20 flex justify-end">
+          <Button
+            type="button"
+            variant="outline"
+            size="icon-sm"
+            onClick={onClose}
+            aria-label={t(($) => $.ariaLabels.close)}
+          >
+            <HugeiconsIcon icon={Cancel01Icon} />
+          </Button>
+        </div>
+      ) : null}
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
           <div className="row-span-1 sm:row-span-3 text-theme-600 pt-1 flex justify-end">
@@ -53,7 +70,12 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
         </div>
 
         {media.length ? (
-          <div className="shrink-0 flex sm:flex-col lg:flex-row gap-1 justify-center">
+          <div
+            className={cn(
+              "shrink-0 flex sm:flex-col gap-1 justify-center",
+              !isModal ? "lg:flex-row" : null,
+            )}
+          >
             {media.map((file, i) => (
               <Image
                 key={file}

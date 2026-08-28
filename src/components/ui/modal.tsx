@@ -29,7 +29,7 @@ function Modal({ open, onClose, children, className, showClose, title }: ModalPr
         >
           <Dialog.Content
             aria-describedby={undefined}
-            className={cn("relative bg-background overflow-hidden", className)}
+            className={cn("relative overflow-hidden", className)}
           >
             <Dialog.Title className="sr-only">
               {title ?? t(($) => $.ariaLabels.dialog)}

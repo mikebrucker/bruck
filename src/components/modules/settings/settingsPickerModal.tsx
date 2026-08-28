@@ -17,7 +17,7 @@ function SettingsPickerModal({ open, onClose, gridClassName, children }: Setting
       open={open}
       onClose={onClose}
       showClose
-      className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-primary overflow-y-auto"
+      className="max-w-2xl mx-4 max-h-[80dvh] w-full rounded-primary overflow-y-auto bg-background border border-border"
     >
       <div className="px-4 pb-4">
         <div className={cn("grid gap-2", gridClassName)}>{children}</div>

@@ -13,7 +13,7 @@ function ModalDemo() {
   const { t } = useTranslation();
   const modal = useDisclosure();
   const [showClose, setShowClose] = useState(true);
-  const [classNames, setClassNames] = useState("rounded-primary max-w-sm w-full");
+  const [classNames, setClassNames] = useState("bg-background rounded-primary max-w-sm w-full");
 
   return (
     <DemoCard

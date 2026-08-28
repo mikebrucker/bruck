@@ -1,33 +1,36 @@
 "use client";
 
-import { Vynil02Icon } from "@hugeicons/core-free-icons";
+import { Cancel01Icon, Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCardModal from "@/components/modules/album/albumCardModal";
-import ArtistCard from "@/components/modules/artist/artistCard";
+import ArtistCardModal from "@/components/modules/artist/artistCardModal";
 import { Accordion } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import Loader from "@/components/ui/loader";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
 import { cn } from "@/lib/utils";
 import type { Album, Credit } from "@/types/album";
+import type { Artist } from "@/types/artist";
 
 type AlbumCardProps = {
   album: Album;
   isModal?: boolean;
+  onClose?: () => void;
 };
 
-export default function AlbumCard({ album, isModal }: AlbumCardProps) {
+export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
   const { t } = useTranslation();
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
   const [selectedMention, setSelectedMention] = useState<Album | null>(null);
-  const [artistModalOpen, setArtistModalOpen] = useState(false);
+  const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
 
   const openModal = (url: string) => {
     setSelectedImage(url);
@@ -44,8 +47,8 @@ export default function AlbumCard({ album, isModal }: AlbumCardProps) {
   const openMention = (mention: Album) => setSelectedMention(mention);
   const closeMention = () => setSelectedMention(null);
 
-  const openArtist = () => setArtistModalOpen(true);
-  const closeArtist = () => setArtistModalOpen(false);
+  const openArtist = () => setSelectedArtist(album.artist);
+  const closeArtist = () => setSelectedArtist(null);
 
   const favoriteTrackTitle = album.favoriteTrack
     ? `${album.favoriteTrack.number}. ${album.favoriteTrack.title}`
@@ -99,6 +102,19 @@ export default function AlbumCard({ album, isModal }: AlbumCardProps) {
 
   return (
     <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-primary p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
+      {onClose ? (
+        <div className="sticky top-0 z-20 flex justify-end">
+          <Button
+            type="button"
+            variant="outline"
+            size="icon-sm"
+            onClick={onClose}
+            aria-label={t(($) => $.ariaLabels.close)}
+          >
+            <HugeiconsIcon icon={Cancel01Icon} />
+          </Button>
+        </div>
+      ) : null}
       <div className="sm:flex sm:gap-6 sm:items-start">
         <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-6 gap-y-3 items-start sm:flex-1 min-w-0">
           {album.userAlbum?.rank ? (
@@ -292,6 +308,7 @@ export default function AlbumCard({ album, isModal }: AlbumCardProps) {
           </div>
         ) : null}
         <Modal
+          className="bg-background"
           open={imageModalOpen}
           onClose={closeModal}
           title={t(($) => $.albums.cover_art, { album: album.album })}
@@ -325,17 +342,7 @@ export default function AlbumCard({ album, isModal }: AlbumCardProps) {
           ) : null}
         </Modal>
         <AlbumCardModal album={selectedMention} onClose={closeMention} />
-        <Modal
-          open={artistModalOpen}
-          onClose={closeArtist}
-          showClose
-          title={album.artist.artist}
-          className="max-w-3xl max-h-[80dvh] w-full rounded-primary overflow-y-auto"
-        >
-          <div className="px-2 pb-1">
-            <ArtistCard artist={album.artist} />
-          </div>
-        </Modal>
+        <ArtistCardModal artist={selectedArtist} onClose={closeArtist} />
       </div>
     </div>
   );
