@@ -1,8 +1,8 @@
-import { AlbumsClient } from "@/app/[lang]/music/albumsClient";
+import { MusicClient } from "@/app/[lang]/music/musicClient";
 import { albumRepository } from "@/data/albumRepository";
 
-export default async function AlbumsPage() {
+export default async function MusicPage() {
   const rankedAlbums = await albumRepository.getRanked();
 
-  return <AlbumsClient rankedAlbums={rankedAlbums} />;
+  return <MusicClient rankedAlbums={rankedAlbums} />;
 }

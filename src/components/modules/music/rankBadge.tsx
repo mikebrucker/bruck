@@ -8,7 +8,14 @@ import {
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import type { Album } from "@/types/album";
+
+/** One row of the list, album or artist, reduced to what the header readout shows. */
+export type RankRow = {
+  id: string;
+  rank?: number;
+  title: string;
+  subtitle?: string;
+};
 
 /** Podium medals for the top three ranks, generic medal for everything below. */
 function medalForRank(rank: number) {
@@ -25,11 +32,11 @@ function medalForRank(rank: number) {
 }
 
 /**
- * The active album's rank, title and artist as one unit, so the slide animation can move all of it
+ * The active row's rank, title and subtitle as one unit, so the slide animation can move all of it
  * together. `null` means no card sits under the header line — an empty list.
  */
-export function RankBadge({ album }: { album: Album | null }) {
-  const rank = album?.userAlbum?.rank ?? null;
+export function RankBadge({ row }: { row: RankRow | null }) {
+  const rank = row?.rank ?? null;
 
   return (
     <div className="flex items-center gap-2 min-w-0">
@@ -47,14 +54,16 @@ export function RankBadge({ album }: { album: Album | null }) {
         <HugeiconsIcon icon={Vynil02Icon} className="shrink-0 w-7 h-7 sm:w-8 sm:h-8" />
       )}
 
-      {album ? (
+      {row ? (
         <div className="flex min-w-0 flex-col">
           <span className="truncate leading-tight font-semibold text-xs sm:text-sm text-foreground transition-[font-size] duration-500">
-            {album.album}
+            {row.title}
           </span>
-          <span className="truncate leading-tight normal-case tracking-normal font-normal text-xs sm:text-sm text-muted-foreground transition-[font-size] duration-500">
-            {album.artist.artist}
-          </span>
+          {row.subtitle ? (
+            <span className="truncate leading-tight normal-case tracking-normal font-normal text-xs sm:text-sm text-muted-foreground transition-[font-size] duration-500">
+              {row.subtitle}
+            </span>
+          ) : null}
         </div>
       ) : null}
     </div>

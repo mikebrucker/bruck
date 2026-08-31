@@ -69,6 +69,13 @@ export const Views = {
 export type View = keyof typeof Views;
 export const views: Array<View> = Object.values(Views);
 
+export const MusicLists = {
+  artists: "artists",
+  albums: "albums",
+} as const;
+export type MusicList = keyof typeof MusicLists;
+export const musicLists: Array<MusicList> = Object.values(MusicLists);
+
 export const Sides = {
   left: "left",
   right: "right",

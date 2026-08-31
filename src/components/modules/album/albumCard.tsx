@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Cancel01Icon, Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCardModal from "@/components/modules/album/albumCardModal";
+import AlbumStrip from "@/components/modules/album/albumStrip";
 import ArtistCardModal from "@/components/modules/artist/artistCardModal";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -14,8 +15,10 @@ import Loader from "@/components/ui/loader";
 import { Modal } from "@/components/ui/modal";
 import { Note } from "@/components/ui/note";
 import { cn } from "@/lib/utils";
+import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
 import type { Album, Credit } from "@/types/album";
 import type { Artist } from "@/types/artist";
+import { MusicLists } from "@/types/settings";
 
 type AlbumCardProps = {
   album: Album;
@@ -25,6 +28,7 @@ type AlbumCardProps = {
 
 export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
   const { t } = useTranslation();
+  const musicList = useMusicFilterStore((s) => s.musicList);
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -62,8 +66,8 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
     title:
       album.discTitles?.[discIndex] ??
       (discCount > 1
-        ? t(($) => $.albums.disc, { number: discIndex + 1 })
-        : t(($) => $.albums.tracks)),
+        ? t(($) => $.music.albums.disc, { number: discIndex + 1 })
+        : t(($) => $.music.albums.tracks)),
     tracks: album.tracks.filter((track) => (track.disc ?? 0) === discIndex),
   }));
 
@@ -72,7 +76,7 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
       <button type="button" onClick={() => openModal(aa)} className="cursor-pointer">
         <Image
           src={`/albums/${aa}`}
-          alt={t(($) => $.albums.cover_art, { album: album.album })}
+          alt={t(($) => $.music.albums.cover_art, { album: album.album })}
           width={256}
           height={256}
           style={{ height: "auto" }}
@@ -92,7 +96,7 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
         <span className="font-medium">{credit.name}</span>
         {credit.notes ? (
           <p className="text-muted-foreground italic text-xs whitespace-pre-line">
-            {t(($) => $.albums.notes)}: {credit.notes}
+            {t(($) => $.music.albums.notes)}: {credit.notes}
           </p>
         ) : null}
       </div>
@@ -130,14 +134,18 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
 
           <div>
             <h2 className="text-xl font-bold leading-tight">{album.album}</h2>
-            <button
-              type="button"
-              onClick={openArtist}
-              aria-label={t(($) => $.artists.open_artist, { artist: album.artist.artist })}
-              className="text-muted-foreground font-medium hover:text-foreground underline underline-offset-4 transition-colors cursor-pointer text-left"
-            >
-              {album.artist.artist}
-            </button>
+            {musicList === MusicLists.albums ? (
+              <button
+                type="button"
+                onClick={openArtist}
+                aria-label={t(($) => $.music.artists.open_artist, { artist: album.artist.artist })}
+                className="text-muted-foreground font-medium hover:text-foreground underline underline-offset-4 transition-colors cursor-pointer text-left"
+              >
+                {album.artist.artist}
+              </button>
+            ) : (
+              <p className="text-muted-foreground font-medium text-left">{album.artist.artist}</p>
+            )}
           </div>
 
           <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
@@ -158,7 +166,7 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
           {favoriteTrackTitle ? (
             <div className="col-span-2 sm:col-span-1 flex gap-1.5 items-center justify-center sm:justify-start">
               <span className="text-xs text-muted-foreground">
-                {t(($) => $.albums.favorite_track)}:
+                {t(($) => $.music.albums.favorite_track)}:
               </span>
               <Chip text={favoriteTrackTitle} />
             </div>
@@ -211,32 +219,34 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
         {album.personnel ? (
           <div>
             <Accordion
-              title={t(($) => $.albums.personnel)}
+              title={t(($) => $.music.albums.personnel)}
               classNames="p-2 rounded-secondary bg-secondary"
               defaultOpen={false}
             >
               <div className="space-y-6 text-sm">
                 {album.personnel.members ? (
                   <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.members)}</p>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.members)}</p>
                     <div>{album.personnel.members.map(personnelInfo)}</div>
                   </div>
                 ) : null}
                 {album.personnel.guests ? (
                   <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.guests)}</p>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.guests)}</p>
                     <div>{album.personnel.guests.map(personnelInfo)}</div>
                   </div>
                 ) : null}
                 {album.personnel.production ? (
                   <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.production)}</p>
+                    <p className="font-semibold text-lg mb-1">
+                      {t(($) => $.music.albums.production)}
+                    </p>
                     <div>{album.personnel.production.map(personnelInfo)}</div>
                   </div>
                 ) : null}
                 {album.personnel.studios ? (
                   <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.studios)}</p>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.studios)}</p>
                     <div>
                       {album.personnel.studios.map((studio) => (
                         <div key={studio} className="odd:bg-card rounded-secondary px-2 py-1">
@@ -248,7 +258,7 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
                 ) : null}
                 {album.personnel.notes ? (
                   <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.albums.notes)}</p>
+                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.notes)}</p>
                     <div>
                       <div className="rounded-secondary px-2 py-1 whitespace-pre-line">
                         {album.personnel.notes}
@@ -261,57 +271,21 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
           </div>
         ) : null}
         {album.honorableMentions?.length ? (
-          <div className="pt-1">
-            <div className="flex flex-col bg-background p-2 rounded-primary">
-              <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-1.5">
-                {album.honorableMentions.length === 1
-                  ? t(($) => $.albums.honorable_mention)
-                  : t(($) => $.albums.honorable_mentions)}
-              </p>
-              <div className="flex gap-2 overflow-x-auto">
-                {album.honorableMentions.map((mention) => {
-                  const cover = mention.art?.[0];
-                  return (
-                    <button
-                      key={mention.id}
-                      type="button"
-                      onClick={() => openMention(mention)}
-                      className="relative w-40 h-40 shrink-0 cursor-pointer text-left"
-                    >
-                      {cover ? (
-                        <Image
-                          src={`/albums/${cover}`}
-                          alt={t(($) => $.albums.cover_art, { album: mention.album })}
-                          width={160}
-                          height={160}
-                          style={{ height: "auto" }}
-                          className="w-40 h-40 rounded-secondary object-cover"
-                        />
-                      ) : (
-                        <div className="w-40 h-40 rounded-secondary bg-card" />
-                      )}
-                      <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
-                        <Chip
-                          text={String(mention.year)}
-                          className="bg-background/70 backdrop-blur-sm text-xs tabular-nums"
-                        />
-                        <Chip
-                          text={mention.album}
-                          className="max-w-full bg-background/70 backdrop-blur-sm text-xs"
-                        />
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+          <AlbumStrip
+            albums={album.honorableMentions}
+            title={
+              album.honorableMentions.length === 1
+                ? t(($) => $.music.albums.honorable_mention)
+                : t(($) => $.music.albums.honorable_mentions)
+            }
+            onSelect={openMention}
+          />
         ) : null}
         <Modal
           className="bg-background"
           open={imageModalOpen}
           onClose={closeModal}
-          title={t(($) => $.albums.cover_art, { album: album.album })}
+          title={t(($) => $.music.albums.cover_art, { album: album.album })}
         >
           {selectedImage ? (
             <div className="relative">
@@ -342,7 +316,9 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
           ) : null}
         </Modal>
         <AlbumCardModal album={selectedMention} onClose={closeMention} />
-        <ArtistCardModal artist={selectedArtist} onClose={closeArtist} />
+        {musicList === MusicLists.albums ? (
+          <ArtistCardModal artist={selectedArtist} albums={[album]} onClose={closeArtist} />
+        ) : null}
       </div>
     </div>
   );

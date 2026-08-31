@@ -1,3 +1,20 @@
+import type { Album } from "@/types/album";
+
+/** Flatten ranked and honorable mention albums */
+export const artistAlbums = (albums: Array<Album>, artistId: string): Array<Album> => {
+  const byId = new Map<string, Album>();
+
+  for (const album of albums) {
+    for (const entry of [album, ...(album.honorableMentions ?? [])]) {
+      if (entry.artistId !== artistId || byId.has(entry.id)) continue;
+      const { honorableMentions, ...rest } = entry;
+      byId.set(entry.id, rest);
+    }
+  }
+
+  return Array.from(byId.values()).sort((a, b) => a.year - b.year);
+};
+
 export const parseRuntimeSeconds = (runtime: string): number => {
   const parts = runtime.split(":").map(Number);
   if (parts.length === 3) {

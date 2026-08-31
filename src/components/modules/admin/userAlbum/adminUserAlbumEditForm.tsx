@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -103,7 +103,7 @@ export function AdminUserAlbumEditForm({
             <Image
               key={aa}
               src={`/albums/${aa}`}
-              alt={t(($) => $.albums.cover_art, { album: album.album })}
+              alt={t(($) => $.music.albums.cover_art, { album: album.album })}
               width={64}
               height={64}
               style={{ height: "auto" }}
@@ -119,9 +119,11 @@ export function AdminUserAlbumEditForm({
           <p className="text-sm text-muted-foreground truncate">{album.artist.artist}</p>
           <div className="flex items-center gap-2 mt-1 flex-wrap">
             {userAlbum?.rank ? (
-              <Chip text={`${t(($) => $.albums.filter_rank)}: ${userAlbum.rank}`} />
+              <Chip text={`${t(($) => $.music.filter.rank)}: ${userAlbum.rank}`} />
             ) : null}
-            {userAlbum?.honorable ? <Chip text={t(($) => $.albums.honorable_mention)} /> : null}
+            {userAlbum?.honorable ? (
+              <Chip text={t(($) => $.music.albums.honorable_mention)} />
+            ) : null}
           </div>
         </div>
       </div>
@@ -129,7 +131,7 @@ export function AdminUserAlbumEditForm({
       <Form onSubmit={handleSubmit} className="w-full">
         <fieldset disabled={submitting} className="flex min-w-0 flex-col gap-2">
           <FormField name="trackId">
-            <FormLabel>{t(($) => $.albums.favorite_track)}</FormLabel>
+            <FormLabel>{t(($) => $.music.albums.favorite_track)}</FormLabel>
             <div className="flex items-center gap-2">
               <Select
                 variant={variant}

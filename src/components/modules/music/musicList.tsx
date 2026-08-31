@@ -1,14 +1,17 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCard from "@/components/modules/album/albumCard";
-import { AlbumFilter } from "@/components/modules/album/albumFilter";
 import AlbumGridItem from "@/components/modules/album/albumGridItem";
-import { AlbumViewToggle } from "@/components/modules/album/albumViewToggle";
-import { RankBadge } from "@/components/modules/album/rankBadge";
+import ArtistCard from "@/components/modules/artist/artistCard";
+import ArtistGridItem from "@/components/modules/artist/artistGridItem";
+import { MusicFilter } from "@/components/modules/music/musicFilter";
+import { MusicViewToggle } from "@/components/modules/music/musicViewToggle";
+import { RankBadge, type RankRow } from "@/components/modules/music/rankBadge";
 import { ScrollToTopFab } from "@/components/modules/scrollToTopFab";
 import { useScrollAncestor } from "@/hooks/useScrollAncestor";
+import { indexUnderLine } from "@/lib/dom";
 import {
   albumBounds,
   ChipFields,
@@ -16,14 +19,14 @@ import {
   fieldMatches,
   matchesRanges,
   selectedValuesForField,
-} from "@/lib/albumFilter";
-import { indexUnderLine } from "@/lib/dom";
+} from "@/lib/musicFilter";
 import { cn } from "@/lib/utils";
-import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
+import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
 import type { Album } from "@/types/album";
-import { Views } from "@/types/settings";
+import type { Artist } from "@/types/artist";
+import { MusicLists, Views } from "@/types/settings";
 
-type AlbumListProps = {
+type MusicListProps = {
   albums: Array<Album>;
   title: string;
   subtitle?: string;
@@ -35,8 +38,8 @@ type AlbumListProps = {
  * animate out; `index` is the active card at the last swap, which gives the next swap its direction.
  */
 type RankSlide = {
-  album: Album | null;
-  previous?: Album | null;
+  row: RankRow | null;
+  previous?: RankRow | null;
   direction: 1 | -1;
   index: number;
   seq: number;
@@ -46,7 +49,7 @@ const EMPTY_SET = new Set<string>();
 
 const SCROLL_THRESHOLD_PX = 96;
 
-export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps) {
+export function MusicList({ albums, title, subtitle, filterKey }: MusicListProps) {
   const { t } = useTranslation();
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -57,15 +60,16 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
   const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const view = useAlbumFilterStore((s) => s.view);
-  const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
-  const storedRankRange = useAlbumFilterStore((s) => s.rankRangeByList[filterKey]);
-  const storedYearRange = useAlbumFilterStore((s) => s.yearRangeByList[filterKey]);
-  const storedRuntimeRange = useAlbumFilterStore((s) => s.runtimeRangeByList[filterKey]);
+  const view = useMusicFilterStore((s) => s.view);
+  const musicList = useMusicFilterStore((s) => s.musicList);
+  const selected = useMusicFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
+  const storedRankRange = useMusicFilterStore((s) => s.rankRangeByList[filterKey]);
+  const storedYearRange = useMusicFilterStore((s) => s.yearRangeByList[filterKey]);
+  const storedRuntimeRange = useMusicFilterStore((s) => s.runtimeRangeByList[filterKey]);
   const genreMode =
-    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.genre]) ?? ChipModes.or;
+    useMusicFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.genre]) ?? ChipModes.or;
   const labelMode =
-    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.label]) ?? ChipModes.or;
+    useMusicFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.label]) ?? ChipModes.or;
 
   const bounds = useMemo(() => albumBounds(albums), [albums]);
 
@@ -87,6 +91,44 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
     [albums, genreValues, genreMode, labelValues, labelMode, rankRange, yearRange, runtimeRange],
   );
 
+  const showArtists = musicList === MusicLists.artists;
+
+  const filteredArtists = useMemo(() => {
+    const byId = new Map<string, { artist: Artist; rank?: number }>();
+    for (const album of filteredAlbums) {
+      if (!byId.has(album.artistId)) {
+        byId.set(album.artistId, {
+          artist: album.artist,
+          rank: album.userAlbum?.rank ?? undefined,
+        });
+      }
+    }
+    return Array.from(byId.values());
+  }, [filteredAlbums]);
+
+  const rows = useMemo<Array<RankRow>>(
+    () =>
+      showArtists
+        ? filteredArtists.map(({ artist, rank }) => ({ id: artist.id, rank, title: artist.artist }))
+        : filteredAlbums.map((album) => ({
+            id: album.id,
+            rank: album.userAlbum?.rank ?? undefined,
+            title: album.album,
+            subtitle: album.artist.artist,
+          })),
+    [showArtists, filteredArtists, filteredAlbums],
+  );
+
+  const registerCard = (id: string) => (node: HTMLDivElement | null) => {
+    if (node) {
+      cardRefs.current.set(id, node);
+    }
+
+    return () => {
+      cardRefs.current.delete(id);
+    };
+  };
+
   useEffect(() => {
     if (!scrollAncestor) return;
 
@@ -97,9 +139,9 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
       // The badge is hidden in grid view, so skip measuring until a toggle back to list re-runs this
       // effect against the taller cards.
       const header = headerRef.current;
-      if (!header || view === Views.grid || filteredAlbums.length === 0) return;
+      if (!header || view === Views.grid || rows.length === 0) return;
 
-      const cards = filteredAlbums.map((album) => cardRefs.current.get(album.id));
+      const cards = rows.map((row) => cardRefs.current.get(row.id));
       setActiveIndex(indexUnderLine(cards, header.getBoundingClientRect().bottom));
     };
 
@@ -115,22 +157,38 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
       scrollAncestor.removeEventListener("scroll", onScroll);
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
     };
-  }, [scrollAncestor, filteredAlbums, view]);
+  }, [scrollAncestor, rows, view]);
 
-  const activeAlbum = filteredAlbums[activeIndex] ?? null;
+  const isGrid = view === Views.grid;
+  const ArtistItem = isGrid ? ArtistGridItem : ArtistCard;
+  const AlbumItem = isGrid ? AlbumGridItem : AlbumCard;
+
+  const cards = showArtists
+    ? filteredArtists.map(({ artist, rank }) => (
+        <div key={artist.id} ref={registerCard(artist.id)}>
+          <ArtistItem artist={artist} albums={albums} rank={rank} />
+        </div>
+      ))
+    : filteredAlbums.map((album) => (
+        <div key={album.id} ref={registerCard(album.id)}>
+          <AlbumItem album={album} />
+        </div>
+      ));
+
+  const activeRow = rows[activeIndex] ?? null;
 
   const [slide, setSlide] = useState<RankSlide>({
-    album: activeAlbum,
+    row: activeRow,
     direction: 1,
     index: activeIndex,
     seq: 0,
   });
 
   // Swap during render so the outgoing and incoming badges start their animations on the same frame.
-  if (slide.album?.id !== activeAlbum?.id) {
+  if (slide.row?.id !== activeRow?.id) {
     setSlide({
-      album: activeAlbum,
-      previous: slide.album,
+      row: activeRow,
+      previous: slide.row,
       direction: activeIndex >= slide.index ? 1 : -1,
       index: activeIndex,
       seq: slide.seq + 1,
@@ -166,9 +224,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
             aria-hidden
             className={cn(
               "grid transition-[grid-template-rows,opacity] duration-500 ease-out",
-              scrolled && view !== Views.grid
-                ? "grid-rows-[1fr] opacity-100"
-                : "grid-rows-[0fr] opacity-0",
+              scrolled && !isGrid ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
             )}
           >
             <div className="min-h-0 overflow-hidden text-theme-600">
@@ -180,7 +236,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
                     slide.direction === 1 ? "slide-in-from-bottom-4" : "slide-in-from-top-4",
                   )}
                 >
-                  <RankBadge album={slide.album} />
+                  <RankBadge row={slide.row} />
                 </div>
 
                 {slide.previous !== undefined ? (
@@ -191,7 +247,7 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
                       slide.direction === 1 ? "slide-out-to-top-4" : "slide-out-to-bottom-4",
                     )}
                   >
-                    <RankBadge album={slide.previous} />
+                    <RankBadge row={slide.previous} />
                   </div>
                 ) : null}
               </div>
@@ -199,39 +255,26 @@ export function AlbumList({ albums, title, subtitle, filterKey }: AlbumListProps
           </div>
         </div>
         <div className="shrink-0 pr-2">
-          <AlbumViewToggle scrolled={scrolled} />
+          <MusicViewToggle scrolled={scrolled} />
         </div>
         <div className="shrink-0 pr-2">
-          <AlbumFilter albums={albums} filterKey={filterKey} scrolled={scrolled} />
+          <MusicFilter albums={albums} filterKey={filterKey} scrolled={scrolled} />
         </div>
       </div>
 
       {filteredAlbums.length === 0 ? (
-        <p className="mt-3 text-sm text-muted-foreground px-1">{t(($) => $.albums.no_results)}</p>
+        <p className="mt-3 text-sm text-muted-foreground px-1">
+          {t(($) => $.music.filter.no_results)}
+        </p>
       ) : null}
 
       <div
         className={cn(
           "mt-3 gap-3 pb-11.5 sm:pb-13.5 lg:pb-15.5",
-          view === Views.grid ? "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : "flex flex-col",
+          isGrid ? "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : "flex flex-col",
         )}
       >
-        {filteredAlbums.map((album) => (
-          <div
-            key={album.id}
-            ref={(node) => {
-              if (node) {
-                cardRefs.current.set(album.id, node);
-              }
-
-              return () => {
-                cardRefs.current.delete(album.id);
-              };
-            }}
-          >
-            {view === Views.grid ? <AlbumGridItem album={album} /> : <AlbumCard album={album} />}
-          </div>
-        ))}
+        {cards}
       </div>
 
       <ScrollToTopFab />
