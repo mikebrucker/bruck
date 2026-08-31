@@ -38,6 +38,7 @@
     "members": "Mitglieder",
     "former_members": "Ehemalige Mitglieder",
     "notes": "Notizen",
+    "logo": "{{artist}} Logo",
     "photo": "{{artist}} Foto",
     "open_artist": "{{artist}} Details öffnen"
   },

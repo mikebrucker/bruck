@@ -59,11 +59,11 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
           />
           <Chip
             text={album.album}
-            className="max-w-full bg-background/70 backdrop-blur-sm text-xs"
+            className="max-w-full bg-background/70 backdrop-blur-sm font-bold"
           />
           <Chip
             text={album.artist.artist}
-            className="max-w-full bg-background/70 backdrop-blur-sm text-xs"
+            className="max-w-full bg-background/70 backdrop-blur-sm"
           />
         </div>
       </button>
