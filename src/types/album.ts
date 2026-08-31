@@ -8,6 +8,7 @@ export type Role =
   | "Acoustic Guitar"
   | "Additional Bass"
   | "Additional Composition"
+  | "Additional Drums"
   | "Additional Engineer"
   | "Additional Keyboards"
   | "Additional Producer"
@@ -284,6 +285,7 @@ export interface Album {
   artist: Artist;
   /** Per-user data joined in AlbumRepository.getRanked */
   userAlbum?: UserAlbum;
+  inheritedRank?: number;
   /** Resolved from userAlbum.trackId in AlbumRepository.getRanked; undefined when unset or stale */
   favoriteTrack?: Track;
 }

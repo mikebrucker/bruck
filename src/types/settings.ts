@@ -76,6 +76,13 @@ export const MusicLists = {
 export type MusicList = keyof typeof MusicLists;
 export const musicLists: Array<MusicList> = Object.values(MusicLists);
 
+export const AlbumViews = {
+  ranked: "ranked",
+  all: "all",
+} as const;
+export type AlbumView = keyof typeof AlbumViews;
+export const albumViews: Array<AlbumView> = Object.values(AlbumViews);
+
 export const Sides = {
   left: "left",
   right: "right",

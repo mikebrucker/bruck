@@ -42,11 +42,13 @@ export const albumBounds = (albums: Array<Album>): AlbumRanges => {
   if (albums.length === 0) {
     return { rankRange: [1, 1], yearRange: [0, 0], runtimeRange: [0, 0] };
   }
+  let maxRank = 1;
   let minYear = Number.POSITIVE_INFINITY;
   let maxYear = Number.NEGATIVE_INFINITY;
   let minRuntime = Number.POSITIVE_INFINITY;
   let maxRuntime = Number.NEGATIVE_INFINITY;
   for (const album of albums) {
+    maxRank = Math.max(maxRank, album.userAlbum?.rank ?? album.inheritedRank ?? 1);
     minYear = Math.min(minYear, album.year);
     maxYear = Math.max(maxYear, album.year);
     const seconds = parseRuntimeSeconds(album.runtime);
@@ -54,15 +56,20 @@ export const albumBounds = (albums: Array<Album>): AlbumRanges => {
     maxRuntime = Math.max(maxRuntime, seconds);
   }
   return {
-    rankRange: [1, albums.length],
+    rankRange: [1, maxRank],
     yearRange: [minYear, maxYear],
     runtimeRange: [minRuntime, maxRuntime],
   };
 };
 
-/** Rank/year/runtime gate. Albums without a rank ignore the rank range. */
+export const albumYears = (albums: Array<Album>): Array<number> =>
+  new Set(albums.map((album) => album.year))
+    .values()
+    .toArray()
+    .sort((a, b) => a - b);
+
 export const matchesRanges = (album: Album, ranges: AlbumRanges): boolean => {
-  const rank = album.userAlbum?.rank ?? null;
+  const rank = album.userAlbum?.rank ?? album.inheritedRank ?? null;
   const rankOk = rank === null || (rank >= ranges.rankRange[0] && rank <= ranges.rankRange[1]);
   const yearOk = album.year >= ranges.yearRange[0] && album.year <= ranges.yearRange[1];
   const runtimeSeconds = parseRuntimeSeconds(album.runtime);

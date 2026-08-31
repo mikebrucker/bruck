@@ -1,6 +1,13 @@
 import { type ChipField, type ChipMode, ChipModes, chipPrefix } from "@/lib/musicFilter";
 import { createHmrStore } from "@/stores/createHmrStore";
-import { type MusicList, MusicLists, type View, Views } from "@/types/settings";
+import {
+  type AlbumView,
+  AlbumViews,
+  type MusicList,
+  MusicLists,
+  type View,
+  Views,
+} from "@/types/settings";
 
 type MusicFilterState = {
   selectedByList: Record<string, Set<string>>;
@@ -10,6 +17,7 @@ type MusicFilterState = {
   chipModeByList: Record<string, Partial<Record<ChipField, ChipMode>>>;
   view: View;
   musicList: MusicList;
+  albumView: AlbumView;
   toggleFilter: (listKey: string, filterKey: string) => void;
   clearChipField: (listKey: string, field: ChipField) => void;
   setRankRange: (listKey: string, range: [number, number]) => void;
@@ -18,6 +26,7 @@ type MusicFilterState = {
   toggleChipMode: (listKey: string, field: ChipField) => void;
   setView: (view: View) => void;
   setMusicList: (musicList: MusicList) => void;
+  setAlbumView: (albumView: AlbumView) => void;
 };
 
 const applyView = (view: View) => {
@@ -26,6 +35,10 @@ const applyView = (view: View) => {
 
 const applyMusicList = (musicList: MusicList) => {
   localStorage.setItem("musicList", musicList);
+};
+
+const applyAlbumView = (albumView: AlbumView) => {
+  localStorage.setItem("albumView", albumView);
 };
 
 export const useMusicFilterStore = createHmrStore<MusicFilterState>(
@@ -38,6 +51,7 @@ export const useMusicFilterStore = createHmrStore<MusicFilterState>(
     "chipModeByList",
     "view",
     "musicList",
+    "albumView",
   ],
   (set, get) => ({
     selectedByList: {},
@@ -47,6 +61,7 @@ export const useMusicFilterStore = createHmrStore<MusicFilterState>(
     chipModeByList: {},
     view: Views.list,
     musicList: MusicLists.albums,
+    albumView: AlbumViews.ranked,
     toggleFilter: (listKey, filterKey) => {
       const current = get().selectedByList[listKey] ?? new Set<string>();
       const next = new Set(current);
@@ -88,6 +103,10 @@ export const useMusicFilterStore = createHmrStore<MusicFilterState>(
     setMusicList: (musicList) => {
       applyMusicList(musicList);
       set({ musicList });
+    },
+    setAlbumView: (albumView) => {
+      applyAlbumView(albumView);
+      set({ albumView });
     },
   }),
 );

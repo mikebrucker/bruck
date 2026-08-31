@@ -49,7 +49,9 @@
       "view_list": "Liste",
       "view_grid": "Raster",
       "show_albums": "Alben",
-      "show_artists": "Künstler"
+      "show_artists": "Künstler",
+      "albums_ranked": "Bewertet",
+      "albums_all": "Alle"
     }
   },
   "about": {

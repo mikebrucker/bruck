@@ -1,8 +1,10 @@
 ﻿"use client";
 
 import {
+  Album01Icon,
   GridViewIcon,
   ListViewIcon,
+  RankingIcon,
   UserGroup03Icon,
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
@@ -13,7 +15,14 @@ import { Popover } from "@/components/ui/popover";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
-import { type MusicList, MusicLists, type View, Views } from "@/types/settings";
+import {
+  type AlbumView,
+  AlbumViews,
+  type MusicList,
+  MusicLists,
+  type View,
+  Views,
+} from "@/types/settings";
 
 type MusicViewToggleProps = {
   scrolled: boolean;
@@ -27,12 +36,18 @@ function isMusicList(value: string): value is MusicList {
   return value in MusicLists;
 }
 
+function isAlbumView(value: string): value is AlbumView {
+  return value in AlbumViews;
+}
+
 export function MusicViewToggle({ scrolled }: MusicViewToggleProps) {
   const { t } = useTranslation();
   const view = useMusicFilterStore((s) => s.view);
   const setView = useMusicFilterStore((s) => s.setView);
   const musicList = useMusicFilterStore((s) => s.musicList);
   const setMusicList = useMusicFilterStore((s) => s.setMusicList);
+  const albumView = useMusicFilterStore((s) => s.albumView);
+  const setAlbumView = useMusicFilterStore((s) => s.setAlbumView);
 
   return (
     <Popover
@@ -118,6 +133,39 @@ export function MusicViewToggle({ scrolled }: MusicViewToggleProps) {
           </ToggleGroupItem>
         </ToggleGroup>
       </div>
+      {musicList === MusicLists.albums ? (
+        <div className="flex justify-center px-2">
+          <ToggleGroup
+            type="single"
+            variant="outline"
+            size="lg"
+            className="bg-background"
+            value={albumView}
+            onValueChange={(next) => {
+              if (isAlbumView(next)) setAlbumView(next);
+            }}
+          >
+            <ToggleGroupItem
+              value={AlbumViews.ranked}
+              icon={RankingIcon}
+              iconClassName="size-5"
+              className="flex-1 basis-0 min-w-0 data-[state=on]:bg-theme-800 data-[state=on]:border-theme-700"
+              aria-label={t(($) => $.music.filter.albums_ranked)}
+            >
+              {t(($) => $.music.filter.albums_ranked)}
+            </ToggleGroupItem>
+            <ToggleGroupItem
+              value={AlbumViews.all}
+              icon={Album01Icon}
+              iconClassName="size-5"
+              className="flex-1 basis-0 min-w-0 data-[state=on]:bg-theme-800 data-[state=on]:border-theme-700"
+              aria-label={t(($) => $.music.filter.albums_all)}
+            >
+              {t(($) => $.music.filter.albums_all)}
+            </ToggleGroupItem>
+          </ToggleGroup>
+        </div>
+      ) : null}
     </Popover>
   );
 }

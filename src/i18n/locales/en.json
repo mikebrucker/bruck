@@ -49,7 +49,9 @@
       "view_list": "List",
       "view_grid": "Grid",
       "show_albums": "Albums",
-      "show_artists": "Artists"
+      "show_artists": "Artists",
+      "albums_ranked": "Ranked",
+      "albums_all": "All"
     }
   },
   "about": {

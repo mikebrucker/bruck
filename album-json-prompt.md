@@ -1,6 +1,6 @@
 # Album JSON generator prompt
 
-Reusable prompt for generating album upload JSON for [adminAlbumJsonUpload.tsx](src/components/modules/album/admin/adminAlbumJsonUpload.tsx).
+Reusable prompt for generating album upload JSON for [adminAlbumJsonUpload.tsx](src/components/modules/admin/album/adminAlbumJsonUpload.tsx).
 
 ```
 Generate album JSON for: {ARTIST} - {ALBUM}
@@ -10,7 +10,7 @@ Look up the real release on Wikipedia (or Discogs/RYM if Wikipedia lacks it): ye
 Output ONE JSON object matching this shape (matches albumCreateSchema in src/data/albumSchema.ts, strict — no extra keys):
 
 {
-  "artistId": string,     // the artist's slug from the artists table, e.g. "the_faceless" — snake_case of the display name. If the artist is missing from the KnownArtist union in src/types/album.ts, it does not exist yet: also run artist-json-prompt.md for it and give me that artist JSON block first, to upload in the admin Artist tab before the album
+  "artistId": string,     // the artist's slug from the artists table, e.g. "the_faceless" — snake_case of the display name. If the artist is missing from the KnownArtist union in src/types/artist.ts, it does not exist yet: also run artist-json-prompt.md for it and give me that artist JSON block first, to upload in the admin Artist tab before the album
   "album": string,
   "year": number,
   "label": [string, ...], // every label that released it, primary first, check RecordLabel type for normalization
@@ -40,7 +40,7 @@ Reference types (src/types/album.ts) - update them, do not just report:
 - Any label, genre or role you use that is missing from RecordLabel / Genre / Role gets added to that union in src/types/album.ts.
 - Insert alphabetically for RecordLabel and Genre; Role stays grouped by kind (vocals, guitar, bass, drums, keys, strings/other, production, art) - put the new value in its group.
 - Do not add a near-duplicate of an existing member ("Guitars" when "Guitar" exists, "Mixing" when "Mixer" exists) - normalize the JSON to the existing value instead.
-- Also add the artist to the KnownArtist union if it is missing.
+- Also add the artist to the KnownArtist union in src/types/artist.ts if it is missing.
 - After editing, list what you added to which union.
 Give me only the final JSON in a code block, ready to paste into the admin upload form.
 ```

@@ -11,6 +11,7 @@ import { MusicViewToggle } from "@/components/modules/music/musicViewToggle";
 import { RankBadge, type RankRow } from "@/components/modules/music/rankBadge";
 import { ScrollToTopFab } from "@/components/modules/scrollToTopFab";
 import { useScrollAncestor } from "@/hooks/useScrollAncestor";
+import { flattenAlbums } from "@/lib/album";
 import { indexUnderLine } from "@/lib/dom";
 import {
   albumBounds,
@@ -24,7 +25,7 @@ import { cn } from "@/lib/utils";
 import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
 import type { Album } from "@/types/album";
 import type { Artist } from "@/types/artist";
-import { MusicLists, Views } from "@/types/settings";
+import { AlbumViews, MusicLists, Views } from "@/types/settings";
 
 type MusicListProps = {
   albums: Array<Album>;
@@ -62,6 +63,7 @@ export function MusicList({ albums, title, subtitle, filterKey }: MusicListProps
 
   const view = useMusicFilterStore((s) => s.view);
   const musicList = useMusicFilterStore((s) => s.musicList);
+  const albumView = useMusicFilterStore((s) => s.albumView);
   const selected = useMusicFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
   const storedRankRange = useMusicFilterStore((s) => s.rankRangeByList[filterKey]);
   const storedYearRange = useMusicFilterStore((s) => s.yearRangeByList[filterKey]);
@@ -71,7 +73,14 @@ export function MusicList({ albums, title, subtitle, filterKey }: MusicListProps
   const labelMode =
     useMusicFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.label]) ?? ChipModes.or;
 
-  const bounds = useMemo(() => albumBounds(albums), [albums]);
+  const showArtists = musicList === MusicLists.artists;
+
+  const sourceAlbums = useMemo(
+    () => (!showArtists && albumView === AlbumViews.all ? flattenAlbums(albums) : albums),
+    [albums, showArtists, albumView],
+  );
+
+  const bounds = useMemo(() => albumBounds(sourceAlbums), [sourceAlbums]);
 
   const rankRange = storedRankRange ?? bounds.rankRange;
   const yearRange = storedYearRange ?? bounds.yearRange;
@@ -82,16 +91,23 @@ export function MusicList({ albums, title, subtitle, filterKey }: MusicListProps
 
   const filteredAlbums = useMemo(
     () =>
-      albums.filter(
+      sourceAlbums.filter(
         (album) =>
           fieldMatches(genreValues, genreMode, album.genre) &&
           fieldMatches(labelValues, labelMode, album.label) &&
           matchesRanges(album, { rankRange, yearRange, runtimeRange }),
       ),
-    [albums, genreValues, genreMode, labelValues, labelMode, rankRange, yearRange, runtimeRange],
+    [
+      sourceAlbums,
+      genreValues,
+      genreMode,
+      labelValues,
+      labelMode,
+      rankRange,
+      yearRange,
+      runtimeRange,
+    ],
   );
-
-  const showArtists = musicList === MusicLists.artists;
 
   const filteredArtists = useMemo(() => {
     const byId = new Map<string, { artist: Artist; rank?: number }>();
@@ -258,7 +274,7 @@ export function MusicList({ albums, title, subtitle, filterKey }: MusicListProps
           <MusicViewToggle scrolled={scrolled} />
         </div>
         <div className="shrink-0 pr-2">
-          <MusicFilter albums={albums} filterKey={filterKey} scrolled={scrolled} />
+          <MusicFilter albums={sourceAlbums} filterKey={filterKey} scrolled={scrolled} />
         </div>
       </div>
 

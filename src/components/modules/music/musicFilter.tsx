@@ -17,6 +17,7 @@ import { Slider } from "@/components/ui/slider";
 import { formatRuntimeSeconds } from "@/lib/album";
 import {
   albumBounds,
+  albumYears,
   type ChipField,
   ChipFields,
   type ChipMode,
@@ -57,6 +58,7 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
   const clearChipField = useMusicFilterStore((s) => s.clearChipField);
 
   const bounds = useMemo(() => albumBounds(albums), [albums]);
+  const yearSteps = useMemo(() => albumYears(albums), [albums]);
 
   const rankRange = storedRankRange ?? bounds.rankRange;
   const yearRange = storedYearRange ?? bounds.yearRange;
@@ -311,9 +313,9 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
           className="w-full"
           label={t(($) => $.music.filter.year)}
           thumbLabels={rangeThumbLabels(t(($) => $.music.filter.year))}
-          min={bounds.yearRange[0]}
-          max={bounds.yearRange[1]}
+          steps={yearSteps}
           value={yearRange}
+          showSteps
           onValueChange={(range) => {
             if (range.length === 2) setYearRange(filterKey, range);
           }}
