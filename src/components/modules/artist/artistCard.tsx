@@ -217,6 +217,7 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
                 alt=""
                 width={1024}
                 height={1024}
+                sizes="100vw"
                 style={{ height: "auto" }}
                 className="w-full max-h-screen object-contain"
               />
