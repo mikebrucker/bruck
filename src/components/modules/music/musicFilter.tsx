@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   Bone01Icon,
@@ -25,12 +25,12 @@ import {
   fieldMatches,
   matchesRanges,
   selectedValuesForField,
-} from "@/lib/albumFilter";
+} from "@/lib/musicFilter";
 import { cn, distinctSorted } from "@/lib/utils";
-import { useAlbumFilterStore } from "@/stores/useAlbumFilterStore";
+import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
 import type { Album } from "@/types/album";
 
-type AlbumFilterProps = {
+type MusicFilterProps = {
   albums: Array<Album>;
   filterKey: string;
   scrolled: boolean;
@@ -38,23 +38,23 @@ type AlbumFilterProps = {
 
 const EMPTY_SET = new Set<string>();
 
-export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
+export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
   const { t } = useTranslation();
 
-  const selected = useAlbumFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
-  const toggleFilter = useAlbumFilterStore((s) => s.toggleFilter);
-  const storedRankRange = useAlbumFilterStore((s) => s.rankRangeByList[filterKey]);
-  const setRankRange = useAlbumFilterStore((s) => s.setRankRange);
-  const storedYearRange = useAlbumFilterStore((s) => s.yearRangeByList[filterKey]);
-  const setYearRange = useAlbumFilterStore((s) => s.setYearRange);
-  const storedRuntimeRange = useAlbumFilterStore((s) => s.runtimeRangeByList[filterKey]);
-  const setRuntimeRange = useAlbumFilterStore((s) => s.setRuntimeRange);
+  const selected = useMusicFilterStore((s) => s.selectedByList[filterKey] ?? EMPTY_SET);
+  const toggleFilter = useMusicFilterStore((s) => s.toggleFilter);
+  const storedRankRange = useMusicFilterStore((s) => s.rankRangeByList[filterKey]);
+  const setRankRange = useMusicFilterStore((s) => s.setRankRange);
+  const storedYearRange = useMusicFilterStore((s) => s.yearRangeByList[filterKey]);
+  const setYearRange = useMusicFilterStore((s) => s.setYearRange);
+  const storedRuntimeRange = useMusicFilterStore((s) => s.runtimeRangeByList[filterKey]);
+  const setRuntimeRange = useMusicFilterStore((s) => s.setRuntimeRange);
   const genreMode =
-    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.genre]) ?? ChipModes.or;
+    useMusicFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.genre]) ?? ChipModes.or;
   const labelMode =
-    useAlbumFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.label]) ?? ChipModes.or;
-  const toggleChipMode = useAlbumFilterStore((s) => s.toggleChipMode);
-  const clearChipField = useAlbumFilterStore((s) => s.clearChipField);
+    useMusicFilterStore((s) => s.chipModeByList[filterKey]?.[ChipFields.label]) ?? ChipModes.or;
+  const toggleChipMode = useMusicFilterStore((s) => s.toggleChipMode);
+  const clearChipField = useMusicFilterStore((s) => s.clearChipField);
 
   const bounds = useMemo(() => albumBounds(albums), [albums]);
 
@@ -124,15 +124,15 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
   const noOptionsText = (field: ChipField): string => {
     switch (field) {
       case ChipFields.genre:
-        return t(($) => $.albums.filter_no_genres);
+        return t(($) => $.music.filter.no_genres);
       case ChipFields.label:
-        return t(($) => $.albums.filter_no_labels);
+        return t(($) => $.music.filter.no_labels);
     }
   };
 
   const rangeThumbLabels = (field: string): Array<string> => [
-    t(($) => $.albums.filter_minimum, { field }),
-    t(($) => $.albums.filter_maximum, { field }),
+    t(($) => $.music.filter.minimum, { field }),
+    t(($) => $.music.filter.maximum, { field }),
   ];
 
   const chipStateClassName = (disabled: boolean, active: boolean) => {
@@ -150,10 +150,8 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
     selectedValues: Array<string>,
   ) => {
     const modeText =
-      mode === ChipModes.and
-        ? t(($) => $.albums.filter_mode_and)
-        : t(($) => $.albums.filter_mode_or);
-    const clearText = t(($) => $.albums.filter_clear);
+      mode === ChipModes.and ? t(($) => $.music.filter.mode_and) : t(($) => $.music.filter.mode_or);
+    const clearText = t(($) => $.music.filter.clear);
     return (
       <Accordion
         key={field}
@@ -232,12 +230,12 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
     <Popover
       useCloseButton
       className="w-[90vw] max-w-120 max-h-[70dvh] overflow-y-auto flex flex-col gap-3 p-3 pb-4 translate-x-4 sm:translate-x-6"
-      title={t(($) => $.albums.filter)}
+      title={t(($) => $.music.filter.title)}
       trigger={
         <Button
           size={scrolled ? "icon" : "icon-lg"}
           variant="outline"
-          aria-label={t(($) => $.albums.filter)}
+          aria-label={t(($) => $.music.filter.title)}
           className={cn(
             "hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-500 ease-out cursor-pointer",
             hasActiveFilter ? "border-theme-600 text-theme-600 hover:text-theme-600" : null,
@@ -257,7 +255,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
     >
       {filterRow(
         ChipFields.genre,
-        t(($) => $.albums.filter_genre),
+        t(($) => $.music.filter.genre),
         genreOptions,
         genreInRange,
         genreMode,
@@ -265,7 +263,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
       )}
       {filterRow(
         ChipFields.label,
-        t(($) => $.albums.filter_label),
+        t(($) => $.music.filter.label),
         labelOptions,
         labelInRange,
         labelMode,
@@ -278,7 +276,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
             {rankRange[0]}
           </span>
           <span className="text-center text-xs font-medium text-muted-foreground">
-            {t(($) => $.albums.filter_rank)}
+            {t(($) => $.music.filter.rank)}
           </span>
           <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
             {rankRange[1]}
@@ -286,8 +284,8 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
-          label={t(($) => $.albums.filter_rank)}
-          thumbLabels={rangeThumbLabels(t(($) => $.albums.filter_rank))}
+          label={t(($) => $.music.filter.rank)}
+          thumbLabels={rangeThumbLabels(t(($) => $.music.filter.rank))}
           min={bounds.rankRange[0]}
           max={bounds.rankRange[1]}
           value={rankRange}
@@ -303,7 +301,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
             {yearRange[0]}
           </span>
           <span className="text-center text-xs font-medium text-muted-foreground">
-            {t(($) => $.albums.filter_year)}
+            {t(($) => $.music.filter.year)}
           </span>
           <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
             {yearRange[1]}
@@ -311,8 +309,8 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
-          label={t(($) => $.albums.filter_year)}
-          thumbLabels={rangeThumbLabels(t(($) => $.albums.filter_year))}
+          label={t(($) => $.music.filter.year)}
+          thumbLabels={rangeThumbLabels(t(($) => $.music.filter.year))}
           min={bounds.yearRange[0]}
           max={bounds.yearRange[1]}
           value={yearRange}
@@ -328,7 +326,7 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
             {formatRuntimeSeconds(runtimeRange[0])}
           </span>
           <span className="text-center text-xs font-medium text-muted-foreground">
-            {t(($) => $.albums.filter_runtime)}
+            {t(($) => $.music.filter.runtime)}
           </span>
           <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
             {formatRuntimeSeconds(runtimeRange[1])}
@@ -336,8 +334,8 @@ export function AlbumFilter({ albums, filterKey, scrolled }: AlbumFilterProps) {
         </div>
         <Slider
           className="w-full"
-          label={t(($) => $.albums.filter_runtime)}
-          thumbLabels={rangeThumbLabels(t(($) => $.albums.filter_runtime))}
+          label={t(($) => $.music.filter.runtime)}
+          thumbLabels={rangeThumbLabels(t(($) => $.music.filter.runtime))}
           min={bounds.runtimeRange[0]}
           max={bounds.runtimeRange[1]}
           value={runtimeRange}

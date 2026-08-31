@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -38,7 +38,7 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
         {cover ? (
           <Image
             src={`/albums/${cover}`}
-            alt={t(($) => $.albums.cover_art, { album: album.album })}
+            alt={t(($) => $.music.albums.cover_art, { album: album.album })}
             width={320}
             height={320}
             className="w-full h-full rounded-secondary object-cover"

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   ChampionIcon,
@@ -351,7 +351,7 @@ export function AdminUserAlbumSortClient() {
                         {cover ? (
                           <Image
                             src={`/albums/${cover}`}
-                            alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                            alt={t(($) => $.music.albums.cover_art, { album: item.album.album })}
                             width={64}
                             height={64}
                             style={{ height: "auto" }}
@@ -393,7 +393,7 @@ export function AdminUserAlbumSortClient() {
 
               <div className="max-w-5xl w-full mx-auto flex flex-col gap-2">
                 <div className="flex items-center p-2 font-medium text-muted-foreground bg-card rounded-primary">
-                  <span>{t(($) => $.albums.unranked_albums)}</span>
+                  <span>{t(($) => $.music.albums.unranked_albums)}</span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-3">
@@ -422,7 +422,7 @@ export function AdminUserAlbumSortClient() {
                             />
                             <Image
                               src={`/albums/${cover}`}
-                              alt={t(($) => $.albums.cover_art, { album: item.album.album })}
+                              alt={t(($) => $.music.albums.cover_art, { album: item.album.album })}
                               fill
                               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                               className="object-contain"
@@ -468,7 +468,7 @@ export function AdminUserAlbumSortClient() {
                           )}
                           <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm rounded-secondary p-2">
                             <label htmlFor={switchId} className="text-2xs cursor-pointer ">
-                              {t(($) => $.albums.honorable)}
+                              {t(($) => $.music.albums.honorable)}
                             </label>
                             <Switch
                               id={switchId}

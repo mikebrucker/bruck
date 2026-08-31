@@ -1,33 +1,46 @@
-"use client";
+﻿"use client";
 
 import { Cancel01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import AlbumCardModal from "@/components/modules/album/albumCardModal";
+import AlbumStrip from "@/components/modules/album/albumStrip";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/ui/loader";
 import { Modal } from "@/components/ui/modal";
+import { artistAlbums } from "@/lib/album";
 import { cn } from "@/lib/utils";
+import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
 import { useStyleStore } from "@/stores/useStyleStore";
-import type { Credit } from "@/types/album";
+import type { Album, Credit } from "@/types/album";
 import type { Artist } from "@/types/artist";
-import { Themes } from "@/types/settings";
+import { MusicLists, Themes } from "@/types/settings";
 
 type ArtistCardProps = {
   artist: Artist;
+  albums?: Array<Album>;
+  rank?: number;
   isModal?: boolean;
   onClose?: () => void;
 };
 
-export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps) {
+export default function ArtistCard({ artist, albums, rank, isModal, onClose }: ArtistCardProps) {
   const { t } = useTranslation();
   const theme = useStyleStore((s) => s.theme);
+  const musicList = useMusicFilterStore((s) => s.musicList);
   const [missing, setMissing] = useState<Array<string>>([]);
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [imageLoading, setImageLoading] = useState(true);
+  const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
+
+  const discography = useMemo(() => artistAlbums(albums ?? [], artist.id), [albums, artist.id]);
+
+  const openAlbum = (album: Album) => setSelectedAlbum(album);
+  const closeAlbum = () => setSelectedAlbum(null);
 
   const openModal = (url: string) => {
     setSelectedImage(url);
@@ -76,8 +89,8 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
       src={src}
       alt={
         slot === ArtistImages.photo
-          ? t(($) => $.artists.photo, { artist: artist.artist })
-          : t(($) => $.artists.logo, { artist: artist.artist })
+          ? t(($) => $.music.artists.photo, { artist: artist.artist })
+          : t(($) => $.music.artists.logo, { artist: artist.artist })
       }
       width={width}
       height={height}
@@ -130,13 +143,21 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
           })}
         </div>
       ) : null}
-      <div className="sm:flex sm:gap-6 sm:items-start">
+      <div className="flex gap-3 flex-col sm:flex-row sm:gap-6 sm:items-start">
         <div className="flex flex-col gap-3 sm:flex-1">
-          <div>
-            <h2 className="text-xl font-bold leading-tight">{artist.artist}</h2>
-            {artist.location ? (
-              <p className="text-muted-foreground font-medium">{artist.location}</p>
+          <div className="flex items-start gap-4">
+            {rank && !isModal ? (
+              <div className="text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono shrink-0">
+                {rank < 10 ? <>&nbsp;</> : ""}
+                {rank}
+              </div>
             ) : null}
+            <div className="min-w-0">
+              <h2 className="text-xl font-bold leading-tight">{artist.artist}</h2>
+              {artist.location ? (
+                <p className="text-muted-foreground font-medium">{artist.location}</p>
+              ) : null}
+            </div>
           </div>
 
           {artist.bio ? <p className="text-sm whitespace-pre-line">{artist.bio}</p> : null}
@@ -172,7 +193,7 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
         <div className="space-y-2">
           {artist.members?.length ? (
             <Accordion
-              title={t(($) => $.artists.members)}
+              title={t(($) => $.music.artists.members)}
               classNames="p-2 rounded-secondary bg-secondary"
             >
               <div className="text-sm">{artist.members.map(creditInfo)}</div>
@@ -180,7 +201,7 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
           ) : null}
           {artist.formerMembers?.length ? (
             <Accordion
-              title={t(($) => $.artists.former_members)}
+              title={t(($) => $.music.artists.former_members)}
               classNames="p-2 rounded-secondary bg-secondary"
               defaultOpen={false}
             >
@@ -190,11 +211,22 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
         </div>
       ) : null}
 
+      {discography.length && musicList === MusicLists.artists ? (
+        <>
+          <AlbumStrip
+            albums={discography}
+            title={t(($) => $.music.artists.albums)}
+            onSelect={openAlbum}
+          />
+          <AlbumCardModal album={selectedAlbum} onClose={closeAlbum} />
+        </>
+      ) : null}
+
       <Modal
         className="bg-background"
         open={imageModalOpen}
         onClose={closeModal}
-        title={t(($) => $.artists.photo, { artist: artist.artist })}
+        title={t(($) => $.music.artists.photo, { artist: artist.artist })}
       >
         {selectedImage ? (
           <div className="relative">
