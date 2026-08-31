@@ -466,11 +466,8 @@ export function AdminUserAlbumSortClient() {
                               <span className="text-xl">+{nextAvailableRank}</span>
                             </Button>
                           )}
-                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm text-foreground rounded-secondary p-2">
-                            <label
-                              htmlFor={switchId}
-                              className="text-2xs text-foreground cursor-pointer "
-                            >
+                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm rounded-secondary p-2">
+                            <label htmlFor={switchId} className="text-2xs cursor-pointer ">
                               {t(($) => $.albums.honorable)}
                             </label>
                             <Switch
@@ -484,11 +481,11 @@ export function AdminUserAlbumSortClient() {
                         <div className="relative min-w-0 flex flex-col items-start gap-1">
                           <Chip
                             text={item.album.album}
-                            className="block max-w-full truncate bg-background/70 text-foreground backdrop-blur-sm"
+                            className="block max-w-full truncate bg-background/70 backdrop-blur-sm font-bold"
                           />
                           <Chip
                             text={item.album.artist.artist}
-                            className="block max-w-full truncate bg-background/70 text-foreground backdrop-blur-sm"
+                            className="block max-w-full truncate bg-background/70 backdrop-blur-sm"
                           />
                         </div>
                       </div>

@@ -41,6 +41,7 @@
     "members": "Members",
     "former_members": "Former Members",
     "notes": "Notes",
+    "logo": "{{artist}} logo",
     "photo": "{{artist}} photo",
     "open_artist": "Open {{artist}} details"
   },

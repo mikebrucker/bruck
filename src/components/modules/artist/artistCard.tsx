@@ -1,14 +1,19 @@
 "use client";
 
-import { Cancel01Icon, UserGroupIcon } from "@hugeicons/core-free-icons";
+import { Cancel01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import Loader from "@/components/ui/loader";
+import { Modal } from "@/components/ui/modal";
 import { cn } from "@/lib/utils";
+import { useStyleStore } from "@/stores/useStyleStore";
 import type { Credit } from "@/types/album";
 import type { Artist } from "@/types/artist";
+import { Themes } from "@/types/settings";
 
 type ArtistCardProps = {
   artist: Artist;
@@ -18,8 +23,71 @@ type ArtistCardProps = {
 
 export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps) {
   const { t } = useTranslation();
+  const theme = useStyleStore((s) => s.theme);
+  const [missing, setMissing] = useState<Array<string>>([]);
+  const [imageModalOpen, setImageModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [imageLoading, setImageLoading] = useState(true);
 
-  const media = artist.media?.filter(Boolean) ?? [];
+  const openModal = (url: string) => {
+    setSelectedImage(url);
+    setImageLoading(true);
+    setImageModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setImageModalOpen(false);
+    setSelectedImage(null);
+    setImageLoading(false);
+  };
+
+  const ArtistImages = {
+    logo: "logo",
+    "logo-light": "logo-light",
+    photo: "photo",
+  } as const;
+
+  const images = Object.values(ArtistImages)
+    .map((slot) => ({ slot, src: `/artists/${artist.id}-${slot}.webp` }))
+    .filter(({ src }) => !missing.includes(src));
+
+  const darkLogo = images.find(({ slot }) => slot === ArtistImages.logo);
+  const lightLogo = images.find(({ slot }) => slot === ArtistImages["logo-light"]);
+  const logo = theme === Themes.light ? (lightLogo ?? darkLogo) : darkLogo;
+  const photos = images.filter(({ slot }) => slot === ArtistImages.photo);
+
+  const artistImage = ({
+    slot,
+    src,
+    width,
+    height,
+    sizes,
+    className,
+  }: {
+    slot: keyof typeof ArtistImages;
+    src: string;
+    width: number;
+    height: number;
+    sizes?: string;
+    className: string;
+  }) => (
+    <Image
+      key={src}
+      src={src}
+      alt={
+        slot === ArtistImages.photo
+          ? t(($) => $.artists.photo, { artist: artist.artist })
+          : t(($) => $.artists.logo, { artist: artist.artist })
+      }
+      width={width}
+      height={height}
+      sizes={sizes}
+      style={{ height: "auto" }}
+      priority
+      onError={() => setMissing((prev) => [...prev, src])}
+      className={className}
+    />
+  );
 
   const creditInfo = (credit: Credit) => (
     <div
@@ -51,12 +119,19 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
           </Button>
         </div>
       ) : null}
+      {logo ? (
+        <div className="flex justify-center">
+          {artistImage({
+            ...logo,
+            width: 256,
+            height: 256,
+            sizes: "(min-width: 640px) 720px, 100vw",
+            className: "w-full max-h-48 h-auto object-contain",
+          })}
+        </div>
+      ) : null}
       <div className="sm:flex sm:gap-6 sm:items-start">
-        <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-start sm:flex-1">
-          <div className="row-span-1 sm:row-span-3 text-theme-600 pt-1 flex justify-end">
-            <HugeiconsIcon icon={UserGroupIcon} className="w-10 h-10 sm:w-14 sm:h-14" />
-          </div>
-
+        <div className="flex flex-col gap-3 sm:flex-1">
           <div>
             <h2 className="text-xl font-bold leading-tight">{artist.artist}</h2>
             {artist.location ? (
@@ -64,29 +139,30 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
             ) : null}
           </div>
 
-          {artist.bio ? (
-            <p className="col-span-2 sm:col-span-1 text-sm whitespace-pre-line">{artist.bio}</p>
-          ) : null}
+          {artist.bio ? <p className="text-sm whitespace-pre-line">{artist.bio}</p> : null}
         </div>
 
-        {media.length ? (
+        {photos.length ? (
           <div
             className={cn(
-              "shrink-0 flex sm:flex-col gap-1 justify-center",
+              "shrink-0 flex sm:flex-col gap-2 justify-center",
               !isModal ? "lg:flex-row" : null,
             )}
           >
-            {media.map((file, i) => (
-              <Image
-                key={file}
-                src={`/artists/${file}`}
-                alt={t(($) => $.artists.photo, { artist: artist.artist })}
-                width={256}
-                height={256}
-                style={{ height: "auto" }}
-                priority={i === 0}
-                className="w-64 h-auto rounded-secondary"
-              />
+            {photos.map((photo) => (
+              <button
+                key={photo.src}
+                type="button"
+                onClick={() => openModal(photo.src)}
+                className="cursor-pointer"
+              >
+                {artistImage({
+                  ...photo,
+                  width: 256,
+                  height: 256,
+                  className: "w-64 h-auto rounded-secondary",
+                })}
+              </button>
             ))}
           </div>
         ) : null}
@@ -113,6 +189,41 @@ export default function ArtistCard({ artist, isModal, onClose }: ArtistCardProps
           ) : null}
         </div>
       ) : null}
+
+      <Modal
+        className="bg-background"
+        open={imageModalOpen}
+        onClose={closeModal}
+        title={t(($) => $.artists.photo, { artist: artist.artist })}
+      >
+        {selectedImage ? (
+          <div className="relative">
+            <Loader
+              className="text-theme-500"
+              isOpen={imageLoading}
+              fullScreen
+              transparentBg
+              onClick={closeModal}
+            />
+            <button
+              type="button"
+              onClick={closeModal}
+              aria-label={t(($) => $.ariaLabels.close)}
+              className="block cursor-pointer"
+            >
+              <Image
+                onLoad={() => setImageLoading(false)}
+                src={selectedImage}
+                alt=""
+                width={1024}
+                height={1024}
+                style={{ height: "auto" }}
+                className="w-full max-h-screen object-contain"
+              />
+            </button>
+          </div>
+        ) : null}
+      </Modal>
     </div>
   );
 }
