@@ -1,6 +1,6 @@
 "use client";
 
-import ArtistCard from "@/components/modules/artist/artistCard";
+import ArtistCard from "@/components/modules/music/artist/artistCard";
 import { Modal } from "@/components/ui/modal";
 import type { Album } from "@/types/album";
 import type { Artist } from "@/types/artist";

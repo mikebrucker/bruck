@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import ArtistCardModal from "@/components/modules/artist/artistCardModal";
+import ArtistCardModal from "@/components/modules/music/artist/artistCardModal";
 import { Chip } from "@/components/ui/chip";
 import { useStyleStore } from "@/stores/useStyleStore";
 import type { Album } from "@/types/album";

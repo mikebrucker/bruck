@@ -2,10 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import AlbumCard from "@/components/modules/album/albumCard";
-import AlbumGridItem from "@/components/modules/album/albumGridItem";
-import ArtistCard from "@/components/modules/artist/artistCard";
-import ArtistGridItem from "@/components/modules/artist/artistGridItem";
+import AlbumCard from "@/components/modules/music/album/albumCard";
+import AlbumGridItem from "@/components/modules/music/album/albumGridItem";
+import ArtistCard from "@/components/modules/music/artist/artistCard";
+import ArtistGridItem from "@/components/modules/music/artist/artistGridItem";
 import { MusicFilter } from "@/components/modules/music/musicFilter";
 import { MusicViewToggle } from "@/components/modules/music/musicViewToggle";
 import { RankBadge, type RankRow } from "@/components/modules/music/rankBadge";
