@@ -1,6 +1,28 @@
 {
   "home": {
-    "under_construction": "Im Bau..."
+    "under_construction": "Im Bau...",
+    "cards": {
+      "music": {
+        "title": "Musik",
+        "description": "Die größten Alben aller Zeiten.\nJeder Künstler kann maximal ein Album in der Liste haben."
+      },
+      "playground": {
+        "title": "Spielwiese",
+        "description": "Jede UI-Komponente mit anpassbaren Props und Live-Vorschau."
+      },
+      "about": {
+        "title": "Über",
+        "description": "Der Stack, auf dem diese Website läuft."
+      },
+      "cv": {
+        "title": "CV / Lebenslauf",
+        "description": "Berufserfahrung, Fähigkeiten, Ausbildung und Hobbys."
+      },
+      "settings": {
+        "title": "Einstellungen",
+        "description": "Theme, Akzentfarbe, Eckenrundung und Menüseite."
+      }
+    }
   },
   "music": {
     "albums": {

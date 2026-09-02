@@ -1,7 +1,8 @@
-import { redirect } from "next/navigation";
-import { defaultRoute } from "@/i18n/config";
+import { HomeClient } from "@/app/[lang]/homeClient";
+import { albumRepository } from "@/data/albumRepository";
 
-export default async function Page({ params }: PageProps<"/[lang]">) {
-  const { lang } = await params;
-  redirect(`/${lang}/${defaultRoute}`);
+export default async function HomePage() {
+  const albumArt = await albumRepository.getArt();
+
+  return <HomeClient albumArt={albumArt} />;
 }

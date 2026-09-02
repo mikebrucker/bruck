@@ -119,6 +119,12 @@ export class AlbumRepository {
       });
   }
 
+  /** Flat list of every cover art filename */
+  async getArt(): Promise<Array<string>> {
+    const rows = await this.db.select({ art: albums.art }).from(albums);
+    return rows.flatMap((row) => row.art ?? []);
+  }
+
   async getById(id: string): Promise<Album | null> {
     const [albumRows, trackRows] = await Promise.all([
       this.db

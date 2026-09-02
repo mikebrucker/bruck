@@ -29,6 +29,16 @@ export function isKeyOf<TValue extends string>(
 export const distinctSorted = (values: Array<string>): Array<string> =>
   Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));
 
+/** Fisher-Yates shuffle returning a new array; the input is left untouched. */
+export const shuffle = <TValue>(values: Array<TValue>): Array<TValue> => {
+  const copy = [...values];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+};
+
 export type Debounced<TArgs extends Array<unknown>> = {
   (...args: TArgs): void;
   cancel: () => void;

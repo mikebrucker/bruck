@@ -1021,6 +1021,7 @@ html[data-accent="sixer"] {
   --animate-collapsible-expand: collapsible-expand 0.3s ease-in-out;
   --animate-collapsible-collapse: collapsible-collapse 0.3s ease-in-out;
   --animate-flap: flap 1s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
 }
 
 @keyframes drawer-fade-in {
@@ -1096,6 +1097,15 @@ html[data-accent="sixer"] {
   }
   50% {
     rotate: -15deg;
+  }
+}
+/* The track renders the same covers twice, so shifting by half its width loops seamlessly */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 

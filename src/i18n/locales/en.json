@@ -1,6 +1,28 @@
 {
   "home": {
-    "under_construction": "Under Construction..."
+    "under_construction": "Under Construction...",
+    "cards": {
+      "music": {
+        "title": "Music",
+        "description": "The Greatest Albums of All Time.\nEach artist can only have max one album ranked in the list."
+      },
+      "playground": {
+        "title": "Playground",
+        "description": "Every UI component with adjustable props and a live preview."
+      },
+      "about": {
+        "title": "About",
+        "description": "The stack this website is built on."
+      },
+      "cv": {
+        "title": "CV / Résumé",
+        "description": "Work experience, skills, education, and hobbies."
+      },
+      "settings": {
+        "title": "Settings",
+        "description": "Theme, accent color, corner rounding, and menu side."
+      }
+    }
   },
   "music": {
     "albums": {
