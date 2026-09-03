@@ -35,7 +35,7 @@ function AppLayout({
       <main
         id="main"
         tabIndex={-1}
-        className="flex flex-col items-center grow w-full overflow-y-auto transition-all"
+        className="flex flex-col items-center grow min-h-0 w-full overflow-y-auto transition-all"
       >
         <div className="flex flex-col grow gap-4 max-w-5xl w-full p-2 py-4 sm:p-4">{children}</div>
       </main>
