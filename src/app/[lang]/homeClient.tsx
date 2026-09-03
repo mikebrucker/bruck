@@ -78,7 +78,7 @@ function HomeClient({ albumArt }: HomeClientProps) {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
         {cards.map(renderCard)}
       </div>
-      <div className="flex justify-end">{renderCard(settingsCard)}</div>
+      <div className="mt-auto flex justify-end">{renderCard(settingsCard)}</div>
     </div>
   );
 }
