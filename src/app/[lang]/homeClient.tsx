@@ -74,11 +74,11 @@ function HomeClient({ albumArt }: HomeClientProps) {
   );
 
   return (
-    <div className="w-full flex flex-col grow gap-4">
+    <div className="w-full flex flex-col grow gap-3">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
         {cards.map(renderCard)}
       </div>
-      <div className="mt-auto flex justify-end pt-10">{renderCard(settingsCard)}</div>
+      <div className="mt-auto flex justify-end">{renderCard(settingsCard)}</div>
     </div>
   );
 }
