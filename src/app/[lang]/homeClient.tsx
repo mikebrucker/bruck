@@ -14,7 +14,7 @@ import { HomeCard, type HomeCardProps } from "@/components/modules/home/homeCard
 import type en from "@/i18n/locales/en.json";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 
-type CardKey = keyof typeof en.home.cards;
+type CardKey = Exclude<keyof typeof en.home.cards, "settings">;
 type DashboardCard = {
   key: CardKey;
   path: string;
@@ -46,39 +46,37 @@ const cards: Array<DashboardCard> = [
   { key: "cv", path: "cv", icon: FileBadgeIcon, size: "compact" },
 ];
 
-const settingsCard: DashboardCard = {
-  key: "settings",
-  path: "settings",
-  icon: Settings01Icon,
-  size: "compact",
-  className: "w-fit",
-};
-
 function HomeClient({ albumArt }: HomeClientProps) {
   const { t } = useTranslation();
   const language = useLanguageStore((state) => state.language);
 
-  const renderCard = (card: DashboardCard) => (
-    <HomeCard
-      key={card.key}
-      href={`/${language}/${card.path}`}
-      title={t(($) => $.home.cards[card.key].title)}
-      description={
-        card.key === "settings" ? undefined : t(($) => $.home.cards[card.key].description)
-      }
-      icon={card.icon}
-      size={card.size}
-      className={card.className}
-      media={card.key === "music" ? <AlbumMarquee art={albumArt} className="mt-auto pt-1" /> : null}
-    />
-  );
-
   return (
     <div className="w-full flex flex-col grow gap-3">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-        {cards.map(renderCard)}
+        {cards.map((card) => (
+          <HomeCard
+            key={card.key}
+            href={`/${language}/${card.path}`}
+            title={t(($) => $.home.cards[card.key].title)}
+            description={t(($) => $.home.cards[card.key].description)}
+            icon={card.icon}
+            size={card.size}
+            className={card.className}
+            media={
+              card.key === "music" ? <AlbumMarquee art={albumArt} className="mt-auto pt-1" /> : null
+            }
+          />
+        ))}
       </div>
-      <div className="mt-auto flex justify-end">{renderCard(settingsCard)}</div>
+      <div className="mt-auto flex justify-end">
+        <HomeCard
+          href={`/${language}/settings`}
+          title={t(($) => $.home.cards.settings.title)}
+          icon={Settings01Icon}
+          size="compact"
+          className="w-fit"
+        />
+      </div>
     </div>
   );
 }

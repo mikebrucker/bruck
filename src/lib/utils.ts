@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { extendTailwindMerge } from "tailwind-merge";
+import { Zooms } from "@/lib/styles";
 
 /**
  * `rounded-primary` / `rounded-secondary` come from custom `--radius-*` theme
@@ -25,6 +26,9 @@ export function isKeyOf<TValue extends string>(
 ): value is TValue {
   return Object.keys(options).includes(value);
 }
+
+export const clampZoom = (value: number) =>
+  Math.min(Zooms.max, Math.max(Zooms.min, Math.round(value)));
 
 export const distinctSorted = (values: Array<string>): Array<string> =>
   Array.from(new Set(values)).sort((a, b) => a.localeCompare(b));

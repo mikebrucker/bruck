@@ -357,6 +357,8 @@
   --input: var(--color-zinc-200);
   --ring: var(--color-zinc-400);
   --radius: 0.625rem;
+  /* root font size, overwritten on <html> by `applyZoom` in `useStyleStore` */
+  --zoom: 16px;
   /* rounded corners, overwritten on <html> by `applyRounded` in `useStyleStore` */
   --rounded-primary: var(--radius-lg);
   --rounded-secondary: var(--radius-md);
@@ -1120,6 +1122,7 @@ html[data-accent="sixer"] {
 
   html {
     @apply font-sans h-dvh overflow-hidden;
+    font-size: var(--zoom);
   }
 }
 

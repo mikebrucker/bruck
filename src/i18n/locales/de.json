@@ -19,8 +19,7 @@
         "description": "Berufserfahrung, Fähigkeiten, Ausbildung und Hobbys."
       },
       "settings": {
-        "title": "Einstellungen",
-        "description": "Theme, Akzentfarbe, Eckenrundung und Menüseite."
+        "title": "Einstellungen"
       }
     }
   },
@@ -248,7 +247,9 @@
     "reset_rounded_primary": "Primäre Ecken zurücksetzen",
     "reset_rounded_secondary": "Sekundäre Ecken zurücksetzen",
     "menu_side_left": "Menü von links öffnen",
-    "menu_side_right": "Menü von rechts öffnen"
+    "menu_side_right": "Menü von rechts öffnen",
+    "zoom": "Zoom {{size}} Pixel",
+    "reset_zoom": "Zoom zurücksetzen"
   },
   "language": {
     "en": "Englisch",
@@ -437,6 +438,7 @@
     "roundedPrimary": "Primäre Ecken",
     "roundedSecondary": "Sekundäre Ecken",
     "menuSide": "Menüseite",
+    "zoom": "Zoom",
     "side": {
       "left": "Links",
       "right": "Rechts"

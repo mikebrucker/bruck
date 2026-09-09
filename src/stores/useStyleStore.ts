@@ -1,4 +1,5 @@
-import { roundedCornerVars } from "@/lib/styles";
+import { roundedCornerVars, Zooms } from "@/lib/styles";
+import { clampZoom } from "@/lib/utils";
 import { createHmrStore } from "@/stores/createHmrStore";
 import {
   type Accent,
@@ -20,12 +21,14 @@ type StyleState = {
   roundedPrimary: RoundedCorner;
   roundedSecondary: RoundedCorner;
   menuSide: Side;
+  zoom: number;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   setAccent: (accent: Accent) => void;
   setRoundedPrimary: (roundedPrimary: RoundedCorner) => void;
   setRoundedSecondary: (roundedSecondary: RoundedCorner) => void;
   setMenuSide: (menuSide: Side) => void;
+  setZoom: (zoom: number) => void;
 };
 
 const applyTheme = (theme: Theme) => {
@@ -44,19 +47,25 @@ const applyRounded = (target: RoundedTarget, corner: RoundedCorner) => {
   localStorage.setItem(`rounded-${target}`, corner);
 };
 
+const applyZoom = (zoom: number) => {
+  document.documentElement.style.setProperty("--zoom", `${zoom}px`);
+  localStorage.setItem("zoom", String(zoom));
+};
+
 const applyMenuSide = (menuSide: Side) => {
   localStorage.setItem("menu-side", menuSide);
 };
 
 export const useStyleStore = createHmrStore<StyleState>(
   "style",
-  ["theme", "accent", "roundedPrimary", "roundedSecondary", "menuSide", "ready"],
+  ["theme", "accent", "roundedPrimary", "roundedSecondary", "menuSide", "zoom", "ready"],
   (set, get) => ({
     theme: Themes.light,
     accent: Accents.emerald,
     roundedPrimary: RoundedCorners.lg,
     roundedSecondary: RoundedCorners.md,
     menuSide: Sides.right,
+    zoom: Zooms.default,
     ready: false,
     setTheme: (theme) => {
       applyTheme(theme);
@@ -82,6 +91,11 @@ export const useStyleStore = createHmrStore<StyleState>(
     setMenuSide: (menuSide) => {
       applyMenuSide(menuSide);
       set({ menuSide });
+    },
+    setZoom: (zoom) => {
+      const next = clampZoom(zoom);
+      applyZoom(next);
+      set({ zoom: next });
     },
   }),
 );

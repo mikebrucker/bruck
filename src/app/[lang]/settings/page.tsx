@@ -17,11 +17,12 @@ import { SettingsSection } from "@/components/modules/settings/settingsSection";
 import { SettingsSwatchButton } from "@/components/modules/settings/settingsSwatchButton";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { flagColorMap, flagMap, type Language, locales } from "@/i18n/config";
-import { roundedCornerVars } from "@/lib/styles";
+import { roundedCornerVars, Zooms } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useStyleStore } from "@/stores/useStyleStore";
@@ -45,11 +46,13 @@ export default function SettingsPage() {
     roundedPrimary,
     roundedSecondary,
     menuSide,
+    zoom,
     setTheme,
     setAccent,
     setRoundedPrimary,
     setRoundedSecondary,
     setMenuSide,
+    setZoom,
   } = useStyleStore();
   const { language, setLanguage } = useLanguageStore();
   const changeLanguageUrl = useChangeLanguageUrl();
@@ -262,6 +265,36 @@ export default function SettingsPage() {
         {roundedSettingsRow(RoundedTargets.primary)}
         <Separator />
         {roundedSettingsRow(RoundedTargets.secondary)}
+        <Separator />
+        <SettingsRow
+          label={t(($) => $.settings.zoom)}
+          value={`${zoom}px`}
+          stacked
+          action={
+            zoom !== Zooms.default ? (
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="size-10 bg-background"
+                aria-label={t(($) => $.ariaLabels.reset_zoom)}
+                onClick={() => setZoom(Zooms.default)}
+              >
+                <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
+              </Button>
+            ) : null
+          }
+        >
+          <Slider
+            min={Zooms.min}
+            max={Zooms.max}
+            step={1}
+            showSteps
+            value={[zoom]}
+            onValueChange={([next]) => setZoom(next)}
+            label={t(($) => $.ariaLabels.zoom, { size: zoom })}
+          />
+        </SettingsRow>
       </SettingsSection>
       <SettingsSection id="settings-language-title" title={t(($) => $.settings.language)}>
         <SettingsRow label={t(($) => $.settings.language)} value={t(($) => $.language[language])}>

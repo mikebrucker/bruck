@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { Zooms } from "@/lib/styles";
+import { clampZoom } from "@/lib/utils";
 import { useStyleStore } from "@/stores/useStyleStore";
 import {
   type Accent,
@@ -27,12 +29,19 @@ const isRoundedCorner = (value: string | null): value is RoundedCorner =>
 
 const isSide = (value: string | null): value is Side => sides.some((side) => side === value);
 
+const parseZoom = (value: string | null): number => {
+  if (value === null) return Zooms.default;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? clampZoom(parsed) : Zooms.default;
+};
+
 export function StyleInit() {
   const setTheme = useStyleStore((s) => s.setTheme);
   const setAccent = useStyleStore((s) => s.setAccent);
   const setRoundedPrimary = useStyleStore((s) => s.setRoundedPrimary);
   const setRoundedSecondary = useStyleStore((s) => s.setRoundedSecondary);
   const setMenuSide = useStyleStore((s) => s.setMenuSide);
+  const setZoom = useStyleStore((s) => s.setZoom);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
@@ -53,8 +62,11 @@ export function StyleInit() {
     const storedMenuSide = localStorage.getItem("menu-side");
     setMenuSide(isSide(storedMenuSide) ? storedMenuSide : Sides.right);
 
+    const storedZoom = localStorage.getItem("zoom");
+    setZoom(parseZoom(storedZoom));
+
     useStyleStore.setState({ ready: true });
-  }, [setTheme, setAccent, setRoundedPrimary, setRoundedSecondary, setMenuSide]);
+  }, [setTheme, setAccent, setRoundedPrimary, setRoundedSecondary, setMenuSide, setZoom]);
 
   return null;
 }

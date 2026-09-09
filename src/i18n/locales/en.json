@@ -19,8 +19,7 @@
         "description": "Work experience, skills, education, and hobbies."
       },
       "settings": {
-        "title": "Settings",
-        "description": "Theme, accent color, corner rounding, and menu side."
+        "title": "Settings"
       }
     }
   },
@@ -248,7 +247,9 @@
     "reset_rounded_primary": "Reset primary corners",
     "reset_rounded_secondary": "Reset secondary corners",
     "menu_side_left": "Open menu from the left",
-    "menu_side_right": "Open menu from the right"
+    "menu_side_right": "Open menu from the right",
+    "zoom": "Zoom {{size}} pixels",
+    "reset_zoom": "Reset zoom"
   },
   "language": {
     "en": "English",
@@ -437,6 +438,7 @@
     "roundedPrimary": "Primary Corners",
     "roundedSecondary": "Secondary Corners",
     "menuSide": "Menu Side",
+    "zoom": "Zoom",
     "side": {
       "left": "Left",
       "right": "Right"
