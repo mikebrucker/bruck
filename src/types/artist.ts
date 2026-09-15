@@ -81,6 +81,7 @@ export type KnownArtist =
   | "Shadows Fall"
   | "SikTh"
   | "Soilwork"
+  | "Spawn of Possession"
   | "Substructure"
   | "Swallow the Sun"
   | "System of a Down"

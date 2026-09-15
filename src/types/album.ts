@@ -44,6 +44,7 @@ export type Role =
   | "Composition"
   | "Computer Illustrations"
   | "Concept Design"
+  | "Conductor"
   | "Design"
   | "Didgeridoo"
   | "Digital Editing"
