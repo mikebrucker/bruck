@@ -166,7 +166,10 @@ const experience: Array<CvEntryCardProps> = [
     title: "Swarovski",
     role: "Full-stack Developer",
     location: "Wattens, Austria",
-    dateRanges: ["Feb 2020 - Apr 2023", "Nov 2023 - Present"],
+    dateRanges: [
+      ["2020-02", "2023-04"],
+      ["2023-11", "2026-06"],
+    ],
     bullets: [
       "Implemented TypeScript based React frontends with complex MobX state management and Node.js APIs for various applications including product catalogs, communications tools, and retail omnichannel mobile apps (iOS, PWA, Android).",
       "Leveraged AWS Lambda, Elasticsearch, DynamoDB etc. within a wide range of applications and microservices as well as employed various DevOps techniques to automate building and deployment routines.",
@@ -180,7 +183,7 @@ const experience: Array<CvEntryCardProps> = [
     title: "FERCHAU",
     role: "Full-stack Developer",
     location: "Innsbruck, Austria",
-    dateRanges: ["May 2023 - Oct 2023"],
+    dateRanges: [["2023-05", "2023-10"]],
     bullets: [
       "Developed and enhanced a NestJS microservice application, while refactoring legacy code to reduce technical debt.",
       "Leveraged Microsoft Azure DevOps to manage CI/CD pipelines, ensuring fast and reliable deployments.",
@@ -191,7 +194,7 @@ const experience: Array<CvEntryCardProps> = [
     title: "OneMagnify",
     role: "Frontend Developer",
     location: "Wilmington, Delaware",
-    dateRanges: ["Oct 2019 - Feb 2020"],
+    dateRanges: [["2019-10", "2020-02"]],
     bullets: [
       "Developed responsive HTML marketing emails with cross-client compatibility (Gmail, Outlook, Apple Mail, etc).",
       "Translated designer layouts into production-ready email templates while maintaining pixel-accurate styling.",
@@ -204,7 +207,7 @@ const education: Array<CvEntryCardProps> = [
   {
     title: "New York Code + Design Academy",
     location: "Philadelphia, Pennsylvania",
-    dateRanges: ["Jul 2018 - Oct 2018"],
+    dateRanges: [["2018-07", "2018-10"]],
     bullets: [
       "Completed 480+ hours of Web Development Intensive Program covering various Full-Stack technologies and various methodologies including OOP, TDD, pair-programming, AGILE, and SCRUM.",
     ],
@@ -212,7 +215,7 @@ const education: Array<CvEntryCardProps> = [
   {
     title: "Temple University",
     location: "Philadelphia, Pennsylvania",
-    dateRanges: ["Sep 2011 - Dec 2015"],
+    dateRanges: [["2011-09", "2015-12"]],
     bullets: [
       "Bachelor of Arts - Media Studies and Production.",
       "Audio track focus, also took related courses in graphics design, web development, audio and video editing.",
@@ -226,7 +229,7 @@ const otherExperience: Array<CvEntryCardProps> = [
     title: "1&1 Internet",
     role: "MyWebsite Technical Support",
     location: "Chesterbrook, Pennsylvania",
-    dateRanges: ["Jan 2016 - Sep 2016"],
+    dateRanges: [["2016-01", "2016-09"]],
     bullets: [
       "Assisted customers on creating/editing websites, e-commerce sites, domains, and e-mail.",
     ],
@@ -235,7 +238,7 @@ const otherExperience: Array<CvEntryCardProps> = [
     title: "United States Air Force",
     role: "Aircraft Armament Systems Technician",
     location: "North Las Vegas, Nevada",
-    dateRanges: ["Sep 2007 - Sep 2010"],
+    dateRanges: [["2007-09", "2010-09"]],
     bullets: [
       'Worked in teams of 3 called load crews as a "2-man" responsible for technical preparation and attachment of live and dummy munitions for the advanced airframe F-15E.',
       "Entrusted with E-4/E-5 level hardware troubleshooting and testing.",
