@@ -23,6 +23,9 @@ export const Zooms = {
   default: 16,
 } as const;
 
+export const toggleOn =
+  "data-[state=on]:text-foreground data-[state=on]:bg-theme-500 data-[state=on]:border-theme-700";
+
 export const convexButtonGradient8 =
   "bg-[linear-gradient(to_bottom,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%),linear-gradient(to_right,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%)] shadow-sm active:shadow-inner dark:bg-[linear-gradient(to_bottom,rgb(192_192_192/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(192_192_192/0.1)_100%),linear-gradient(to_right,rgb(192_192_192/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(192_192_192/0.1)_100%)]";
 export const convexButtonGradient12 =

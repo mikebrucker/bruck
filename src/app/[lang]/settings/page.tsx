@@ -22,7 +22,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { flagColorMap, flagMap, type Language, locales } from "@/i18n/config";
-import { roundedCornerVars, Zooms } from "@/lib/styles";
+import { roundedCornerVars, toggleOn, Zooms } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useStyleStore } from "@/stores/useStyleStore";
@@ -180,14 +180,14 @@ export default function SettingsPage() {
             <ToggleGroupItem
               value={Themes.light}
               icon={Sun02Icon}
-              iconClassName="size-5"
+              iconClassName="size-6"
               className="data-[state=on]:bg-amber-200 data-[state=on]:border-amber-400 data-[state=on]:text-foreground"
               aria-label={t(($) => $.settings.light)}
             />
             <ToggleGroupItem
               value={Themes.dark}
               icon={Moon02Icon}
-              iconClassName="size-5"
+              iconClassName="size-6"
               className="data-[state=on]:bg-indigo-800 data-[state=on]:border-indigo-600 data-[state=on]:text-foreground"
               aria-label={t(($) => $.settings.dark)}
             />
@@ -199,7 +199,7 @@ export default function SettingsPage() {
             type="button"
             variant="outline"
             size="icon"
-            className="size-10 border bg-theme-500 hover:bg-theme-600 dark:hover:bg-theme-400 border-theme-700"
+            className="size-10 border bg-theme-500 hover:bg-theme-600 border-theme-700 text-foreground"
             aria-label={t(($) => $.ariaLabels.accent, { accent: t(($) => $.settings[accent]) })}
             onClick={accentModal.open}
           >
@@ -250,13 +250,15 @@ export default function SettingsPage() {
             <ToggleGroupItem
               value={Sides.left}
               icon={ArrowLeft05Icon}
-              iconClassName="size-5"
+              className={toggleOn}
+              iconClassName="size-6"
               aria-label={t(($) => $.ariaLabels.menu_side_left)}
             />
             <ToggleGroupItem
               value={Sides.right}
               icon={ArrowRight05Icon}
-              iconClassName="size-5"
+              className={toggleOn}
+              iconClassName="size-6"
               aria-label={t(($) => $.ariaLabels.menu_side_right)}
             />
           </ToggleGroup>
