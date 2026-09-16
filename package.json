@@ -25,7 +25,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.2",
-    "flag-icons": "^7.5.0",
     "i18next": "^25.8.20",
     "ionicons": "^8.0.13",
     "next": "16.1.6",
