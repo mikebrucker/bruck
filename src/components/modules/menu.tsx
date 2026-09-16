@@ -20,10 +20,11 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import { Flag } from "@/components/modules/flag";
 import { Button } from "@/components/ui/button";
 import { Drawer } from "@/components/ui/drawer";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
-import { flagMap, locales } from "@/i18n/config";
+import { locales } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 import { useLanguageStore } from "@/stores/useLanguageStore";
@@ -260,15 +261,17 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           <Button
             key={locale}
             variant="keyboard"
-            size="icon"
-            className={cn("h-13 w-13", locale === language ? selectedClassName : null)}
+            className={cn(
+              "h-13 w-16 p-1.25 overflow-hidden",
+              locale === language ? selectedClassName : null,
+            )}
             aria-label={t(($) => $.ariaLabels.language, { language: t(($) => $.language[locale]) })}
             onClick={() => {
               setLanguage(locale);
               changeLanguageUrl(locale);
             }}
           >
-            <span className={`fi fi-${flagMap[locale]} text-lg`} />
+            <Flag language={locale} className="h-6 w-auto" />
           </Button>
         ))}
       </div>

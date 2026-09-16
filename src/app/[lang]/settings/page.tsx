@@ -11,6 +11,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useTranslation } from "react-i18next";
+import { Flag } from "@/components/modules/flag";
 import { SettingsPickerModal } from "@/components/modules/settings/settingsPickerModal";
 import { SettingsRow } from "@/components/modules/settings/settingsRow";
 import { SettingsSection } from "@/components/modules/settings/settingsSection";
@@ -21,7 +22,7 @@ import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { useDisclosure } from "@/hooks/useDisclosure";
-import { flagColorMap, flagMap, type Language, locales } from "@/i18n/config";
+import { flagColorMap, type Language, locales } from "@/i18n/config";
 import { roundedCornerVars, toggleOn, Zooms } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";
@@ -314,7 +315,7 @@ export default function SettingsPage() {
             })}
             onClick={languageModal.open}
           >
-            <span className={`fi fi-${flagMap[language]} text-xl`} />
+            <Flag language={language} className="text-xl" />
           </Button>
           <SettingsPickerModal
             open={languageModal.isOpen}
@@ -337,8 +338,9 @@ export default function SettingsPage() {
                   className="flex flex-col gap-1 text-zinc-900 rounded-secondary"
                   onClick={() => selectLanguage(locale)}
                 >
-                  <span
-                    className={`fi fi-${flagMap[locale]} text-4xl xs:text-7xl sm:text-9xl transition-[font-size]`}
+                  <Flag
+                    language={locale}
+                    className="text-4xl xs:text-7xl sm:text-9xl transition-[font-size]"
                   />
                   <span className="font-asimovian text-lg xs:text-xl sm:text-2xl transition-[font-size]">
                     {t(($) => $.language[locale])}

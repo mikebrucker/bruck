@@ -10,7 +10,6 @@ import { StyleInit } from "@/components/providers/styleInit";
 import { UserInit } from "@/components/providers/userInit";
 
 import "@/app/globals.css";
-import "flag-icons/css/flag-icons.min.css";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
