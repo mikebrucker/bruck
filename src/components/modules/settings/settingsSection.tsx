@@ -12,7 +12,7 @@ function SettingsSection({ id, title, children }: SettingsSectionProps) {
       aria-labelledby={id}
       className="flex flex-col gap-2 rounded-primary bg-card border border-border py-3"
     >
-      <h2 id={id} className="text-lg font-semibold text-foreground px-4">
+      <h2 id={id} className="text-xl font-semibold text-muted-foreground px-4">
         {title}
       </h2>
       <div className="flex flex-col gap-2">{children}</div>
