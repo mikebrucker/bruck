@@ -20,3 +20,7 @@ magick LOGO.webp -alpha off \( +clone -colorspace gray -negate \) -compose CopyO
 ```
 magick white-logo.png -fill black -colorize 100 black-logo.png
 ```
+- invert logo
+```
+magick artist-logo.webp -channel RGB -negate +channel artist-logo-light.webp
+```

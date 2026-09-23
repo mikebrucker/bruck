@@ -142,15 +142,6 @@
     "url": "https://assets.fanart.tv/fanart/baroness-5124b101a5d17.jpg",
     "license": "CC BY-NC 3.0 (fanart.tv)"
   },
-  "between_the_buried_and_me-logo.webp": {
-    "artist": "Between the Buried and Me",
-    "artistId": "between_the_buried_and_me",
-    "mbid": "1870fb43-50f1-4660-a879-bb596d1519b6",
-    "slot": "logo",
-    "source": "official",
-    "url": "https://btbamazon.com",
-    "license": "Official Between the Buried and Me site (btbamazon.com) - band-owned artwork, no explicit licence"
-  },
   "between_the_buried_and_me-logo-old.webp": {
     "artist": "Between the Buried and Me",
     "artistId": "between_the_buried_and_me",
@@ -159,6 +150,15 @@
     "source": "fanart",
     "url": "https://assets.fanart.tv/fanart/between-the-buried-and-me-54e49ae4ca706.png",
     "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "between_the_buried_and_me-logo.webp": {
+    "artist": "Between the Buried and Me",
+    "artistId": "between_the_buried_and_me",
+    "mbid": "1870fb43-50f1-4660-a879-bb596d1519b6",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://btbamazon.com",
+    "license": "Official Between the Buried and Me site (btbamazon.com) - band-owned artwork, no explicit licence"
   },
   "between_the_buried_and_me-photo.webp": {
     "artist": "Between the Buried and Me",
@@ -453,6 +453,24 @@
     "slot": "photo",
     "source": "fanart",
     "url": "https://assets.fanart.tv/fanart/gojira-55020ce477dcd.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "good_tiger-logo.webp": {
+    "artist": "Good Tiger",
+    "artistId": "good_tiger",
+    "mbid": "6cf24b22-d4a2-4d8d-893d-af05476d7fc2",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://goodtigerofficial.bandcamp.com",
+    "license": "Official Good Tiger Bandcamp page - band-owned artwork, no explicit licence"
+  },
+  "good_tiger-photo.webp": {
+    "artist": "Good Tiger",
+    "artistId": "good_tiger",
+    "mbid": "6cf24b22-d4a2-4d8d-893d-af05476d7fc2",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/good-tiger-69d39e0ae9122.jpg",
     "license": "CC BY-NC 3.0 (fanart.tv)"
   },
   "in_flames-logo.webp": {
@@ -994,6 +1012,24 @@
     "url": "https://peaceville.com/wp-content/uploads/2015/11/20170130_sikth_promos_5B-Management_HIGH-RES_4.jpg.zip",
     "license": "Official SikTh page at Peaceville Records - band-owned artwork, no explicit licence"
   },
+  "skyharbor-logo.webp": {
+    "artist": "Skyharbor",
+    "artistId": "skyharbor",
+    "mbid": "5ec19553-a0f1-462e-bc38-984b63f8c36d",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/skyharbor-54fc6eb16f49f.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "skyharbor-photo.webp": {
+    "artist": "Skyharbor",
+    "artistId": "skyharbor",
+    "mbid": "5ec19553-a0f1-462e-bc38-984b63f8c36d",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/skyharbor-4ff7038d2723c.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
   "soilwork-logo.webp": {
     "artist": "Soilwork",
     "artistId": "soilwork",
@@ -1082,6 +1118,24 @@
     "slot": "photo",
     "source": "fanart",
     "url": "https://assets.fanart.tv/fanart/system-of-a-down-64a519eccbb3c.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "tesseract-logo.webp": {
+    "artist": "TesseracT",
+    "artistId": "tesseract",
+    "mbid": "f1ec4765-e5da-4591-8b50-a8ff9627dda8",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/tesseract-544a0b1f55ae2.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "tesseract-photo.webp": {
+    "artist": "TesseracT",
+    "artistId": "tesseract",
+    "mbid": "f1ec4765-e5da-4591-8b50-a8ff9627dda8",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/tesseract-51150bf476e4a.jpg",
     "license": "CC BY-NC 3.0 (fanart.tv)"
   },
   "textures-logo.webp": {
