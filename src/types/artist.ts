@@ -84,6 +84,7 @@ export type KnownArtist =
   | "Skyharbor"
   | "Soilwork"
   | "Spawn of Possession"
+  | "Static-X"
   | "Substructure"
   | "Swallow the Sun"
   | "System of a Down"

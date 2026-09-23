@@ -151,6 +151,7 @@ export type Genre =
   | "Grunge"
   | "Hard Rock"
   | "Heavy Metal"
+  | "Industrial Metal"
   | "Jazz Fusion"
   | "Mathcore"
   | "Melodic Death Metal"
