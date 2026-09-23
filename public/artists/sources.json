@@ -1066,6 +1066,24 @@
     "url": "https://www.metal-archives.com/images/2/0/4/204_photo.jpg",
     "license": "Metal Archives band 204 - band-owned artwork, no explicit licence"
   },
+  "staticx-logo.webp": {
+    "artist": "Static-X",
+    "artistId": "staticx",
+    "mbid": "8ac9e35c-e92d-4030-99ef-ba4127b1555c",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/static-x-54ca0b3c3ee2c.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "staticx-photo.webp": {
+    "artist": "Static-X",
+    "artistId": "staticx",
+    "mbid": "8ac9e35c-e92d-4030-99ef-ba4127b1555c",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/static-x-50576fa339f2b.jpeg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
   "substructure-logo.webp": {
     "artist": "Substructure",
     "artistId": "substructure",
