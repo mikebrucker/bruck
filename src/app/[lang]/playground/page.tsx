@@ -13,6 +13,7 @@ import { LoaderDemo } from "@/components/modules/playground/demos/loaderDemo";
 import { ModalDemo } from "@/components/modules/playground/demos/modalDemo";
 import { NoteDemo } from "@/components/modules/playground/demos/noteDemo";
 import { PopoverDemo } from "@/components/modules/playground/demos/popoverDemo";
+import { ProgressDemo } from "@/components/modules/playground/demos/progressDemo";
 import { RadioGroupDemo } from "@/components/modules/playground/demos/radioGroupDemo";
 import { SelectDemo } from "@/components/modules/playground/demos/selectDemo";
 import { SeparatorDemo } from "@/components/modules/playground/demos/separatorDemo";
@@ -48,6 +49,7 @@ export default function RadixUiPage() {
       <ModalDemo />
       <NoteDemo />
       <PopoverDemo />
+      <ProgressDemo />
       <RadioGroupDemo />
       <SelectDemo />
       <SeparatorDemo />

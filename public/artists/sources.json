@@ -1,0 +1,1357 @@
+{
+  "after_the_burial-logo.webp": {
+    "artist": "After the Burial",
+    "artistId": "after_the_burial",
+    "mbid": "6dd9b71e-2e2f-4a66-bfce-5e820589b390",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/after-the-burial-54c80d448b85d.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "after_the_burial-photo.webp": {
+    "artist": "After the Burial",
+    "artistId": "after_the_burial",
+    "mbid": "6dd9b71e-2e2f-4a66-bfce-5e820589b390",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/after-the-burial-500440323a759.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "alice_in_chains-logo.webp": {
+    "artist": "Alice in Chains",
+    "artistId": "alice_in_chains",
+    "mbid": "4bd95eea-b9f6-4d70-a36c-cfea77431553",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/alice-in-chains-525fdb664603f.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "alice_in_chains-photo.webp": {
+    "artist": "Alice in Chains",
+    "artistId": "alice_in_chains",
+    "mbid": "4bd95eea-b9f6-4d70-a36c-cfea77431553",
+    "slot": "photo",
+    "source": "other",
+    "url": "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-235126-GettyImages-567290665.jpg",
+    "license": "Rolling Stone editorial photo (Getty Images) - press use, no explicit licence"
+  },
+  "allegaeon-logo.webp": {
+    "artist": "Allegaeon",
+    "artistId": "allegaeon",
+    "mbid": "1d71cfe3-f105-4dd5-bdfe-61f6fde2cac7",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/allegaeon-53b7f2ca426b8.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "allegaeon-photo.webp": {
+    "artist": "Allegaeon",
+    "artistId": "allegaeon",
+    "mbid": "1d71cfe3-f105-4dd5-bdfe-61f6fde2cac7",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/allegaeon-6230ba66b9b37.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "alluvial-logo.webp": {
+    "artist": "Alluvial",
+    "artistId": "alluvial",
+    "mbid": "f727c73c-db1d-4ce0-a9b5-6fc1bf982dd3",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/alluvial-6397d1710dd13.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "alluvial-photo.webp": {
+    "artist": "Alluvial",
+    "artistId": "alluvial",
+    "mbid": "f727c73c-db1d-4ce0-a9b5-6fc1bf982dd3",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/alluvial-65dbca8de3299.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "animals_as_leaders-logo.webp": {
+    "artist": "Animals as Leaders",
+    "artistId": "animals_as_leaders",
+    "mbid": "5c2d2520-950b-4c78-84fc-78a9328172a3",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/animals-as-leaders-54218690a8ed3.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "animals_as_leaders-photo.webp": {
+    "artist": "Animals as Leaders",
+    "artistId": "animals_as_leaders",
+    "mbid": "5c2d2520-950b-4c78-84fc-78a9328172a3",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://sumerianrecords.com/cdn/shop/collections/ANIMALS_AS_LEADERS_SQUARE.jpg",
+    "license": "Sumerian Records (label) site - band-owned artwork, no explicit licence"
+  },
+  "archspire-logo.webp": {
+    "artist": "Archspire",
+    "artistId": "archspire",
+    "mbid": "89c3e96a-9dfe-4264-8995-4e5f9b0fb358",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/archspire-545920bc482d9.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "archspire-photo.webp": {
+    "artist": "Archspire",
+    "artistId": "archspire",
+    "mbid": "89c3e96a-9dfe-4264-8995-4e5f9b0fb358",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/archspire-5f2327c687c55.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "arkaik-logo.webp": {
+    "artist": "Arkaik",
+    "artistId": "arkaik",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/6/9/4/2/69425_logo.webp",
+    "license": "Metal Archives band 69425 - band-owned artwork, no explicit licence"
+  },
+  "arkaik-photo.webp": {
+    "artist": "Arkaik",
+    "artistId": "arkaik",
+    "mbid": "bf3de372-f411-4dbc-a205-d3047e25f204",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/6/9/4/2/69425_photo.jpg",
+    "license": "Metal Archives band 69425 - band-owned artwork, no explicit licence"
+  },
+  "baroness-logo.webp": {
+    "artist": "Baroness",
+    "artistId": "baroness",
+    "mbid": "eeb41a1e-4326-4d04-8c47-0f564ceecd68",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/baroness-6218189421e01.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "baroness-photo.webp": {
+    "artist": "Baroness",
+    "artistId": "baroness",
+    "mbid": "eeb41a1e-4326-4d04-8c47-0f564ceecd68",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/baroness-5124b101a5d17.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "between_the_buried_and_me-logo.webp": {
+    "artist": "Between the Buried and Me",
+    "artistId": "between_the_buried_and_me",
+    "mbid": "1870fb43-50f1-4660-a879-bb596d1519b6",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://btbamazon.com",
+    "license": "Official Between the Buried and Me site (btbamazon.com) - band-owned artwork, no explicit licence"
+  },
+  "between_the_buried_and_me-logo-old.webp": {
+    "artist": "Between the Buried and Me",
+    "artistId": "between_the_buried_and_me",
+    "mbid": "1870fb43-50f1-4660-a879-bb596d1519b6",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/between-the-buried-and-me-54e49ae4ca706.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "between_the_buried_and_me-photo.webp": {
+    "artist": "Between the Buried and Me",
+    "artistId": "between_the_buried_and_me",
+    "mbid": "1870fb43-50f1-4660-a879-bb596d1519b6",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://cdn-p.smehost.net/sites/374be6422f2b494ab9128079a4bd7dfd/album-cover/btbam-1.jpg",
+    "license": "InsideOut Music (label) site - band-owned artwork, no explicit licence"
+  },
+  "black_crown_initiate-logo.webp": {
+    "artist": "Black Crown Initiate",
+    "artistId": "black_crown_initiate",
+    "mbid": "a33bc9b0-6b88-4593-a812-6124b7368361",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/black-crown-initiate-5ba96a2d563c3.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "black_crown_initiate-photo.webp": {
+    "artist": "Black Crown Initiate",
+    "artistId": "black_crown_initiate",
+    "mbid": "a33bc9b0-6b88-4593-a812-6124b7368361",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540386765_photo.jpeg",
+    "license": "Metal Archives band 3540386765 - band-owned artwork, no explicit licence"
+  },
+  "black_sabbath-logo.webp": {
+    "artist": "Black Sabbath",
+    "artistId": "black_sabbath",
+    "mbid": "5182c1d9-c7d2-4dad-afa0-ccfeada921a8",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/black-sabbath-52a90a54028a9.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "black_sabbath-photo.webp": {
+    "artist": "Black Sabbath",
+    "artistId": "black_sabbath",
+    "mbid": "5182c1d9-c7d2-4dad-afa0-ccfeada921a8",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/black-sabbath-641c343c96984.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "born_of_osiris-logo.webp": {
+    "artist": "Born of Osiris",
+    "artistId": "born_of_osiris",
+    "mbid": "132ca1ea-0891-420f-b129-50247bb144b5",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/born-of-osiris-52e2fa60d55ca.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "born_of_osiris-photo.webp": {
+    "artist": "Born of Osiris",
+    "artistId": "born_of_osiris",
+    "mbid": "132ca1ea-0891-420f-b129-50247bb144b5",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/born-of-osiris-520cf8a3cdb6e.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "cattle_decapitation-logo.webp": {
+    "artist": "Cattle Decapitation",
+    "artistId": "cattle_decapitation",
+    "mbid": "0bfb489b-7da8-4b28-b144-eee7599ed1e9",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/cattle-decapitation-504128fbb3340.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "cattle_decapitation-photo.webp": {
+    "artist": "Cattle Decapitation",
+    "artistId": "cattle_decapitation",
+    "mbid": "0bfb489b-7da8-4b28-b144-eee7599ed1e9",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/cattle-decapitation-506cd4fa7c0cc.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "children_of_bodom-logo.webp": {
+    "artist": "Children of Bodom",
+    "artistId": "children_of_bodom",
+    "mbid": "f57e14e4-b030-467c-b202-539453f504ec",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/children-of-bodom-50ee2cd2d1d16.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "children_of_bodom-photo.webp": {
+    "artist": "Children of Bodom",
+    "artistId": "children_of_bodom",
+    "mbid": "f57e14e4-b030-467c-b202-539453f504ec",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/children-of-bodom-4fde4c939b6c1.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "corelia-logo.webp": {
+    "artist": "Corelia",
+    "artistId": "corelia",
+    "mbid": "f931c2ab-dd87-4d85-b136-e5f5e92465ff",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://www.facebook.com/coreliaofficial/",
+    "license": "Official Corelia Facebook page - band-owned artwork, no explicit licence"
+  },
+  "corelia-photo.webp": {
+    "artist": "Corelia",
+    "artistId": "corelia",
+    "mbid": "f931c2ab-dd87-4d85-b136-e5f5e92465ff",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://www.facebook.com/coreliaofficial/",
+    "license": "Official Corelia Facebook page - band-owned artwork, no explicit licence"
+  },
+  "cynic-logo.webp": {
+    "artist": "Cynic",
+    "artistId": "cynic",
+    "mbid": "d7381ee3-d8ac-4622-ae9a-7e659143eacb",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/cynic-53c2bf740ad00.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "cynic-photo.webp": {
+    "artist": "Cynic",
+    "artistId": "cynic",
+    "mbid": "d7381ee3-d8ac-4622-ae9a-7e659143eacb",
+    "slot": "photo",
+    "source": "other",
+    "url": "https://arrowlordsofmetal.nl/wp-content/uploads/2023/11/202010_News_Cynic1-1.jpg",
+    "license": "Arrow Lords of Metal press photo - no explicit licence"
+  },
+  "dark_tranquillity-logo.webp": {
+    "artist": "Dark Tranquillity",
+    "artistId": "dark_tranquillity",
+    "mbid": "9d30e408-1559-448b-b491-2f8de1583ccf",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://images.squarespace-cdn.com/content/v1/66babe0d202ab869ca307d7c/2ca994c2-a715-41a6-8ed0-1a28396ba84b/DT_logo.png",
+    "license": "Official Dark Tranquillity site - band-owned artwork, no explicit licence"
+  },
+  "dark_tranquillity-photo.webp": {
+    "artist": "Dark Tranquillity",
+    "artistId": "dark_tranquillity",
+    "mbid": "9d30e408-1559-448b-b491-2f8de1583ccf",
+    "slot": "photo",
+    "source": "other",
+    "url": "https://theprogmind.com/wp-content/uploads/2020/11/994021.jpg",
+    "license": "The Prog Mind press photo - no explicit licence"
+  },
+  "death-logo.webp": {
+    "artist": "Death",
+    "artistId": "death",
+    "mbid": "dbb3b771-ae77-4381-b61c-758b5b7898ec",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/death-503f6abce9e47.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "death-photo.webp": {
+    "artist": "Death",
+    "artistId": "death",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/1/4/1/141_photo.jpg",
+    "license": "Metal Archives band 141 - band-owned artwork, no explicit licence"
+  },
+  "deftones-logo.webp": {
+    "artist": "Deftones",
+    "artistId": "deftones",
+    "mbid": "7527f6c2-d762-4b88-b5e2-9244f1e34c46",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/deftones-509eab3893d02.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "deftones-photo.webp": {
+    "artist": "Deftones",
+    "artistId": "deftones",
+    "mbid": "7527f6c2-d762-4b88-b5e2-9244f1e34c46",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/deftones-55b7c2ff314da.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "dessiderium-logo.webp": {
+    "artist": "Dessiderium",
+    "artistId": "dessiderium",
+    "mbid": "91579784-b30d-40bb-9f08-6defd0c2685f",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/dessiderium-677f83ec2277d.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "dessiderium-photo.webp": {
+    "artist": "Dessiderium",
+    "artistId": "dessiderium",
+    "mbid": "91579784-b30d-40bb-9f08-6defd0c2685f",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540366895_photo.jpg",
+    "license": "Metal Archives band 3540366895 - band-owned artwork, no explicit licence"
+  },
+  "dethklok-logo.webp": {
+    "artist": "Dethklok",
+    "artistId": "dethklok",
+    "mbid": "1afcd689-9be4-4d1a-a9fa-49e086250f51",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/dethklok-5e6e768936562.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "dethklok-photo.webp": {
+    "artist": "Dethklok",
+    "artistId": "dethklok",
+    "mbid": "1afcd689-9be4-4d1a-a9fa-49e086250f51",
+    "slot": "photo",
+    "source": "other",
+    "url": "https://www.premierguitar.com/media-library/dethklok-left-to-right-skwisgaar-skwigelf-william-murderface-nathan-explosion-toki-wartooth-pickles.jpg?id=48585513",
+    "license": "Premier Guitar press photo - no explicit licence"
+  },
+  "devin_townsend_project-logo.webp": {
+    "artist": "Devin Townsend Project",
+    "artistId": "devin_townsend_project",
+    "mbid": "b00cb756-0259-4a50-bbcb-ad22186c5518",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/townsend-devin-project-515358b7b7e3f.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "devin_townsend_project-photo.webp": {
+    "artist": "Devin Townsend Project",
+    "artistId": "devin_townsend_project",
+    "mbid": "b00cb756-0259-4a50-bbcb-ad22186c5518",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/townsend-devin-project-50040ac56651e.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "dimension_zero-logo.webp": {
+    "artist": "Dimension Zero",
+    "artistId": "dimension_zero",
+    "mbid": "593e5825-e5c5-4f85-94a4-fb181d4201bf",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/2/4/3/243_logo.jpg",
+    "license": "Metal Archives band 243 - band-owned artwork, no explicit licence"
+  },
+  "dimension_zero-photo.webp": {
+    "artist": "Dimension Zero",
+    "artistId": "dimension_zero",
+    "mbid": "593e5825-e5c5-4f85-94a4-fb181d4201bf",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/dimension-zero-4f841c00da8bb.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "elp-logo.webp": {
+    "artist": "El-P",
+    "artistId": "elp",
+    "mbid": "d9241f5b-721a-4e08-a25a-acd83ed878cc",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/elp-504874d82707b.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "elp-photo.webp": {
+    "artist": "El-P",
+    "artistId": "elp",
+    "mbid": "d9241f5b-721a-4e08-a25a-acd83ed878cc",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/elp-4fe5b1a35c5c8.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "gojira-logo.webp": {
+    "artist": "Gojira",
+    "artistId": "gojira",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/1/8/3/5/18351_logo.png",
+    "license": "Metal Archives band 18351 - band-owned artwork, no explicit licence"
+  },
+  "gojira-photo.webp": {
+    "artist": "Gojira",
+    "artistId": "gojira",
+    "mbid": "1c5efd53-d6b6-4d63-9d22-a15025cf5f07",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/gojira-55020ce477dcd.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "in_flames-logo.webp": {
+    "artist": "In Flames",
+    "artistId": "in_flames",
+    "mbid": "31745282-b1ea-4d62-939f-226b14d68e7c",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/in-flames-5047b44f0cd34.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "in_flames-photo.webp": {
+    "artist": "In Flames",
+    "artistId": "in_flames",
+    "mbid": "31745282-b1ea-4d62-939f-226b14d68e7c",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/in-flames-500fe84fabfb3.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "insomnium-logo.webp": {
+    "artist": "Insomnium",
+    "artistId": "insomnium",
+    "mbid": "c1f8e226-75ea-4fe6-83ce-59c122bcbca4",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/insomnium-51a4ecbf995c1.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "insomnium-photo.webp": {
+    "artist": "Insomnium",
+    "artistId": "insomnium",
+    "mbid": "c1f8e226-75ea-4fe6-83ce-59c122bcbca4",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/insomnium-4fed9319888c6.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "intervals-logo.webp": {
+    "artist": "Intervals",
+    "artistId": "intervals",
+    "mbid": "841c76d3-b83d-4eb2-b72b-b640c125ab22",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://intrvls.com/cdn/shop/files/intervals_logo_white.png",
+    "license": "Official Intervals site - band-owned artwork, no explicit licence"
+  },
+  "intervals-photo.webp": {
+    "artist": "Intervals",
+    "artistId": "intervals",
+    "mbid": "841c76d3-b83d-4eb2-b72b-b640c125ab22",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/intervals-52fd06cb833bf.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "killer_mike-logo.webp": {
+    "artist": "Killer Mike",
+    "artistId": "killer_mike",
+    "mbid": "47864525-aea7-439a-800f-17c57e51cbcc",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://images.squarespace-cdn.com/content/v1/62be9e42475b9857d42506c3/5dace4e2-53d1-4372-ad50-51cb9130124f/km-favicon.png",
+    "license": "Official Killer Mike site - artist-owned artwork, no explicit licence"
+  },
+  "killer_mike-photo.webp": {
+    "artist": "Killer Mike",
+    "artistId": "killer_mike",
+    "mbid": "47864525-aea7-439a-800f-17c57e51cbcc",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/killer-mike-508c640aba091.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "killswitch_engage-logo.webp": {
+    "artist": "Killswitch Engage",
+    "artistId": "killswitch_engage",
+    "mbid": "8295ee00-0096-461d-95c7-c2263d2a4c6d",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/killswitch-engage-55fc4b2a59950.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "killswitch_engage-photo.webp": {
+    "artist": "Killswitch Engage",
+    "artistId": "killswitch_engage",
+    "mbid": "8295ee00-0096-461d-95c7-c2263d2a4c6d",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/killswitch-engage-4fe590792542e.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "korn-logo.webp": {
+    "artist": "Korn",
+    "artistId": "korn",
+    "mbid": "ac865b2e-bba8-4f5a-8756-dd40d5e39f46",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/korn-529937c4c5090.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "korn-photo.webp": {
+    "artist": "Korn",
+    "artistId": "korn",
+    "mbid": "ac865b2e-bba8-4f5a-8756-dd40d5e39f46",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/korn-549df38944dc1.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "lamb_of_god-logo.webp": {
+    "artist": "Lamb of God",
+    "artistId": "lamb_of_god",
+    "mbid": "298909e4-ebcb-47b8-95e9-cc53b087fc65",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/lamb-of-god-5ea9d3f1aeb08.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "lamb_of_god-photo.webp": {
+    "artist": "Lamb of God",
+    "artistId": "lamb_of_god",
+    "mbid": "298909e4-ebcb-47b8-95e9-cc53b087fc65",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/lamb-of-god-55955ae5c52f2.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "limp_bizkit-logo.webp": {
+    "artist": "Limp Bizkit",
+    "artistId": "limp_bizkit",
+    "mbid": "8f9d6bb2-dba4-4cca-9967-cc02b9f4820c",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/limp-bizkit-525f88ba01121.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "limp_bizkit-photo.webp": {
+    "artist": "Limp Bizkit",
+    "artistId": "limp_bizkit",
+    "mbid": "8f9d6bb2-dba4-4cca-9967-cc02b9f4820c",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/limp-bizkit-525f8936f22f5.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "lorna_shore-logo.webp": {
+    "artist": "Lorna Shore",
+    "artistId": "lorna_shore",
+    "mbid": "e86fc1f5-d632-44b2-8aea-38f83aadffe8",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540513913_logo.webp",
+    "license": "Metal Archives band 3540513913 - band-owned artwork, no explicit licence"
+  },
+  "lorna_shore-photo.webp": {
+    "artist": "Lorna Shore",
+    "artistId": "lorna_shore",
+    "mbid": "e86fc1f5-d632-44b2-8aea-38f83aadffe8",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/lorna-shore-6a1ab258bac13.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "machine_head-logo.webp": {
+    "artist": "Machine Head",
+    "artistId": "machine_head",
+    "mbid": "22a1f4d7-81ff-4216-ac06-3387da6bc118",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/machine-head-51e3ef605be4a.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "machine_head-photo.webp": {
+    "artist": "Machine Head",
+    "artistId": "machine_head",
+    "mbid": "22a1f4d7-81ff-4216-ac06-3387da6bc118",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/machine-head-4fb98a730a289.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "mastodon-logo.webp": {
+    "artist": "Mastodon",
+    "artistId": "mastodon",
+    "mbid": "bc5e2ad6-0a4a-4d90-b911-e9a7e6861727",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/mastodon-5132c63f2b463.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "mastodon-photo.webp": {
+    "artist": "Mastodon",
+    "artistId": "mastodon",
+    "mbid": "bc5e2ad6-0a4a-4d90-b911-e9a7e6861727",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/mastodon-53ba86f14feaf.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "meshuggah-logo.webp": {
+    "artist": "Meshuggah",
+    "artistId": "meshuggah",
+    "mbid": "cf8b3b8c-118e-4136-8d1d-c37091173413",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://www.meshuggah.net/wp-content/uploads/2026/08/Logo-3D-1000.png",
+    "license": "Official Meshuggah site - band-owned artwork, no explicit licence"
+  },
+  "meshuggah-photo.webp": {
+    "artist": "Meshuggah",
+    "artistId": "meshuggah",
+    "mbid": "cf8b3b8c-118e-4136-8d1d-c37091173413",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/meshuggah-4fe336fa312f8.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "mudvayne-logo.webp": {
+    "artist": "Mudvayne",
+    "artistId": "mudvayne",
+    "mbid": "f1c8da15-b408-4149-b863-f1cbe9971f19",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/mudvayne-5c9f002d8279c.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "mudvayne-photo.webp": {
+    "artist": "Mudvayne",
+    "artistId": "mudvayne",
+    "mbid": "f1c8da15-b408-4149-b863-f1cbe9971f19",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/mudvayne-500699504b530.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "ne_obliviscaris-logo.webp": {
+    "artist": "Ne Obliviscaris",
+    "artistId": "ne_obliviscaris",
+    "mbid": "75359245-49cf-4991-932f-e078408481f2",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/ne-obliviscaris-5579d5e9641c4.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "ne_obliviscaris-photo.webp": {
+    "artist": "Ne Obliviscaris",
+    "artistId": "ne_obliviscaris",
+    "mbid": "75359245-49cf-4991-932f-e078408481f2",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/ne-obliviscaris-50154b7640c59.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "nekrogoblikon-logo.webp": {
+    "artist": "Nekrogoblikon",
+    "artistId": "nekrogoblikon",
+    "mbid": "a0befa17-6652-43c7-a211-3c84432f15cd",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://www.nekrogoblikonofficial.com/cdn/shop/files/LOGO.png",
+    "license": "Official Nekrogoblikon site - band-owned artwork, no explicit licence"
+  },
+  "nekrogoblikon-photo.webp": {
+    "artist": "Nekrogoblikon",
+    "artistId": "nekrogoblikon",
+    "mbid": "a0befa17-6652-43c7-a211-3c84432f15cd",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://www.nekrogoblikonofficial.com/cdn/shop/files/Hero_691b92e2-f55c-45c6-8af4-acb6f070e20a.jpg",
+    "license": "Official Nekrogoblikon site - band-owned artwork, no explicit licence"
+  },
+  "nevermore-logo.webp": {
+    "artist": "Nevermore",
+    "artistId": "nevermore",
+    "mbid": "7d093650-89be-4108-842b-ba7f5367504b",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/nevermore-53d3de21f0049.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "nevermore-photo.webp": {
+    "artist": "Nevermore",
+    "artistId": "nevermore",
+    "mbid": "7d093650-89be-4108-842b-ba7f5367504b",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/nevermore-4ffb7ff58b8fe.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "northlane-logo.webp": {
+    "artist": "Northlane",
+    "artistId": "northlane",
+    "mbid": "f4e44995-1890-42a0-a6c1-9185b71655fa",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://au.northlaneband.com/",
+    "license": "Official Northlane site - band-owned artwork, no explicit licence"
+  },
+  "northlane-photo.webp": {
+    "artist": "Northlane",
+    "artistId": "northlane",
+    "mbid": "f4e44995-1890-42a0-a6c1-9185b71655fa",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/northlane-5bcd55e7ba235.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "opeth-logo.webp": {
+    "artist": "Opeth",
+    "artistId": "opeth",
+    "mbid": "c14b4180-dc87-481e-b17a-64e4150f90f6",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/opeth-5070471b8c410.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "opeth-photo.webp": {
+    "artist": "Opeth",
+    "artistId": "opeth",
+    "mbid": "c14b4180-dc87-481e-b17a-64e4150f90f6",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/opeth-4fbafc8d39d7f.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "oranssi_pazuzu-logo.webp": {
+    "artist": "Oranssi Pazuzu",
+    "artistId": "oranssi_pazuzu",
+    "mbid": "e9d2cdf6-d485-4074-9a53-9990c9a4d8b1",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/oranssi-pazuzu-60df85aee7a22.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "oranssi_pazuzu-photo.webp": {
+    "artist": "Oranssi Pazuzu",
+    "artistId": "oranssi_pazuzu",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540279710_photo.jpg",
+    "license": "Metal Archives band 3540279710 - band-owned artwork, no explicit licence"
+  },
+  "papa_roach-logo.webp": {
+    "artist": "Papa Roach",
+    "artistId": "papa_roach",
+    "mbid": "c5eb9407-caeb-4303-b383-6929aa94021c",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/papa-roach-5150a04e2bfe0.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "papa_roach-photo.webp": {
+    "artist": "Papa Roach",
+    "artistId": "papa_roach",
+    "mbid": "c5eb9407-caeb-4303-b383-6929aa94021c",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/papa-roach-4fcf57056ebe5.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "periphery-logo.webp": {
+    "artist": "Periphery",
+    "artistId": "periphery",
+    "mbid": "a0cef17a-4574-44f4-9f97-fd068615dac6",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://periphery.net/images/logo-offblack.png",
+    "license": "Official Periphery site - band-owned artwork, no explicit licence"
+  },
+  "periphery-photo.webp": {
+    "artist": "Periphery",
+    "artistId": "periphery",
+    "mbid": "a0cef17a-4574-44f4-9f97-fd068615dac6",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://images.squarespace-cdn.com/content/v1/5b33e385cc8fed3ca693d8e1/3f8d38cc-97c4-40d0-95b4-c4fc0e1dae09/apple-music-square.jpg",
+    "license": "3DOT Recordings (band-owned label) artists page - band-owned artwork, no explicit licence"
+  },
+  "pink_floyd-logo.webp": {
+    "artist": "Pink Floyd",
+    "artistId": "pink_floyd",
+    "mbid": "83d91898-7763-47d7-b03b-b92132375c47",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/pink-floyd-50947ed5e75f8.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "pink_floyd-photo.webp": {
+    "artist": "Pink Floyd",
+    "artistId": "pink_floyd",
+    "mbid": "83d91898-7763-47d7-b03b-b92132375c47",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/pink-floyd-4fad917437146.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "protest_the_hero-logo.webp": {
+    "artist": "Protest the Hero",
+    "artistId": "protest_the_hero",
+    "mbid": "6318e724-7e6b-4e41-a35b-080065077c80",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://www.protestthehero.ca/wordpress/images/PTH-MainLogo-Stacked-WITHIN-white.png",
+    "license": "Official Protest the Hero site - band-owned artwork, no explicit licence"
+  },
+  "protest_the_hero-photo.webp": {
+    "artist": "Protest the Hero",
+    "artistId": "protest_the_hero",
+    "mbid": "6318e724-7e6b-4e41-a35b-080065077c80",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/protest-the-hero-50c9cd7b9f3d7.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "rage_against_the_machine-logo.webp": {
+    "artist": "Rage Against the Machine",
+    "artistId": "rage_against_the_machine",
+    "mbid": "3798b104-01cb-484c-a3b0-56adc6399b80",
+    "slot": "logo",
+    "source": "commons",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Rage_Against_the_Machine_(Logo).png",
+    "license": "Wikimedia Commons - see the file page for the licence"
+  },
+  "rage_against_the_machine-photo.webp": {
+    "artist": "Rage Against the Machine",
+    "artistId": "rage_against_the_machine",
+    "mbid": "3798b104-01cb-484c-a3b0-56adc6399b80",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/rage-against-the-machine-5456b13b07aa5.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "rivers_of_nihil-logo.webp": {
+    "artist": "Rivers of Nihil",
+    "artistId": "rivers_of_nihil",
+    "mbid": "a802fee7-86d5-4043-94a3-a5cc5b121cc9",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/nihil-rivers-of-6849e35b61bf7.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "rivers_of_nihil-photo.webp": {
+    "artist": "Rivers of Nihil",
+    "artistId": "rivers_of_nihil",
+    "mbid": "a802fee7-86d5-4043-94a3-a5cc5b121cc9",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://d28xeq4m7gnu8f.cloudfront.net/ron/images/photo.jpg",
+    "license": "Official Rivers of Nihil site - band-owned artwork, no explicit licence"
+  },
+  "rush-logo.webp": {
+    "artist": "Rush",
+    "artistId": "rush",
+    "mbid": "534ee493-bfac-4575-a44a-0ae41e2c3fe4",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/rush-50fdfc23549c0.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "rush-photo.webp": {
+    "artist": "Rush",
+    "artistId": "rush",
+    "mbid": "534ee493-bfac-4575-a44a-0ae41e2c3fe4",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/rush-4fb9a05f00d37.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "scar_symmetry-logo.webp": {
+    "artist": "Scar Symmetry",
+    "artistId": "scar_symmetry",
+    "mbid": "b9a20306-a4f5-4d3c-8680-e9cdc7e3af5b",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/scar-symmetry-6846f523ae7e0.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "scar_symmetry-photo.webp": {
+    "artist": "Scar Symmetry",
+    "artistId": "scar_symmetry",
+    "mbid": "b9a20306-a4f5-4d3c-8680-e9cdc7e3af5b",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/scar-symmetry-4ffc3c84268dd.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "shadow_of_intent-logo.webp": {
+    "artist": "Shadow of Intent",
+    "artistId": "shadow_of_intent",
+    "mbid": "e49da23b-5624-49a8-8351-5a43b2d3d4e8",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/shadow-of-intent-6a55eeecb00f4.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "shadow_of_intent-photo.webp": {
+    "artist": "Shadow of Intent",
+    "artistId": "shadow_of_intent",
+    "mbid": "e49da23b-5624-49a8-8351-5a43b2d3d4e8",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540383526_photo.jpg",
+    "license": "Metal Archives band 3540383526 - band-owned artwork, no explicit licence"
+  },
+  "shadows_fall-logo.webp": {
+    "artist": "Shadows Fall",
+    "artistId": "shadows_fall",
+    "mbid": "2e3b75d8-00a8-486a-b4e7-a1f8f65e64c9",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/shadows-fall-504100a006d20.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "shadows_fall-photo.webp": {
+    "artist": "Shadows Fall",
+    "artistId": "shadows_fall",
+    "mbid": "2e3b75d8-00a8-486a-b4e7-a1f8f65e64c9",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/shadows-fall-4fef026a1f090.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "sikth-logo.webp": {
+    "artist": "SikTh",
+    "artistId": "sikth",
+    "mbid": "9190d123-55a4-483e-93aa-6ca5f6b24ade",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://peaceville.com/wp-content/uploads/2015/11/SIKTH-LOGO-black.jpg",
+    "license": "Official SikTh page at Peaceville Records - band-owned artwork, no explicit licence"
+  },
+  "sikth-photo.webp": {
+    "artist": "SikTh",
+    "artistId": "sikth",
+    "mbid": "9190d123-55a4-483e-93aa-6ca5f6b24ade",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://peaceville.com/wp-content/uploads/2015/11/20170130_sikth_promos_5B-Management_HIGH-RES_4.jpg.zip",
+    "license": "Official SikTh page at Peaceville Records - band-owned artwork, no explicit licence"
+  },
+  "soilwork-logo.webp": {
+    "artist": "Soilwork",
+    "artistId": "soilwork",
+    "mbid": "d8d1b067-78bb-4db7-8f91-db2ff9a83ee5",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/soilwork-504a447cb5b03.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "soilwork-photo.webp": {
+    "artist": "Soilwork",
+    "artistId": "soilwork",
+    "mbid": "d8d1b067-78bb-4db7-8f91-db2ff9a83ee5",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/soilwork-517275ff99181.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "spawn_of_possession-logo.webp": {
+    "artist": "Spawn of Possession",
+    "artistId": "spawn_of_possession",
+    "mbid": "2de5a50a-5cdc-47aa-8164-8dc4a4201581",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/spawn-of-possession-67af1623631d5.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "spawn_of_possession-photo.webp": {
+    "artist": "Spawn of Possession",
+    "artistId": "spawn_of_possession",
+    "mbid": "2de5a50a-5cdc-47aa-8164-8dc4a4201581",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/2/0/4/204_photo.jpg",
+    "license": "Metal Archives band 204 - band-owned artwork, no explicit licence"
+  },
+  "substructure-logo.webp": {
+    "artist": "Substructure",
+    "artistId": "substructure",
+    "mbid": "a294fd74-b590-497d-ab1f-5a0a2f26819b",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://www.facebook.com/Substructurestl",
+    "license": "Official Substructure Facebook page - band-owned artwork, no explicit licence"
+  },
+  "substructure-photo.webp": {
+    "artist": "Substructure",
+    "artistId": "substructure",
+    "mbid": "a294fd74-b590-497d-ab1f-5a0a2f26819b",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://www.facebook.com/Substructurestl",
+    "license": "Official Substructure Facebook page - band-owned artwork, no explicit licence"
+  },
+  "swallow_the_sun-logo.webp": {
+    "artist": "Swallow the Sun",
+    "artistId": "swallow_the_sun",
+    "mbid": "0f6df3f2-01f5-4d9a-a047-a76c907d7b66",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/swallow-the-sun-504a48876631d.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "swallow_the_sun-photo.webp": {
+    "artist": "Swallow the Sun",
+    "artistId": "swallow_the_sun",
+    "mbid": "0f6df3f2-01f5-4d9a-a047-a76c907d7b66",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/swallow-the-sun-4fcf353449f1b.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "system_of_a_down-logo.webp": {
+    "artist": "System of a Down",
+    "artistId": "system_of_a_down",
+    "mbid": "cc0b7089-c08d-4c10-b6b0-873582c17fd6",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/system-of-a-down-529f4a8a05d42.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "system_of_a_down-photo.webp": {
+    "artist": "System of a Down",
+    "artistId": "system_of_a_down",
+    "mbid": "cc0b7089-c08d-4c10-b6b0-873582c17fd6",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/system-of-a-down-64a519eccbb3c.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "textures-logo.webp": {
+    "artist": "Textures",
+    "artistId": "textures",
+    "mbid": "27672880-726b-423d-8456-72b8f404710f",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/textures-559faef5bc859.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "textures-photo.webp": {
+    "artist": "Textures",
+    "artistId": "textures",
+    "mbid": "27672880-726b-423d-8456-72b8f404710f",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/textures-4ff855d6f2866.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "the_contortionist-logo.webp": {
+    "artist": "The Contortionist",
+    "artistId": "the_contortionist",
+    "mbid": "a630b133-bcc4-4796-9a0e-685c68b1e6ab",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/contortionist-the-5ae1a5dcd6235.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "the_contortionist-photo.webp": {
+    "artist": "The Contortionist",
+    "artistId": "the_contortionist",
+    "mbid": "a630b133-bcc4-4796-9a0e-685c68b1e6ab",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/contortionist-the-5d1ab9ce19d76.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "the_faceless-logo.webp": {
+    "artist": "The Faceless",
+    "artistId": "the_faceless",
+    "mbid": "28df1bc6-60e4-4423-9c7d-c0e7466b9300",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/faceless-the-52a10824c912e.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "the_faceless-photo.webp": {
+    "artist": "The Faceless",
+    "artistId": "the_faceless",
+    "mbid": "28df1bc6-60e4-4423-9c7d-c0e7466b9300",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/faceless-the-50051dfa80565.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "the_odious-logo.webp": {
+    "artist": "The Odious",
+    "artistId": "the_odious",
+    "mbid": "70e86bd8-1c21-4135-9468-762a9106c24a",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://www.facebook.com/The.Odious",
+    "license": "Official The Odious Facebook page - band-owned artwork, no explicit licence"
+  },
+  "the_odious-photo.webp": {
+    "artist": "The Odious",
+    "artistId": "the_odious",
+    "mbid": "70e86bd8-1c21-4135-9468-762a9106c24a",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://www.facebook.com/The.Odious",
+    "license": "Official The Odious Facebook page - band-owned artwork, no explicit licence"
+  },
+  "the_offspring-logo.webp": {
+    "artist": "The Offspring",
+    "artistId": "the_offspring",
+    "mbid": "23a03e33-a603-404e-bcbf-2c00159d7067",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/offspring-the-52b40da7cc122.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "the_offspring-photo.webp": {
+    "artist": "The Offspring",
+    "artistId": "the_offspring",
+    "mbid": "23a03e33-a603-404e-bcbf-2c00159d7067",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/offspring-the-4fd645eace27c.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "the_schoenberg_automaton-logo.webp": {
+    "artist": "The Schoenberg Automaton",
+    "artistId": "the_schoenberg_automaton",
+    "mbid": "3279f9d5-c4bc-4cd0-8fd2-b735ee71dafa",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540341302_logo.png",
+    "license": "Metal Archives band 3540341302 - band-owned artwork, no explicit licence"
+  },
+  "the_schoenberg_automaton-photo.webp": {
+    "artist": "The Schoenberg Automaton",
+    "artistId": "the_schoenberg_automaton",
+    "mbid": "3279f9d5-c4bc-4cd0-8fd2-b735ee71dafa",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540341302_photo.jpg",
+    "license": "Metal Archives band 3540341302 - band-owned artwork, no explicit licence"
+  },
+  "the_zenith_passage-logo.webp": {
+    "artist": "The Zenith Passage",
+    "artistId": "the_zenith_passage",
+    "mbid": "81072b5e-02c1-4012-9819-077f3f174aa0",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540346785_logo.png",
+    "license": "Metal Archives band 3540346785 - band-owned artwork, no explicit licence"
+  },
+  "the_zenith_passage-photo.webp": {
+    "artist": "The Zenith Passage",
+    "artistId": "the_zenith_passage",
+    "mbid": "81072b5e-02c1-4012-9819-077f3f174aa0",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540346785_photo.jpg",
+    "license": "Metal Archives band 3540346785 - band-owned artwork, no explicit licence"
+  },
+  "tool-logo.webp": {
+    "artist": "Tool",
+    "artistId": "tool",
+    "mbid": "66fc5bf8-daa4-4241-b378-9bc9077939d2",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/tool-50a68593c0cf5.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "tool-photo.webp": {
+    "artist": "Tool",
+    "artistId": "tool",
+    "mbid": "66fc5bf8-daa4-4241-b378-9bc9077939d2",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/tool-4fccc70b9da2f.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "vale_of_pnath-logo.webp": {
+    "artist": "Vale of Pnath",
+    "artistId": "vale_of_pnath",
+    "mbid": "78323332-e7d8-49d1-91de-76a5a0bcadee",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540304453_logo.png",
+    "license": "Metal Archives band 3540304453 - band-owned artwork, no explicit licence"
+  },
+  "vale_of_pnath-photo.webp": {
+    "artist": "Vale of Pnath",
+    "artistId": "vale_of_pnath",
+    "mbid": "78323332-e7d8-49d1-91de-76a5a0bcadee",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540304453_photo.jpg",
+    "license": "Metal Archives band 3540304453 - band-owned artwork, no explicit licence"
+  },
+  "veil_of_maya-logo.webp": {
+    "artist": "Veil of Maya",
+    "artistId": "veil_of_maya",
+    "mbid": "32e740e5-95ea-42e3-b5e2-29f6630488e4",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/veil-of-maya-5480ae9279f64.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "veil_of_maya-photo.webp": {
+    "artist": "Veil of Maya",
+    "artistId": "veil_of_maya",
+    "mbid": "32e740e5-95ea-42e3-b5e2-29f6630488e4",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/veil-of-maya-64a1c75d4580e.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "virvum-logo.webp": {
+    "artist": "Virvum",
+    "artistId": "virvum",
+    "mbid": "7aecd2ce-2f67-4511-9c67-a4bf9322441f",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540397422_logo.jpg",
+    "license": "Metal Archives band 3540397422 - band-owned artwork, no explicit licence"
+  },
+  "virvum-photo.webp": {
+    "artist": "Virvum",
+    "artistId": "virvum",
+    "mbid": "7aecd2ce-2f67-4511-9c67-a4bf9322441f",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://www.season-of-mist.com/wp-content/uploads/2020/03/Virvum-2018-T.Koelman-C.Ursu_-1024x683.jpg",
+    "license": "Season of Mist (label) site - band-owned artwork, no explicit licence"
+  },
+  "vola-logo.webp": {
+    "artist": "VOLA",
+    "artistId": "vola",
+    "mbid": "fd529c0d-4a5c-479d-bbb8-601cefe2b38b",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/vola-657d920d7ef3f.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "vola-photo.webp": {
+    "artist": "VOLA",
+    "artistId": "vola",
+    "mbid": "fd529c0d-4a5c-479d-bbb8-601cefe2b38b",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/vola-652f73b6a8f58.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "warrel_dane-logo.webp": {
+    "artist": "Warrel Dane",
+    "artistId": "warrel_dane",
+    "mbid": "eb7d1a31-d432-41a8-9682-9261b30f8beb",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/1/2/5/8/125841_logo.jpg",
+    "license": "Metal Archives band 125841 - band-owned artwork, no explicit licence"
+  },
+  "warrel_dane-photo.webp": {
+    "artist": "Warrel Dane",
+    "artistId": "warrel_dane",
+    "mbid": "eb7d1a31-d432-41a8-9682-9261b30f8beb",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/dane-warrel-5164bb4f90bb9.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "white_ward-logo.webp": {
+    "artist": "White Ward",
+    "artistId": "white_ward",
+    "mbid": "2c560b38-d7a9-4b2a-9ee3-e183b9549248",
+    "slot": "logo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540354631_logo.webp",
+    "license": "Metal Archives band 3540354631 - band-owned artwork, no explicit licence"
+  },
+  "white_ward-photo.webp": {
+    "artist": "White Ward",
+    "artistId": "white_ward",
+    "mbid": "2c560b38-d7a9-4b2a-9ee3-e183b9549248",
+    "slot": "photo",
+    "source": "metalArchives",
+    "url": "https://www.metal-archives.com/images/3/5/4/0/3540354631_photo.jpg",
+    "license": "Metal Archives band 3540354631 - band-owned artwork, no explicit licence"
+  },
+  "whitechapel-logo.webp": {
+    "artist": "Whitechapel",
+    "artistId": "whitechapel",
+    "mbid": "56ba013c-610e-4d9b-98ed-c2ccff977a9e",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://whitechapelband.com/",
+    "license": "Official Whitechapel site - band-owned artwork, no explicit licence"
+  },
+  "whitechapel-photo.webp": {
+    "artist": "Whitechapel",
+    "artistId": "whitechapel",
+    "mbid": "56ba013c-610e-4d9b-98ed-c2ccff977a9e",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/whitechapel-506cd6f83c171.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  }
+}

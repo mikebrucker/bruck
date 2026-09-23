@@ -43,7 +43,7 @@
       "favorite_track": "Lieblingssong"
     },
     "artists": {
-      "albums": "Alben",
+      "albums": "Top Alben",
       "members": "Mitglieder",
       "former_members": "Ehemalige Mitglieder",
       "notes": "Notizen",
@@ -151,6 +151,9 @@
         "description": "Der Trigger ist eine Prop, kein Child, und wird mit asChild gerendert. Nur unkontrolliert, per Portal, fixiert auf sideOffset 8 mit align end.",
         "trigger": "Popover öffnen",
         "body": "Hier kann alles rein. Der Slot für den Schließen-Button sitzt über den children."
+      },
+      "progress": {
+        "description": "Radix Fortschrittsbalken, nur zur Anzeige. Der Wert wird auf 0 bis max begrenzt, ein Wert außerhalb fixiert den Balken also, statt von Radix verworfen zu werden. Ein max von 0 oder weniger fällt auf 1 zurück."
       },
       "radio_group": {
         "description": "Radix Radio Group mit im Item eingebautem Punkt-Indikator. Komponiert: Die Wurzel liefert nur Layout und Roving Focus.",

@@ -43,7 +43,7 @@
       "favorite_track": "Favorite track"
     },
     "artists": {
-      "albums": "Albums",
+      "albums": "Top Albums",
       "members": "Members",
       "former_members": "Former Members",
       "notes": "Notes",
@@ -151,6 +151,9 @@
         "description": "The trigger is a prop, not a child, and is rendered with asChild. Uncontrolled only, portalled, pinned to sideOffset 8 with align end.",
         "trigger": "Open popover",
         "body": "Anything can go in here. The close button slot sits above the children."
+      },
+      "progress": {
+        "description": "Radix progress bar, display only. The value is clamped into 0 to max, so an out-of-range value pins the bar instead of Radix dropping it. A max of 0 or below falls back to 1."
       },
       "radio_group": {
         "description": "Radix radio group with the dot indicator baked into the item. Composed: the root only supplies layout and roving focus.",
