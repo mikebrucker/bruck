@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import {
+  AlbumNotFoundError,
   DuplicateAlbumUpdateError,
   HonorableRankedError,
   RankedHonorableError,
@@ -35,6 +36,9 @@ export async function PATCH(request: Request) {
     const updated = await userAlbumRepository.applyUpdates(parsed.data.updates);
     return NextResponse.json(updated);
   } catch (error) {
+    if (error instanceof AlbumNotFoundError) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
     if (
       error instanceof RankedHonorableError ||
       error instanceof HonorableRankedError ||

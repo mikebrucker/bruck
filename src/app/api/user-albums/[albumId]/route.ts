@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import {
+  AlbumNotFoundError,
   HonorableRankedError,
   RankedHonorableError,
   userAlbumRepository,
 } from "@/data/userAlbumRepository";
 import { userAlbumUpdateSchema } from "@/data/userAlbumSchema";
 import { isAuthorized } from "@/lib/auth";
-import type { UserAlbum } from "@/types/userAlbum";
 
 export async function PATCH(
   request: Request,
@@ -32,24 +32,12 @@ export async function PATCH(
   }
 
   try {
-    let updated: UserAlbum | null = null;
-    if (parsed.data.trackId !== undefined) {
-      updated = await userAlbumRepository.setTrackId(albumId, parsed.data.trackId);
-    }
-    if (parsed.data.review !== undefined) {
-      updated = await userAlbumRepository.setReview(albumId, parsed.data.review);
-    }
-    if (parsed.data.honorable !== undefined) {
-      updated = await userAlbumRepository.setHonorable(albumId, parsed.data.honorable);
-    }
-    if (parsed.data.rank !== undefined) {
-      updated = await userAlbumRepository.setRank(albumId, parsed.data.rank);
-    }
-    if (!updated) {
-      return NextResponse.json({ error: "No fields to update" }, { status: 400 });
-    }
+    const [updated] = await userAlbumRepository.applyUpdates([{ albumId, ...parsed.data }]);
     return NextResponse.json(updated);
   } catch (error) {
+    if (error instanceof AlbumNotFoundError) {
+      return NextResponse.json({ error: error.message }, { status: 404 });
+    }
     if (error instanceof RankedHonorableError || error instanceof HonorableRankedError) {
       return NextResponse.json({ error: error.message }, { status: 409 });
     }

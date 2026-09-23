@@ -65,7 +65,7 @@ export async function DELETE(request: Request, { params }: RouteContext<"/api/ar
     }
     return new NextResponse(null, { status: 204 });
   } catch (error) {
-    if (isPgError(error, PgErrors.foreignKeyViolation)) {
+    if (isPgError(error, PgErrors.restrictViolation)) {
       return NextResponse.json(
         { error: `Artist "${id}" still has albums; delete or reassign them first` },
         { status: 409 },

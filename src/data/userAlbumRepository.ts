@@ -1,7 +1,7 @@
 import { and, eq, inArray, sql } from "drizzle-orm";
 import { mapUserAlbum } from "@/data/userAlbumMapper";
 import type { UserAlbumBulkUpdateItem } from "@/data/userAlbumSchema";
-import { userAlbums } from "@/db/schema";
+import { albums, userAlbums } from "@/db/schema";
 import { db as defaultDb } from "@/lib/db";
 import type { UserAlbum } from "@/types/userAlbum";
 
@@ -26,6 +26,13 @@ export class DuplicateAlbumUpdateError extends Error {
   }
 }
 
+export class AlbumNotFoundError extends Error {
+  constructor(albumId: string) {
+    super(`Album "${albumId}" not found`);
+    this.name = "AlbumNotFoundError";
+  }
+}
+
 export class UserAlbumRepository {
   private static readonly conflictTarget = [userAlbums.userId, userAlbums.albumId];
 
@@ -36,75 +43,7 @@ export class UserAlbumRepository {
     return rows.map((row) => mapUserAlbum(row));
   }
 
-  async setTrackId(albumId: string, trackId: string | null): Promise<UserAlbum> {
-    const [row] = await this.db
-      .insert(userAlbums)
-      .values({ userId: "me", albumId, trackId })
-      .onConflictDoUpdate({
-        target: UserAlbumRepository.conflictTarget,
-        set: { trackId, updatedAt: sql`now()` },
-      })
-      .returning();
-    return mapUserAlbum(row);
-  }
-
-  async setReview(albumId: string, review: string | null): Promise<UserAlbum> {
-    const value = review || null;
-    const [row] = await this.db
-      .insert(userAlbums)
-      .values({ userId: "me", albumId, review: value })
-      .onConflictDoUpdate({
-        target: UserAlbumRepository.conflictTarget,
-        set: { review: value, updatedAt: sql`now()` },
-      })
-      .returning();
-    return mapUserAlbum(row);
-  }
-
-  async setHonorable(albumId: string, honorable: boolean): Promise<UserAlbum> {
-    if (honorable) {
-      const [existing] = await this.db
-        .select()
-        .from(userAlbums)
-        .where(and(eq(userAlbums.userId, "me"), eq(userAlbums.albumId, albumId)));
-      if (existing?.rank !== null && existing?.rank !== undefined) {
-        throw new RankedHonorableError(albumId);
-      }
-    }
-
-    const [row] = await this.db
-      .insert(userAlbums)
-      .values({ userId: "me", albumId, honorable })
-      .onConflictDoUpdate({
-        target: UserAlbumRepository.conflictTarget,
-        set: { honorable, updatedAt: sql`now()` },
-      })
-      .returning();
-    return mapUserAlbum(row);
-  }
-
-  async setRank(albumId: string, rank: number | null): Promise<UserAlbum> {
-    if (rank !== null) {
-      const [existing] = await this.db
-        .select()
-        .from(userAlbums)
-        .where(and(eq(userAlbums.userId, "me"), eq(userAlbums.albumId, albumId)));
-      if (existing?.honorable) {
-        throw new HonorableRankedError(albumId);
-      }
-    }
-
-    const [row] = await this.db
-      .insert(userAlbums)
-      .values({ userId: "me", albumId, rank })
-      .onConflictDoUpdate({
-        target: UserAlbumRepository.conflictTarget,
-        set: { rank, updatedAt: sql`now()` },
-      })
-      .returning();
-    return mapUserAlbum(row);
-  }
-
+  /** Validates every merged row before a single upsert, so a rejected update writes nothing */
   async applyUpdates(updates: Array<UserAlbumBulkUpdateItem>): Promise<Array<UserAlbum>> {
     if (updates.length === 0) return [];
 
@@ -115,10 +54,18 @@ export class UserAlbumRepository {
       seen.add(albumId);
     }
 
-    const existing = await this.db
-      .select()
-      .from(userAlbums)
-      .where(and(eq(userAlbums.userId, "me"), inArray(userAlbums.albumId, albumIds)));
+    const [existing, albumRows] = await Promise.all([
+      this.db
+        .select()
+        .from(userAlbums)
+        .where(and(eq(userAlbums.userId, "me"), inArray(userAlbums.albumId, albumIds))),
+      this.db.select({ id: albums.id }).from(albums).where(inArray(albums.id, albumIds)),
+    ]);
+
+    const knownAlbumIds = new Set(albumRows.map((row) => row.id));
+    const missingAlbumId = albumIds.find((albumId) => !knownAlbumIds.has(albumId));
+    if (missingAlbumId !== undefined) throw new AlbumNotFoundError(missingAlbumId);
+
     const existingByAlbumId = new Map(existing.map((row) => [row.albumId, row]));
 
     const values = updates.map(({ albumId, ...patch }) => {
@@ -131,7 +78,11 @@ export class UserAlbumRepository {
         honorable: patch.honorable !== undefined ? patch.honorable : (current?.honorable ?? false),
         rank: patch.rank !== undefined ? patch.rank : (current?.rank ?? null),
       };
-      if (merged.honorable && merged.rank !== null) throw new RankedHonorableError(albumId);
+      if (merged.honorable && merged.rank !== null) {
+        throw patch.rank !== undefined && patch.honorable === undefined
+          ? new HonorableRankedError(albumId)
+          : new RankedHonorableError(albumId);
+      }
       return merged;
     });
 
