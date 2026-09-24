@@ -438,6 +438,24 @@
     "url": "https://assets.fanart.tv/fanart/elp-4fe5b1a35c5c8.jpg",
     "license": "CC BY-NC 3.0 (fanart.tv)"
   },
+  "flight_of_the_conchords-logo.webp": {
+    "artist": "Flight of the Conchords",
+    "artistId": "flight_of_the_conchords",
+    "mbid": "1f574ab1-a46d-4586-9331-f0ded23e0411",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/flight-of-the-conchords-554aa8d621e15.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "flight_of_the_conchords-photo.webp": {
+    "artist": "Flight of the Conchords",
+    "artistId": "flight_of_the_conchords",
+    "mbid": "1f574ab1-a46d-4586-9331-f0ded23e0411",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/flight-of-the-conchords-4fbfc1adc349a.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
   "gojira-logo.webp": {
     "artist": "Gojira",
     "artistId": "gojira",
@@ -689,6 +707,42 @@
     "url": "https://assets.fanart.tv/fanart/meshuggah-4fe336fa312f8.jpg",
     "license": "CC BY-NC 3.0 (fanart.tv)"
   },
+  "monuments-logo.webp": {
+    "artist": "Monuments",
+    "artistId": "monuments",
+    "mbid": "3bdd932d-f442-451a-93f6-286d2bb8075d",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/monuments-54fcd3de572c8.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "monuments-photo.webp": {
+    "artist": "Monuments",
+    "artistId": "monuments",
+    "mbid": "3bdd932d-f442-451a-93f6-286d2bb8075d",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/monuments-631fa0b361236.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "moonspell-logo.webp": {
+    "artist": "Moonspell",
+    "artistId": "moonspell",
+    "mbid": "386b19c6-a3d2-414a-bef2-c178572b1cbe",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/moonspell-5098f46f441e3.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "moonspell-photo.webp": {
+    "artist": "Moonspell",
+    "artistId": "moonspell",
+    "mbid": "386b19c6-a3d2-414a-bef2-c178572b1cbe",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/moonspell-4fcca78f4d4bb.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
   "mudvayne-logo.webp": {
     "artist": "Mudvayne",
     "artistId": "mudvayne",
@@ -813,6 +867,24 @@
     "source": "metalArchives",
     "url": "https://www.metal-archives.com/images/3/5/4/0/3540279710_photo.jpg",
     "license": "Metal Archives band 3540279710 - band-owned artwork, no explicit licence"
+  },
+  "ozzy_osbourne-logo.webp": {
+    "artist": "Ozzy Osbourne",
+    "artistId": "ozzy_osbourne",
+    "mbid": "8aa5b65a-5b3c-4029-92bf-47a544356934",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/osbourne-ozzy-5042d69dd2dde.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "ozzy_osbourne-photo.webp": {
+    "artist": "Ozzy Osbourne",
+    "artistId": "ozzy_osbourne",
+    "mbid": "8aa5b65a-5b3c-4029-92bf-47a544356934",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/osbourne-ozzy-4fd0a787e0707.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
   },
   "papa_roach-logo.webp": {
     "artist": "Papa Roach",
@@ -1118,6 +1190,24 @@
     "slot": "photo",
     "source": "fanart",
     "url": "https://assets.fanart.tv/fanart/swallow-the-sun-4fcf353449f1b.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "sybreed-logo.webp": {
+    "artist": "Sybreed",
+    "artistId": "sybreed",
+    "mbid": "60e2aa69-a4b7-419a-bbfc-f253fb21be9c",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/sybreed-6a12dffcbed15.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "sybreed-photo.webp": {
+    "artist": "Sybreed",
+    "artistId": "sybreed",
+    "mbid": "60e2aa69-a4b7-419a-bbfc-f253fb21be9c",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/sybreed-520bc9f85c9ae.jpg",
     "license": "CC BY-NC 3.0 (fanart.tv)"
   },
   "system_of_a_down-logo.webp": {

@@ -24,3 +24,7 @@ magick white-logo.png -fill black -colorize 100 black-logo.png
 ```
 magick artist-logo.webp -channel RGB -negate +channel artist-logo-light.webp
 ```
+- crop logo and overwrite
+```
+magick artist-logo.webp -trim +repage artist-logo.webp
+```
