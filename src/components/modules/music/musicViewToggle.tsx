@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import {
-  Album01Icon,
   GridViewIcon,
+  LayersLogoIcon,
   ListViewIcon,
   RankingIcon,
   UserGroup03Icon,
@@ -156,7 +156,7 @@ export function MusicViewToggle({ scrolled }: MusicViewToggleProps) {
             </ToggleGroupItem>
             <ToggleGroupItem
               value={AlbumViews.all}
-              icon={Album01Icon}
+              icon={LayersLogoIcon}
               iconClassName="size-5"
               className="flex-1 basis-0 min-w-0 data-[state=on]:bg-theme-800 data-[state=on]:border-theme-700"
               aria-label={t(($) => $.music.filter.albums_all)}

@@ -1,35 +1,38 @@
 import type { IconSvgElement } from "@hugeicons/react";
 import { AppIcon } from "@/components/ui/icon";
+import { chip } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 
 type ChipProps = {
   text: string;
+  prefix?: string;
   icon?: IconSvgElement | string;
   slot?: "start" | "end";
   useIconThemeColor?: boolean;
   className?: string;
+  prefixClassName?: string;
 };
 
 export function Chip({
   text,
+  prefix,
   icon,
   slot = "start",
   useIconThemeColor = false,
   className,
+  prefixClassName,
 }: ChipProps) {
   const iconElement = icon ? (
     <AppIcon icon={icon} className="size-5 shrink-0" useThemeColor={useIconThemeColor} />
   ) : null;
 
   return (
-    <span
-      className={cn(
-        "bg-muted rounded-secondary px-1.5 py-0.5 text-sm font-medium inline-flex items-center gap-1.5",
-        className,
-      )}
-    >
+    <span className={cn(chip, className)}>
       {slot === "start" ? iconElement : null}
-      {text}
+      <span>
+        {prefix ? <span className={prefixClassName}>{prefix}</span> : null}
+        {text}
+      </span>
       {slot === "end" ? iconElement : null}
     </span>
   );

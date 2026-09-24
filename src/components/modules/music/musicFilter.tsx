@@ -274,13 +274,13 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-2">
         <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
-          <span className="text-xs font-medium tabular-nums text-muted-foreground">
+          <span className="font-mono text-xs font-medium tabular-nums text-muted-foreground">
             {rankRange[0]}
           </span>
           <span className="text-center text-xs font-medium text-muted-foreground">
             {t(($) => $.music.filter.rank)}
           </span>
-          <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
+          <span className="font-mono text-right text-xs font-medium tabular-nums text-muted-foreground">
             {rankRange[1]}
           </span>
         </div>
@@ -299,13 +299,13 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-2">
         <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
-          <span className="text-xs font-medium tabular-nums text-muted-foreground">
+          <span className="font-mono text-xs font-medium tabular-nums text-muted-foreground">
             {yearRange[0]}
           </span>
           <span className="text-center text-xs font-medium text-muted-foreground">
             {t(($) => $.music.filter.year)}
           </span>
-          <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
+          <span className="font-mono text-right text-xs font-medium tabular-nums text-muted-foreground">
             {yearRange[1]}
           </span>
         </div>
@@ -324,13 +324,13 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-2">
         <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2">
-          <span className="text-xs font-medium tabular-nums text-muted-foreground">
+          <span className="font-mono text-xs font-medium tabular-nums text-muted-foreground">
             {formatRuntimeSeconds(runtimeRange[0])}
           </span>
           <span className="text-center text-xs font-medium text-muted-foreground">
             {t(($) => $.music.filter.runtime)}
           </span>
-          <span className="text-right text-xs font-medium tabular-nums text-muted-foreground">
+          <span className="font-mono text-right text-xs font-medium tabular-nums text-muted-foreground">
             {formatRuntimeSeconds(runtimeRange[1])}
           </span>
         </div>

@@ -54,10 +54,6 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
   const openArtist = () => setSelectedArtist(album.artist);
   const closeArtist = () => setSelectedArtist(null);
 
-  const favoriteTrackTitle = album.favoriteTrack
-    ? `${album.favoriteTrack.number}. ${album.favoriteTrack.title}`
-    : null;
-
   const discCount =
     album.discTitles?.length ?? Math.max(...album.tracks.map((track) => (track.disc ?? 0) + 1));
 
@@ -149,8 +145,8 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
           </div>
 
           <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
-            <Chip text={String(album.year)} />
-            <Chip text={album.runtime} />
+            <Chip text={String(album.year)} className="font-mono" />
+            <Chip text={album.runtime} className="font-mono" />
             {album.label.map((label) => (
               <Chip key={label} text={label} />
             ))}
@@ -163,12 +159,16 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
 
           <div className="col-span-2 sm:hidden flex gap-1 flex-wrap justify-center">{art}</div>
 
-          {favoriteTrackTitle ? (
+          {album.favoriteTrack ? (
             <div className="col-span-2 sm:col-span-1 flex gap-1.5 items-center justify-center sm:justify-start">
               <span className="text-xs text-muted-foreground">
                 {t(($) => $.music.albums.favorite_track)}:
               </span>
-              <Chip text={favoriteTrackTitle} />
+              <Chip
+                prefix={String(album.favoriteTrack.number)}
+                prefixClassName="font-mono"
+                text={`. ${album.favoriteTrack.title}`}
+              />
             </div>
           ) : null}
 
@@ -201,12 +201,14 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
                   className="flex flex-col gap-0 px-2 py-1 odd:bg-card rounded-secondary transition-colors"
                 >
                   <div className="flex gap-2 text-sm">
-                    <span className="w-5 text-right shrink-0 tabular-nums">{track.number}.</span>
+                    <span className="w-6 text-right shrink-0 tabular-nums">
+                      <span className="font-mono">{track.number}</span>.
+                    </span>
                     <span className="flex-1">{track.title}</span>
-                    <span className="shrink-0 tabular-nums">{track.duration}</span>
+                    <span className="font-mono shrink-0 tabular-nums">{track.duration}</span>
                   </div>
                   {track.notes ? (
-                    <p className="text-muted-foreground italic text-xs pl-7 pr-12 whitespace-pre-line">
+                    <p className="text-muted-foreground italic text-xs pl-8 pr-12 whitespace-pre-line">
                       {track.notes}
                     </p>
                   ) : null}

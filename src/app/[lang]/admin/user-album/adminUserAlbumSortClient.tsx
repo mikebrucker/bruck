@@ -3,7 +3,7 @@
 import {
   ChampionIcon,
   CommentRemove01Icon,
-  Layers02Icon,
+  LayersLogoIcon,
   MusicNote01Icon,
   SoftwareUninstallIcon,
 } from "@hugeicons/core-free-icons";
@@ -519,7 +519,7 @@ export function AdminUserAlbumSortClient() {
             />
             <Toggle
               className={toggleClassName}
-              icon={Layers02Icon}
+              icon={LayersLogoIcon}
               pressed={allMode}
               disabled={loading}
               onPressedChange={toggleAllMode}

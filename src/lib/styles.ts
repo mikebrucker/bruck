@@ -23,6 +23,9 @@ export const Zooms = {
   default: 16,
 } as const;
 
+export const chip =
+  "bg-muted rounded-secondary px-1.5 py-0.5 text-sm font-medium inline-flex items-center gap-1.5";
+
 export const toggleOn =
   "data-[state=on]:text-foreground data-[state=on]:bg-theme-500 data-[state=on]:border-theme-700";
 
