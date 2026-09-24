@@ -75,6 +75,7 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
     width,
     height,
     sizes,
+    unoptimized,
     className,
   }: {
     slot: keyof typeof ArtistImages;
@@ -82,6 +83,7 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
     width: number;
     height: number;
     sizes?: string;
+    unoptimized?: boolean;
     className: string;
   }) => (
     <Image
@@ -95,6 +97,7 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
       width={width}
       height={height}
       sizes={sizes}
+      unoptimized={unoptimized}
       style={{ height: "auto" }}
       priority
       onError={() => setMissing((prev) => [...prev, src])}
@@ -138,8 +141,8 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
             ...logo,
             width: 256,
             height: 256,
-            sizes: "(min-width: 640px) 720px, 100vw",
-            className: "w-full max-h-48 h-auto object-contain",
+            unoptimized: true,
+            className: "w-auto max-w-full max-h-48 h-auto",
           })}
         </div>
       ) : null}
