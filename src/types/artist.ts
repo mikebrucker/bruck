@@ -26,6 +26,7 @@ export type ArtistForm = {
 export type KnownArtist =
   | "After the Burial"
   | "Alice in Chains"
+  | "All That Remains"
   | "Allegaeon"
   | "Alluvial"
   | "Animals as Leaders"
