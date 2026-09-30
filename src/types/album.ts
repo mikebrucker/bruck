@@ -232,6 +232,7 @@ export type RecordLabel =
   | "Peaceville Records"
   | "Prosthetic"
   | "Razor & Tie"
+  | "Realising Media"
   | "Reality Entertainment"
   | "Relapse Records"
   | "Rise Records"

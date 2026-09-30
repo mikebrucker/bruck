@@ -40,6 +40,7 @@ export type KnownArtist =
   | "Cattle Decapitation"
   | "Children of Bodom"
   | "Corelia"
+  | "Cyclamen"
   | "Cynic"
   | "Dark Tranquillity"
   | "Death"
