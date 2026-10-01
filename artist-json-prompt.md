@@ -13,7 +13,6 @@ Output ONE JSON object matching this shape (matches artistCreateSchema in src/da
   "artist": string,        // display name exactly as the band writes it, e.g. "The Faceless"
   "bio": string,           // 2-4 sentences: formation, style, notable releases, current status. Plain prose, no markup
   "location": string,      // "City, ST" for US, "City, Country" otherwise, e.g. "Encino, CA" / "Gothenburg, Sweden"
-  "media": [""],           // always empty string, placeholder
   "members": [{ "name": string, "roles": [string, ...], "notes"?: string }],
   "formerMembers": [{ ... }]  // same shape; omit key entirely if the artist never had a lineup change
 }
@@ -44,7 +43,6 @@ Give me only the final JSON in a code block, ready to paste into the admin uploa
   "artist": "The Faceless",
   "bio": "The Faceless is an American technical death metal band formed in Encino, California in 2004 by guitarist Michael Keene, the group's only constant member. Their sound moved from the death metal and deathcore of Akeldama (2006) toward the progressive, keyboard-heavy writing of Planetary Duality (2008) and Autotheism (2012). The band has cycled through a large number of vocalists, bassists and drummers between records.",
   "location": "Encino, CA",
-  "media": [""],
   "members": [
     { "name": "Michael Keene", "roles": ["Lead Guitar", "Clean Vocals", "Keyboards"], "notes": "2004-present" }
   ],

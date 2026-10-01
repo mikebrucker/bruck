@@ -32,6 +32,7 @@ export type KnownArtist =
   | "Animals as Leaders"
   | "Archspire"
   | "Arkaik"
+  | "At the Gates"
   | "Baroness"
   | "Between the Buried and Me"
   | "Black Crown Initiate"

@@ -35,6 +35,24 @@
     "url": "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-235126-GettyImages-567290665.jpg",
     "license": "Rolling Stone editorial photo (Getty Images) - press use, no explicit licence"
   },
+  "all_that_remains-logo.webp": {
+    "artist": "All That Remains",
+    "artistId": "all_that_remains",
+    "mbid": "4f8b7186-b2a2-40db-97ae-6e1cd46d57b1",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/all-that-remains-50a54292cae7d.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "all_that_remains-photo.webp": {
+    "artist": "All That Remains",
+    "artistId": "all_that_remains",
+    "mbid": "4f8b7186-b2a2-40db-97ae-6e1cd46d57b1",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/all-that-remains-4fb2a79cab882.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
   "allegaeon-logo.webp": {
     "artist": "Allegaeon",
     "artistId": "allegaeon",
@@ -123,6 +141,24 @@
     "source": "metalArchives",
     "url": "https://www.metal-archives.com/images/6/9/4/2/69425_photo.jpg",
     "license": "Metal Archives band 69425 - band-owned artwork, no explicit licence"
+  },
+  "at_the_gates-logo.webp": {
+    "artist": "At the Gates",
+    "artistId": "at_the_gates",
+    "mbid": "35f92c4a-69d0-4ed1-ab9e-05259db89d14",
+    "slot": "logo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/at-the-gates-503fce2ddeb8a.png",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
+  },
+  "at_the_gates-photo.webp": {
+    "artist": "At the Gates",
+    "artistId": "at_the_gates",
+    "mbid": "35f92c4a-69d0-4ed1-ab9e-05259db89d14",
+    "slot": "photo",
+    "source": "fanart",
+    "url": "https://assets.fanart.tv/fanart/at-the-gates-54f5ae4d161a5.jpg",
+    "license": "CC BY-NC 3.0 (fanart.tv)"
   },
   "baroness-logo.webp": {
     "artist": "Baroness",
@@ -276,6 +312,24 @@
     "source": "official",
     "url": "https://www.facebook.com/coreliaofficial/",
     "license": "Official Corelia Facebook page - band-owned artwork, no explicit licence"
+  },
+  "cyclamen-logo.webp": {
+    "artist": "Cyclamen",
+    "artistId": "cyclamen",
+    "mbid": "19bb5f2f-e37b-4725-a168-5f7d326bed2f",
+    "slot": "logo",
+    "source": "official",
+    "url": "https://www.facebook.com/thiscyclamen/",
+    "license": "Official Cyclamen Facebook page - band-owned artwork, no explicit licence"
+  },
+  "cyclamen-photo.webp": {
+    "artist": "Cyclamen",
+    "artistId": "cyclamen",
+    "mbid": "19bb5f2f-e37b-4725-a168-5f7d326bed2f",
+    "slot": "photo",
+    "source": "official",
+    "url": "https://www.facebook.com/thiscyclamen/",
+    "license": "Official Cyclamen Facebook page - band-owned artwork, no explicit licence"
   },
   "cynic-logo.webp": {
     "artist": "Cynic",
