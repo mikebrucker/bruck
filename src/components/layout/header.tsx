@@ -36,7 +36,7 @@ function Header({
       {...props}
     >
       <Link href={`/${language}`}>
-        <span className="block font-bold text-xl sm:text-3xl md:text-4xl tracking-widest font-metal-mania text-shadow-lg text-shadow-theme-600 dark:text-shadow-theme-400 transition-[font-size] duration-1000">
+        <span className="block font-bold text-xl sm:text-3xl md:text-4xl tracking-widest font-metal-mania text-shadow-lg text-shadow-theme-600 dark:text-shadow-theme-400 hc:text-shadow-none transition-[font-size] duration-1000">
           {websiteTitle}
         </span>
       </Link>

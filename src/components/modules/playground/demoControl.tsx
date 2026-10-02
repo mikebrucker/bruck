@@ -3,12 +3,13 @@ import { cn } from "@/lib/utils";
 
 interface DemoControlProps {
   label: string;
+  hint?: string;
   htmlFor?: string;
   stacked?: boolean;
   children: ReactNode;
 }
 
-function DemoControl({ label, htmlFor, stacked, children }: DemoControlProps) {
+function DemoControl({ label, hint, htmlFor, stacked, children }: DemoControlProps) {
   const labelClassName = "text-sm font-medium font-mono text-foreground";
   return (
     <div
@@ -17,13 +18,16 @@ function DemoControl({ label, htmlFor, stacked, children }: DemoControlProps) {
         stacked ? "flex-col items-stretch gap-1.5" : "items-center justify-between",
       )}
     >
-      {htmlFor ? (
-        <label htmlFor={htmlFor} className={labelClassName}>
-          {label}
-        </label>
-      ) : (
-        <p className={labelClassName}>{label}</p>
-      )}
+      <div className="flex flex-col">
+        {htmlFor ? (
+          <label htmlFor={htmlFor} className={labelClassName}>
+            {label}
+          </label>
+        ) : (
+          <p className={labelClassName}>{label}</p>
+        )}
+        {hint ? <p className="text-xs text-muted-foreground">{hint}</p> : null}
+      </div>
       {children}
     </div>
   );

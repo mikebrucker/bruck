@@ -50,7 +50,8 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
   const isCvSelected = pathname.startsWith(`/${language}/cv`);
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
   const isSettingsSelected = pathname.startsWith(`/${language}/settings`);
-  const selectedClassName = "bg-theme-400 border-theme-300";
+  const selectedClassName =
+    "bg-theme-400 border-theme-300 hc:bg-foreground hc:border-foreground hc:text-background";
   const { theme, toggleTheme, menuSide } = useStyleStore();
 
   return (
@@ -244,7 +245,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           size="icon"
           onClick={toggleTheme}
           className={cn(
-            "h-13 w-13",
+            "h-13 w-13 hc:border-(--keycap-edge)",
             theme === Themes.light
               ? "bg-amber-200 border-yellow-200"
               : "bg-indigo-800 border-indigo-900",

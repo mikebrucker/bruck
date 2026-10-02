@@ -16,10 +16,10 @@ const variantColors = {
 } as const;
 
 const contentColors = {
-  default: "bg-popover text-popover-foreground",
+  default: "bg-popover text-popover-foreground hc:border hc:border-border",
   outline: "border border-border bg-popover text-popover-foreground",
-  secondary: "bg-secondary text-secondary-foreground",
-  ghost: "bg-popover text-popover-foreground",
+  secondary: "bg-secondary text-secondary-foreground hc:border hc:border-border",
+  ghost: "bg-popover text-popover-foreground hc:border hc:border-border",
   keyboard: "bg-transparent shadow-none",
 } as const;
 
@@ -31,13 +31,13 @@ const itemStyles = {
 } as const;
 
 const selectVariants = cva(
-  "inline-flex min-w-40 shrink-0 items-center justify-between rounded-secondary text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "inline-flex min-w-40 shrink-0 items-center justify-between rounded-secondary text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 hc:disabled:opacity-75 cursor-pointer",
   {
     variants: {
       variant: {
-        default: `${variantColors.default} hover:bg-card/80`,
+        default: `${variantColors.default} hover:bg-card/80 hc:border hc:border-border`,
         outline: `${variantColors.outline} hover:bg-input/50`,
-        secondary: `${variantColors.secondary} hover:bg-secondary/80`,
+        secondary: `${variantColors.secondary} hover:bg-secondary/80 hc:border hc:border-border`,
         ghost: `${variantColors.ghost} hover:bg-muted dark:hover:bg-muted/50`,
         keyboard:
           "min-h-[44px] rounded-[10px] [border-style:outset] border-[var(--keycap-edge)] [border-width:8px_10px_10px_8px] bg-[var(--keycap-face)] text-xs text-[var(--keycap-text)] shadow-[0_5px_10px_2px_rgba(0,0,0,0.45)] transition-[box-shadow,transform,border-width] duration-100 ease-out active:translate-y-[3px] active:brightness-95 active:[border-style:inset] active:[border-width:8px_8px_5px_8px] active:shadow-[inset_0_2px_5px_0_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.45)] data-[state=open]:translate-y-[3px] data-[state=open]:brightness-95 data-[state=open]:[border-style:inset] data-[state=open]:[border-width:8px_8px_5px_8px] data-[state=open]:shadow-[inset_0_2px_5px_0_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.45)]",
@@ -120,7 +120,7 @@ function Select({
                 key={option.value}
                 value={option.value}
                 className={cn(
-                  "flex w-full cursor-pointer items-center justify-between gap-1.5 outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50",
+                  "flex w-full cursor-pointer items-center justify-between gap-1.5 outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50 hc:data-disabled:opacity-75 hc:data-highlighted:bg-foreground hc:data-highlighted:text-background",
                   itemStyles[isKeyboard ? "keyboard" : "plain"],
                 )}
               >

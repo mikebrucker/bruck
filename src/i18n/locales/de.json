@@ -87,6 +87,8 @@
     "preview": "Vorschau",
     "props": "Props",
     "close": "Schließen",
+    "demo_only": "Nur zu Demozwecken",
+    "milliseconds": "Millisekunden",
     "aria": {
       "demo_button": "Demo Button",
       "demo_input": "Demo Eingabefeld",
@@ -442,6 +444,9 @@
     "roundedSecondary": "Sekundäre Ecken",
     "menuSide": "Menüseite",
     "zoom": "Zoom",
+    "highContrast": "Hoher Kontrast",
+    "on": "An",
+    "off": "Aus",
     "side": {
       "left": "Links",
       "right": "Rechts"

@@ -19,11 +19,13 @@ import { SettingsSwatchButton } from "@/components/modules/settings/settingsSwat
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { flagColorMap, type Language, locales } from "@/i18n/config";
-import { roundedCornerVars, toggleOn, Zooms } from "@/lib/styles";
+import { Zooms } from "@/lib/settings";
+import { roundedCornerVars, toggleOn } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useStyleStore } from "@/stores/useStyleStore";
@@ -48,12 +50,14 @@ export default function SettingsPage() {
     roundedSecondary,
     menuSide,
     zoom,
+    highContrast,
     setTheme,
     setAccent,
     setRoundedPrimary,
     setRoundedSecondary,
     setMenuSide,
     setZoom,
+    setHighContrast,
   } = useStyleStore();
   const { language, setLanguage } = useLanguageStore();
   const changeLanguageUrl = useChangeLanguageUrl();
@@ -182,17 +186,28 @@ export default function SettingsPage() {
               value={Themes.light}
               icon={Sun02Icon}
               iconClassName="size-6"
-              className="data-[state=on]:bg-amber-200 data-[state=on]:border-amber-400 data-[state=on]:text-foreground"
+              className="data-[state=on]:bg-amber-200 data-[state=on]:border-amber-400 data-[state=on]:text-foreground hc:data-[state=on]:border-amber-800"
               aria-label={t(($) => $.settings.light)}
             />
             <ToggleGroupItem
               value={Themes.dark}
               icon={Moon02Icon}
               iconClassName="size-6"
-              className="data-[state=on]:bg-indigo-800 data-[state=on]:border-indigo-600 data-[state=on]:text-foreground"
+              className="data-[state=on]:bg-indigo-800 data-[state=on]:border-indigo-600 data-[state=on]:text-foreground hc:data-[state=on]:border-indigo-300"
               aria-label={t(($) => $.settings.dark)}
             />
           </ToggleGroup>
+        </SettingsRow>
+        <Separator />
+        <SettingsRow
+          label={t(($) => $.settings.highContrast)}
+          value={t(($) => (highContrast ? $.settings.on : $.settings.off))}
+        >
+          <Switch
+            checked={highContrast}
+            onCheckedChange={setHighContrast}
+            aria-label={t(($) => $.settings.highContrast)}
+          />
         </SettingsRow>
         <Separator />
         <SettingsRow label={t(($) => $.settings.accent)} value={t(($) => $.settings[accent])}>
@@ -200,7 +215,7 @@ export default function SettingsPage() {
             type="button"
             variant="outline"
             size="icon"
-            className="size-10 border bg-theme-500 hover:bg-theme-600 border-theme-700 text-foreground"
+            className="size-10 border bg-theme-500 hover:bg-theme-600 border-theme-700 text-theme-foreground"
             aria-label={t(($) => $.ariaLabels.accent, { accent: t(($) => $.settings[accent]) })}
             onClick={accentModal.open}
           >

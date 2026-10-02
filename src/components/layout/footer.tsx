@@ -17,7 +17,7 @@ function Footer({ className, sticky = false, ...props }: FooterProps) {
       )}
       {...props}
     >
-      <div className="flex font-metal-mania text-base sm:text-lg tracking-widest text-shadow-md text-shadow-theme-600 dark:text-shadow-theme-400 transition-all">
+      <div className="flex font-metal-mania text-base sm:text-lg tracking-widest text-shadow-md text-shadow-theme-600 dark:text-shadow-theme-400 hc:text-shadow-none transition-all">
         <span>
           &copy;&nbsp;{new Date().getFullYear()}&nbsp;~&nbsp;{websiteTitle}
         </span>

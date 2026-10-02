@@ -108,6 +108,7 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
             type="button"
             variant="outline"
             size="icon-sm"
+            className="hc:bg-background hc:hover:bg-muted"
             onClick={onClose}
             aria-label={t(($) => $.ariaLabels.close)}
           >
@@ -192,7 +193,7 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
           <Accordion
             key={group.discIndex}
             title={group.title}
-            classNames="p-2 rounded-secondary bg-secondary"
+            classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
           >
             <div>
               {group.tracks.map((track) => (
@@ -222,7 +223,7 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
           <div>
             <Accordion
               title={t(($) => $.music.albums.personnel)}
-              classNames="p-2 rounded-secondary bg-secondary"
+              classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
               defaultOpen={false}
             >
               <div className="space-y-6 text-sm">

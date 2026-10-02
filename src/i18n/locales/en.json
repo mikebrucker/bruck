@@ -87,6 +87,8 @@
     "preview": "Preview",
     "props": "Props",
     "close": "Close",
+    "demo_only": "Demo purposes only",
+    "milliseconds": "Milliseconds",
     "aria": {
       "demo_button": "Demo button",
       "demo_input": "Demo input",
@@ -442,6 +444,9 @@
     "roundedSecondary": "Secondary Corners",
     "menuSide": "Menu Side",
     "zoom": "Zoom",
+    "highContrast": "High Contrast",
+    "on": "On",
+    "off": "Off",
     "side": {
       "left": "Left",
       "right": "Right"

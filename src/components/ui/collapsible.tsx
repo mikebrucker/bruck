@@ -128,7 +128,7 @@ export function Collapsible({
     >
       <CollapsiblePrimitive.Trigger
         className={cn(
-          "group flex w-full items-center justify-between gap-4 p-2 text-left font-semibold text-muted-foreground tracking-widest hover:text-foreground transition-colors cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
+          "group flex w-full items-center justify-between gap-4 p-2 text-left font-semibold text-muted-foreground tracking-widest hover:text-foreground transition-colors cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 hc:disabled:opacity-75",
           triggerClassName,
         )}
       >

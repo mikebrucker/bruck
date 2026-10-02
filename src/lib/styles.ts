@@ -16,18 +16,11 @@ export const roundedCornerVars: Record<RoundedCorner, string> = {
   "4xl": "var(--radius-4xl)",
 };
 
-/** Root font size in px, written to `--zoom` on <html>. Every rem based size scales with it. */
-export const Zooms = {
-  min: 12,
-  max: 20,
-  default: 16,
-} as const;
-
 export const chip =
-  "bg-muted rounded-secondary px-1.5 py-0.5 text-sm font-medium inline-flex items-center gap-1.5";
+  "bg-muted rounded-secondary px-1.5 py-0.5 text-sm font-medium inline-flex items-center gap-1.5 hc:border hc:border-border";
 
 export const toggleOn =
-  "data-[state=on]:text-foreground data-[state=on]:bg-theme-500 data-[state=on]:border-theme-700";
+  "data-[state=on]:text-theme-foreground data-[state=on]:bg-theme-500 data-[state=on]:border-theme-700";
 
 export const convexButtonGradient8 =
   "bg-[linear-gradient(to_bottom,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%),linear-gradient(to_right,rgb(0_0_0/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(0_0_0/0.1)_100%)] shadow-sm active:shadow-inner dark:bg-[linear-gradient(to_bottom,rgb(192_192_192/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(192_192_192/0.1)_100%),linear-gradient(to_right,rgb(192_192_192/0.1)_0px,transparent_8px,transparent_calc(100%_-_8px),rgb(192_192_192/0.1)_100%)]";

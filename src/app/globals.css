@@ -3,6 +3,10 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+/* A new name rather than re-pointing `contrast-more`: an overridden built-in keeps
+   its sort slot, which is before `dark`, so `dark:` would win ties. A new variant
+   sorts last and beats `dark:` (and `hover:`/`data-*:`, so stack state tweaks). */
+@custom-variant hc (&:is(.high-contrast *));
 
 /* Custom palettes: not shipped by Tailwind, so they are declared here rather
    than aliased. Not `inline`, so `--color-*` land in `:root` as real vars;
@@ -222,6 +226,13 @@
   /* stone 700 */
   initial-value: oklch(37.4% 0.01 67.558);
 }
+/* Text placed on accent fills (`bg-theme-500`). */
+@property --theme-foreground {
+  syntax: "<color>";
+  inherits: true;
+  /* zinc 800 */
+  initial-value: oklch(27.4% 0.006 286.033);
+}
 /* Emerald, the default accent. */
 @property --theme-50 {
   syntax: "<color>";
@@ -377,6 +388,7 @@
   --keycap-edge: var(--color-stone-200);
   --keycap-face: var(--color-stone-100);
   --keycap-text: var(--color-stone-700);
+  --theme-foreground: var(--color-zinc-800);
   transition:
     --background 300ms,
     --foreground 300ms,
@@ -399,6 +411,7 @@
     --keycap-edge 300ms,
     --keycap-face 300ms,
     --keycap-text 300ms,
+    --theme-foreground 300ms,
     --theme-50 300ms,
     --theme-100 300ms,
     --theme-200 300ms,
@@ -447,6 +460,7 @@
     --keycap-edge: var(--color-stone-700);
     --keycap-face: var(--color-stone-800);
     --keycap-text: var(--color-stone-300);
+    --theme-foreground: var(--color-zinc-200);
   }
 }
 
@@ -484,6 +498,7 @@ html.dark {
   --keycap-edge: var(--color-stone-700);
   --keycap-face: var(--color-stone-800);
   --keycap-text: var(--color-stone-300);
+  --theme-foreground: var(--color-zinc-200);
 }
 
 html.light {
@@ -517,6 +532,94 @@ html.light {
   --theme-800: var(--ramp-800);
   --theme-900: var(--ramp-900);
   --theme-950: var(--ramp-950);
+  --theme-foreground: var(--color-zinc-800);
+}
+
+/* `high-contrast` is toggled on <html> by `applyHighContrast` in `useStyleStore`.
+   Paired with the theme class so these beat `html.dark`/`html.light` on
+   specificity, and both blocks set the same tokens so nothing leaks across
+   themes. The accent ramp is stretched toward the extremes: 500 and up carry
+   text, icons and borders; 400 and down carry dark text. */
+html.light.high-contrast {
+  --background: var(--color-zinc-100);
+  --foreground: var(--color-zinc-950);
+  --card: white;
+  --card-foreground: var(--color-zinc-950);
+  --popover: white;
+  --popover-foreground: var(--color-zinc-950);
+  --primary: var(--color-zinc-950);
+  --primary-foreground: var(--color-zinc-50);
+  --secondary: var(--color-zinc-200);
+  --secondary-foreground: var(--color-zinc-950);
+  --muted: var(--color-zinc-200);
+  --muted-foreground: var(--color-zinc-700);
+  --accent: var(--color-zinc-200);
+  --accent-foreground: var(--color-zinc-950);
+  --destructive: var(--color-red-900);
+  --border: var(--color-zinc-600);
+  --input: var(--color-zinc-200);
+  --ring: var(--color-zinc-950);
+  /* accent */
+  --theme-50: var(--ramp-50);
+  --theme-100: var(--ramp-50);
+  --theme-200: var(--ramp-100);
+  --theme-300: var(--ramp-100);
+  --theme-400: var(--ramp-200);
+  --theme-500: var(--ramp-800);
+  --theme-600: var(--ramp-900);
+  --theme-700: var(--ramp-900);
+  --theme-800: var(--ramp-950);
+  --theme-900: var(--ramp-950);
+  --theme-950: var(--ramp-950);
+  --keycap-edge: var(--color-stone-600);
+  --keycap-face: var(--color-stone-50);
+  --keycap-text: var(--color-stone-950);
+  --theme-foreground: var(--color-zinc-100);
+}
+
+html.dark.high-contrast {
+  --background: var(--color-zinc-950);
+  --foreground: var(--color-zinc-50);
+  --card: var(--color-zinc-900);
+  --card-foreground: var(--color-zinc-50);
+  --popover: var(--color-zinc-900);
+  --popover-foreground: var(--color-zinc-50);
+  --primary: var(--color-zinc-50);
+  --primary-foreground: var(--color-zinc-950);
+  --secondary: var(--color-zinc-800);
+  --secondary-foreground: var(--color-zinc-50);
+  --muted: var(--color-zinc-800);
+  --muted-foreground: var(--color-zinc-300);
+  --accent: var(--color-zinc-800);
+  --accent-foreground: var(--color-zinc-50);
+  --destructive: var(--color-red-200);
+  --border: var(--color-zinc-400);
+  --input: var(--color-zinc-800);
+  --ring: var(--color-zinc-50);
+  /* accent reversed */
+  --theme-50: var(--ramp-950);
+  --theme-100: var(--ramp-950);
+  --theme-200: var(--ramp-900);
+  --theme-300: var(--ramp-900);
+  --theme-400: var(--ramp-800);
+  --theme-500: var(--ramp-300);
+  --theme-600: var(--ramp-200);
+  --theme-700: var(--ramp-100);
+  --theme-800: var(--ramp-50);
+  --theme-900: var(--ramp-50);
+  --theme-950: var(--ramp-50);
+  --keycap-edge: var(--color-stone-400);
+  --keycap-face: var(--color-stone-900);
+  --keycap-text: var(--color-stone-50);
+  --theme-foreground: var(--color-zinc-950);
+}
+
+/* Unlayered on purpose: unlayered rules beat Tailwind's layered utilities, so this
+   overrides every `outline-none` and the translucent `ring-ring/50` focus rings,
+   and gives controls without any focus style an indicator. */
+html.high-contrast :focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 /* `data-accent` is written to <html> by `applyAccent` in `useStyleStore`.
@@ -1012,6 +1115,7 @@ html[data-accent="sixer"] {
   --color-theme-800: var(--theme-800);
   --color-theme-900: var(--theme-900);
   --color-theme-950: var(--theme-950);
+  --color-theme-foreground: var(--theme-foreground);
   --animate-drawer-fade-in: drawer-fade-in 0.3s ease-in-out;
   --animate-drawer-fade-out: drawer-fade-out 0.3s ease-in-out;
   --animate-drawer-slide-in-right: drawer-slide-in-right 0.3s ease-in-out;
