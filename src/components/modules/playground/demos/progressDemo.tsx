@@ -8,25 +8,23 @@ import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
 import { Progress } from "@/components/ui/progress";
 
-/** Playground-only: how often the running bar ticks, and how many ticks fill it once. */
-const TICK_MS = 400;
-const TICKS_PER_RUN = 20;
-
 function ProgressDemo() {
   const { t } = useTranslation();
   const [value, setValue] = useState(40);
   const [max, setMax] = useState(100);
   const [running, setRunning] = useState(false);
+  const [step, setStep] = useState(1);
+  const [speed, setSpeed] = useState(250);
   const [indicatorClassNames, setIndicatorClassNames] = useState("");
   const [classNames, setClassNames] = useState("");
 
   useEffect(() => {
     if (!running) return;
     const interval = setInterval(() => {
-      setValue((current) => (current >= max ? 0 : Math.min(current + max / TICKS_PER_RUN, max)));
-    }, TICK_MS);
+      setValue((current) => (current >= max ? 0 : Math.min(current + step, max)));
+    }, speed);
     return () => clearInterval(interval);
-  }, [running, max]);
+  }, [running, max, step, speed]);
 
   return (
     <DemoCard
@@ -34,9 +32,33 @@ function ProgressDemo() {
       description={t(($) => $.playground.demos.progress.description)}
       controls={
         <>
-          <DemoNumber label="value" value={value} onChange={setValue} />
-          <DemoNumber label="max" value={max} onChange={setMax} />
-          <DemoSwitch label="running" checked={running} onCheckedChange={setRunning} />
+          <DemoNumber label="value" value={value} onChange={setValue} min={0} />
+          <DemoNumber label="max" value={max} onChange={setMax} min={1} />
+          <DemoSwitch
+            label="running"
+            hint={t(($) => $.playground.demo_only)}
+            checked={running}
+            onCheckedChange={setRunning}
+          />
+          <DemoNumber
+            label="step"
+            hint={t(($) => $.playground.demo_only)}
+            value={step}
+            onChange={setStep}
+            step={1}
+            min={1}
+            max={max}
+            disabled={!running}
+          />
+          <DemoNumber
+            label="speed"
+            hint={`${t(($) => $.playground.milliseconds)}, ${t(($) => $.playground.demo_only)}`}
+            value={speed}
+            onChange={setSpeed}
+            disabled={!running}
+            min={1}
+            max={1000}
+          />
           <DemoText
             placeholder="Tailwind classNames"
             label="indicatorClassName"

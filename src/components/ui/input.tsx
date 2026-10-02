@@ -3,14 +3,15 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const inputVariants = cva(
-  "flex w-full min-w-0 rounded-secondary text-sm outline-none transition-[color,box-shadow] placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20",
+  "flex w-full min-w-0 rounded-secondary text-sm outline-none transition-[color,box-shadow] placeholder:text-muted-foreground hc:placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 hc:disabled:opacity-75 aria-invalid:border-destructive hc:aria-invalid:border-destructive aria-invalid:ring-destructive/20",
   {
     variants: {
       variant: {
-        default: "bg-card text-card-foreground placeholder:text-card-foreground/60",
+        default:
+          "bg-card text-card-foreground placeholder:text-card-foreground/60 hc:border hc:border-border",
         outline: "border border-border bg-input/30",
         secondary:
-          "bg-secondary text-secondary-foreground placeholder:text-secondary-foreground/60",
+          "bg-secondary text-secondary-foreground placeholder:text-secondary-foreground/60 hc:border hc:border-border",
         ghost: "bg-transparent",
       },
       size: {

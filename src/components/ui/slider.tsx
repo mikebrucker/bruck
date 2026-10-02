@@ -97,7 +97,7 @@ function Slider({
       )}
     >
       <SliderPrimitive.Track className="relative h-1.5 w-full grow rounded-full bg-muted">
-        <SliderPrimitive.Range className="absolute h-full rounded-full bg-linear-to-r from-theme-300 to-theme-700" />
+        <SliderPrimitive.Range className="absolute h-full rounded-full bg-linear-to-r from-theme-300 to-theme-700 hc:bg-none hc:bg-theme-500" />
         {tickPositions.map((left) => (
           <span
             key={left}
@@ -113,7 +113,7 @@ function Slider({
           key={i}
           aria-label={thumbLabels?.[i] ?? label}
           className={cn(
-            "block size-4 shrink-0 rounded-full border-2 border-background shadow transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 data-disabled:pointer-events-none data-disabled:opacity-50",
+            "block size-4 shrink-0 rounded-full border-2 border-background hc:border-foreground shadow transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 data-disabled:pointer-events-none data-disabled:opacity-50 hc:data-disabled:opacity-75",
             i === 0 ? "bg-theme-300" : "bg-theme-700",
           )}
         />

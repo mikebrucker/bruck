@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { Zooms } from "@/lib/styles";
-import { clampZoom } from "@/lib/utils";
+import { clampZoom, Zooms } from "@/lib/settings";
+import { isBooleanString } from "@/lib/utils";
 import { useStyleStore } from "@/stores/useStyleStore";
 import {
   type Accent,
@@ -42,6 +42,7 @@ export function StyleInit() {
   const setRoundedSecondary = useStyleStore((s) => s.setRoundedSecondary);
   const setMenuSide = useStyleStore((s) => s.setMenuSide);
   const setZoom = useStyleStore((s) => s.setZoom);
+  const setHighContrast = useStyleStore((s) => s.setHighContrast);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
@@ -65,8 +66,22 @@ export function StyleInit() {
     const storedZoom = localStorage.getItem("zoom");
     setZoom(parseZoom(storedZoom));
 
+    const storedHighContrast = localStorage.getItem("high-contrast");
+    const prefersHighContrast = window.matchMedia("(prefers-contrast: more)").matches;
+    setHighContrast(
+      isBooleanString(storedHighContrast) ? storedHighContrast === "true" : prefersHighContrast,
+    );
+
     useStyleStore.setState({ ready: true });
-  }, [setTheme, setAccent, setRoundedPrimary, setRoundedSecondary, setMenuSide, setZoom]);
+  }, [
+    setTheme,
+    setAccent,
+    setRoundedPrimary,
+    setRoundedSecondary,
+    setMenuSide,
+    setZoom,
+    setHighContrast,
+  ]);
 
   return null;
 }

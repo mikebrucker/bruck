@@ -45,11 +45,11 @@ export default function AlbumStrip({ albums, title, onSelect }: AlbumStripProps)
                 <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
                   <Chip
                     text={String(album.year)}
-                    className="bg-background/70 backdrop-blur-sm text-xs tabular-nums"
+                    className="bg-background/70 hc:bg-background backdrop-blur-sm text-xs tabular-nums"
                   />
                   <Chip
                     text={album.album}
-                    className="max-w-full bg-background/70 backdrop-blur-sm text-xs"
+                    className="max-w-full bg-background/70 hc:bg-background backdrop-blur-sm text-xs"
                   />
                 </div>
               </button>

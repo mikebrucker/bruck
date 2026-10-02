@@ -1,5 +1,5 @@
-import { roundedCornerVars, Zooms } from "@/lib/styles";
-import { clampZoom } from "@/lib/utils";
+import { clampZoom, Zooms } from "@/lib/settings";
+import { roundedCornerVars } from "@/lib/styles";
 import { createHmrStore } from "@/stores/createHmrStore";
 import {
   type Accent,
@@ -22,6 +22,7 @@ type StyleState = {
   roundedSecondary: RoundedCorner;
   menuSide: Side;
   zoom: number;
+  highContrast: boolean;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   setAccent: (accent: Accent) => void;
@@ -29,6 +30,7 @@ type StyleState = {
   setRoundedSecondary: (roundedSecondary: RoundedCorner) => void;
   setMenuSide: (menuSide: Side) => void;
   setZoom: (zoom: number) => void;
+  setHighContrast: (highContrast: boolean) => void;
 };
 
 const applyTheme = (theme: Theme) => {
@@ -52,13 +54,27 @@ const applyZoom = (zoom: number) => {
   localStorage.setItem("zoom", String(zoom));
 };
 
+const applyHighContrast = (highContrast: boolean) => {
+  document.documentElement.classList.toggle("high-contrast", highContrast);
+  localStorage.setItem("high-contrast", String(highContrast));
+};
+
 const applyMenuSide = (menuSide: Side) => {
   localStorage.setItem("menu-side", menuSide);
 };
 
 export const useStyleStore = createHmrStore<StyleState>(
   "style",
-  ["theme", "accent", "roundedPrimary", "roundedSecondary", "menuSide", "zoom", "ready"],
+  [
+    "theme",
+    "accent",
+    "roundedPrimary",
+    "roundedSecondary",
+    "menuSide",
+    "zoom",
+    "ready",
+    "highContrast",
+  ],
   (set, get) => ({
     theme: Themes.light,
     accent: Accents.emerald,
@@ -67,6 +83,7 @@ export const useStyleStore = createHmrStore<StyleState>(
     menuSide: Sides.right,
     zoom: Zooms.default,
     ready: false,
+    highContrast: false,
     setTheme: (theme) => {
       applyTheme(theme);
       set({ theme });
@@ -96,6 +113,10 @@ export const useStyleStore = createHmrStore<StyleState>(
       const next = clampZoom(zoom);
       applyZoom(next);
       set({ zoom: next });
+    },
+    setHighContrast: (highContrast) => {
+      applyHighContrast(highContrast);
+      set({ highContrast });
     },
   }),
 );

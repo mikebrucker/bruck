@@ -41,29 +41,29 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
             alt={t(($) => $.music.albums.cover_art, { album: album.album })}
             width={320}
             height={320}
-            className="w-full h-full rounded-secondary object-cover"
+            className="w-full h-full rounded-secondary hc:border hc:border-border object-cover"
           />
         ) : (
-          <div className="w-full h-full rounded-secondary bg-card" />
+          <div className="w-full h-full rounded-secondary hc:border hc:border-border bg-card" />
         )}
         {album.userAlbum?.rank ? (
           <Chip
             text={String(album.userAlbum.rank)}
-            className="font-mono absolute top-1 left-1 aspect-square min-w-8 sm:min-w-11 justify-center bg-background/70 backdrop-blur-sm text-lg sm:text-2xl font-bold text-theme-600 tabular-nums"
+            className="font-mono absolute top-1 left-1 aspect-square min-w-8 sm:min-w-11 justify-center bg-background/70 hc:bg-background backdrop-blur-sm text-lg sm:text-2xl font-bold text-theme-600 tabular-nums"
           />
         ) : null}
         <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
           <Chip
             text={String(album.year)}
-            className="bg-background/70 backdrop-blur-sm text-xs tabular-nums"
+            className="bg-background/70 hc:bg-background backdrop-blur-sm text-xs tabular-nums"
           />
           <Chip
             text={album.album}
-            className="max-w-full bg-background/70 backdrop-blur-sm font-bold"
+            className="max-w-full bg-background/70 hc:bg-background backdrop-blur-sm font-bold"
           />
           <Chip
             text={album.artist.artist}
-            className="max-w-full bg-background/70 backdrop-blur-sm"
+            className="max-w-full bg-background/70 hc:bg-background backdrop-blur-sm"
           />
         </div>
       </button>

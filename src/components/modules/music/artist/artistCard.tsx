@@ -128,6 +128,7 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
             type="button"
             variant="outline"
             size="icon-sm"
+            className="hc:bg-background hc:hover:bg-muted"
             onClick={onClose}
             aria-label={t(($) => $.ariaLabels.close)}
           >
@@ -197,7 +198,7 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
           {artist.members?.length ? (
             <Accordion
               title={t(($) => $.music.artists.members)}
-              classNames="p-2 rounded-secondary bg-secondary"
+              classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
             >
               <div className="text-sm">{artist.members.map(creditInfo)}</div>
             </Accordion>
@@ -205,7 +206,7 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
           {artist.formerMembers?.length ? (
             <Accordion
               title={t(($) => $.music.artists.former_members)}
-              classNames="p-2 rounded-secondary bg-secondary"
+              classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
               defaultOpen={false}
             >
               <div className="text-sm">{artist.formerMembers.map(creditInfo)}</div>

@@ -138,8 +138,8 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
   ];
 
   const chipStateClassName = (disabled: boolean, active: boolean) => {
-    if (disabled) return "opacity-50 pointer-events-none";
-    if (active) return "bg-theme-500 text-white";
+    if (disabled) return "opacity-50 hc:opacity-75 pointer-events-none";
+    if (active) return "bg-theme-500 text-white hc:text-theme-foreground";
     return undefined;
   };
 
@@ -161,7 +161,7 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
         titleClassName="font-metal-mania text-lg font-normal"
         size="sm"
         defaultOpen={false}
-        classNames="bg-card rounded-primary"
+        classNames="bg-card rounded-primary hc:border hc:border-border"
         actionButton={
           <>
             {selectedValues.length ? (
@@ -201,7 +201,10 @@ export function MusicFilter({ albums, filterKey, scrolled }: MusicFilterProps) {
       >
         <div className="flex flex-wrap gap-1.5 px-2">
           {options.length === 0 ? (
-            <Chip text={noOptionsText(field)} className="opacity-50 pointer-events-none" />
+            <Chip
+              text={noOptionsText(field)}
+              className="opacity-50 hc:opacity-75 pointer-events-none"
+            />
           ) : (
             options.map((value) => {
               const key = chipKey(field, value);

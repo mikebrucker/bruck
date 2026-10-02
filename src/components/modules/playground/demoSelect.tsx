@@ -7,6 +7,7 @@ import { isKeyOf } from "@/lib/utils";
 
 interface DemoSelectProps<TValue extends string> {
   label: string;
+  hint?: string;
   options: Record<TValue, TValue>;
   value: TValue;
   stacked?: boolean;
@@ -15,6 +16,7 @@ interface DemoSelectProps<TValue extends string> {
 
 function DemoSelect<TValue extends string>({
   label,
+  hint,
   options,
   value,
   stacked,
@@ -22,7 +24,7 @@ function DemoSelect<TValue extends string>({
 }: DemoSelectProps<TValue>) {
   const id = useId();
   return (
-    <DemoControl label={label} htmlFor={id} stacked={stacked}>
+    <DemoControl label={label} hint={hint} htmlFor={id} stacked={stacked}>
       <Select
         id={id}
         size="sm"

@@ -379,7 +379,7 @@ export function AdminUserAlbumSortClient() {
                         >
                           <HugeiconsIcon
                             icon={SoftwareUninstallIcon}
-                            className="size-6 text-red-700"
+                            className="size-6 text-red-700 hc:text-destructive"
                           />
                           <span className="hidden sm:inline-block">
                             {t(($) => $.admin.button.unrank)}
@@ -441,7 +441,7 @@ export function AdminUserAlbumSortClient() {
                                     size="icon-lg"
                                     disabled
                                     aria-label={t(($) => $.admin.button.rank)}
-                                    className="pointer-events-none bg-background/50 backdrop-blur-sm px-2"
+                                    className="pointer-events-none bg-background/50 hc:bg-background backdrop-blur-sm px-2"
                                   >
                                     <HugeiconsIcon icon={ChampionIcon} className="size-6" />
                                   </Button>
@@ -456,7 +456,7 @@ export function AdminUserAlbumSortClient() {
                               variant="ghost"
                               size="lg"
                               aria-label={t(($) => $.admin.button.rank)}
-                              className="shrink-0 bg-background/50 backdrop-blur-sm px-2"
+                              className="shrink-0 bg-background/50 hc:bg-background backdrop-blur-sm px-2"
                               onClick={() => handleRank(item.id)}
                             >
                               <HugeiconsIcon
@@ -466,7 +466,7 @@ export function AdminUserAlbumSortClient() {
                               <span className="text-xl">+{nextAvailableRank}</span>
                             </Button>
                           )}
-                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 backdrop-blur-sm rounded-secondary p-2">
+                          <div className="shrink-0 flex flex-col gap-1 items-center bg-background/50 hc:bg-background backdrop-blur-sm rounded-secondary p-2">
                             <label htmlFor={switchId} className="text-2xs cursor-pointer ">
                               {t(($) => $.music.albums.honorable)}
                             </label>
@@ -481,11 +481,11 @@ export function AdminUserAlbumSortClient() {
                         <div className="relative min-w-0 flex flex-col items-start gap-1">
                           <Chip
                             text={item.album.album}
-                            className="block max-w-full truncate bg-background/70 backdrop-blur-sm font-bold"
+                            className="block max-w-full truncate bg-background/70 hc:bg-background backdrop-blur-sm font-bold"
                           />
                           <Chip
                             text={item.album.artist.artist}
-                            className="block max-w-full truncate bg-background/70 backdrop-blur-sm"
+                            className="block max-w-full truncate bg-background/70 hc:bg-background backdrop-blur-sm"
                           />
                         </div>
                       </div>

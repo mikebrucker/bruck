@@ -38,7 +38,7 @@ export default function ArtistGridItem({ artist, albums, rank }: ArtistGridItemP
         type="button"
         onClick={openArtist}
         aria-label={t(($) => $.music.artists.open_artist, { artist: artist.artist })}
-        className="relative w-full aspect-square cursor-pointer text-left bg-card rounded-secondary"
+        className="relative w-full aspect-square cursor-pointer text-left bg-card rounded-secondary hc:border hc:border-border"
       >
         {logo ? (
           <Image
@@ -55,13 +55,13 @@ export default function ArtistGridItem({ artist, albums, rank }: ArtistGridItemP
         {rank ? (
           <Chip
             text={String(rank)}
-            className="font-mono absolute top-1 left-1 aspect-square min-w-8 sm:min-w-11 justify-center bg-background/70 backdrop-blur-sm text-lg sm:text-2xl font-bold text-theme-600 tabular-nums"
+            className="font-mono absolute top-1 left-1 aspect-square min-w-8 sm:min-w-11 justify-center bg-background/70 hc:bg-background backdrop-blur-sm text-lg sm:text-2xl font-bold text-theme-600 tabular-nums"
           />
         ) : null}
         <div className="absolute bottom-1 left-1 right-1 flex flex-col items-start gap-1">
           <Chip
             text={artist.artist}
-            className="max-w-full bg-background/70 backdrop-blur-sm font-bold"
+            className="max-w-full bg-background/70 hc:bg-background backdrop-blur-sm font-bold"
           />
         </div>
       </button>

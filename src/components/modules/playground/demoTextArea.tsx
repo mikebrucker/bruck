@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 interface DemoTextAreaProps {
   label: string;
+  hint?: string;
   value: string;
   stacked?: boolean;
   rows?: number;
@@ -12,9 +13,17 @@ interface DemoTextAreaProps {
   onChange?: (value: string) => void;
 }
 
-function DemoTextArea({ label, value, stacked, rows = 3, readOnly, onChange }: DemoTextAreaProps) {
+function DemoTextArea({
+  label,
+  hint,
+  value,
+  stacked,
+  rows = 3,
+  readOnly,
+  onChange,
+}: DemoTextAreaProps) {
   return (
-    <DemoControl label={label} stacked={stacked}>
+    <DemoControl label={label} hint={hint} stacked={stacked}>
       <Textarea
         size="xs"
         className={stacked ? "w-full" : "max-w-36"}
