@@ -79,6 +79,19 @@ export default function SettingsPage() {
     languageModal.close();
   };
 
+  const resetButton = (ariaLabel: string, onReset: () => void) => (
+    <Button
+      type="button"
+      variant="outline"
+      size="icon"
+      className="size-10 bg-background border-destructive"
+      aria-label={ariaLabel}
+      onClick={onReset}
+    >
+      <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
+    </Button>
+  );
+
   const roundedSettingsRow = (target: RoundedTarget) => {
     const isPrimary = target === RoundedTargets.primary;
     const value = isPrimary ? roundedPrimary : roundedSecondary;
@@ -104,18 +117,7 @@ export default function SettingsPage() {
     return (
       <SettingsRow label={label} value={t(($) => $.settings.rounded[value])}>
         <div className="flex items-center gap-2">
-          {value !== fallback ? (
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              className="size-10 bg-background"
-              aria-label={resetAriaLabel}
-              onClick={() => setValue(fallback)}
-            >
-              <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
-            </Button>
-          ) : null}
+          {value !== fallback ? resetButton(resetAriaLabel, () => setValue(fallback)) : null}
           <div
             className={cn(
               "size-10 border-t-2 border-r-2 border-dotted border-foreground",
@@ -297,18 +299,12 @@ export default function SettingsPage() {
           value={`${zoom}px`}
           stacked
           action={
-            zoom !== Zooms.default ? (
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                className="size-10 bg-background"
-                aria-label={t(($) => $.ariaLabels.reset_zoom)}
-                onClick={() => setZoom(Zooms.default)}
-              >
-                <HugeiconsIcon icon={DeletePutBackIcon} className="size-6 text-destructive" />
-              </Button>
-            ) : null
+            zoom !== Zooms.default
+              ? resetButton(
+                  t(($) => $.ariaLabels.reset_zoom),
+                  () => setZoom(Zooms.default),
+                )
+              : null
           }
         >
           <Slider
