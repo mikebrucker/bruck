@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { clampZoom, Zooms } from "@/lib/settings";
+import { clampZoom, darkSchemeQuery, Zooms } from "@/lib/settings";
 import { isBooleanString } from "@/lib/utils";
 import { useStyleStore } from "@/stores/useStyleStore";
 import {
@@ -16,10 +16,10 @@ import {
   sides,
   type Theme,
   Themes,
+  themes,
 } from "@/types/settings";
 
-const isTheme = (value: string | null): value is Theme =>
-  value === Themes.light || value === Themes.dark;
+const isTheme = (value: string | null): value is Theme => themes.some((theme) => theme === value);
 
 const isAccent = (value: string | null): value is Accent =>
   accents.some((accent) => accent === value);
@@ -36,6 +36,7 @@ const parseZoom = (value: string | null): number => {
 };
 
 export function StyleInit() {
+  const theme = useStyleStore((s) => s.theme);
   const setTheme = useStyleStore((s) => s.setTheme);
   const setAccent = useStyleStore((s) => s.setAccent);
   const setRoundedPrimary = useStyleStore((s) => s.setRoundedPrimary);
@@ -46,10 +47,7 @@ export function StyleInit() {
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? Themes.dark
-      : Themes.light;
-    setTheme(isTheme(stored) ? stored : preferred);
+    setTheme(isTheme(stored) ? stored : Themes.system);
 
     const storedAccent = localStorage.getItem("accent");
     setAccent(isAccent(storedAccent) ? storedAccent : Accents.emerald);
@@ -82,6 +80,14 @@ export function StyleInit() {
     setZoom,
     setHighContrast,
   ]);
+
+  useEffect(() => {
+    if (theme !== Themes.system) return;
+    const media = window.matchMedia(darkSchemeQuery);
+    const followSystem = () => setTheme(Themes.system);
+    media.addEventListener("change", followSystem);
+    return () => media.removeEventListener("change", followSystem);
+  }, [theme, setTheme]);
 
   return null;
 }

@@ -405,6 +405,7 @@
     "theme": "Theme",
     "dark": "Dark Mode",
     "light": "Light Mode",
+    "system": "System",
     "accent": "Accent",
     "red": "Red",
     "orange": "Orange",

@@ -1,9 +1,10 @@
-import { clampZoom, Zooms } from "@/lib/settings";
+import { clampZoom, darkSchemeQuery, Zooms } from "@/lib/settings";
 import { roundedCornerVars } from "@/lib/styles";
 import { createHmrStore } from "@/stores/createHmrStore";
 import {
   type Accent,
   Accents,
+  type ResolvedTheme,
   type RoundedCorner,
   RoundedCorners,
   type RoundedTarget,
@@ -17,6 +18,8 @@ import {
 type StyleState = {
   ready: boolean;
   theme: Theme;
+  /** What `theme` renders as, with `Themes.system` swapped for the OS color scheme. */
+  resolvedTheme: ResolvedTheme;
   accent: Accent;
   roundedPrimary: RoundedCorner;
   roundedSecondary: RoundedCorner;
@@ -33,9 +36,14 @@ type StyleState = {
   setHighContrast: (highContrast: boolean) => void;
 };
 
-const applyTheme = (theme: Theme) => {
-  document.documentElement.classList.toggle("dark", theme === Themes.dark);
-  document.documentElement.classList.toggle("light", theme === Themes.light);
+const resolveTheme = (theme: Theme): ResolvedTheme => {
+  if (theme !== Themes.system) return theme;
+  return window.matchMedia(darkSchemeQuery).matches ? Themes.dark : Themes.light;
+};
+
+const applyTheme = (theme: Theme, resolvedTheme: ResolvedTheme) => {
+  document.documentElement.classList.toggle("dark", resolvedTheme === Themes.dark);
+  document.documentElement.classList.toggle("light", resolvedTheme === Themes.light);
   localStorage.setItem("theme", theme);
 };
 
@@ -67,6 +75,7 @@ export const useStyleStore = createHmrStore<StyleState>(
   "style",
   [
     "theme",
+    "resolvedTheme",
     "accent",
     "roundedPrimary",
     "roundedSecondary",
@@ -76,7 +85,8 @@ export const useStyleStore = createHmrStore<StyleState>(
     "highContrast",
   ],
   (set, get) => ({
-    theme: Themes.light,
+    theme: Themes.system,
+    resolvedTheme: Themes.light,
     accent: Accents.emerald,
     roundedPrimary: RoundedCorners.lg,
     roundedSecondary: RoundedCorners.md,
@@ -85,13 +95,12 @@ export const useStyleStore = createHmrStore<StyleState>(
     ready: false,
     highContrast: false,
     setTheme: (theme) => {
-      applyTheme(theme);
-      set({ theme });
+      const resolvedTheme = resolveTheme(theme);
+      applyTheme(theme, resolvedTheme);
+      set({ theme, resolvedTheme });
     },
     toggleTheme: () => {
-      const next = get().theme === Themes.dark ? Themes.light : Themes.dark;
-      applyTheme(next);
-      set({ theme: next });
+      get().setTheme(get().resolvedTheme === Themes.dark ? Themes.light : Themes.dark);
     },
     setAccent: (accent) => {
       applyAccent(accent);

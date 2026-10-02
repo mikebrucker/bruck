@@ -29,7 +29,7 @@ type ArtistCardProps = {
 
 export default function ArtistCard({ artist, albums, rank, isModal, onClose }: ArtistCardProps) {
   const { t } = useTranslation();
-  const theme = useStyleStore((s) => s.theme);
+  const theme = useStyleStore((s) => s.resolvedTheme);
   const musicList = useMusicFilterStore((s) => s.musicList);
   const [missing, setMissing] = useState<Array<string>>([]);
   const [imageModalOpen, setImageModalOpen] = useState(false);

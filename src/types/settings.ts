@@ -1,8 +1,11 @@
 export const Themes = {
   light: "light",
   dark: "dark",
+  system: "system",
 } as const;
 export type Theme = keyof typeof Themes;
+export type ResolvedTheme = Exclude<Theme, typeof Themes.system>;
+export const themes: Array<Theme> = Object.values(Themes);
 
 export const Accents = {
   red: "red",

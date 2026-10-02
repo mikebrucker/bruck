@@ -52,7 +52,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
   const isSettingsSelected = pathname.startsWith(`/${language}/settings`);
   const selectedClassName =
     "bg-theme-400 border-theme-300 hc:bg-foreground hc:border-foreground hc:text-background";
-  const { theme, toggleTheme, menuSide } = useStyleStore();
+  const { resolvedTheme, toggleTheme, menuSide } = useStyleStore();
 
   return (
     <Drawer
@@ -246,17 +246,20 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
           onClick={toggleTheme}
           className={cn(
             "h-13 w-13 hc:border-(--keycap-edge)",
-            theme === Themes.light
+            resolvedTheme === Themes.light
               ? "bg-amber-200 border-yellow-200"
               : "bg-indigo-800 border-indigo-900",
           )}
           aria-label={
-            theme === Themes.light
+            resolvedTheme === Themes.light
               ? t(($) => $.ariaLabels.switch_to_dark_mode)
               : t(($) => $.ariaLabels.switch_to_light_mode)
           }
         >
-          <HugeiconsIcon icon={theme === Themes.dark ? Moon02Icon : Sun02Icon} className="size-6" />
+          <HugeiconsIcon
+            icon={resolvedTheme === Themes.dark ? Moon02Icon : Sun02Icon}
+            className="size-6"
+          />
         </Button>
         {locales.map((locale) => (
           <Button

@@ -18,7 +18,7 @@ type ArtistGridItemProps = {
 
 export default function ArtistGridItem({ artist, albums, rank }: ArtistGridItemProps) {
   const { t } = useTranslation();
-  const theme = useStyleStore((s) => s.theme);
+  const theme = useStyleStore((s) => s.resolvedTheme);
 
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
 

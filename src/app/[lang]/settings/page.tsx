@@ -4,6 +4,7 @@ import {
   ArrowLeft05Icon,
   ArrowRight05Icon,
   ColorPickerIcon,
+  DarkModeIcon,
   DeletePutBackIcon,
   Moon02Icon,
   SquareRoundCornerIcon,
@@ -45,6 +46,7 @@ export default function SettingsPage() {
   const { t } = useTranslation();
   const {
     theme,
+    resolvedTheme,
     accent,
     roundedPrimary,
     roundedSecondary,
@@ -168,10 +170,7 @@ export default function SettingsPage() {
         {t(($) => $.settings.title)}
       </h1>
       <SettingsSection id="settings-style-title" title={t(($) => $.settings.style)}>
-        <SettingsRow
-          label={t(($) => $.settings.theme)}
-          value={theme === Themes.dark ? t(($) => $.settings.dark) : t(($) => $.settings.light)}
-        >
+        <SettingsRow label={t(($) => $.settings.theme)} value={t(($) => $.settings[theme])}>
           <ToggleGroup
             type="single"
             variant="outline"
@@ -179,9 +178,18 @@ export default function SettingsPage() {
             className="bg-background"
             value={theme}
             onValueChange={(value) => {
-              if (value === Themes.light || value === Themes.dark) setTheme(value);
+              if (value === Themes.light || value === Themes.dark || value === Themes.system) {
+                setTheme(value);
+              }
             }}
           >
+            <ToggleGroupItem
+              value={Themes.system}
+              icon={DarkModeIcon}
+              iconClassName="size-6"
+              className={toggleOn}
+              aria-label={t(($) => $.settings.system)}
+            />
             <ToggleGroupItem
               value={Themes.light}
               icon={Sun02Icon}
@@ -228,7 +236,7 @@ export default function SettingsPage() {
           >
             {accents.map((a) => {
               const isSelected = a === accent;
-              const ridgeShade = theme === Themes.dark ? 300 : 600;
+              const ridgeShade = resolvedTheme === Themes.dark ? 300 : 600;
               return (
                 <SettingsSwatchButton
                   key={a}
