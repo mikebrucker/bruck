@@ -25,6 +25,7 @@ import { Button } from "@/components/ui/button";
 import { Drawer } from "@/components/ui/drawer";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { locales } from "@/i18n/config";
+import { navSelected } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 import { useLanguageStore } from "@/stores/useLanguageStore";
@@ -50,8 +51,7 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
   const isCvSelected = pathname.startsWith(`/${language}/cv`);
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
   const isSettingsSelected = pathname.startsWith(`/${language}/settings`);
-  const selectedClassName =
-    "bg-theme-400 border-theme-300 hc:bg-foreground hc:border-foreground hc:text-background";
+  const selectedClassName = navSelected;
   const { resolvedTheme, toggleTheme, menuSide } = useStyleStore();
 
   return (

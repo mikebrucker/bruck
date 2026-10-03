@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { HeaderNav } from "@/components/modules/headerNav";
 import { Menu } from "@/components/modules/menu";
 import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 
@@ -31,7 +32,9 @@ function AppLayout({
         {t(($) => $.ariaLabels.skip_to_content)}
       </a>
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} useTheme />
-      <Header onAction={() => setMenuOpen(true)} actionIcon={Menu01Icon} sticky />
+      <Header onAction={() => setMenuOpen(true)} actionIcon={Menu01Icon} sticky>
+        <HeaderNav />
+      </Header>
       <main
         id="main"
         tabIndex={-1}

@@ -230,6 +230,7 @@
     "userAlbum": "Rezension"
   },
   "ariaLabels": {
+    "main_navigation": "Hauptnavigation",
     "close_menu": "Menü schließen",
     "open_html_cv": "HTML-Lebenslauf öffnen",
     "open_pdf_cv": "PDF-Lebenslauf öffnen",

@@ -20,6 +20,7 @@ function Header({
   actionIcon,
   actionLabel,
   sticky = false,
+  children,
   ...props
 }: HeaderProps) {
   const { t } = useTranslation();
@@ -40,11 +41,19 @@ function Header({
           {websiteTitle}
         </span>
       </Link>
-      {onAction && actionIcon ? (
-        <Button variant="keyboard" size="icon" onClick={onAction} aria-label={resolvedActionLabel}>
-          <HugeiconsIcon icon={actionIcon} className="size-6 text-theme-500" />
-        </Button>
-      ) : null}
+      <div className="flex items-center gap-0.5">
+        {children}
+        {onAction && actionIcon ? (
+          <Button
+            variant="keyboard"
+            size="icon"
+            onClick={onAction}
+            aria-label={resolvedActionLabel}
+          >
+            <HugeiconsIcon icon={actionIcon} className="size-6 text-theme-500" />
+          </Button>
+        ) : null}
+      </div>
     </header>
   );
 }
