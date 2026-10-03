@@ -230,6 +230,7 @@
     "userAlbum": "Review"
   },
   "ariaLabels": {
+    "main_navigation": "Main navigation",
     "close_menu": "Close menu",
     "open_html_cv": "Open HTML CV",
     "open_pdf_cv": "Open PDF CV",
