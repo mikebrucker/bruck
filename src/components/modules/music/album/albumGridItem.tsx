@@ -33,7 +33,7 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
         type="button"
         onClick={openAlbum}
         aria-label={album.album}
-        className="relative w-full aspect-square cursor-pointer text-left"
+        className="relative block w-full aspect-square cursor-pointer text-left"
       >
         {cover ? (
           <Image

@@ -18,8 +18,11 @@ type PopoverProps = {
 function Popover({ trigger, children, className, title, useCloseButton }: PopoverProps) {
   const { t } = useTranslation();
   return (
-    <PopoverPrimitive.Root>
+    <PopoverPrimitive.Root modal>
       <PopoverPrimitive.Trigger asChild>{trigger}</PopoverPrimitive.Trigger>
+      <PopoverPrimitive.Portal>
+        <div className="fixed inset-0 z-9998 bg-black/25" />
+      </PopoverPrimitive.Portal>
       <PopoverPrimitive.Portal>
         <PopoverPrimitive.Content
           sideOffset={8}

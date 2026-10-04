@@ -38,7 +38,7 @@ export default function ArtistGridItem({ artist, albums, rank }: ArtistGridItemP
         type="button"
         onClick={openArtist}
         aria-label={t(($) => $.music.artists.open_artist, { artist: artist.artist })}
-        className="relative w-full aspect-square cursor-pointer text-left bg-card rounded-secondary hc:border hc:border-border"
+        className="relative block w-full aspect-square cursor-pointer text-left bg-card rounded-secondary hc:border hc:border-border"
       >
         {logo ? (
           <Image
