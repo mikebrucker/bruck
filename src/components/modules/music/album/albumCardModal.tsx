@@ -15,7 +15,8 @@ export default function AlbumCardModal({ album, onClose }: AlbumCardModalProps) 
       open={album !== null}
       onClose={onClose}
       title={album?.album}
-      className="max-w-3xl h-[80dvh] w-full rounded-primary overflow-y-auto"
+      overlayClassName="overflow-y-auto"
+      className="max-w-3xl w-full self-start my-modal-offset overflow-visible mobile-landscape:max-w-xl"
     >
       {album ? <AlbumCard album={album} isModal onClose={onClose} /> : null}
     </Modal>

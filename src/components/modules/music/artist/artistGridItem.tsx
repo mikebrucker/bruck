@@ -38,7 +38,7 @@ export default function ArtistGridItem({ artist, albums, rank }: ArtistGridItemP
         type="button"
         onClick={openArtist}
         aria-label={t(($) => $.music.artists.open_artist, { artist: artist.artist })}
-        className="relative block w-full aspect-square cursor-pointer text-left bg-card rounded-secondary hc:border hc:border-border"
+        className="group relative block w-full aspect-square cursor-pointer text-left overflow-hidden bg-card rounded-secondary hc:border hc:border-border"
       >
         {logo ? (
           <Image
@@ -49,7 +49,7 @@ export default function ArtistGridItem({ artist, albums, rank }: ArtistGridItemP
             height={320}
             sizes="(min-width: 640px) 320px, 50vw"
             onError={() => setMissing((prev) => [...prev, logo])}
-            className="w-full h-full rounded-secondary object-contain p-3"
+            className="w-full h-full rounded-secondary object-contain p-3 transition-transform duration-300 group-hover:scale-110"
           />
         ) : null}
         {rank ? (

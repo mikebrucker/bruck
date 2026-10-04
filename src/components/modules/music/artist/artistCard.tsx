@@ -1,14 +1,12 @@
-﻿"use client";
+"use client";
 
-import { Cancel01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCardModal from "@/components/modules/music/album/albumCardModal";
 import AlbumStrip from "@/components/modules/music/album/albumStrip";
+import { MusicCardModalLayout } from "@/components/modules/music/musicCardModalLayout";
 import { Accordion } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import Loader from "@/components/ui/loader";
 import { Modal } from "@/components/ui/modal";
 import { artistAlbums } from "@/lib/album";
@@ -105,10 +103,13 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
     />
   );
 
+  // Modal accordions are card-colored sections themselves, so rows stripe with secondary there.
+  const stripe = isModal ? "odd:bg-secondary" : "odd:bg-card";
+
   const creditInfo = (credit: Credit) => (
     <div
       key={credit.name}
-      className="odd:bg-card rounded-secondary px-2 py-1 flex items-center gap-2"
+      className={cn("rounded-secondary px-2 py-1 flex items-center gap-2", stripe)}
     >
       <div className="flex-1">
         <span className="font-medium">{credit.name}</span>
@@ -120,22 +121,38 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
     </div>
   );
 
-  return (
-    <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-primary p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full">
-      {onClose ? (
-        <div className="sticky top-0 z-20 flex justify-end">
-          <Button
-            type="button"
-            variant="outline"
-            size="icon-sm"
-            className="hc:bg-background hc:hover:bg-muted"
-            onClick={onClose}
-            aria-label={t(($) => $.ariaLabels.close)}
-          >
-            <HugeiconsIcon icon={Cancel01Icon} />
-          </Button>
+  const frame =
+    "bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-primary w-full";
+
+  // Padding plus the trigger's own `p-2` lines the title up with the header and description.
+  const accordionClassName = isModal
+    ? cn(frame, "p-1 sm:p-2 md:px-4")
+    : "p-2 rounded-secondary bg-secondary hc:border hc:border-border";
+
+  const heading = (
+    <>
+      <h2 className="text-xl font-bold leading-tight">{artist.artist}</h2>
+      {artist.location ? (
+        <p className="text-muted-foreground font-medium">{artist.location}</p>
+      ) : null}
+    </>
+  );
+
+  // The modal format pins the heading in its header instead.
+  const identity = isModal ? null : (
+    <div className="flex items-start gap-4">
+      {rank ? (
+        <div className="text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono shrink-0">
+          {rank < 10 ? <>&nbsp;</> : ""}
+          {rank}
         </div>
       ) : null}
+      <div className="min-w-0">{heading}</div>
+    </div>
+  );
+
+  const description = (
+    <>
       {logo ? (
         <div className="flex justify-center">
           {artistImage({
@@ -148,24 +165,12 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
         </div>
       ) : null}
       <div className="flex gap-3 flex-col sm:flex-row sm:gap-6 sm:items-start">
-        <div className="flex flex-col gap-3 sm:flex-1">
-          <div className="flex items-start gap-4">
-            {rank && !isModal ? (
-              <div className="text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono shrink-0">
-                {rank < 10 ? <>&nbsp;</> : ""}
-                {rank}
-              </div>
-            ) : null}
-            <div className="min-w-0">
-              <h2 className="text-xl font-bold leading-tight">{artist.artist}</h2>
-              {artist.location ? (
-                <p className="text-muted-foreground font-medium">{artist.location}</p>
-              ) : null}
-            </div>
+        {identity || artist.bio ? (
+          <div className="flex flex-col gap-3 sm:flex-1">
+            {identity}
+            {artist.bio ? <p className="text-sm whitespace-pre-line">{artist.bio}</p> : null}
           </div>
-
-          {artist.bio ? <p className="text-sm whitespace-pre-line">{artist.bio}</p> : null}
-        </div>
+        ) : null}
 
         {photos.length ? (
           <div
@@ -192,75 +197,105 @@ export default function ArtistCard({ artist, albums, rank, isModal, onClose }: A
           </div>
         ) : null}
       </div>
+    </>
+  );
 
-      {artist.members?.length || artist.formerMembers?.length ? (
-        <div className="space-y-2">
-          {artist.members?.length ? (
-            <Accordion
-              title={t(($) => $.music.artists.members)}
-              classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
-            >
-              <div className="text-sm">{artist.members.map(creditInfo)}</div>
-            </Accordion>
-          ) : null}
-          {artist.formerMembers?.length ? (
-            <Accordion
-              title={t(($) => $.music.artists.former_members)}
-              classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
-              defaultOpen={false}
-            >
-              <div className="text-sm">{artist.formerMembers.map(creditInfo)}</div>
-            </Accordion>
-          ) : null}
+  const hasMembers = Boolean(artist.members?.length || artist.formerMembers?.length);
+
+  const accordions = (
+    <>
+      {artist.members?.length ? (
+        <Accordion
+          title={t(($) => $.music.artists.members)}
+          classNames={accordionClassName}
+          defaultOpen={!isModal}
+        >
+          <div className="text-sm">{artist.members.map(creditInfo)}</div>
+        </Accordion>
+      ) : null}
+      {artist.formerMembers?.length ? (
+        <Accordion
+          title={t(($) => $.music.artists.former_members)}
+          classNames={accordionClassName}
+          defaultOpen={false}
+        >
+          <div className="text-sm">{artist.formerMembers.map(creditInfo)}</div>
+        </Accordion>
+      ) : null}
+    </>
+  );
+
+  const albumStrip =
+    discography.length && musicList === MusicLists.artists ? (
+      <>
+        <AlbumStrip
+          albums={discography}
+          title={t(($) => $.music.artists.albums)}
+          onSelect={openAlbum}
+        />
+        <AlbumCardModal album={selectedAlbum} onClose={closeAlbum} />
+      </>
+    ) : null;
+
+  const imageModal = (
+    <Modal
+      className="bg-background"
+      open={imageModalOpen}
+      onClose={closeModal}
+      title={t(($) => $.music.artists.photo, { artist: artist.artist })}
+    >
+      {selectedImage ? (
+        <div className="relative">
+          <Loader
+            className="text-theme-500"
+            isOpen={imageLoading}
+            fullScreen
+            transparentBg
+            onClick={closeModal}
+          />
+          <button
+            type="button"
+            onClick={closeModal}
+            aria-label={t(($) => $.ariaLabels.close)}
+            className="block cursor-pointer"
+          >
+            <Image
+              onLoad={() => setImageLoading(false)}
+              src={selectedImage}
+              alt=""
+              width={1024}
+              height={1024}
+              sizes="100vw"
+              style={{ height: "auto" }}
+              className="w-full max-h-screen object-contain"
+            />
+          </button>
         </div>
       ) : null}
+    </Modal>
+  );
 
-      {discography.length && musicList === MusicLists.artists ? (
-        <>
-          <AlbumStrip
-            albums={discography}
-            title={t(($) => $.music.artists.albums)}
-            onSelect={openAlbum}
-          />
-          <AlbumCardModal album={selectedAlbum} onClose={closeAlbum} />
-        </>
-      ) : null}
-
-      <Modal
-        className="bg-background"
-        open={imageModalOpen}
-        onClose={closeModal}
-        title={t(($) => $.music.artists.photo, { artist: artist.artist })}
+  if (isModal) {
+    return (
+      <MusicCardModalLayout
+        sectionClassName={frame}
+        heading={heading}
+        onClose={onClose}
+        footer={hasMembers ? accordions : null}
       >
-        {selectedImage ? (
-          <div className="relative">
-            <Loader
-              className="text-theme-500"
-              isOpen={imageLoading}
-              fullScreen
-              transparentBg
-              onClick={closeModal}
-            />
-            <button
-              type="button"
-              onClick={closeModal}
-              aria-label={t(($) => $.ariaLabels.close)}
-              className="block cursor-pointer"
-            >
-              <Image
-                onLoad={() => setImageLoading(false)}
-                src={selectedImage}
-                alt=""
-                width={1024}
-                height={1024}
-                sizes="100vw"
-                style={{ height: "auto" }}
-                className="w-full max-h-screen object-contain"
-              />
-            </button>
-          </div>
-        ) : null}
-      </Modal>
+        {description}
+        {albumStrip}
+        {imageModal}
+      </MusicCardModalLayout>
+    );
+  }
+
+  return (
+    <div className={cn(frame, "p-3 sm:p-4 md:p-6 flex flex-col gap-3")}>
+      {description}
+      {hasMembers ? <div className="space-y-2">{accordions}</div> : null}
+      {albumStrip}
+      {imageModal}
     </div>
   );
 }

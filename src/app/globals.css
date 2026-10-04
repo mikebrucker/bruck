@@ -7,6 +7,13 @@
    its sort slot, which is before `dark`, so `dark:` would win ties. A new variant
    sorts last and beats `dark:` (and `hover:`/`data-*:`, so stack state tweaks). */
 @custom-variant hc (&:is(.high-contrast *));
+/* A phone on its side: short and wide, so card modals narrow down rather than
+   span it. Keyed on height, since a landscape phone is as wide as a small laptop. */
+@custom-variant mobile-landscape {
+  @media (orientation: landscape) and (max-height: 32rem) {
+    @slot;
+  }
+}
 
 /* Custom palettes: not shipped by Tailwind, so they are declared here rather
    than aliased. Not `inline`, so `--color-*` land in `:root` as real vars;
@@ -1079,6 +1086,8 @@ html[data-accent="sixer"] {
   --text-2xs: 0.625rem;
   --text-2xs--line-height: 0.875rem;
   --breakpoint-xs: 30rem;
+  /* Card modals start this far from the top and pin their header at the same spot. */
+  --spacing-modal-offset: 10dvh;
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);

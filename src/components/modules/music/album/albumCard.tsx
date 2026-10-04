@@ -1,6 +1,6 @@
-﻿"use client";
+"use client";
 
-import { Cancel01Icon, Vynil02Icon } from "@hugeicons/core-free-icons";
+import { Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -8,8 +8,8 @@ import { useTranslation } from "react-i18next";
 import AlbumCardModal from "@/components/modules/music/album/albumCardModal";
 import AlbumStrip from "@/components/modules/music/album/albumStrip";
 import ArtistCardModal from "@/components/modules/music/artist/artistCardModal";
+import { MusicCardModalLayout } from "@/components/modules/music/musicCardModalLayout";
 import { Accordion } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import Loader from "@/components/ui/loader";
 import { Modal } from "@/components/ui/modal";
@@ -83,10 +83,13 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
     </div>
   ));
 
+  // Modal accordions are card-colored sections themselves, so rows stripe with secondary there.
+  const stripe = isModal ? "odd:bg-secondary" : "odd:bg-card";
+
   const personnelInfo = (credit: Credit) => (
     <div
       key={credit.name}
-      className="odd:bg-card rounded-secondary px-2 py-1 flex items-center gap-2"
+      className={cn("rounded-secondary px-2 py-1 flex items-center gap-2", stripe)}
     >
       <div className="flex-1">
         <span className="font-medium">{credit.name}</span>
@@ -100,229 +103,261 @@ export default function AlbumCard({ album, isModal, onClose }: AlbumCardProps) {
     </div>
   );
 
-  return (
-    <div className="bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-primary p-3 sm:p-4 md:p-6 flex flex-col gap-3 w-full transition-shadow duration-200">
-      {onClose ? (
-        <div className="sticky top-0 z-20 flex justify-end">
-          <Button
-            type="button"
-            variant="outline"
-            size="icon-sm"
-            className="hc:bg-background hc:hover:bg-muted"
-            onClick={onClose}
-            aria-label={t(($) => $.ariaLabels.close)}
-          >
-            <HugeiconsIcon icon={Cancel01Icon} />
-          </Button>
-        </div>
-      ) : null}
-      <div className="sm:flex sm:gap-6 sm:items-start">
-        <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-6 gap-y-3 items-start sm:flex-1 min-w-0">
-          {album.userAlbum?.rank ? (
-            <div className="row-span-1 sm:row-span-5 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono">
-              {album.userAlbum.rank < 10 ? <>&nbsp;</> : ""}
-              {album.userAlbum.rank}
-            </div>
-          ) : (
-            <div className="row-span-1 sm:row-span-5 text-theme-600 pt-1 flex justify-end">
-              <HugeiconsIcon icon={Vynil02Icon} className="w-10 h-10 sm:w-14 sm:h-14" />
-            </div>
-          )}
+  const frame =
+    "bg-card text-card-foreground border border-border border-l-4 border-l-theme-500 rounded-primary w-full transition-shadow duration-200";
 
-          <div>
-            <h2 className="text-xl font-bold leading-tight">{album.album}</h2>
-            {musicList === MusicLists.albums ? (
-              <button
-                type="button"
-                onClick={openArtist}
-                aria-label={t(($) => $.music.artists.open_artist, { artist: album.artist.artist })}
-                className="text-muted-foreground font-medium hover:text-foreground underline underline-offset-4 transition-colors cursor-pointer text-left"
-              >
-                {album.artist.artist}
-              </button>
-            ) : (
-              <p className="text-muted-foreground font-medium text-left">{album.artist.artist}</p>
-            )}
-          </div>
+  // Padding plus the trigger's own `p-2` lines the title up with the header and description.
+  const accordionClassName = isModal
+    ? cn(frame, "p-1 sm:p-2 md:px-4")
+    : "p-2 rounded-secondary bg-secondary hc:border hc:border-border";
 
-          <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
-            <Chip text={String(album.year)} className="font-mono" />
-            <Chip text={album.runtime} className="font-mono" />
-            {album.label.map((label) => (
-              <Chip key={label} text={label} />
-            ))}
-          </div>
-          <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
-            {album.genre.map((genre) => (
-              <Chip key={genre} text={genre} />
-            ))}
-          </div>
-
-          <div className="col-span-2 sm:hidden flex gap-1 flex-wrap justify-center">{art}</div>
-
-          {album.favoriteTrack ? (
-            <div className="col-span-2 sm:col-span-1 flex gap-1.5 items-center justify-center sm:justify-start">
-              <span className="text-xs text-muted-foreground">
-                {t(($) => $.music.albums.favorite_track)}:
-              </span>
-              <Chip
-                prefix={String(album.favoriteTrack.number)}
-                prefixClassName="font-mono"
-                text={`. ${album.favoriteTrack.title}`}
-              />
-            </div>
-          ) : null}
-
-          {album.userAlbum?.review ? (
-            <Note className="col-span-2 sm:col-span-1" text={album.userAlbum.review} />
-          ) : null}
-        </div>
-
-        <div
-          className={cn(
-            "hidden sm:flex shrink-0 sm:flex-col gap-1",
-            !isModal ? "lg:flex-row" : null,
-          )}
+  const heading = (
+    <>
+      <h2 className="text-xl font-bold leading-tight">{album.album}</h2>
+      {musicList === MusicLists.albums ? (
+        <button
+          type="button"
+          onClick={openArtist}
+          aria-label={t(($) => $.music.artists.open_artist, { artist: album.artist.artist })}
+          className="text-muted-foreground font-medium hover:text-foreground underline underline-offset-4 transition-colors cursor-pointer text-left"
         >
-          {art}
+          {album.artist.artist}
+        </button>
+      ) : (
+        <p className="text-muted-foreground font-medium text-left">{album.artist.artist}</p>
+      )}
+    </>
+  );
+
+  const description = (
+    <div className="sm:flex sm:gap-6 sm:items-start">
+      <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-6 gap-y-3 items-start sm:flex-1 min-w-0">
+        {album.userAlbum?.rank ? (
+          <div className="row-span-1 sm:row-span-5 text-4xl sm:text-6xl font-bold text-theme-600 text-right leading-none pt-1 font-mono">
+            {album.userAlbum.rank < 10 ? <>&nbsp;</> : ""}
+            {album.userAlbum.rank}
+          </div>
+        ) : (
+          <div className="row-span-1 sm:row-span-5 text-theme-600 pt-1 flex justify-end">
+            <HugeiconsIcon icon={Vynil02Icon} className="w-10 h-10 sm:w-14 sm:h-14" />
+          </div>
+        )}
+
+        {/* The modal format pins the heading in its header, so the chips move up beside the rank. */}
+        {isModal ? null : <div>{heading}</div>}
+
+        <div className={cn("flex flex-wrap gap-1.5", isModal ? null : "col-span-2 sm:col-span-1")}>
+          <Chip text={String(album.year)} className="font-mono" />
+          <Chip text={album.runtime} className="font-mono" />
+          {album.label.map((label) => (
+            <Chip key={label} text={label} />
+          ))}
         </div>
+        <div className="col-span-2 sm:col-span-1 flex flex-wrap gap-1.5">
+          {album.genre.map((genre) => (
+            <Chip key={genre} text={genre} />
+          ))}
+        </div>
+
+        <div className="col-span-2 sm:hidden flex gap-1 flex-wrap justify-center">{art}</div>
+
+        {album.favoriteTrack ? (
+          <div className="col-span-2 sm:col-span-1 flex gap-1.5 items-center justify-center sm:justify-start">
+            <span className="text-xs text-muted-foreground">
+              {t(($) => $.music.albums.favorite_track)}:
+            </span>
+            <Chip
+              prefix={String(album.favoriteTrack.number)}
+              prefixClassName="font-mono"
+              text={`. ${album.favoriteTrack.title}`}
+            />
+          </div>
+        ) : null}
+
+        {album.userAlbum?.review ? (
+          <Note className="col-span-2 sm:col-span-1" text={album.userAlbum.review} />
+        ) : null}
       </div>
 
-      <div className="space-y-2">
-        {discs.map((group) => (
-          <Accordion
-            key={group.discIndex}
-            title={group.title}
-            classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
-          >
-            <div>
-              {group.tracks.map((track) => (
-                <div
-                  key={track.number}
-                  className="flex flex-col gap-0 px-2 py-1 odd:bg-card rounded-secondary transition-colors"
-                >
-                  <div className="flex gap-2 text-sm">
-                    <span className="w-6 text-right shrink-0 tabular-nums">
-                      <span className="font-mono">{track.number}</span>.
-                    </span>
-                    <span className="flex-1">{track.title}</span>
-                    <span className="font-mono shrink-0 tabular-nums">{track.duration}</span>
-                  </div>
-                  {track.notes ? (
-                    <p className="text-muted-foreground italic text-xs pl-8 pr-12 whitespace-pre-line">
-                      {track.notes}
-                    </p>
-                  ) : null}
-                </div>
-              ))}
-            </div>
-          </Accordion>
-        ))}
+      <div
+        className={cn("hidden sm:flex shrink-0 sm:flex-col gap-1", !isModal ? "lg:flex-row" : null)}
+      >
+        {art}
+      </div>
+    </div>
+  );
 
-        {album.personnel ? (
+  const accordions = (
+    <>
+      {discs.map((group) => (
+        <Accordion
+          key={group.discIndex}
+          title={group.title}
+          classNames={accordionClassName}
+          defaultOpen={!isModal}
+        >
           <div>
-            <Accordion
-              title={t(($) => $.music.albums.personnel)}
-              classNames="p-2 rounded-secondary bg-secondary hc:border hc:border-border"
-              defaultOpen={false}
-            >
-              <div className="space-y-6 text-sm">
-                {album.personnel.members ? (
-                  <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.members)}</p>
-                    <div>{album.personnel.members.map(personnelInfo)}</div>
-                  </div>
-                ) : null}
-                {album.personnel.guests ? (
-                  <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.guests)}</p>
-                    <div>{album.personnel.guests.map(personnelInfo)}</div>
-                  </div>
-                ) : null}
-                {album.personnel.production ? (
-                  <div>
-                    <p className="font-semibold text-lg mb-1">
-                      {t(($) => $.music.albums.production)}
-                    </p>
-                    <div>{album.personnel.production.map(personnelInfo)}</div>
-                  </div>
-                ) : null}
-                {album.personnel.studios ? (
-                  <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.studios)}</p>
-                    <div>
-                      {album.personnel.studios.map((studio) => (
-                        <div key={studio} className="odd:bg-card rounded-secondary px-2 py-1">
-                          {studio}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-                {album.personnel.notes ? (
-                  <div>
-                    <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.notes)}</p>
-                    <div>
-                      <div className="rounded-secondary px-2 py-1 whitespace-pre-line">
-                        {album.personnel.notes}
-                      </div>
-                    </div>
-                  </div>
+            {group.tracks.map((track) => (
+              <div
+                key={track.number}
+                className={cn(
+                  "flex flex-col gap-0 px-2 py-1 rounded-secondary transition-colors",
+                  stripe,
+                )}
+              >
+                <div className="flex gap-2 text-sm">
+                  <span className="w-6 text-right shrink-0 tabular-nums">
+                    <span className="font-mono">{track.number}</span>.
+                  </span>
+                  <span className="flex-1">{track.title}</span>
+                  <span className="font-mono shrink-0 tabular-nums">{track.duration}</span>
+                </div>
+                {track.notes ? (
+                  <p className="text-muted-foreground italic text-xs pl-8 pr-12 whitespace-pre-line">
+                    {track.notes}
+                  </p>
                 ) : null}
               </div>
-            </Accordion>
+            ))}
+          </div>
+        </Accordion>
+      ))}
+
+      {album.personnel ? (
+        <div>
+          <Accordion
+            title={t(($) => $.music.albums.personnel)}
+            classNames={accordionClassName}
+            defaultOpen={false}
+          >
+            <div className="space-y-6 text-sm">
+              {album.personnel.members ? (
+                <div>
+                  <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.members)}</p>
+                  <div>{album.personnel.members.map(personnelInfo)}</div>
+                </div>
+              ) : null}
+              {album.personnel.guests ? (
+                <div>
+                  <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.guests)}</p>
+                  <div>{album.personnel.guests.map(personnelInfo)}</div>
+                </div>
+              ) : null}
+              {album.personnel.production ? (
+                <div>
+                  <p className="font-semibold text-lg mb-1">
+                    {t(($) => $.music.albums.production)}
+                  </p>
+                  <div>{album.personnel.production.map(personnelInfo)}</div>
+                </div>
+              ) : null}
+              {album.personnel.studios ? (
+                <div>
+                  <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.studios)}</p>
+                  <div>
+                    {album.personnel.studios.map((studio) => (
+                      <div key={studio} className={cn("rounded-secondary px-2 py-1", stripe)}>
+                        {studio}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {album.personnel.notes ? (
+                <div>
+                  <p className="font-semibold text-lg mb-1">{t(($) => $.music.albums.notes)}</p>
+                  <div>
+                    <div className="rounded-secondary px-2 py-1 whitespace-pre-line">
+                      {album.personnel.notes}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </Accordion>
+        </div>
+      ) : null}
+    </>
+  );
+
+  const mentionStrip = album.honorableMentions?.length ? (
+    <AlbumStrip
+      albums={album.honorableMentions}
+      title={
+        album.honorableMentions.length === 1
+          ? t(($) => $.music.albums.honorable_mention)
+          : t(($) => $.music.albums.honorable_mentions)
+      }
+      onSelect={openMention}
+    />
+  ) : null;
+
+  const modals = (
+    <>
+      <Modal
+        className="bg-background"
+        open={imageModalOpen}
+        onClose={closeModal}
+        title={t(($) => $.music.albums.cover_art, { album: album.album })}
+      >
+        {selectedImage ? (
+          <div className="relative">
+            <Loader
+              className="text-theme-500"
+              isOpen={imageLoading}
+              fullScreen
+              transparentBg
+              onClick={closeModal}
+            />
+            <button
+              type="button"
+              onClick={closeModal}
+              aria-label={t(($) => $.ariaLabels.close)}
+              className="block cursor-pointer"
+            >
+              <Image
+                onLoad={() => setImageLoading(false)}
+                src={`/albums/${selectedImage}`}
+                alt=""
+                width={1024}
+                height={1024}
+                style={{ height: "auto" }}
+                className="w-full max-h-screen object-contain"
+              />
+            </button>
           </div>
         ) : null}
-        {album.honorableMentions?.length ? (
-          <AlbumStrip
-            albums={album.honorableMentions}
-            title={
-              album.honorableMentions.length === 1
-                ? t(($) => $.music.albums.honorable_mention)
-                : t(($) => $.music.albums.honorable_mentions)
-            }
-            onSelect={openMention}
-          />
-        ) : null}
-        <Modal
-          className="bg-background"
-          open={imageModalOpen}
-          onClose={closeModal}
-          title={t(($) => $.music.albums.cover_art, { album: album.album })}
-        >
-          {selectedImage ? (
-            <div className="relative">
-              <Loader
-                className="text-theme-500"
-                isOpen={imageLoading}
-                fullScreen
-                transparentBg
-                onClick={closeModal}
-              />
-              <button
-                type="button"
-                onClick={closeModal}
-                aria-label={t(($) => $.ariaLabels.close)}
-                className="block cursor-pointer"
-              >
-                <Image
-                  onLoad={() => setImageLoading(false)}
-                  src={`/albums/${selectedImage}`}
-                  alt=""
-                  width={1024}
-                  height={1024}
-                  style={{ height: "auto" }}
-                  className="w-full max-h-screen object-contain"
-                />
-              </button>
-            </div>
-          ) : null}
-        </Modal>
-        <AlbumCardModal album={selectedMention} onClose={closeMention} />
-        {musicList === MusicLists.albums ? (
-          <ArtistCardModal artist={selectedArtist} albums={[album]} onClose={closeArtist} />
-        ) : null}
+      </Modal>
+      <AlbumCardModal album={selectedMention} onClose={closeMention} />
+      {musicList === MusicLists.albums ? (
+        <ArtistCardModal artist={selectedArtist} albums={[album]} onClose={closeArtist} />
+      ) : null}
+    </>
+  );
+
+  if (isModal) {
+    return (
+      <MusicCardModalLayout
+        sectionClassName={frame}
+        heading={heading}
+        onClose={onClose}
+        footer={accordions}
+      >
+        {description}
+        {mentionStrip}
+        {modals}
+      </MusicCardModalLayout>
+    );
+  }
+
+  return (
+    <div className={cn(frame, "p-3 sm:p-4 md:p-6 flex flex-col gap-3")}>
+      {description}
+      <div className="space-y-2">
+        {accordions}
+        {mentionStrip}
       </div>
+      {modals}
     </div>
   );
 }

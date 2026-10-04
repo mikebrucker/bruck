@@ -33,7 +33,7 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
         type="button"
         onClick={openAlbum}
         aria-label={album.album}
-        className="relative block w-full aspect-square cursor-pointer text-left"
+        className="group relative block w-full aspect-square cursor-pointer text-left overflow-hidden rounded-secondary hc:border hc:border-border"
       >
         {cover ? (
           <Image
@@ -41,10 +41,10 @@ export default function AlbumGridItem({ album }: AlbumGridItemProps) {
             alt={t(($) => $.music.albums.cover_art, { album: album.album })}
             width={320}
             height={320}
-            className="w-full h-full rounded-secondary hc:border hc:border-border object-cover"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
         ) : (
-          <div className="w-full h-full rounded-secondary hc:border hc:border-border bg-card" />
+          <div className="w-full h-full bg-card" />
         )}
         {album.userAlbum?.rank ? (
           <Chip

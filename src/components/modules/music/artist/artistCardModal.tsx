@@ -17,7 +17,8 @@ export default function ArtistCardModal({ artist, albums, onClose }: ArtistCardM
       open={artist !== null}
       onClose={onClose}
       title={artist?.artist}
-      className="max-w-3xl max-h-[80dvh] w-full rounded-primary overflow-y-auto"
+      overlayClassName="overflow-y-auto"
+      className="max-w-3xl w-full self-start my-modal-offset overflow-visible mobile-landscape:max-w-xl"
     >
       {artist ? <ArtistCard artist={artist} albums={albums} isModal onClose={onClose} /> : null}
     </Modal>

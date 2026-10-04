@@ -1,9 +1,9 @@
 "use client";
 
-import { Cancel01Icon } from "@hugeicons/core-free-icons";
+import { Cancel01Icon, CornerUpLeftIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Dialog } from "radix-ui";
-import type { ReactNode } from "react";
+import { createContext, type ReactNode, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -13,18 +13,40 @@ interface ModalProps {
   onClose: () => void;
   children: ReactNode;
   className?: string;
+  /** Applied to the overlay, e.g. `overflow-y-auto` for a modal that can outgrow the screen. */
+  overlayClassName?: string;
   showClose?: boolean;
   title?: string;
 }
 
-function Modal({ open, onClose, children, className, showClose, title }: ModalProps) {
+/** Open modals around this point of the tree: 1 inside a modal, 2 inside one opened from it. */
+const ModalDepthContext = createContext(0);
+
+/** The first modal closes with an X; one opened on top of another turns back to it instead. */
+const closeIcon = (depth: number) => (depth > 1 ? CornerUpLeftIcon : Cancel01Icon);
+
+/** Close icon for a custom close button inside a modal's content. */
+function useModalCloseIcon() {
+  return closeIcon(useContext(ModalDepthContext));
+}
+
+function Modal({
+  open,
+  onClose,
+  children,
+  className,
+  overlayClassName,
+  showClose,
+  title,
+}: ModalProps) {
   const { t } = useTranslation();
+  const depth = useContext(ModalDepthContext) + 1;
 
   return (
     <Dialog.Root open={open} onOpenChange={(next) => !next && onClose()}>
       <Dialog.Portal>
         <Dialog.Overlay
-          className="fixed inset-0 z-60 flex items-center justify-center"
+          className={cn("fixed inset-0 z-60 flex items-center justify-center", overlayClassName)}
           style={{ background: "rgba(0,0,0,0.75)" }}
         >
           <Dialog.Content
@@ -43,12 +65,12 @@ function Modal({ open, onClose, children, className, showClose, title }: ModalPr
                     size="icon-sm"
                     aria-label={t(($) => $.ariaLabels.close)}
                   >
-                    <HugeiconsIcon icon={Cancel01Icon} />
+                    <HugeiconsIcon icon={closeIcon(depth)} />
                   </Button>
                 </Dialog.Close>
               </div>
             ) : null}
-            {children}
+            <ModalDepthContext.Provider value={depth}>{children}</ModalDepthContext.Provider>
           </Dialog.Content>
         </Dialog.Overlay>
       </Dialog.Portal>
@@ -56,4 +78,4 @@ function Modal({ open, onClose, children, className, showClose, title }: ModalPr
   );
 }
 
-export { Modal };
+export { Modal, useModalCloseIcon };
