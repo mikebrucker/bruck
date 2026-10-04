@@ -1,6 +1,10 @@
 "use client";
 
-import { Cancel01Icon, CornerUpLeftIcon } from "@hugeicons/core-free-icons";
+import {
+  ArrowUpRight03Icon,
+  ArrowUpRightStackIcon,
+  Cancel01Icon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Dialog } from "radix-ui";
 import { createContext, type ReactNode, useContext } from "react";
@@ -22,8 +26,12 @@ interface ModalProps {
 /** Open modals around this point of the tree: 1 inside a modal, 2 inside one opened from it. */
 const ModalDepthContext = createContext(0);
 
-/** The first modal closes with an X; one opened on top of another turns back to it instead. */
-const closeIcon = (depth: number) => (depth > 1 ? CornerUpLeftIcon : Cancel01Icon);
+/** The first modal closes with an X; the second steps back up with an arrow, deeper ones a stack. */
+const closeIcon = (depth: number) => {
+  if (depth > 2) return ArrowUpRightStackIcon;
+  if (depth > 1) return ArrowUpRight03Icon;
+  return Cancel01Icon;
+};
 
 /** Close icon for a custom close button inside a modal's content. */
 function useModalCloseIcon() {
