@@ -1229,12 +1229,17 @@ html[data-accent="sixer"] {
     @apply border-border outline-ring;
   }
 
+  /* No `overflow-hidden` on html or body, even though `main` is the scroller: Firefox
+     Android still hides its toolbar once `main` hits bottom, and content under an
+     overflow-hidden root then fails to fill the uncovered strip, so the footer drops
+     out of view (Mozilla bug 1663634). Nothing outgrows `h-dvh`, so the root has
+     nothing to scroll; `overscroll-none` keeps pull-to-refresh off as the hidden root did. */
   body {
-    @apply bg-background text-foreground h-dvh overflow-hidden;
+    @apply bg-background text-foreground h-dvh;
   }
 
   html {
-    @apply font-sans h-dvh overflow-hidden;
+    @apply font-sans h-dvh overscroll-none;
     font-size: var(--zoom);
   }
 }
