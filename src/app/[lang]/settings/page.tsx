@@ -322,19 +322,18 @@ export default function SettingsPage() {
         <SettingsRow label={t(($) => $.settings.language)} value={t(($) => $.language[language])}>
           <Button
             type="button"
-            size="icon"
-            className="size-10"
+            size="lg"
             style={{
               backgroundColor: flagColorMap[language].bg,
-              borderBlock: `1px solid ${flagColorMap[language].block}`,
-              borderInline: `1px solid ${flagColorMap[language].inline}`,
+              borderBlock: `2px solid ${flagColorMap[language].block}`,
+              borderInline: `2px solid ${flagColorMap[language].inline}`,
             }}
             aria-label={t(($) => $.ariaLabels.language, {
               language: t(($) => $.language[language]),
             })}
             onClick={languageModal.open}
           >
-            <Flag language={language} className="text-xl" />
+            <Flag language={language} className="text-3xl" />
           </Button>
           <SettingsPickerModal
             open={languageModal.isOpen}
