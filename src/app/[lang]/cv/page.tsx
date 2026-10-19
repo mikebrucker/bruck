@@ -257,8 +257,8 @@ const hobbies: Array<Hobby> = [
   { icon: PawPrintIcon, label: "Dog" },
   { icon: GuitarIcon, label: "Guitar" },
   { icon: Vynil02Icon, label: "Music" },
-  { icon: snowboardingSvg.src, label: "Snowboarding" },
-  { icon: skateboardingSvg.src, label: "Skateboarding" },
+  { icon: snowboardingSvg, label: "Snowboarding" },
+  { icon: skateboardingSvg, label: "Skateboarding" },
   { icon: AircraftGameIcon, label: "Console Gaming & Modding" },
 ];
 
