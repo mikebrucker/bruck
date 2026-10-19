@@ -11,6 +11,7 @@ type ChipProps = {
   useIconThemeColor?: boolean;
   className?: string;
   prefixClassName?: string;
+  iconClassName?: string;
 };
 
 export function Chip({
@@ -21,9 +22,14 @@ export function Chip({
   useIconThemeColor = false,
   className,
   prefixClassName,
+  iconClassName,
 }: ChipProps) {
   const iconElement = icon ? (
-    <AppIcon icon={icon} className="size-5 shrink-0" useThemeColor={useIconThemeColor} />
+    <AppIcon
+      icon={icon}
+      className={cn("size-5 shrink-0", iconClassName)}
+      useThemeColor={useIconThemeColor}
+    />
   ) : null;
 
   return (

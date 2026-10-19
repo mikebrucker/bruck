@@ -332,9 +332,16 @@ export default function CvPage() {
       />
 
       <Accordion size="xl" title="Hobbies" headingLevel={2} classNames={accordionClassNames}>
-        <div className="flex flex-wrap gap-1.5 pb-2">
+        <div className="flex flex-wrap gap-2 pb-2">
           {hobbies.map((hobby) => (
-            <Chip key={hobby.label} text={hobby.label} icon={hobby.icon} useIconThemeColor />
+            <Chip
+              className="px-2.5 py-1.5 flex-auto justify-center min-w-1/6"
+              key={hobby.label}
+              text={hobby.label}
+              icon={hobby.icon}
+              useIconThemeColor
+              iconClassName="size-7"
+            />
           ))}
         </div>
       </Accordion>
