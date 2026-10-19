@@ -10,10 +10,8 @@ import {
   Location03Icon,
   MachineRobotIcon,
   Mail01Icon,
-  MountainSnowIcon,
   PawPrintIcon,
   SqlIcon,
-  Stairs02Icon,
   TailwindcssIcon,
   TelephoneIcon,
   Typescript01Icon,
@@ -21,6 +19,8 @@ import {
   WebDesign01Icon,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
+import skateboardingSvg from "@material-design-icons/svg/filled/skateboarding.svg";
+import snowboardingSvg from "@material-design-icons/svg/filled/snowboarding.svg";
 import {
   gitMerge,
   infiniteSharp,
@@ -52,7 +52,7 @@ type SkillGroup = {
 };
 
 type Hobby = {
-  icon: IconSvgElement;
+  icon: IconSvgElement | string;
   label: string;
 };
 
@@ -257,8 +257,8 @@ const hobbies: Array<Hobby> = [
   { icon: PawPrintIcon, label: "Dog" },
   { icon: GuitarIcon, label: "Guitar" },
   { icon: Vynil02Icon, label: "Music" },
-  { icon: MountainSnowIcon, label: "Snowboarding" },
-  { icon: Stairs02Icon, label: "Skateboarding" },
+  { icon: snowboardingSvg.src, label: "Snowboarding" },
+  { icon: skateboardingSvg.src, label: "Skateboarding" },
   { icon: AircraftGameIcon, label: "Console Gaming & Modding" },
 ];
 
