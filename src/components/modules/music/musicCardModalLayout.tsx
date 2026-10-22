@@ -48,7 +48,7 @@ export function MusicCardModalLayout({
             onClick={onClose}
             aria-label={t(($) => $.ariaLabels.close)}
           >
-            <HugeiconsIcon icon={closeIcon} className="size-5" />
+            <HugeiconsIcon icon={closeIcon} className="size-6" />
           </Button>
         ) : null}
       </div>
