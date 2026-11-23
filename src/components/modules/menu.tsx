@@ -5,11 +5,8 @@ import {
   Castle02Icon,
   Close,
   CodesandboxIcon,
-  FileBadgeIcon,
-  HtmlFile02Icon,
   LaptopProgrammingIcon,
   Moon02Icon,
-  Pdf02Icon,
   Playlist01Icon,
   Settings01Icon,
   Sun02Icon,
@@ -48,7 +45,6 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
   const isAlbumsSelected = pathname.startsWith(`/${language}/music`);
   const isPlaygroundSelected = pathname.startsWith(`/${language}/playground`);
   const isAboutSelected = pathname.startsWith(`/${language}/about`);
-  const isCvSelected = pathname.startsWith(`/${language}/cv`);
   const isAdminSelected = pathname.startsWith(`/${language}/admin`);
   const isSettingsSelected = pathname.startsWith(`/${language}/settings`);
   const selectedClassName = navSelected;
@@ -120,48 +116,6 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
             <span>{t(($) => $.menu.about)}</span>
           </Link>
         </Button>
-        <div className="mt-auto gap-0.5 flex">
-          <Button
-            asChild
-            variant="keyboard"
-            className={cn("justify-start h-13 grow", isCvSelected ? selectedClassName : null)}
-            onClick={onClose}
-          >
-            <Link href={`/${language}/cv/`}>
-              <HugeiconsIcon
-                icon={FileBadgeIcon}
-                className={cn("size-6", isCvSelected ? null : "text-theme-500")}
-              />
-              <span>
-                {t(($) => $.menu.cv)}/{t(($) => $.menu.resume)}
-              </span>
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="keyboard"
-            size="icon"
-            className="h-13 w-13"
-            onClick={onClose}
-            aria-label={t(($) => $.ariaLabels.open_html_cv)}
-          >
-            <Link href="/mike-brucker-cv.html" target="_blank" rel="noopener noreferrer">
-              <HugeiconsIcon icon={HtmlFile02Icon} className="size-6 text-theme-500" />
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="keyboard"
-            size="icon"
-            className="h-13 w-13"
-            onClick={onClose}
-            aria-label={t(($) => $.ariaLabels.open_pdf_cv)}
-          >
-            <Link href="/mike-brucker-cv.pdf" target="_blank" rel="noopener noreferrer">
-              <HugeiconsIcon icon={Pdf02Icon} className="size-6 text-theme-500" />
-            </Link>
-          </Button>
-        </div>
         {isAdmin ? (
           <div className="flex flex-col gap-0.5 pt-8">
             <h2 className="font-metal-mania text-lg font-bold leading-tight px-5 pb-2 flex items-center gap-2">

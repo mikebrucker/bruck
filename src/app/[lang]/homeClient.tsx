@@ -2,7 +2,6 @@
 
 import {
   CodesandboxIcon,
-  FileBadgeIcon,
   LaptopProgrammingIcon,
   Settings01Icon,
   Vynil02Icon,
@@ -42,8 +41,13 @@ const cards: Array<DashboardCard> = [
     size: "default",
     className: "sm:col-span-2",
   },
-  { key: "about", path: "about", icon: LaptopProgrammingIcon, size: "compact" },
-  { key: "cv", path: "cv", icon: FileBadgeIcon, size: "compact" },
+  {
+    key: "about",
+    path: "about",
+    icon: LaptopProgrammingIcon,
+    size: "compact",
+    className: "sm:col-span-2",
+  },
 ];
 
 function HomeClient({ albumArt }: HomeClientProps) {

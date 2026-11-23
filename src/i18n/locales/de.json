@@ -14,10 +14,6 @@
         "title": "Über",
         "description": "Der Stack, auf dem diese Website läuft."
       },
-      "cv": {
-        "title": "CV / Lebenslauf",
-        "description": "Berufserfahrung, Fähigkeiten, Ausbildung und Hobbys."
-      },
       "settings": {
         "title": "Einstellungen"
       }
@@ -222,8 +218,6 @@
     "music": "Musik",
     "playground": "Spielwiese",
     "about": "Über",
-    "cv": "CV",
-    "resume": "Lebenslauf",
     "admin": "Admin",
     "album": "Alben",
     "artist": "Künstler",
@@ -232,8 +226,6 @@
   "ariaLabels": {
     "main_navigation": "Hauptnavigation",
     "close_menu": "Menü schließen",
-    "open_html_cv": "HTML-Lebenslauf öffnen",
-    "open_pdf_cv": "PDF-Lebenslauf öffnen",
     "open_settings_page": "Einstellungen-Seite öffnen",
     "switch_to_dark_mode": "In den Dunkelmodus wechseln",
     "switch_to_light_mode": "In den Hellmodus wechseln",

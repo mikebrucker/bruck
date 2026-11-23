@@ -2,7 +2,6 @@
 
 import {
   CodesandboxIcon,
-  FileBadgeIcon,
   LaptopProgrammingIcon,
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
@@ -24,11 +23,6 @@ function HeaderNav() {
     { path: "music", icon: Vynil02Icon, label: t(($) => $.menu.music) },
     { path: "playground", icon: CodesandboxIcon, label: t(($) => $.menu.playground) },
     { path: "about", icon: LaptopProgrammingIcon, label: t(($) => $.menu.about) },
-    {
-      path: "cv",
-      icon: FileBadgeIcon,
-      label: `${t(($) => $.menu.cv)}/${t(($) => $.menu.resume)}`,
-    },
   ];
 
   return (

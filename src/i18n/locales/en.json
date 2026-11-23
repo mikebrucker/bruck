@@ -14,10 +14,6 @@
         "title": "About",
         "description": "The stack this website is built on."
       },
-      "cv": {
-        "title": "CV / Résumé",
-        "description": "Work experience, skills, education, and hobbies."
-      },
       "settings": {
         "title": "Settings"
       }
@@ -222,8 +218,6 @@
     "music": "Music",
     "playground": "Playground",
     "about": "About",
-    "cv": "CV",
-    "resume": "Résumé",
     "admin": "Admin",
     "album": "Album",
     "artist": "Artist",
@@ -232,8 +226,6 @@
   "ariaLabels": {
     "main_navigation": "Main navigation",
     "close_menu": "Close menu",
-    "open_html_cv": "Open HTML CV",
-    "open_pdf_cv": "Open PDF CV",
     "open_settings_page": "Open settings page",
     "switch_to_dark_mode": "Switch to dark mode",
     "switch_to_light_mode": "Switch to light mode",
