@@ -56,7 +56,8 @@ export function SortableList<T extends SortableItem>({
           </SortableListRow>
         ))}
       </div>
-      <div aria-live="polite" className="sr-only">
+      {/* position absolute escapes main's scroll and stretches the page */}
+      <div aria-live="polite" className="sr-only" style={{ position: "fixed" }}>
         {announcement}
       </div>
     </DragDropProvider>

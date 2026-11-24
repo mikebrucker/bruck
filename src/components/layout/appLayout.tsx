@@ -38,9 +38,11 @@ function AppLayout({
       <main
         id="main"
         tabIndex={-1}
-        className="relative flex flex-col items-center grow min-h-0 w-full overflow-y-auto transition-all"
+        className="flex flex-col items-center grow min-h-0 w-full overflow-y-auto transition-all -my-(--rounded-primary)"
       >
-        <div className="flex flex-col grow gap-4 max-w-5xl w-full p-2 py-4 sm:p-4">{children}</div>
+        <div className="flex flex-col grow gap-4 max-w-5xl w-full px-2 sm:px-4 py-[calc(1rem+var(--rounded-primary))]">
+          {children}
+        </div>
       </main>
       <Footer sticky />
     </div>
