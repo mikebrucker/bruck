@@ -1,12 +1,12 @@
 "use client";
 
+import { RadioGroup, RadioGroupItem } from "@mikebrucker/brucks/ui";
 import { type ComponentProps, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radioGroup";
 import { cn } from "@/lib/utils";
 import type { PropOptions } from "@/types/playground";
 

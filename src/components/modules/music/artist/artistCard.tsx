@@ -1,14 +1,13 @@
 "use client";
 
+import { Accordion, Modal } from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import Loader from "@/components/layout/loader";
 import AlbumCardModal from "@/components/modules/music/album/albumCardModal";
 import AlbumStrip from "@/components/modules/music/album/albumStrip";
 import { MusicCardModalLayout } from "@/components/modules/music/musicCardModalLayout";
-import { Accordion } from "@/components/ui/accordion";
-import Loader from "@/components/ui/loader";
-import { Modal } from "@/components/ui/modal";
 import { artistAlbums } from "@/lib/album";
 import { cn } from "@/lib/utils";
 import { useMusicFilterStore } from "@/stores/useMusicFilterStore";

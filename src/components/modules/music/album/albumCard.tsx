@@ -2,18 +2,15 @@
 
 import { Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Accordion, Chip, Modal, Note } from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import Loader from "@/components/layout/loader";
 import AlbumCardModal from "@/components/modules/music/album/albumCardModal";
 import AlbumStrip from "@/components/modules/music/album/albumStrip";
 import ArtistCardModal from "@/components/modules/music/artist/artistCardModal";
 import { MusicCardModalLayout } from "@/components/modules/music/musicCardModalLayout";
-import { Accordion } from "@/components/ui/accordion";
-import { Chip } from "@/components/ui/chip";
-import Loader from "@/components/ui/loader";
-import { Modal } from "@/components/ui/modal";
-import { Note } from "@/components/ui/note";
 import { cn } from "@/lib/utils";
 import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
 import type { Album, Credit } from "@/types/album";

@@ -2,13 +2,9 @@
 
 import { Delete02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Accordion, Button, Checkbox, Input, Textarea } from "@mikebrucker/brucks/ui";
 import { useTranslation } from "react-i18next";
 import { AdminCreditListEditor } from "@/components/modules/admin/adminCreditListEditor";
-import { Accordion } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import type { TrackForm } from "@/types/album";
 
 function AdminAlbumTrackEditor({

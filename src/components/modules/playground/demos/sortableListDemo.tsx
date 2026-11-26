@@ -1,10 +1,10 @@
 "use client";
 
+import { SortableList } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { SortableList } from "@/components/ui/sortableList";
 
 type Item = { id: string; label: string };
 

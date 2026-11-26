@@ -1,10 +1,9 @@
 "use client";
 
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Button, useModalCloseIcon } from "@mikebrucker/brucks/ui";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
-import { useModalCloseIcon } from "@/components/ui/modal";
 import { cn } from "@/lib/utils";
 
 type MusicCardModalLayoutProps = {

@@ -14,12 +14,11 @@ import {
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Button, Drawer } from "@mikebrucker/brucks/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Flag } from "@/components/modules/flag";
-import { Button } from "@/components/ui/button";
-import { Drawer } from "@/components/ui/drawer";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { locales } from "@/i18n/config";
 import { navSelected } from "@/lib/styles";
@@ -57,11 +56,16 @@ function Menu({ open, onClose, useTheme }: MenuProps) {
         menuSide === Sides.right
           ? "rounded-l-primary border-l-4 border-l-theme-500 border-r-2"
           : "rounded-r-primary border-r-4 border-r-theme-500 border-l-2",
+        useTheme
+          ? cn(
+              "from-theme-200 to-background",
+              menuSide === Sides.right ? "bg-linear-to-br" : "bg-linear-to-bl",
+            )
+          : null,
       )}
       open={open}
       onClose={onClose}
       side={menuSide}
-      useTheme={useTheme}
     >
       <div className="flex justify-end py-3 px-2.5 sm:px-3">
         <Button

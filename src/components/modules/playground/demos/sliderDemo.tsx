@@ -1,5 +1,6 @@
 "use client";
 
+import { Slider } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
@@ -7,7 +8,6 @@ import { DemoNumber } from "@/components/modules/playground/demoNumber";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { Slider } from "@/components/ui/slider";
 
 /** Playground-only: `Slider` derives its thumb count from the length of the value tuple. */
 const SliderThumbCounts = {

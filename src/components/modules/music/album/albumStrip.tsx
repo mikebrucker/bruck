@@ -1,8 +1,8 @@
 "use client";
 
+import { Chip } from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { Chip } from "@/components/ui/chip";
 import type { Album } from "@/types/album";
 
 type AlbumStripProps = {

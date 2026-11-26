@@ -1,15 +1,11 @@
 "use client";
 
-import {
-  CodesandboxIcon,
-  LaptopProgrammingIcon,
-  Vynil02Icon,
-} from "@hugeicons/core-free-icons";
+import { CodesandboxIcon, LaptopProgrammingIcon, Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Button } from "@mikebrucker/brucks/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
 import { navSelected } from "@/lib/styles";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";

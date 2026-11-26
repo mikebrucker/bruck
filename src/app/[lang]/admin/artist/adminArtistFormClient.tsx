@@ -1,13 +1,18 @@
 "use client";
 
+import {
+  Button,
+  Note,
+  Select,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@mikebrucker/brucks/ui";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AdminArtistFormFields } from "@/components/modules/admin/artist/adminArtistFormFields";
 import { AdminArtistJsonUpload } from "@/components/modules/admin/artist/adminArtistJsonUpload";
-import { Button } from "@/components/ui/button";
-import { Note } from "@/components/ui/note";
-import { Select } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ArtistController from "@/controllers/artist";
 import {
   artistToForm,

@@ -1,11 +1,11 @@
 "use client";
 
+import { Switch } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { Switch } from "@/components/ui/switch";
 
 function SwitchDemo() {
   const { t } = useTranslation();

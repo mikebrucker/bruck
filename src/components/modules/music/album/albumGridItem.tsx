@@ -1,10 +1,10 @@
 ﻿"use client";
 
+import { Chip } from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCardModal from "@/components/modules/music/album/albumCardModal";
-import { Chip } from "@/components/ui/chip";
 import type { Album } from "@/types/album";
 
 type AlbumGridItemProps = {

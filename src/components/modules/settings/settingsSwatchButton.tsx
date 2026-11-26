@@ -1,7 +1,7 @@
 "use client";
 
+import { Button } from "@mikebrucker/brucks/ui";
 import type { CSSProperties, ReactNode } from "react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface SettingsSwatchButtonProps {

@@ -1,13 +1,13 @@
 "use client";
 
 import { TranslateIcon } from "@hugeicons/core-free-icons";
+import { Chip } from "@mikebrucker/brucks/ui";
 import { type ComponentProps, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { Chip } from "@/components/ui/chip";
 import type { PropOptions } from "@/types/playground";
 
 const ChipSlots: PropOptions<NonNullable<ComponentProps<typeof Chip>["slot"]>> = {

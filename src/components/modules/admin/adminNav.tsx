@@ -1,9 +1,9 @@
 "use client";
 
+import { Tabs, TabsList, TabsTrigger } from "@mikebrucker/brucks/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface AdminNavProps {
   lang: string;

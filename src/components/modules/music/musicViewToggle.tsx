@@ -9,10 +9,8 @@ import {
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Button, Popover, ToggleGroup, ToggleGroupItem } from "@mikebrucker/brucks/ui";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
-import { Popover } from "@/components/ui/popover";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 import { useMusicFilterStore } from "@/stores/useMusicFilterStore";
 import {

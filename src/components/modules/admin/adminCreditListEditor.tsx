@@ -2,11 +2,9 @@
 
 import { Add01Icon, Delete02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Button, Input, type inputVariants, Textarea } from "@mikebrucker/brucks/ui";
 import type { VariantProps } from "class-variance-authority";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
-import { Input, type inputVariants } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { emptyCredit } from "@/lib/credit";
 import type { CreditForm } from "@/types/album";
 

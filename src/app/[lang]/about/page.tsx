@@ -9,9 +9,9 @@ import {
   Typescript01Icon,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
+import { AppIcon } from "@mikebrucker/brucks/ui";
 import { logoVercel } from "ionicons/icons";
 import { useTranslation } from "react-i18next";
-import { AppIcon } from "@/components/ui/icon";
 import type en from "@/i18n/locales/en.json";
 
 type Item = { label: string; icon?: string | IconSvgElement };

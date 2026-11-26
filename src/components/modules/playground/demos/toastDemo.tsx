@@ -1,5 +1,6 @@
 "use client";
 
+import { Button, Toast } from "@mikebrucker/brucks/ui";
 import { type ComponentProps, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
@@ -7,8 +8,6 @@ import { DemoNumber } from "@/components/modules/playground/demoNumber";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoText } from "@/components/modules/playground/demoText";
 import { useDemoState } from "@/components/modules/playground/useDemoState";
-import { Button } from "@/components/ui/button";
-import { Toast } from "@/components/ui/toast";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import type { PropOptions } from "@/types/playground";
 

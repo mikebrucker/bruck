@@ -1,5 +1,6 @@
 "use client";
 
+import { Note } from "@mikebrucker/brucks/ui";
 import { useTranslation } from "react-i18next";
 import { AccordionDemo } from "@/components/modules/playground/demos/accordionDemo";
 import { ButtonDemo } from "@/components/modules/playground/demos/buttonDemo";
@@ -26,7 +27,6 @@ import { ToastDemo } from "@/components/modules/playground/demos/toastDemo";
 import { ToggleDemo } from "@/components/modules/playground/demos/toggleDemo";
 import { ToggleGroupDemo } from "@/components/modules/playground/demos/toggleGroupDemo";
 import { TooltipDemo } from "@/components/modules/playground/demos/tooltipDemo";
-import { Note } from "@/components/ui/note";
 
 export default function RadixUiPage() {
   const { t } = useTranslation();

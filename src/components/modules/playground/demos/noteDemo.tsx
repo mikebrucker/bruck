@@ -1,12 +1,12 @@
 "use client";
 
+import { Note } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoText } from "@/components/modules/playground/demoText";
 import { DemoTextArea } from "@/components/modules/playground/demoTextArea";
 import { useDemoState } from "@/components/modules/playground/useDemoState";
-import { Note } from "@/components/ui/note";
 
 function NoteDemo() {
   const { t } = useTranslation();

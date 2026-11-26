@@ -2,6 +2,7 @@
 
 import { IceHockeyIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Fab, type fabVariants } from "@mikebrucker/brucks/ui";
 import type { VariantProps } from "class-variance-authority";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -9,7 +10,6 @@ import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { Fab, type fabVariants } from "@/components/ui/fab";
 import type { PropOptions } from "@/types/playground";
 
 const FabVariants: PropOptions<NonNullable<VariantProps<typeof fabVariants>["variant"]>> = {
@@ -27,6 +27,7 @@ const FabSizes: PropOptions<NonNullable<VariantProps<typeof fabVariants>["size"]
 const FabPositions: PropOptions<NonNullable<VariantProps<typeof fabVariants>["position"]>> = {
   "bottom-right": "bottom-right",
   "bottom-left": "bottom-left",
+  inline: "inline",
 };
 
 function FabDemo() {

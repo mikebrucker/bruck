@@ -1,7 +1,7 @@
 "use client";
 
+import { Input } from "@mikebrucker/brucks/ui";
 import { DemoControl } from "@/components/modules/playground/demoControl";
-import { Input } from "@/components/ui/input";
 
 interface DemoNumberProps {
   label: string;

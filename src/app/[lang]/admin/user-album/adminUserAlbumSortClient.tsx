@@ -8,21 +8,26 @@ import {
   SoftwareUninstallIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Button,
+  Chip,
+  Collapsible,
+  Note,
+  Select,
+  SortableList,
+  Switch,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Toggle,
+  Tooltip,
+} from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import Loader from "@/components/layout/loader";
 import { AdminUserAlbumEditForm } from "@/components/modules/admin/userAlbum/adminUserAlbumEditForm";
-import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
-import { Collapsible } from "@/components/ui/collapsible";
-import Loader from "@/components/ui/loader";
-import { Note } from "@/components/ui/note";
-import { Select } from "@/components/ui/select";
-import { SortableList } from "@/components/ui/sortableList";
-import { Switch } from "@/components/ui/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Toggle } from "@/components/ui/toggle";
-import { Tooltip } from "@/components/ui/tooltip";
 import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
 import type { UserAlbumBulkUpdateItem } from "@/data/userAlbumSchema";

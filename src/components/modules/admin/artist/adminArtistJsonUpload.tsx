@@ -1,14 +1,10 @@
 "use client";
 
 import { SecondBracketSquareIcon } from "@hugeicons/core-free-icons";
+import { Button, Note, Select, Textarea, Toggle } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { Note } from "@/components/ui/note";
-import { Select } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { Toggle } from "@/components/ui/toggle";
 import ArtistController from "@/controllers/artist";
 import { artistCreateSchema, artistUpdateSchema } from "@/data/artistSchema";
 import type { Artist } from "@/types/artist";

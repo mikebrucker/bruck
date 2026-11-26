@@ -1,5 +1,6 @@
 "use client";
 
+import { Select } from "@mikebrucker/brucks/ui";
 import { type ComponentProps, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
@@ -7,7 +8,6 @@ import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
 import { useDemoState } from "@/components/modules/playground/useDemoState";
-import { Select } from "@/components/ui/select";
 import type { Genre } from "@/types/album";
 import type { PropOptions } from "@/types/playground";
 

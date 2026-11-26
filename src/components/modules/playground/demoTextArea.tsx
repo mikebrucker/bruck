@@ -1,7 +1,7 @@
 "use client";
 
+import { Textarea } from "@mikebrucker/brucks/ui";
 import { DemoControl } from "@/components/modules/playground/demoControl";
-import { Textarea } from "@/components/ui/textarea";
 
 interface DemoTextAreaProps {
   label: string;

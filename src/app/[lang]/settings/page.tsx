@@ -11,17 +11,20 @@ import {
   Sun02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Button,
+  Separator,
+  Slider,
+  Switch,
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@mikebrucker/brucks/ui";
 import { useTranslation } from "react-i18next";
 import { Flag } from "@/components/modules/flag";
 import { SettingsPickerModal } from "@/components/modules/settings/settingsPickerModal";
 import { SettingsRow } from "@/components/modules/settings/settingsRow";
 import { SettingsSection } from "@/components/modules/settings/settingsSection";
 import { SettingsSwatchButton } from "@/components/modules/settings/settingsSwatchButton";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Slider } from "@/components/ui/slider";
-import { Switch } from "@/components/ui/switch";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { flagColorMap, type Language, locales } from "@/i18n/config";

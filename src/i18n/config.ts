@@ -193,7 +193,7 @@ export type Language = keyof typeof Languages;
 export const defaultLocale = Languages.en;
 export const defaultRoute = "music";
 export const locales = [Languages.en, Languages.de] as const;
-export const isLocale = (lang: string) => locales.includes(lang as Language);
+export const isLocale = (lang: string): lang is Language => locales.includes(lang as Language);
 export const flagMap: Record<Language, string> = {
   de: "/at.svg",
   en: "/us.svg",

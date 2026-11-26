@@ -1,6 +1,7 @@
 "use client";
 
 import { AmericanFootballIcon, BaseballBatIcon, IceHockeyIcon } from "@hugeicons/core-free-icons";
+import { ToggleGroup, ToggleGroupItem } from "@mikebrucker/brucks/ui";
 import { type ComponentProps, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
@@ -8,7 +9,6 @@ import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { ToggleSizes, ToggleVariants } from "@/components/modules/playground/demos/toggleDemo";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import type { PropOptions } from "@/types/playground";
 
 const ToggleGroupTypes: PropOptions<NonNullable<ComponentProps<typeof ToggleGroup>["type"]>> = {

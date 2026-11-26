@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import Loader from "@/components/layout/loader";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import Loader from "@/components/ui/loader";
 import { cn } from "@/lib/utils";
 import type { Accent } from "@/types/settings";
 

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { isLocale, type Language } from "@/i18n/config";
+import { isLocale } from "@/i18n/config";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 
 export function LanguageInit() {
@@ -12,7 +12,7 @@ export function LanguageInit() {
 
   useEffect(() => {
     if (isLocale(pathnameLanguage)) {
-      setLanguage(pathnameLanguage as Language);
+      setLanguage(pathnameLanguage);
     }
   }, [pathnameLanguage, setLanguage]);
 

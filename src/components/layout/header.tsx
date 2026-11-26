@@ -1,8 +1,8 @@
 import type { IconSvgElement } from "@hugeicons/react";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Button } from "@mikebrucker/brucks/ui";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
 import { websiteTitle } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 import { useLanguageStore } from "@/stores/useLanguageStore";

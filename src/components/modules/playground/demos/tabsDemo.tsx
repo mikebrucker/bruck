@@ -1,11 +1,11 @@
 "use client";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@mikebrucker/brucks/ui";
 import { type ComponentProps, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import type { PropOptions } from "@/types/playground";
 

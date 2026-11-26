@@ -1,10 +1,10 @@
 ﻿"use client";
 
+import { Chip } from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ArtistCardModal from "@/components/modules/music/artist/artistCardModal";
-import { Chip } from "@/components/ui/chip";
 import { useStyleStore } from "@/stores/useStyleStore";
 import type { Album } from "@/types/album";
 import type { Artist } from "@/types/artist";

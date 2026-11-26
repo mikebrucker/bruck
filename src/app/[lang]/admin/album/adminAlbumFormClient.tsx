@@ -1,13 +1,18 @@
 "use client";
 
+import {
+  Button,
+  Note,
+  Select,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@mikebrucker/brucks/ui";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AdminAlbumFormFields } from "@/components/modules/admin/album/adminAlbumFormFields";
 import { AdminAlbumJsonUpload } from "@/components/modules/admin/album/adminAlbumJsonUpload";
-import { Button } from "@/components/ui/button";
-import { Note } from "@/components/ui/note";
-import { Select } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AlbumController from "@/controllers/album";
 import ArtistController from "@/controllers/artist";
 import {

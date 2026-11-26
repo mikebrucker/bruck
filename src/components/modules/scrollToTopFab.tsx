@@ -1,10 +1,9 @@
 "use client";
 
 import { FlyingHumanIcon } from "@hugeicons/core-free-icons";
+import { AppIcon, Fab } from "@mikebrucker/brucks/ui";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Fab } from "@/components/ui/fab";
-import { AppIcon } from "@/components/ui/icon";
 import { useScrollAncestor } from "@/hooks/useScrollAncestor";
 
 type ScrollToTopFabProps = {

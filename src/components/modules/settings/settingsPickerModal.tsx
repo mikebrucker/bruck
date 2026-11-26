@@ -1,7 +1,7 @@
 "use client";
 
+import { Modal } from "@mikebrucker/brucks/ui";
 import type { ReactNode } from "react";
-import { Modal } from "@/components/ui/modal";
 import { cn } from "@/lib/utils";
 
 interface SettingsPickerModalProps {

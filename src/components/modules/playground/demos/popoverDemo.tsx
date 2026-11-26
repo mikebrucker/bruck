@@ -1,12 +1,11 @@
 "use client";
 
+import { Button, Popover } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { Button } from "@/components/ui/button";
-import { Popover } from "@/components/ui/popover";
 
 function PopoverDemo() {
   const { t } = useTranslation();

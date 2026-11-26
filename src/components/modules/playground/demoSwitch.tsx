@@ -1,7 +1,7 @@
 "use client";
 
+import { Switch } from "@mikebrucker/brucks/ui";
 import { DemoControl } from "@/components/modules/playground/demoControl";
-import { Switch } from "@/components/ui/switch";
 
 interface DemoSwitchProps {
   label: string;

@@ -7,13 +7,9 @@ import {
   FilterHorizontalIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Accordion, Button, Chip, Popover, Slider } from "@mikebrucker/brucks/ui";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Accordion } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
-import { Popover } from "@/components/ui/popover";
-import { Slider } from "@/components/ui/slider";
 import { formatRuntimeSeconds } from "@/lib/album";
 import {
   albumBounds,

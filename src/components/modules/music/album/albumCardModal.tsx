@@ -1,7 +1,7 @@
 "use client";
 
+import { Modal } from "@mikebrucker/brucks/ui";
 import AlbumCard from "@/components/modules/music/album/albumCard";
-import { Modal } from "@/components/ui/modal";
 import type { Album } from "@/types/album";
 
 type AlbumCardModalProps = {
