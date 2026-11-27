@@ -1,8 +1,8 @@
 "use client";
 
+import { Loader } from "@mikebrucker/brucks/blucks";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Loader from "@/components/layout/loader";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";

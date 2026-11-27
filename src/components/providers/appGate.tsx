@@ -1,6 +1,6 @@
 "use client";
 
-import Loader from "@/components/layout/loader";
+import { Loader } from "@mikebrucker/brucks/blucks";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 import { useStyleStore } from "@/stores/useStyleStore";
 

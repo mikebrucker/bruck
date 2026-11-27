@@ -184,7 +184,7 @@ export function AdminArtistFormClient() {
   );
 
   return (
-    <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full flex flex-col gap-4">
+    <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full max-w-5xl mx-auto flex flex-col gap-4">
       <TabsList className="self-center">
         <TabsTrigger value={FormTabs.edit}>{t(($) => $.admin.tab.edit_artist)}</TabsTrigger>
         <TabsTrigger value={FormTabs.new}>{t(($) => $.admin.tab.new_artist)}</TabsTrigger>

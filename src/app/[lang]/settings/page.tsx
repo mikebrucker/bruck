@@ -12,6 +12,13 @@ import {
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
+  SettingsPickerModal,
+  SettingsRow,
+  SettingsSection,
+  SettingsSwatchButton,
+  useDisclosure,
+} from "@mikebrucker/brucks/blucks";
+import {
   Button,
   Separator,
   Slider,
@@ -21,12 +28,7 @@ import {
 } from "@mikebrucker/brucks/ui";
 import { useTranslation } from "react-i18next";
 import { Flag } from "@/components/modules/flag";
-import { SettingsPickerModal } from "@/components/modules/settings/settingsPickerModal";
-import { SettingsRow } from "@/components/modules/settings/settingsRow";
-import { SettingsSection } from "@/components/modules/settings/settingsSection";
-import { SettingsSwatchButton } from "@/components/modules/settings/settingsSwatchButton";
 import { useChangeLanguageUrl } from "@/hooks/useChangeLanguageUrl";
-import { useDisclosure } from "@/hooks/useDisclosure";
 import { flagColorMap, type Language, locales } from "@/i18n/config";
 import { Zooms } from "@/lib/settings";
 import { roundedCornerVars, toggleOn } from "@/lib/styles";
@@ -138,7 +140,12 @@ export default function SettingsPage() {
             <HugeiconsIcon icon={SquareRoundCornerIcon} className="size-6" />
           </Button>
         </div>
-        <SettingsPickerModal open={modal.isOpen} onClose={modal.close} gridClassName="grid-cols-3">
+        <SettingsPickerModal
+          open={modal.isOpen}
+          title={label}
+          onClose={modal.close}
+          gridClassName="grid-cols-3"
+        >
           {roundedCorners.map((corner) => {
             const isSelected = corner === value;
             return (
@@ -236,6 +243,7 @@ export default function SettingsPage() {
           </Button>
           <SettingsPickerModal
             open={accentModal.isOpen}
+            title={t(($) => $.settings.accent)}
             onClose={accentModal.close}
             gridClassName="grid-cols-3 xs:grid-cols-4 sm:grid-cols-6"
           >
@@ -340,6 +348,7 @@ export default function SettingsPage() {
           </Button>
           <SettingsPickerModal
             open={languageModal.isOpen}
+            title={t(($) => $.settings.language)}
             onClose={languageModal.close}
             gridClassName="grid-cols-2"
           >

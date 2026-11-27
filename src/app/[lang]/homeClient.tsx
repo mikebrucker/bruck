@@ -7,9 +7,10 @@ import {
   Vynil02Icon,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/react";
+import { HomeCard, type HomeCardProps } from "@mikebrucker/brucks/blucks";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { AlbumMarquee } from "@/components/modules/home/albumMarquee";
-import { HomeCard, type HomeCardProps } from "@/components/modules/home/homeCard";
 import type en from "@/i18n/locales/en.json";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 
@@ -55,12 +56,12 @@ function HomeClient({ albumArt }: HomeClientProps) {
   const language = useLanguageStore((state) => state.language);
 
   return (
-    <div className="w-full flex flex-col grow gap-3">
+    <div className="w-full max-w-5xl mx-auto flex flex-col grow gap-3">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
         {cards.map((card) => (
           <HomeCard
             key={card.key}
-            href={`/${language}/${card.path}`}
+            asChild
             title={t(($) => $.home.cards[card.key].title)}
             description={t(($) => $.home.cards[card.key].description)}
             icon={card.icon}
@@ -69,17 +70,21 @@ function HomeClient({ albumArt }: HomeClientProps) {
             media={
               card.key === "music" ? <AlbumMarquee art={albumArt} className="mt-auto pt-1" /> : null
             }
-          />
+          >
+            <Link href={`/${language}/${card.path}`} />
+          </HomeCard>
         ))}
       </div>
       <div className="mt-auto flex justify-end">
         <HomeCard
-          href={`/${language}/settings`}
+          asChild
           title={t(($) => $.home.cards.settings.title)}
           icon={Settings01Icon}
           size="compact"
           className="w-fit"
-        />
+        >
+          <Link href={`/${language}/settings`} />
+        </HomeCard>
       </div>
     </div>
   );

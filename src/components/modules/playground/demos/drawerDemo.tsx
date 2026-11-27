@@ -1,12 +1,12 @@
 "use client";
 
+import { useDisclosure } from "@mikebrucker/brucks/blucks";
 import { Button, Drawer } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSelect } from "@/components/modules/playground/demoSelect";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { useDisclosure } from "@/hooks/useDisclosure";
 import { type Side, Sides } from "@/types/settings";
 
 function DrawerDemo() {

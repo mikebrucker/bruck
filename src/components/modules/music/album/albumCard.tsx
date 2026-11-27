@@ -2,11 +2,11 @@
 
 import { Vynil02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Loader } from "@mikebrucker/brucks/blucks";
 import { Accordion, Chip, Modal, Note } from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Loader from "@/components/layout/loader";
 import AlbumCardModal from "@/components/modules/music/album/albumCardModal";
 import AlbumStrip from "@/components/modules/music/album/albumStrip";
 import ArtistCardModal from "@/components/modules/music/artist/artistCardModal";

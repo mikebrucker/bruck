@@ -1,13 +1,17 @@
 "use client";
 
 import { Menu01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { AppLayout as BrucksAppLayout, Footer, Header } from "@mikebrucker/brucks/blucks";
+import { Button } from "@mikebrucker/brucks/ui";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import { HeaderNav } from "@/components/modules/headerNav";
 import { Menu } from "@/components/modules/menu";
+import { websiteTitle } from "@/i18n/config";
 import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 function AppLayout({
   children,
@@ -17,6 +21,7 @@ function AppLayout({
   adminToken: string | undefined;
 }) {
   const { t } = useTranslation();
+  const language = useLanguageStore((state) => state.language);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -24,28 +29,39 @@ function AppLayout({
   }, [adminToken]);
 
   return (
-    <div className="flex flex-col h-dvh items-center flex-start font-sans">
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-100 focus:rounded-secondary focus:border focus:border-border focus:bg-card focus:px-3 focus:py-2 focus:text-foreground"
-      >
-        {t(($) => $.ariaLabels.skip_to_content)}
-      </a>
+    <>
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} useTheme />
-      <Header onAction={() => setMenuOpen(true)} actionIcon={Menu01Icon} sticky>
-        <HeaderNav />
-      </Header>
-      <main
-        id="main"
-        tabIndex={-1}
-        className="flex flex-col items-center grow min-h-0 w-full overflow-y-auto transition-all -my-(--rounded-primary)"
+      <BrucksAppLayout
+        // A page rendering [data-scroll-panes] is held to main's height on xl so its panes scroll, not main.
+        contentClassName="px-2 sm:px-4 max-w-none xl:has-[[data-scroll-panes]]:min-h-0 xl:has-[[data-scroll-panes]]:pb-(--inset-bottom)"
+        header={
+          <Header
+            sticky
+            title={<Link href={`/${language}`}>{websiteTitle}</Link>}
+            titleClassName="font-bold font-metal-mania"
+            primaryActionButton={
+              <Button
+                variant="keyboard"
+                size="icon"
+                onClick={() => setMenuOpen(true)}
+                aria-label={t(($) => $.ariaLabels.action)}
+              >
+                <HugeiconsIcon icon={Menu01Icon} className="size-6 text-theme-500" />
+              </Button>
+            }
+          >
+            <HeaderNav />
+          </Header>
+        }
+        footer={
+          <Footer sticky className="font-metal-mania">
+            &copy;&nbsp;{new Date().getFullYear()}&nbsp;~&nbsp;{websiteTitle}
+          </Footer>
+        }
       >
-        <div className="flex flex-col grow gap-4 max-w-5xl w-full px-2 sm:px-4 py-[calc(1rem+var(--rounded-primary))]">
-          {children}
-        </div>
-      </main>
-      <Footer sticky />
-    </div>
+        {children}
+      </BrucksAppLayout>
+    </>
   );
 }
 

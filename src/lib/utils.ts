@@ -14,18 +14,6 @@ export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs));
 }
 
-/**
- * Narrows an arbitrary string to a key of an option map. Radix `onValueChange`
- * handlers hand back a plain `string`, so this is what turns that back into the
- * component's own literal union without a type assertion.
- */
-export function isKeyOf<TValue extends string>(
-  options: Record<TValue, TValue>,
-  value: string,
-): value is TValue {
-  return Object.keys(options).includes(value);
-}
-
 export const isBooleanString = (value: string | null): value is "true" | "false" =>
   value === "true" || value === "false";
 

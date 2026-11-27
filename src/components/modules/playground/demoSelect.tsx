@@ -1,9 +1,9 @@
 "use client";
 
+import { isKeyOf } from "@mikebrucker/brucks/blucks";
 import { Select } from "@mikebrucker/brucks/ui";
 import { useId } from "react";
 import { DemoControl } from "@/components/modules/playground/demoControl";
-import { isKeyOf } from "@/lib/utils";
 
 interface DemoSelectProps<TValue extends string> {
   label: string;

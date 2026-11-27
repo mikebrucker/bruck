@@ -52,7 +52,7 @@ const groups: Array<Group> = [
 export default function AboutPage() {
   const { t } = useTranslation();
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full max-w-5xl mx-auto flex flex-col gap-4">
       <h1 className="w-fit">
         <code className="text-2xl px-1 py-0.5 rounded-secondary bg-card font-semibold font-mono">
           <span className="text-[#0431FA] dark:text-[#569CD6]">this</span>.

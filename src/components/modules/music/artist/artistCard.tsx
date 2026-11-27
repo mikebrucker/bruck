@@ -1,10 +1,10 @@
 "use client";
 
+import { Loader } from "@mikebrucker/brucks/blucks";
 import { Accordion, Modal } from "@mikebrucker/brucks/ui";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Loader from "@/components/layout/loader";
 import AlbumCardModal from "@/components/modules/music/album/albumCardModal";
 import AlbumStrip from "@/components/modules/music/album/albumStrip";
 import { MusicCardModalLayout } from "@/components/modules/music/musicCardModalLayout";

@@ -1,12 +1,12 @@
 "use client";
 
+import { useDisclosure } from "@mikebrucker/brucks/blucks";
 import { Button, Modal } from "@mikebrucker/brucks/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DemoCard } from "@/components/modules/playground/demoCard";
 import { DemoSwitch } from "@/components/modules/playground/demoSwitch";
 import { DemoText } from "@/components/modules/playground/demoText";
-import { useDisclosure } from "@/hooks/useDisclosure";
 
 function ModalDemo() {
   const { t } = useTranslation();

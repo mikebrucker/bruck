@@ -1,4 +1,4 @@
-import Loader from "@/components/layout/loader";
+import { Loader } from "@mikebrucker/brucks/blucks";
 
 export default function Loading() {
   return (

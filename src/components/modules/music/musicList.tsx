@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import { ScrollToTopFab, useScrollAncestor } from "@mikebrucker/brucks/blucks";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import AlbumCard from "@/components/modules/music/album/albumCard";
@@ -9,8 +10,6 @@ import ArtistGridItem from "@/components/modules/music/artist/artistGridItem";
 import { MusicFilter } from "@/components/modules/music/musicFilter";
 import { MusicViewToggle } from "@/components/modules/music/musicViewToggle";
 import { RankBadge, type RankRow } from "@/components/modules/music/rankBadge";
-import { ScrollToTopFab } from "@/components/modules/scrollToTopFab";
-import { useScrollAncestor } from "@/hooks/useScrollAncestor";
 import { flattenAlbums } from "@/lib/album";
 import { indexUnderLine } from "@/lib/dom";
 import {
@@ -212,7 +211,7 @@ export function MusicList({ albums, title, subtitle, filterKey }: MusicListProps
   }
 
   return (
-    <div ref={rootRef} className="w-full px-1 relative top-0">
+    <div ref={rootRef} className="w-full max-w-5xl mx-auto px-1 relative top-0">
       <div
         ref={headerRef}
         className="flex items-center w-full bg-card border border-border rounded-primary px-2 sm:px-4 pb-1 sm:pb-2 pt-2 sm:pt-4 sticky top-[calc(var(--rounded-primary)-0.5rem)] sm:top-[calc(var(--rounded-primary)-0.75rem)] z-9 shadow-[0_6px_18px_4px_rgb(0_0_0/0.25),0_2px_8px_2px_rgb(0_0_0/0.15)] dark:shadow-[0_6px_18px_4px_rgb(0_0_0/0.35),0_2px_8px_2px_rgb(0_0_0/0.22)] transition-all"

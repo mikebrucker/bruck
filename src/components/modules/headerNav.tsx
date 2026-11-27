@@ -1,6 +1,12 @@
 "use client";
 
-import { CodesandboxIcon, LaptopProgrammingIcon, Vynil02Icon } from "@hugeicons/core-free-icons";
+import {
+  Castle02Icon,
+  CodesandboxIcon,
+  LaptopProgrammingIcon,
+  Settings01Icon,
+  Vynil02Icon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "@mikebrucker/brucks/ui";
 import Link from "next/link";
@@ -8,17 +14,21 @@ import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { navSelected } from "@/lib/styles";
 import { cn } from "@/lib/utils";
+import { useAdminAuthStore } from "@/stores/useAdminAuthStore";
 import { useLanguageStore } from "@/stores/useLanguageStore";
 
 function HeaderNav() {
   const { t } = useTranslation();
   const pathname = usePathname();
   const language = useLanguageStore((state) => state.language);
+  const isAdmin = Boolean(useAdminAuthStore((state) => state.token));
 
   const links = [
     { path: "music", icon: Vynil02Icon, label: t(($) => $.menu.music) },
     { path: "playground", icon: CodesandboxIcon, label: t(($) => $.menu.playground) },
     { path: "about", icon: LaptopProgrammingIcon, label: t(($) => $.menu.about) },
+    ...(isAdmin ? [{ path: "admin", icon: Castle02Icon, label: t(($) => $.menu.admin) }] : []),
+    { path: "settings", icon: Settings01Icon, label: t(($) => $.settings.title) },
   ];
 
   return (

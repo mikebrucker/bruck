@@ -8,6 +8,7 @@ import {
   SoftwareUninstallIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Loader } from "@mikebrucker/brucks/blucks";
 import {
   Button,
   Chip,
@@ -26,7 +27,6 @@ import {
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Loader from "@/components/layout/loader";
 import { AdminUserAlbumEditForm } from "@/components/modules/admin/userAlbum/adminUserAlbumEditForm";
 import AlbumController from "@/controllers/album";
 import UserAlbumController from "@/controllers/userAlbum";
@@ -316,15 +316,15 @@ export function AdminUserAlbumSortClient() {
     <Tabs
       value={activeTab}
       onValueChange={handleTabChange}
-      className="w-full grow flex flex-col gap-4"
+      className="w-full max-w-5xl xl:max-w-none mx-auto grow min-h-0 flex flex-col gap-4"
     >
       <TabsList className="self-center">
         <TabsTrigger value={FormTabs.order}>{t(($) => $.admin.tab.order)}</TabsTrigger>
         <TabsTrigger value={FormTabs.review}>{t(($) => $.admin.tab.review)}</TabsTrigger>
       </TabsList>
 
-      <TabsContent value={FormTabs.order} className="grow">
-        <div className="w-full mx-auto grow flex flex-col gap-6">
+      <TabsContent value={FormTabs.order} className="grow min-h-0">
+        <div className="w-full mx-auto grow min-h-0 flex flex-col gap-6">
           {status ? (
             <div className="max-w-xl w-full mx-auto">
               <Note text={status.text} />
@@ -335,13 +335,13 @@ export function AdminUserAlbumSortClient() {
               <Loader className="text-theme-500" isOpen />
             </div>
           ) : (
-            <>
+            <div data-scroll-panes className="flex flex-col gap-6 xl:flex-row xl:grow xl:min-h-0">
               <Collapsible
                 title={t(($) => $.admin.label.reorder)}
                 collapsedHeight={96}
                 duration={500}
                 defaultOpen
-                className="max-w-xl w-full mx-auto"
+                className="xl:max-w-lg 2xl:max-w-xl w-full mx-auto xl:overflow-y-auto"
                 triggerClassName="text-muted-foreground font-medium bg-card rounded-primary mb-4"
                 contentClassName="gap-6 pr-3"
               >
@@ -396,7 +396,7 @@ export function AdminUserAlbumSortClient() {
                 />
               </Collapsible>
 
-              <div className="max-w-5xl w-full mx-auto flex flex-col gap-2">
+              <div className="flex-1 min-w-0 flex flex-col gap-2 xl:overflow-y-auto">
                 <div className="flex items-center p-2 font-medium text-muted-foreground bg-card rounded-primary">
                   <span>{t(($) => $.music.albums.unranked_albums)}</span>
                 </div>
@@ -498,7 +498,7 @@ export function AdminUserAlbumSortClient() {
                   })}
                 </div>
               </div>
-            </>
+            </div>
           )}
         </div>
       </TabsContent>

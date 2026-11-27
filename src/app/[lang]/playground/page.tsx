@@ -32,7 +32,7 @@ export default function RadixUiPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full max-w-5xl mx-auto flex flex-col gap-4">
       <h1 className="font-metal-mania font-semibold tracking-widest text-foreground text-xl sm:text-2xl transition-[font-size] duration-500">
         {t(($) => $.playground.title)}
       </h1>
